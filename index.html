@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Music, electronics, engineering, programming and control projects">
+	<meta name="author" content="Ilias Chatziefstathiou">
+	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Windfish Dungeon</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://kit.fontawesome.com/6ca2ce03cb.js" crossorigin="anonymous"></script><!--Get your own code at fontawesome.com-->
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<style>
+		body
+		{
+			background-color: #EEEEEE;
+		}
+
+		img.header
+		{
+			display: block;
+			margin: auto;
+			margin-top: 36px;
+			margin-bottom: 36px;
+		}
+
+		div.mainlinkHolder
+		{
+			margin:auto;
+			width: 80%;
+			padding: 32px 32px 32px 32px;
+			border: 4px dashed #adadad;
+			background-color: rgb(26, 26, 26);
+		}
+
+		div.mainlinkHolder:after
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		div.mainlink
+		{
+			text-align: center;
+			float: left;
+			padding-top: 8px;
+			width: 33.33%;
+		}
+
+		idiom
+		{
+			opacity: 0;
+			transition-delay: 0s;
+		}
+
+
+		a.mainlink
+		{
+			color: white;
+			font: 36px "Press Start 2P", cursive;
+			text-decoration: none;
+		}
+
+		/* CODE FOR THE POINTER */
+
+		#_1:hover idiom
+		{
+			transition-delay: 0s;
+			opacity: 1;
+		}
+		#_1:active
+		{
+			border: none;
+			visibility: visible;
+			color: #a1a1a1;
+		}
+
+		#_2:hover idiom
+		{
+			transition-delay: 0s;
+			opacity: 1;
+		}
+		#_2:active
+		{
+			border: none;
+			visibility: visible;
+			color: #a1a1a1;
+		}
+
+		#_3:hover idiom
+		{
+			transition-delay: 0s;
+			opacity: 1;
+		}
+		#_3:active
+		{
+			border: none;
+			visibility: visible;
+			color: #a1a1a1;
+		}
+
+
+		@media screen and (max-width:1300px)
+		{
+  			div.mainlink
+			{
+    		width: 100%;
+  			}
+			div.mainlinkHolder
+			{
+				width: 100%;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<img class="header" src="LAinstruments.png" alt="Link's awakening instruments" />
+	</header>
+
+	<main>
+		<div class="mainlinkHolder">
+			<div class="mainlink">
+				<a class="mainlink" id="_1" href="projects.html"><idiom>></idiom>Projects</a>
+			</div>
+			<div class="mainlink">
+				<a class="mainlink" id="_2" href="aboutme.html"><idiom>></idiom>About me</a>
+			</div>
+			<div class="mainlink">
+				<a class="mainlink" id="_3" href="contact.html"><idiom>></idiom>Contact</a>
+			</div>
+		</div>
+	</main>
+
+
+
+</body>
+</html>
