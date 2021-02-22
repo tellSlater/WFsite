@@ -17,39 +17,67 @@
 	<style>
 		body
 		{
-			background-color: #EEEEEE;
+			background-color: #eeeeee;
 		}
 
 		header div
 		{
+			position: relative;
+			margin: auto;
 			display: static;
-			/* box-sizing: ; */
-			height: 400px;
+			height: 360px;
+			
+			z-index: -2;
 
-			/* border: 2px solid black; */
+			background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 171px, rgb(0,0,0,0) 171px, rgb(0,0,0,0) 600px);
+			
+			/* border: 1px solid black; */
 		}
 
 		img.header
 		{
+			image-rendering: pixelated;
+			transform: translate(-50%, -50%) scale(6);
 			display: block;
-			margin: 0;
+			margin: auto;
 			position: absolute;
 			left: 50%;
-			top: 15%;
-			transform: translate(-50%, -50%);
-			transform: scale(8);
-			image-rendering: pixelated;
+			top: 35%;
 			margin-top: 36px;
 			margin-bottom: 36px;
 
 			/* border: 1px solid black; */
 		}
 
+		header div.stripe
+		{
+			z-index: -1;
+			position: absolute;
+			top: 231px;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 120px;
+			width: 100%;
+			margin: auto;
+			background-image: repeating-linear-gradient(rgba(81, 136, 255, 0.267), rgb(81, 136, 255, 0.267) 6px, rgba(117, 158, 247, 0.63) 6px, rgba(117, 158, 247, 0.63) 12px, rgba(117, 158, 247, 0.842) 12px, rgba(117, 158, 247,0.842) 18px, rgba(117, 158, 247,1) 18px, rgba(117, 158, 247,1) 24px, rgba(117, 158, 247,1) 24px, rgba(117, 158, 247,1) 36px, rgba(117, 158, 247,1) 36px, rgba(117, 158, 247,1) 48px);
+			/* background-color: rgb(117, 158, 247); */
+
+			/* border: 2px solid wheat; */
+		}
+
 		div.mainlinkHolder
 		{
 			position: relative;
+			width: 1200px;
+			height: 800px;
 			margin:auto;
+
+			background-repeat: no-repeat;
 			
+			color: black;
+			font-size: 32px;
+			font-family: 'Press Start 2P', cursive;
+
 			border: 2px solid black;
 		}
 
@@ -60,63 +88,171 @@
 			clear: both;
 		}
 
-		div.el1
+		div.mainlinkHolder img
 		{
+
+			margin: 40px;
+			transform: translate(0, 0) scale(6);
+			image-rendering: pixelated;
 			width: 16px;
 			height: 16px;
-			background: url(MyLAinstrumentsTrans.png) 0 0;
+			background-repeat: none;
+
+
+			/* background-color: wheat; */
+
+
+			/* border: 1px solid blue */
+			
+		}
+
+		.mainlinkHolder div
+		{
+			
+			/* background-color: wheat; */
+			width: 700px;
+			height: 102px;
 
 			
 			display: inline;
 			position: absolute;
-			left: 50%;
-			top: 20px;
 
 			border: 1px solid rgb(150, 50, 50)
 		}
 
-		#_1
+		div.mainlinkHolder .linkTXT
 		{
-			display: inline;
-			margin: 0;
-			position: absolute;
-			left: 65%;
-			top: 20px;
-			transform: translate(-50%, -50%);
-			transform: scale(8);
-			image-rendering: pixelated;
-			margin-top: 36px;
-			margin-bottom: 36px;
-
-			/* border: 2px dotted blue; */
-		}
-
-		div.el1 div
-		{
-			float: left;
-			font-family: 'Press Start 2P', cursive;
-		}
-		
-		#_2
-		{
-			width: 16px;
-			height: 16px;
-			background: url(MyLAinstrumentsTrans.png) -18px 0;
+			width: 400px;
+			padding-top: 24px;
+			margin-left: 40px;
+			margin-right: 40px;
 
 			
 			display: inline;
-			margin: 0;
 			position: absolute;
-			left: 65%;
-			top: 20px;
-			transform: translate(-50%, -50%);
-			transform: scale(8);
-			image-rendering: pixelated;
-			margin-top: 36px;
-			margin-bottom: 36px;
 
-			border: 1px solid black
+			border: 8px solid rgb(0, 255, 106);
 		}
+
+		div.mainlinkHolder .lefty
+		{
+			display: inline;
+			float: left;
+
+			 width: 102px;
+			height: 102px;
+
+			z-index: 8;
+			border: 4px solid rgb(255, 72, 0);
+		}
+
+
+		/* --LINK 1-- */
+
+		#el1
+		{
+			left: 50%;
+			top: 20px;
+		}
+		#_1
+		{
+			background: url(MyLAinstrumentsTrans.png) 0 0;
+		}
+		
+
+		/* --LINK 2-- */
+
+		#el2
+		{
+			left: 50%;
+			top: 220px;
+		}
+		#_2
+		{
+			background: url(MyLAinstrumentsTrans.png) -17px 0;
+		}
+
+
+		/* --LINK 3-- */
+
+		#el3
+		{
+			left: 50%;
+			top: 420px;
+		}
+		#_3
+		{
+			background: url(MyLAinstrumentsTrans.png) -34px 0;
+		}
+
+
+		/* --LINK 4-- */
+
+		#el4
+		{
+			left: 50%;
+			top: 620px;
+		}
+		#_4
+		{
+			background: url(MyLAinstrumentsTrans.png) -51px 0;
+		}
+
+
+		/* --LINK 5-- */
+
+		#el5
+		{
+			left: 50%;
+			top: 820px;
+		}
+		#_5
+		{
+			background: url(MyLAinstrumentsTrans.png) -68px 0;
+		}
+
+
+		/* --LINK 6-- */
+
+		#el6
+		{
+			left: 50%;
+			top: 1020px;
+		}
+		#_6
+		{
+			background: url(MyLAinstrumentsTrans.png) -85px 0;
+		}
+
+
+		/* --LINK 7-- */
+
+		#el7
+		{
+			left: 50%;
+			top: 1220px;
+		}
+		#_7
+		{
+			background: url(MyLAinstrumentsTrans.png) -102px 0;
+		}
+
+
+		/* --LINK 8-- */
+
+		#el8
+		{
+			left: 50%;
+			top: 1420px;
+		}
+		#_8
+		{
+			background: url(MyLAinstrumentsTrans.png) -119px 0;
+		}
+
+
+
+
 
 		@media screen and (max-width:1300px)
 		{
@@ -137,46 +273,39 @@
 
 	<header>
 		<div>
-			<img class="header" src="LogoBetterTrans.png" alt="Link thumbnail" />
+			<a  href="index.html" >
+				<img class="header" src="LogoBetterTrans.png" alt="Link thumbnail" />
+			</a>
+			<div class="stripe"></div>
 		</div>
 	</header>
 
 	<main>
 		<div class="mainlinkHolder">
-			<div class="el1">
-				<img id="_1" src="transparent.png" width="1" height="1"><div>Projects</div>
+			<div class="el" id="el1">
+				<img id="_1" src="transparent.png" width="1" height="1"><div class="linkTXT">Projects</div>
 			</div>
-			<div class="el2">
-				<img id="_2" src="transparent.png" width="1" height="1"><div>About</div>
+			<div class="el" id="el2">
+				<img id="_2" src="transparent.png" width="1" height="1"><div class="linkTXT">About</div>
 			</div>
-			<div class="el3">
-				<img id="_3" src="transparent.png" width="1" height="1"><div>Contact</div>
+			<div class="el" id="el3">
+				<img id="_3" src="transparent.png" width="1" height="1"><div class="linkTXT">Contact</div>
 			</div>
-			<div class="el4">
-				<img id="_4" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			<div class="el" id="el4">
+				<img id="_4" src="transparent.png" width="1" height="1"><div class="linkTXT">Slot empty</div>
 			</div>
-			<div class="el5">
-				<img id="_5" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			<div class="el" id="el5">
+				<div class="linkTXT">Slot empty</div><div class="lefty"><img id="_5" src="transparent.png" width="1" height="1"></div>
 			</div>
-			<div class="el6">
-				<img id="_6" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			<div class="el" id="el6">
+				<div class="linkTXT">Slot empty</div><img id="_6" src="transparent.png" width="1" height="1">
 			</div>
-			<div class="el7">
-				<img id="_7" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			<div class="el" id="el7">
+				<div class="linkTXT">Slot empty</div><img id="_7" src="transparent.png" width="1" height="1">
 			</div>
-			<div class="el8">
-				<img id="_8" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			<div class="el" id="el8">
+				<div class="linkTXT">Slot empty</div><img id="_8" src="transparent.png" width="1" height="1">
 			</div>
-			
-			<!-- <div class="mainlink">
-				<a class="mainlink" id="_1" href="projects.html"><idiom>></idiom>Projects</a>
-			</div>
-			<div class="mainlink">
-				<a class="mainlink" id="_2" href="aboutme.html"><idiom>></idiom>About me</a>
-			</div>
-			<div class="mainlink">
-				<a class="mainlink" id="_3" href="contact.html"><idiom>></idiom>Contact</a>
-			</div> -->
 		</div>
 	</main>
 
