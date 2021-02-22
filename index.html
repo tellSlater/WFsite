@@ -20,21 +20,37 @@
 			background-color: #EEEEEE;
 		}
 
+		header div
+		{
+			display: static;
+			/* box-sizing: ; */
+			height: 400px;
+
+			/* border: 2px solid black; */
+		}
+
 		img.header
 		{
 			display: block;
-			margin: auto;
+			margin: 0;
+			position: absolute;
+			left: 50%;
+			top: 15%;
+			transform: translate(-50%, -50%);
+			transform: scale(8);
+			image-rendering: pixelated;
 			margin-top: 36px;
 			margin-bottom: 36px;
+
+			/* border: 1px solid black; */
 		}
 
 		div.mainlinkHolder
 		{
+			position: relative;
 			margin:auto;
-			width: 80%;
-			padding: 32px 32px 32px 32px;
-			border: 4px dashed #adadad;
-			background-color: rgb(26, 26, 26);
+			
+			border: 2px solid black;
 		}
 
 		div.mainlinkHolder:after
@@ -44,66 +60,63 @@
 			clear: both;
 		}
 
-		div.mainlink
+		div.el1
 		{
-			text-align: center;
+			width: 16px;
+			height: 16px;
+			background: url(MyLAinstrumentsTrans.png) 0 0;
+
+			
+			display: inline;
+			position: absolute;
+			left: 50%;
+			top: 20px;
+
+			border: 1px solid rgb(150, 50, 50)
+		}
+
+		#_1
+		{
+			display: inline;
+			margin: 0;
+			position: absolute;
+			left: 65%;
+			top: 20px;
+			transform: translate(-50%, -50%);
+			transform: scale(8);
+			image-rendering: pixelated;
+			margin-top: 36px;
+			margin-bottom: 36px;
+
+			/* border: 2px dotted blue; */
+		}
+
+		div.el1 div
+		{
 			float: left;
-			padding-top: 8px;
-			width: 33.33%;
+			font-family: 'Press Start 2P', cursive;
 		}
-
-		idiom
+		
+		#_2
 		{
-			opacity: 0;
-			transition-delay: 0s;
-		}
+			width: 16px;
+			height: 16px;
+			background: url(MyLAinstrumentsTrans.png) -18px 0;
 
+			
+			display: inline;
+			margin: 0;
+			position: absolute;
+			left: 65%;
+			top: 20px;
+			transform: translate(-50%, -50%);
+			transform: scale(8);
+			image-rendering: pixelated;
+			margin-top: 36px;
+			margin-bottom: 36px;
 
-		a.mainlink
-		{
-			color: white;
-			font: 36px "Press Start 2P", cursive;
-			text-decoration: none;
+			border: 1px solid black
 		}
-
-		/* CODE FOR THE POINTER */
-
-		#_1:hover idiom
-		{
-			transition-delay: 0s;
-			opacity: 1;
-		}
-		#_1:active
-		{
-			border: none;
-			visibility: visible;
-			color: #a1a1a1;
-		}
-
-		#_2:hover idiom
-		{
-			transition-delay: 0s;
-			opacity: 1;
-		}
-		#_2:active
-		{
-			border: none;
-			visibility: visible;
-			color: #a1a1a1;
-		}
-
-		#_3:hover idiom
-		{
-			transition-delay: 0s;
-			opacity: 1;
-		}
-		#_3:active
-		{
-			border: none;
-			visibility: visible;
-			color: #a1a1a1;
-		}
-
 
 		@media screen and (max-width:1300px)
 		{
@@ -123,12 +136,39 @@
 <body>
 
 	<header>
-		<img class="header" src="LAinstruments.png" alt="Link's awakening instruments" />
+		<div>
+			<img class="header" src="LogoBetterTrans.png" alt="Link thumbnail" />
+		</div>
 	</header>
 
 	<main>
 		<div class="mainlinkHolder">
-			<div class="mainlink">
+			<div class="el1">
+				<img id="_1" src="transparent.png" width="1" height="1"><div>Projects</div>
+			</div>
+			<div class="el2">
+				<img id="_2" src="transparent.png" width="1" height="1"><div>About</div>
+			</div>
+			<div class="el3">
+				<img id="_3" src="transparent.png" width="1" height="1"><div>Contact</div>
+			</div>
+			<div class="el4">
+				<img id="_4" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			</div>
+			<div class="el5">
+				<img id="_5" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			</div>
+			<div class="el6">
+				<img id="_6" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			</div>
+			<div class="el7">
+				<img id="_7" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			</div>
+			<div class="el8">
+				<img id="_8" src="transparent.png" width="1" height="1"><div>slot empty</div>
+			</div>
+			
+			<!-- <div class="mainlink">
 				<a class="mainlink" id="_1" href="projects.html"><idiom>></idiom>Projects</a>
 			</div>
 			<div class="mainlink">
@@ -136,7 +176,7 @@
 			</div>
 			<div class="mainlink">
 				<a class="mainlink" id="_3" href="contact.html"><idiom>></idiom>Contact</a>
-			</div>
+			</div> -->
 		</div>
 	</main>
 
