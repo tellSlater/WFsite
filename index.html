@@ -42,24 +42,10 @@
 			/* border: 5px solid black; */
 		}
 
+		/*---------- DESKTOP STUFF ----------*/
+
 		header div.desktop
 		{
-			position: relative;
-			margin: auto;
-			display: static;
-			height: 280px;
-			
-			/* z-index: -2; */
-
-			/* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
-			/* background-color: rgb(255, 151, 151); */
-			
-			/* border: 1px solid black; */
-		}
-
-		header div.mobile
-		{
-			display: none;
 			position: relative;
 			margin: auto;
 			display: static;
@@ -89,41 +75,11 @@
 			/* border: 1px solid black; */
 		}
 
-		header div.mobile img.header
-		{
-			image-rendering: pixelated;
-			transform: translate(-50%, -50%) scale(6);
-			display: block;
-			margin: auto;
-			position: absolute;
-			z-index: 10;
-			left: 50%;
-			top: 74px;
-			margin-top: 36px;
-			margin-bottom: 36px;
-
-			/* border: 1px solid black; */
-		}
-
 		header div.desktop .stripe
 		{
 			/* z-index: -1; */
 			position: absolute;
 			top: 159px;
-			height: 120px;
-			width: 100%;
-			margin: auto;
-			background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
-			/* background-color: rgb(117, 158, 247); */
-
-			/* border: 2px solid wheat; */
-		}
-
-		header div.mobile .stripe
-		{
-			/* z-index: -1; */
-			position: absolute;
-			top: 50px;
 			height: 120px;
 			width: 100%;
 			margin: auto;
@@ -175,7 +131,7 @@
 			/* border: 1px solid rgb(150, 50, 50) */
 		}
 
-		div.mainlinkHolderDesktop img
+		main img
 		{
 
 			/* margin: 40px; */
@@ -265,7 +221,7 @@
 			/* border: 2px solid rgb(43, 219, 51); */
 		}
 
-		#cursor
+		div.mainlinkHolderDesktop #cursor
 		{
 			z-index: 10;
 			width: 22px;
@@ -279,7 +235,7 @@
 
 		/* --LINK 1-- */
 
-		#el1
+		div.mainlinkHolderDesktop #el1
 		{
 			left: 50%;
 			margin-left: 24px;
@@ -293,7 +249,7 @@
 
 		/* --LINK 2-- */
 
-		#el2
+		div.mainlinkHolderDesktop #el2
 		{
 			left: 50%;
 			margin-left: 120px;
@@ -308,7 +264,7 @@
 
 		/* --LINK 3-- */
 
-		#el3
+		div.mainlinkHolderDesktop #el3
 		{
 			left: 50%;
 			margin-left: 120px;
@@ -322,7 +278,7 @@
 
 		/* --LINK 4-- */
 
-		#el4
+		div.mainlinkHolderDesktop #el4
 		{
 			left: 50%;
 			margin-left: 24px;
@@ -336,7 +292,7 @@
 
 		/* --LINK 5-- */
 
-		#el5
+		div.mainlinkHolderDesktop #el5
 		{
 			right: 50%;
 			margin-right: 24px;
@@ -350,7 +306,7 @@
 
 		/* --LINK 6-- */
 
-		#el6
+		div.mainlinkHolderDesktop #el6
 		{
 			right: 50%;
 			margin-right: 120px;
@@ -364,7 +320,7 @@
 
 		/* --LINK 7-- */
 
-		#el7
+		div.mainlinkHolderDesktop #el7
 		{
 			right: 50%;
 			margin-right: 120px;
@@ -378,7 +334,7 @@
 
 		/* --LINK 8-- */
 
-		#el8
+		div.mainlinkHolderDesktop #el8
 		{
 			right: 50%;
 			margin-right: 24px;
@@ -387,6 +343,136 @@
 		#_8
 		{
 			background: url(MyLAinstrumentsTrans-b.png) -119px 0;
+		}
+
+		/*---------- MOBILE STUFF ----------*/
+
+		header div.mobile
+		{
+			display: none;
+			position: relative;
+			margin: auto;
+			display: static;
+			height: 180px;
+			
+			/* z-index: -2; */
+
+			/* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
+			/* background-color: rgb(255, 151, 151); */
+			
+			/* border: 1px solid black; */
+		}
+
+		header div.mobile img.header
+		{
+			image-rendering: pixelated;
+			transform: translate(-50%, -50%) scale(6);
+			display: block;
+			margin: auto;
+			position: absolute;
+			z-index: 10;
+			left: 50%;
+			top: 74px;
+			margin-top: 36px;
+			/* margin-bottom: 36px; */
+
+			/* border: 1px solid black; */
+		}
+
+		header div.mobile .stripe
+		{
+			/* z-index: -1; */
+			position: absolute;
+			top: 50px;
+			height: 120px;
+			width: 100%;
+			margin: auto;
+			background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
+			/* background-color: rgb(117, 158, 247); */
+
+			/* border: 2px solid wheat; */
+		}
+
+		div.mainlinkHolderMobile 
+		{
+			display: none;
+			position: static;
+			height: 516px;
+			width: 100%;
+			margin: auto;
+
+			background-repeat: no-repeat;
+			
+			color: black;
+			font-size: 26px;
+			font-family: 'Press Start 2P', cursive;
+
+			overflow-x: visible;
+
+			/* background-color: wheat; */
+			/* border: 1px solid black; */
+		}
+
+		div.mainlinkHolderMobile:after
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		div.mainlinkHolderMobile div.el
+		{
+			height: 64px;
+			margin: 23px auto 23px auto;
+			
+			display: block;
+			position: relative;
+
+			/* background-color: wheat; */
+			/* border: 1px solid black; */
+		}
+
+		div.mainlinkHolderMobile img
+		{
+			transform: translate(0, 0) scale(4);
+			position: absolute;
+			top: 23px;
+			left: 24px;
+		}
+
+		div.mainlinkHolderMobile div.linkTXT
+		{
+			position:relative;
+			top: 16px;
+			left: 72px;
+			width: 120px;
+
+			/* border: 1px solid black; */
+		}
+
+		img#cursorL
+		{
+			z-index: 10;
+			width: 2px;
+			height: 16px;
+			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
+			left: -10px;
+			opacity: 0;
+		}
+
+		img#cursorR
+		{
+			display: inline;
+			position: absolute;
+			z-index: 10;
+			width: 2px;
+			height: 16px;
+			background: url(MyLAinstrumentsTrans-b.png) -156px 0;
+			left: auto;
+			right: -10px;
+			opacity: 0;
+
+			/* border: 1px solid rebeccapurple; */
 		}
 
 		div.imgdivR:hover #cursor
@@ -412,6 +498,16 @@
 			opacity: 0.7;
 		}
 
+		div.mainlinkHolderMobile div.el:hover #cursorL
+		{
+			opacity: 1;
+		}
+
+		div.mainlinkHolderMobile div.el:hover #cursorR
+		{
+			opacity: 1;
+		}
+
 		/* @media screen and (max-height:779px) */
 		@media screen and (max-height:795px)
 		{
@@ -431,6 +527,11 @@
 				background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 170px, rgba(245, 222, 179, 0.8) 170px, rgba(245, 222, 179, 0.8) 3000px);
 			}
 
+			header
+			{
+				height: 180px;
+			}
+
 			header div.desktop
 			{
 				display: none;
@@ -444,6 +545,11 @@
 			div.mainlinkHolderDesktop 
 			{
 				display: none;
+			}
+
+			div.mainlinkHolderMobile 
+			{
+				display: block;
 			}
 		}
 
@@ -568,8 +674,40 @@
 
 		</div>
 
-	</main>
 
+		<div class="mainlinkHolderMobile">
+
+			<div class="el" id="el1" style="width: 279px;">
+				<img id="cursorL" src="transparent.png" width="1" height="1">
+				<img id="_1" src="transparent.png" width="1" height="1">
+				<div class="linkTXT">Projects</div> 
+				<img id="cursorR" src="transparent.png" width="1" height="1">
+			</div>
+
+			<div class="el" id="el2" style="width: 201px;">
+				<img id="cursorL" src="transparent.png" width="1" height="1">
+				<img id="_2" src="transparent.png" width="1" height="1">
+				<div class="linkTXT">Music</div> 
+				<img id="cursorR" src="transparent.png" width="1" height="1">
+			</div>
+
+			<div class="el" id="el3" style="width: 201px;">
+				<img id="cursorL" src="transparent.png" width="1" height="1">
+				<img id="_3" src="transparent.png" width="1" height="1">
+				<div class="linkTXT">About</div> 
+				<img id="cursorR" src="transparent.png" width="1" height="1">
+			</div>
+
+			<div class="el" id="el4" style="width: 253px;">
+				<img id="cursorL" src="transparent.png" width="1" height="1">
+				<img id="_4" src="transparent.png" width="1" height="1">
+				<div class="linkTXT">Contact</div> 
+				<img id="cursorR" src="transparent.png" width="1" height="1">
+			</div>
+
+		</div>
+	</main>
+	
 
 </div>
 </body>
