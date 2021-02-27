@@ -6,7 +6,7 @@
 	<meta name="author" content="Ilias Chatziefstathiou">
 	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Windfish Dungeon</title>
+	<title>Windfish Shores</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 	<script src="https://kit.fontawesome.com/6ca2ce03cb.js" crossorigin="anonymous"></script><!--Get your own code at fontawesome.com-->
@@ -201,7 +201,8 @@
 
 			
 			float: left;
-			opacity: 0;
+			display: none;
+			/* opacity: 0; */
 
 			/* border: 1px solid rgb(0, 255, 106); */
 		}
@@ -399,7 +400,6 @@
 			position: static;
 			height: 516px;
 			width: 100%;
-			margin: auto;
 
 			background-repeat: no-repeat;
 			
@@ -424,7 +424,6 @@
 		{
 			height: 64px;
 			margin: 23px auto 23px auto;
-			
 			display: block;
 			position: relative;
 
@@ -453,7 +452,7 @@
 		img#cursorL
 		{
 			z-index: 10;
-			width: 2px;
+			width: 4px;
 			height: 16px;
 			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
 			left: -10px;
@@ -465,9 +464,9 @@
 			display: inline;
 			position: absolute;
 			z-index: 10;
-			width: 2px;
+			width: 4px;
 			height: 16px;
-			background: url(MyLAinstrumentsTrans-b.png) -156px 0;
+			background: url(MyLAinstrumentsTrans-b.png) -154px 0;
 			left: auto;
 			right: -10px;
 			opacity: 0;
@@ -481,7 +480,7 @@
 		}
 		div.imgdivR:hover + .linkTXT
 		{
-			opacity: 1;
+			display: inline;
 		}
 		
 		div.imgdivL:hover #cursor
@@ -507,6 +506,34 @@
 		{
 			opacity: 1;
 		}
+
+		a:link
+			{
+				color: black;
+				font-style: normal;
+				text-decoration: none;
+			}
+			
+			a:visited
+			{
+				color: black;
+				font-style: normal;
+				text-decoration: none;
+			}
+
+			a:hover
+			{
+				color: black;
+				font-style: normal;
+				text-decoration: none;
+			}
+
+			a:active
+			{
+				color: black;
+				font-style: normal;
+				text-decoration: none;
+			}
 
 		/* @media screen and (max-height:779px) */
 		@media screen and (max-height:795px)
@@ -602,10 +629,12 @@
 
 			<div class="el" id="el3">
 				<div class="imgdivR">
-					<img id="_3" src="transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
-					</div>
+					<a href="about.html">
+						<img id="_3" src="transparent.png" width="1" height="1">
+						<div class="cursor">
+							<img id="cursor" src="transparent.png" width="1" height="1">
+						</div>
+					</a>
 				</div>
 				<div class="linkTXT">
 					About
@@ -614,10 +643,12 @@
 
 			<div class="el" id="el4">
 				<div class="imgdivR">
-					<img id="_4" src="transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
-					</div>
+					<a href="contact.html">
+						<img id="_4" src="transparent.png" width="1" height="1">
+						<div class="cursor">
+							<img id="cursor" src="transparent.png" width="1" height="1">
+						</div>
+					</a>
 				</div>
 				<div class="linkTXT">
 					Contact
@@ -691,12 +722,14 @@
 				<img id="cursorR" src="transparent.png" width="1" height="1">
 			</div>
 
-			<div class="el" id="el3" style="width: 201px;">
-				<img id="cursorL" src="transparent.png" width="1" height="1">
-				<img id="_3" src="transparent.png" width="1" height="1">
-				<div class="linkTXT">About</div> 
-				<img id="cursorR" src="transparent.png" width="1" height="1">
-			</div>
+			<a href="about.html">
+				<div class="el" id="el3" style="width: 201px;">
+					<img id="cursorL" src="transparent.png" width="1" height="1">
+					<img id="_3" src="transparent.png" width="1" height="1">
+					<div class="linkTXT">About</div> 
+					<img id="cursorR" src="transparent.png" width="1" height="1">
+				</div>
+			</a>
 
 			<div class="el" id="el4" style="width: 253px;">
 				<img id="cursorL" src="transparent.png" width="1" height="1">
