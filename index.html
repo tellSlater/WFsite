@@ -19,9 +19,14 @@
 		html,body
 		{
 			height: 100%;
-			/* background-color: rgb(70, 70, 70); */
+			/* background-image: repeating-linear-gradient(rgba(245, 222, 179, 0) 0, rgba(245, 222, 179, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 5000px, rgba(245, 222, 179, 0) 5000px, rgba(245, 222, 179, 0) 5279px), repeating-linear-gradient(rgb(70, 70, 70) 0, rgb(70, 70, 70) 1px); */
+			/* background-position: 0 279px, 0 0; */
+			/* background-repeat: repeat, repeat; */
+			/* background-image: repeating-linear-gradient(rgba(245, 222, 179, 0) 0, rgba(245, 222, 179, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 3000px), repeating-linear-gradient(rgb(70, 70, 70) 0, rgb(70, 70, 70) 1px); */
+			/* background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 3000px), rgb(70, 70, 70); */
+			background-color: rgb(70, 70, 70);
 			/* background-color: #ffb788; */
-			background-color: #d5ecff;
+			/* background-color: #d5ecff; */
 
 			
 			/* border: 4px solid black; */
@@ -35,12 +40,25 @@
 			/* border: 2px solid red; */
 		}
 
+		div.sand:after
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+
 		header
 		{
 			height: 280px;
 
 			/* border: 5px solid black; */
 		}
+
+		/* main
+		{
+			background-color: rgba(245, 222, 179, 0.8);
+			background-repeat: repeat-y;
+		} */
 
 		/*---------- DESKTOP STUFF ----------*/
 
@@ -91,14 +109,14 @@
 
 		main
 		{
-			height: 480px;
+			height: calc(100vh - 280px);
 		}
 
 		div.mainlinkHolderDesktop
 		{
 			position: relative;
 			height: 516px;
-			margin: auto;
+			top: 48px;
 
 			background-repeat: no-repeat;
 			
@@ -164,10 +182,16 @@
 			/* border: 1px dotted rgb(124, 135, 236); */
 		}
 		
-		div.mainlinkHolderDesktop .imgdivR + div
+		div.mainlinkHolderDesktop .imgdivR + div.linkTXT
 		{
 			text-align: left;
 			left: 86px;
+		}
+		
+		div.mainlinkHolderDesktop .imgdivR + div.cursor
+		{
+			text-align: left;
+			left: -3px;
 		}
 		
 		div.mainlinkHolderDesktop .imgdivL
@@ -224,11 +248,13 @@
 
 		div.mainlinkHolderDesktop #cursor
 		{
-			z-index: 10;
+			/* z-index: 0; */
 			width: 22px;
 			height: 16px;
 			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
 			opacity: 0;
+
+			pointer-events: none;
 
 			
 			/* border: 1px solid rgb(255, 72, 0); */
@@ -240,7 +266,7 @@
 		{
 			left: 50%;
 			margin-left: 24px;
-			top: 48px;
+			top: 0px;
 		}
 		#_1
 		{
@@ -254,7 +280,7 @@
 		{
 			left: 50%;
 			margin-left: 120px;
-			top: 144px;
+			top: 96px;
 		}
 		#_2
 		{
@@ -269,7 +295,7 @@
 		{
 			left: 50%;
 			margin-left: 120px;
-			top: 288px;
+			top: 240px;
 		}
 		#_3
 		{
@@ -283,7 +309,7 @@
 		{
 			left: 50%;
 			margin-left: 24px;
-			top: 384px;
+			top: 336px;
 		}
 		#_4
 		{
@@ -297,7 +323,7 @@
 		{
 			right: 50%;
 			margin-right: 24px;
-			top: 384px;
+			top: 336px;
 		}
 		#_5
 		{
@@ -311,7 +337,7 @@
 		{
 			right: 50%;
 			margin-right: 120px;
-			top: 288px;
+			top: 240px;
 		}
 		#_6
 		{
@@ -325,7 +351,7 @@
 		{
 			right: 50%;
 			margin-right: 120px;
-			top: 144px;
+			top: 96px;
 		}
 		#_7
 		{
@@ -339,7 +365,7 @@
 		{
 			right: 50%;
 			margin-right: 24px;
-			top: 48px;
+			top: 0px;
 		}
 		#_8
 		{
@@ -397,14 +423,16 @@
 		div.mainlinkHolderMobile 
 		{
 			display: none;
-			position: static;
+			position: relative;
 			height: 516px;
 			width: 100%;
+			padding-top: calc(30vh - 280px);
+			
 
 			background-repeat: no-repeat;
 			
 			color: black;
-			font-size: 26px;
+			font-size: 36px;
 			font-family: 'Press Start 2P', cursive;
 
 			overflow-x: visible;
@@ -423,9 +451,10 @@
 		div.mainlinkHolderMobile div.el
 		{
 			height: 64px;
-			margin: 23px auto 23px auto;
-			display: block;
-			position: relative;
+			margin: 56px auto calc(36px + 6vh) auto;
+			display: flex;
+			justify-content: center;
+			position: flex;
 
 			/* background-color: wheat; */
 			/* border: 1px solid black; */
@@ -433,18 +462,18 @@
 
 		div.mainlinkHolderMobile img
 		{
-			transform: translate(0, 0) scale(4);
-			position: absolute;
+			transform: translate(0, 0) scale(6);
+			position: relative;
 			top: 23px;
-			left: 24px;
+			left: -6px;
 		}
 
 		div.mainlinkHolderMobile div.linkTXT
 		{
 			position:relative;
 			top: 16px;
-			left: 72px;
-			width: 120px;
+			left: 46px;
+			width: auto;
 
 			/* border: 1px solid black; */
 		}
@@ -452,28 +481,29 @@
 		img#cursorL
 		{
 			z-index: 10;
+			position: relative;
 			width: 4px;
 			height: 16px;
 			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
-			left: -10px;
+			left: -50px;
 			opacity: 0;
 		}
 
 		img#cursorR
 		{
-			display: inline;
-			position: absolute;
+			/* display: inline; */
+			position: relative;
 			z-index: 10;
 			width: 4px;
 			height: 16px;
 			background: url(MyLAinstrumentsTrans-b.png) -154px 0;
 			left: auto;
-			right: -10px;
+			right: -50px;
 			opacity: 0;
 
 			/* border: 1px solid rebeccapurple; */
 		}
-
+/* ~div.cursor */
 		div.imgdivR:hover #cursor
 		{
 			opacity: 1;
@@ -481,6 +511,7 @@
 		div.imgdivR:hover + .linkTXT
 		{
 			display: inline;
+			opacity: 1;
 		}
 		
 		div.imgdivL:hover #cursor
@@ -508,48 +539,65 @@
 		}
 
 		a:link
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
-			
-			a:visited
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
+		{
+			color: black;
+			font-style: normal;
+			text-decoration: none;
+		}
+		
+		a:visited
+		{
+			color: black;
+			font-style: normal;
+			text-decoration: none;
+		}
 
-			a:hover
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
+		a:hover
+		{
+			color: black;
+			font-style: normal;
+			text-decoration: none;
+		}
 
-			a:active
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
+		a:active
+		{
+			color: black;
+			font-style: normal;
+			text-decoration: none;
+		}
 
 		/* @media screen and (max-height:779px) */
-		@media screen and (max-height:795px)
+		/* @media screen and (max-height: 844px)
 		{
-			/* html,body
-			{
-				background-color: rgb(70, 70, 70);
-			} */
 			div.sand
 			{
-				height: 795px;
+				height: 844px;
+			}
+		} 
+		@media screen and (max-height: 960px) and (hover: none) and (pointer: coarse)
+		{
+			div.sand
+			{
+				height: 960px;
+			}
+		}*/
+
+		@media screen and (hover: none) and (pointer: coarse)
+		{
+			/* div.linkTXT
+			{
+				display: inline !important;
+				opacity: 0.7;
+			} */
+			div.mainlinkHolderDesktop
+			{
+				top: calc(33% - 120px);
 			}
 		}
-		@media screen and (max-width:499px)
+
+		@media screen and (max-width:499px), (hover: none) and (pointer: coarse) and (max-width:836px)
 		{
-			div.sand
+			/*div.sand
 			{
 				background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 170px, rgba(245, 222, 179, 0.8) 170px, rgba(245, 222, 179, 0.8) 3000px);
 			}
@@ -559,7 +607,7 @@
 				height: 180px;
 			}
 
-			header div.desktop
+			 header div.desktop
 			{
 				display: none;
 			}
@@ -567,7 +615,7 @@
 			header div.mobile
 			{
 				display: block;
-			}
+			} */
 
 			div.mainlinkHolderDesktop 
 			{
@@ -577,6 +625,11 @@
 			div.mainlinkHolderMobile 
 			{
 				display: block;
+			}
+
+			div.mainlinkHolderMobile div.linkTXT
+			{
+				opacity: 1;
 			}
 		}
 

@@ -50,9 +50,6 @@
 				/* border: 4px solid black; */
 			}
 
-
-			/*---------- MOBILE STUFF ----------*/
-
 			header
 			{
 				/* display: none; */
@@ -87,12 +84,19 @@
 				/* border: 2px solid red; */
 			}
 
+		div.sand:after
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+
 			header img.header
 			{
 				z-index: 10;
 				image-rendering: pixelated;
 				transform: translate(-50%, -50%) scale(6);
-				margin-left: 36px;
+				margin-left: 58px;
 				margin-top: 74px;
 
 				/* border: 1px solid black; */
@@ -167,7 +171,7 @@
 <body>
 <div class="sand">
 	<header>
-		<div>
+		<div style="margin-left: 8%;">
 			<a  href="index.html" >
 				<img class="header" src="LogoBetterTrans-Small.png" alt="Link thumbnail" />
 			</a>
@@ -177,16 +181,21 @@
 				<h1>About</h1>
 			</a>
 		</div>
-		<div style="visibility:hidden; width: 21px;"></div>
+		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
 		<div class="stripe"></div>
 	</header>
 		
 	<main>
 		<p>
-			I decided to build this site in order to have a place where I can gather all my projects, document them properly and share them with you.
 			I enjoy creating and sharing - I treasure the feeling that I get when I see others enjoy my work, learn from my work or being entertained by it.
+			I decided to build this site in order to have a place where I can gather all my projects, document them properly and share them with you.
 			I may also have the oprotunity to share some of the projects of a few close friends.
-			Admittedly, I also wanted to try and take on the challenge of building a website using HTML and CSS.  Thus, this site was born!
+		</p>
+		<p>
+			You may ask "why not make a profile on instructables or any other such website?".
+			The answer is that I wanted to try and take on the challenge of building a website on my own - using HTML and CSS.
+			Making a profile and using it on a platform is one thing but I have come to realize that making your own site is quite another - there is so much freedom in what you can do.
+			Thus, this site was born!
 		</p>
 		<h3>
 			My background
