@@ -19,39 +19,22 @@
 		html,body
 		{
 			height: 100%;
-			/* background-image: repeating-linear-gradient(rgba(245, 222, 179, 0) 0, rgba(245, 222, 179, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 5000px, rgba(245, 222, 179, 0) 5000px, rgba(245, 222, 179, 0) 5279px), repeating-linear-gradient(rgb(70, 70, 70) 0, rgb(70, 70, 70) 1px); */
-			/* background-position: 0 279px, 0 0; */
-			/* background-repeat: repeat, repeat; */
-			/* background-image: repeating-linear-gradient(rgba(245, 222, 179, 0) 0, rgba(245, 222, 179, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 3000px), repeating-linear-gradient(rgb(70, 70, 70) 0, rgb(70, 70, 70) 1px); */
-			/* background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 3000px), rgb(70, 70, 70); */
-			background-color: rgb(70, 70, 70);
-			/* background-color: #ffb788; */
-			/* background-color: #d5ecff; */
 
-			
+			/* background-color: #efe1c5; */
+			/* background-color: #f7d7ab; */
+			background-color: #e0cba4;
+
 			/* border: 4px solid black; */
 		}
 
-		div.sand
-		{
-			height: 100%;
-			/* bottom: 0; */
-			background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 279px, rgba(245, 222, 179, 0.8) 279px, rgba(245, 222, 179, 0.8) 3000px);
-			/* border: 2px solid red; */
-		}
-
-		div.sand:after
-		{
-			content: "";
-			display: table;
-			clear: both;
-		}
 
 		header
 		{
 			height: 280px;
 
-			/* border: 5px solid black; */
+			/* background-color: #d5ecff; */
+			/* background-color: #ffb788; */
+			background-color: #464646;
 		}
 
 		/* main
@@ -86,7 +69,7 @@
 			position: absolute;
 			z-index: 10;
 			left: 50%;
-			top: 114px;
+			top: 115px;
 			margin-top: 36px;
 			margin-bottom: 36px;
 
@@ -97,7 +80,7 @@
 		{
 			/* z-index: -1; */
 			position: absolute;
-			top: 159px;
+			top: 160px;
 			height: 120px;
 			width: 100%;
 			margin: auto;
@@ -251,7 +234,7 @@
 			/* z-index: 0; */
 			width: 22px;
 			height: 16px;
-			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
 			opacity: 0;
 
 			pointer-events: none;
@@ -270,7 +253,7 @@
 		}
 		#_1
 		{
-			background: url(MyLAinstrumentsTrans-b.png) 0 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) 0 0;
 		}
 		
 
@@ -284,7 +267,7 @@
 		}
 		#_2
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -17px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -17px 0;
 			
 		}
 
@@ -299,7 +282,7 @@
 		}
 		#_3
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -34px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -34px 0;
 		}
 
 
@@ -313,7 +296,7 @@
 		}
 		#_4
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -51px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -51px 0;
 		}
 
 
@@ -327,7 +310,7 @@
 		}
 		#_5
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -68px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -68px 0;
 		}
 
 
@@ -341,7 +324,7 @@
 		}
 		#_6
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -85px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -85px 0;
 		}
 
 
@@ -355,7 +338,7 @@
 		}
 		#_7
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -102px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -102px 0;
 		}
 
 
@@ -369,7 +352,7 @@
 		}
 		#_8
 		{
-			background: url(MyLAinstrumentsTrans-b.png) -119px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -119px 0;
 		}
 
 		/*---------- MOBILE STUFF ----------*/
@@ -480,23 +463,24 @@
 
 		img#cursorL
 		{
+			pointer-events: none;
 			z-index: 10;
 			position: relative;
 			width: 4px;
 			height: 16px;
-			background: url(MyLAinstrumentsTrans-b.png) -136px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
 			left: -50px;
 			opacity: 0;
 		}
 
 		img#cursorR
 		{
-			/* display: inline; */
-			position: relative;
+			pointer-events: none;
 			z-index: 10;
+			position: relative;
 			width: 4px;
 			height: 16px;
-			background: url(MyLAinstrumentsTrans-b.png) -154px 0;
+			background: url(images/MyLAinstrumentsTrans-b.png) -154px 0;
 			left: auto;
 			right: -50px;
 			opacity: 0;
@@ -637,17 +621,16 @@
 </head>
 
 <body>
-<div class="sand">
 	<header>
 		<div class="desktop">
 			<a  href="index.html" >
-				<img class="header" src="LogoBetterTrans.png" alt="Link thumbnail" />
+				<img class="header" src="images/LogoBetterTrans.png" alt="Link thumbnail" />
 			</a>
 			<div class="stripe"></div>
 		</div>
 		<div class="mobile">
 			<a  href="index.html" >
-				<img class="header" src="LogoBetterTrans-Small.png" alt="Link thumbnail" />
+				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
 			</a>
 			<div class="stripe"></div>
 		</div>
@@ -658,9 +641,9 @@
 
 			<div class="el" id="el1">
 				<div class="imgdivR">
-					<img id="_1" src="transparent.png" width="1" height="1">
+					<img id="_1" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<div class="linkTXT">
@@ -670,9 +653,9 @@
 
 			<div class="el" id="el2">
 				<div class="imgdivR">
-					<img id="_2" src="transparent.png" width="1" height="1">
+					<img id="_2" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<div class="linkTXT">
@@ -683,9 +666,9 @@
 			<div class="el" id="el3">
 				<div class="imgdivR">
 					<a href="about.html">
-						<img id="_3" src="transparent.png" width="1" height="1">
+						<img id="_3" src="images/transparent.png" width="1" height="1">
 						<div class="cursor">
-							<img id="cursor" src="transparent.png" width="1" height="1">
+							<img id="cursor" src="images/transparent.png" width="1" height="1">
 						</div>
 					</a>
 				</div>
@@ -697,9 +680,9 @@
 			<div class="el" id="el4">
 				<div class="imgdivR">
 					<a href="contact.html">
-						<img id="_4" src="transparent.png" width="1" height="1">
+						<img id="_4" src="images/transparent.png" width="1" height="1">
 						<div class="cursor">
-							<img id="cursor" src="transparent.png" width="1" height="1">
+							<img id="cursor" src="images/transparent.png" width="1" height="1">
 						</div>
 					</a>
 				</div>
@@ -710,9 +693,9 @@
 
 			<div class="el" id="el5">
 				<div class="imgdivL">
-					<img id="_5" src="transparent.png" width="1" height="1">
+					<img id="_5" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<!-- <div class="linkTXT">
@@ -722,9 +705,9 @@
 
 			<div class="el" id="el6">
 				<div class="imgdivL">
-					<img id="_6" src="transparent.png" width="1" height="1">
+					<img id="_6" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<!-- <div class="linkTXT">
@@ -734,9 +717,9 @@
 
 			<div class="el" id="el7">
 				<div class="imgdivL">
-					<img id="_7" src="transparent.png" width="1" height="1">
+					<img id="_7" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<!-- <div class="linkTXT">
@@ -746,9 +729,9 @@
 
 			<div class="el" id="el8">
 				<div class="imgdivL">
-					<img id="_8" src="transparent.png" width="1" height="1">
+					<img id="_8" src="images/transparent.png" width="1" height="1">
 					<div class="cursor">
-						<img id="cursor" src="transparent.png" width="1" height="1">
+						<img id="cursor" src="images/transparent.png" width="1" height="1">
 					</div>
 				</div>
 				<!-- <div class="linkTXT">
@@ -762,39 +745,38 @@
 		<div class="mainlinkHolderMobile">
 
 			<div class="el" id="el1" style="width: 279px;">
-				<img id="cursorL" src="transparent.png" width="1" height="1">
-				<img id="_1" src="transparent.png" width="1" height="1">
+				<img id="cursorL" src="images/transparent.png" width="1" height="1">
+				<img id="_1" src="images/transparent.png" width="1" height="1">
 				<div class="linkTXT">Projects</div> 
-				<img id="cursorR" src="transparent.png" width="1" height="1">
+				<img id="cursorR" src="images/transparent.png" width="1" height="1">
 			</div>
 
 			<div class="el" id="el2" style="width: 201px;">
-				<img id="cursorL" src="transparent.png" width="1" height="1">
-				<img id="_2" src="transparent.png" width="1" height="1">
+				<img id="cursorL" src="images/transparent.png" width="1" height="1">
+				<img id="_2" src="images/transparent.png" width="1" height="1">
 				<div class="linkTXT">Music</div> 
-				<img id="cursorR" src="transparent.png" width="1" height="1">
+				<img id="cursorR" src="images/transparent.png" width="1" height="1">
 			</div>
 
-			<a href="about.html">
+			<a href="about.html" style="width: 0;">
 				<div class="el" id="el3" style="width: 201px;">
-					<img id="cursorL" src="transparent.png" width="1" height="1">
-					<img id="_3" src="transparent.png" width="1" height="1">
+					<img id="cursorL" src="images/transparent.png" width="1" height="1">
+					<img id="_3" src="images/transparent.png" width="1" height="1">
 					<div class="linkTXT">About</div> 
-					<img id="cursorR" src="transparent.png" width="1" height="1">
+					<img id="cursorR" src="images/transparent.png" width="1" height="1">
 				</div>
 			</a>
 
 			<div class="el" id="el4" style="width: 253px;">
-				<img id="cursorL" src="transparent.png" width="1" height="1">
-				<img id="_4" src="transparent.png" width="1" height="1">
+				<img id="cursorL" src="images/transparent.png" width="1" height="1">
+				<img id="_4" src="images/transparent.png" width="1" height="1">
 				<div class="linkTXT">Contact</div> 
-				<img id="cursorR" src="transparent.png" width="1" height="1">
+				<img id="cursorR" src="images/transparent.png" width="1" height="1">
 			</div>
 
 		</div>
 	</main>
 	
 
-</div>
 </body>
 </html>

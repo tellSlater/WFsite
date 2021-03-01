@@ -13,179 +13,37 @@
 		
 		<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-	
-		<style>
-			h1
-			{
-				color: black;
-				font-size: 32px;
-				font-family: 'Press Start 2P', cursive;
-			}
 
-			h3
-			{
-				color: black;
-				font-weight: bold;
-				font-size: 18px;
-				font-family: 'Press Start 2P', cursive;
-				margin-top: 40px;
-			}
-			
-			p
-			{
-				color: black;
-				font-size: 16px;
-				font-family: 'Helvetica', sans-serif;
-			}
-
-			html,body
-			{
-				height: 100%;
-				/* background-color: rgb(70, 70, 70); */
-				/* background-color: #ffb788; */
-				background-color: #d5ecff;
-				margin: 0;
-				
-				/* border: 4px solid black; */
-			}
-
-
-			/*---------- MOBILE STUFF ----------*/
-
-			header
-			{
-				/* display: none; */
-				position: relative;
-				margin: auto;
-				display: static;
-				height: 180px;
-
-				display: flex;
-				justify-content: space-between;
-				/* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
-				/* background-color: rgb(255, 151, 151); */
-				
-				/* border: 1px solid black; */
-			}
-
-			header>div
-			{
-				z-index: 10;
-				position: relative;
-				display: inline;
-				width: auto;
-				margin: 36px 36px 18px 36px;
-				text-align: center;
-			}
-
-			div.sand
-			{
-				height: 100%;
-				/* bottom: 0; */
-				background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 170px, rgba(245, 222, 179, 0.8) 170px, rgba(245, 222, 179, 0.8) 3000px);
-				/* border: 2px solid red; */
-			}
-
-			header img.header
-			{
-				z-index: 10;
-				image-rendering: pixelated;
-				transform: translate(-50%, -50%) scale(6);
-				margin-left: 36px;
-				margin-top: 74px;
-
-				/* border: 1px solid black; */
-			}
-
-			header a.themeTXT
-			{
-				display: flex;
-				margin-top: 61px;
-			}
-
-			header .stripe
-			{
-				z-index: 1;
-				position: absolute;
-				top: 50px;
-				height: 120px;
-				width: 100%;
-				margin: auto;
-				background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
-				/* background-color: rgb(117, 158, 247); */
-
-				/* border: 2px solid wheat; */
-			}
-
-			img.header:hover
-			{
-				opacity: 0.7;
-			}
-
-			a:link
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
-			
-			a:visited
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
-
-			a:hover
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-				opacity: 0.7;
-			}
-
-			a:active
-			{
-				color: black;
-				font-style: normal;
-				text-decoration: none;
-			}
-			
-			main
-			{
-				margin-top: 36px;
-				margin-left: 8%;
-				margin-right: 8%;
-
-				/* border: 2px dashed black; */
-			}
-		</style>
-	
+		<link rel="stylesheet" href="CSS/article.css">
 	</head>
 	
 <body>
-<div class="sand">
 	<header>
-		<div>
+		<div style="margin-left: 8%;">
 			<a  href="index.html" >
-				<img class="header" src="LogoBetterTrans-Small.png" alt="Link thumbnail" />
+				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
 			</a>
 		</div>
 		<div>
-			<a  href="contact.html" class="themeTXT">
+			<a  href="Contact.html" class="themeTXT">
 				<h1>Contact</h1>
 			</a>
 		</div>
-		<div style="visibility:hidden; width: 21px;"></div>
+		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
 		<div class="stripe"></div>
 	</header>
 		
 	<main>
 		<p>
-			I decided to build this site in order to have a place where I can gather all my projects, document them properly and share them with you.
 			I enjoy creating and sharing - I treasure the feeling that I get when I see others enjoy my work, learn from my work or being entertained by it.
+			I decided to build this site in order to have a place where I can gather all my projects, document them properly and share them with you.
 			I may also have the oprotunity to share some of the projects of a few close friends.
-			Admittedly, I also wanted to try and take on the challenge of building a website using HTML and CSS.  Thus, this site was born!
+		</p>
+		<p>
+			You may ask "why not make a profile on instructables or any other such website?".
+			The answer is that I wanted to try and take on the challenge of building a website on my own - using HTML and CSS.
+			Making a profile and using it on a platform is one thing but I have come to realize that making your own site is quite another - there is so much freedom in what you can do.
+			Thus, this site was born!
 		</p>
 		<h3>
 			My background
@@ -204,6 +62,5 @@
 
 
 	</main>
-</div>
 </body>
 </html>
