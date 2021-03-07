@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Music, electronics, engineering, programming and control projects">
-		<meta name="author" content="Ilias Chatziefstathiou">
-		<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Windfish Dungeon</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		
-		<script src="https://kit.fontawesome.com/6ca2ce03cb.js" crossorigin="anonymous"></script><!--Get your own code at fontawesome.com-->
-		
-		<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Music, electronics, engineering, programming and control projects">
+	<meta name="author" content="Ilias Chatziefstathiou">
+	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Windfish Dungeon</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://kit.fontawesome.com/6ca2ce03cb.js" crossorigin="anonymous"></script><!--Get your own code at fontawesome.com-->
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-		<link rel="stylesheet" href="CSS/article.css">
-	</head>
+	<link rel="stylesheet" href="CSS/article.css">
+
+	<script src="/JavaScript/functions.js"></script>
+</head>
 	
 <body>
-	<header>
+	<header id="sky">
 		<div style="margin-left: 8%;">
 			<a  href="index.html" >
 				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
@@ -57,7 +59,7 @@
 			The content on this site falls in two main categories in the home page: <b>projects</b> and <b>music</b>.
 			On the <b>projects</b> page there is content mainly about crafting-themed projects that revolve around 3d designing, 3d printing, electornics, synthesizers, CNC and more.
 			On the <b>music</b> page there is content about songs that I write, improvise, cover or interprete alone or with friends.
-			There is also a link to a contact form on the main page - feel free to ask me anything you like!
+			There is also a link to a contact form on the main page - feel free to ask me anything you like! &#60;
 		</p>
 		<h3>
 			My background
@@ -75,5 +77,12 @@
 
 
 	</main>
+
+	
+	<script>
+		backgroundDayColor();					//Initial page coloring based on time of day
+		setTimeout(transitionSet, 30);			//Adding transition is delayed by 30ms so that the first page coloring happens instantly
+		setInterval(backgroundDayColor, 10000);	//Every 10s this script looks if there should be a vhange in sky coloring
+	</script>
 </body>
 </html>
