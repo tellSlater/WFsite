@@ -16,6 +16,8 @@
 
 	<script src="/JavaScript/functions.js"></script>
 
+	<link rel="shortcut icon" href="#"> <!-- favicon.ico not found fix -->
+
 	<style>
 		
 		html,body
@@ -491,7 +493,44 @@
 
 			/* border: 1px solid rebeccapurple; */
 		}
-/* ~div.cursor */
+
+		
+		/*---------- PAUSE/PLAY ----------*/
+
+		.PlayPauseDesktop
+		{
+			position: absolute;
+			left: calc(50% + 6px);
+			top: 216px;
+			width: 16px;
+			height: 16px;
+			background: url(images/PlayPause.png) 0px 0;
+			image-rendering: pixelated;
+			transform: translate(-50%, -50%) scale(6);
+			background-repeat: no-repeat;
+			cursor: pointer;
+
+			/* background-color: cadetblue; */
+		}
+
+		.PlayPauseMobile
+		{
+			position: fixed;
+			bottom: 52px;
+			right: 52px;
+			width: 16px;
+			height: 16px;
+			background: url(images/PlayPause.png) 0px 0;
+			image-rendering: pixelated;
+			transform: scale(6);
+			background-repeat: no-repeat;
+			cursor: pointer;
+
+			/* background-color: cadetblue; */
+		}
+
+		/*---------- HOVERS ----------*/
+
 		div.imgdivR:hover #cursor
 		{
 			opacity: 1;
@@ -625,12 +664,10 @@
 </head>
 
 <body>
-	<audio id="myAudio" muted="muted">
+	<audio id="myAudio" onended="showPlay()">
 		<source src="Wavewatching.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
-
-	<div></div>
 
 	<header id="sky">
 		<div class="desktop">
@@ -754,6 +791,7 @@
 				</div> -->
 			</div>
 
+			<div class="PlayPauseDesktop" id="PlayPauseDesktop" onclick="doAudio('myAudio')"></div>
 		</div>
 
 
@@ -795,12 +833,12 @@
 				</div>
 			</a>
 
+			<div class="PlayPauseMobile" id="PlayPauseMobile" onclick="doAudio('myAudio')"></div>
 		</div>
 	</main>
 	
 
 	<script>
-		playAudio(document.getElementById("myAudio"));
 		backgroundDayColor();					//Initial page coloring based on time of day
 		setTimeout(transitionSet, 30);			//Adding transition is delayed by 30ms so that the first page coloring happens instantly
 		setInterval(backgroundDayColor, 10000);	//Every 10s this script looks if there should be a vhange in sky coloring

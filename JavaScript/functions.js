@@ -38,17 +38,30 @@ function backgroundDayColor() {
     // }
 }
 
-// Sets transition for backgrounds to 10s
+//Sets transition for backgrounds to 10s
 function transitionSet() {
     document.body.style.transitionDuration = "10s";
     document.getElementById("sky").style.transitionDuration = "10s";
 }
 
-//Play audio
+//Play and pause audio
 
-function playAudio(x) {
-    x.play();
+function doAudio(AudioID) {
+    var myAudio = document.getElementById(AudioID);
+    if (!(myAudio.paused)){
+    myAudio.pause();
+    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
+    document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
+    }
+    else{
+    myAudio.play();
+    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="-17px 0";
+    document.getElementById("PlayPauseMobile").style.backgroundPosition ="-17px 0";
+    }
 }
-function pauseAudio(x) {
-    x.pause();
+
+function showPlay()
+{
+    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
+    document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
 }
