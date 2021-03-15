@@ -14,10 +14,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-	<script src="/JavaScript/functions.js"></script>
 
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" src="images/PlayPause.png"> <!-- FABICON -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
+	<script src="/JavaScript/functions.js"></script> <!-- External Functions -->
 
 	<style>
 		
@@ -840,9 +842,7 @@
 	
 
 	<script>
-		backgroundDayColor();					//Initial page coloring based on time of day
-		setTimeout(transitionSet, 30);			//Adding transition is delayed by 30ms so that the first page coloring happens instantly
-		setInterval(backgroundDayColor, 10000);	//Every 10s this script looks if there should be a vhange in sky coloring
+		document.getElementById("myAudio").volume = 0; 	//Set audio initial volume to 0
 	</script>
 </body>
 </html>

@@ -1,5 +1,13 @@
+//Add jquery to head
+// (function () {
+// var script = document.createElement('script');
+// script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js';
+// script.type = 'text/javascript';
+// document.getElementsByTagName('head')[0].appendChild(script);
+// })();
+
 //Changes the page colors depending on the current time
-function backgroundDayColor() {
+function backgroundDayColor(){
     var h = new Date;
     if (h.getHours() < 6) {
         document.body.style.backgroundColor = "#e0cba4";
@@ -44,24 +52,61 @@ function transitionSet() {
     document.getElementById("sky").style.transitionDuration = "10s";
 }
 
-//Play and pause audio
+//Auto executes daylight stuff
+document.addEventListener("DOMContentLoaded", function(){
+    backgroundDayColor();					//Initial page coloring based on time of day
+    setTimeout(transitionSet, 30);			//Adding transition is delayed by 30ms so that the first page coloring happens instantly
+    setInterval(backgroundDayColor, 60000);	//Every 60s this script looks if there should be a change in sky coloring
+});
 
+
+//Play and pause audio
+var paused = true;
 function doAudio(AudioID) {
     var myAudio = document.getElementById(AudioID);
-    if (!(myAudio.paused)){
-    myAudio.pause();
-    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
-    document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
+    if (!paused){
+        document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
+        document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
+        paused = true;
+        $("audio").stop();
+        $("audio").animate({volume:0}, 1000);
+		var int_pause=setInterval(function(){
+                if (document.getElementById("myAudio").volume == 0){
+                    myAudio.pause();
+                    clearInterval(int_pause);
+                } 
+            }, 100); //When audio volume falls to 0 pause audio and stop looking to pause
+
     }
     else{
-    myAudio.play();
-    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="-17px 0";
-    document.getElementById("PlayPauseMobile").style.backgroundPosition ="-17px 0";
+        document.getElementById("PlayPauseDesktop").style.backgroundPosition ="-17px 0";
+        document.getElementById("PlayPauseMobile").style.backgroundPosition ="-17px 0";
+        paused = false;
+        $("audio").stop();
+        myAudio.play();
+        $("audio").animate({volume:1}, 1000);
     }
 }
 
-function showPlay()
+function showPlay() //Shows the play button again when audio ends
 {
     document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
     document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
+    document.getElementById("myAudio").volume = 0;
+    paused = true;
 }
+
+
+
+//FOR REFERENCE
+
+//interval
+// var counter = 0;
+// var i = setInterval(function(){
+//     // do your thing
+
+//     counter++;
+//     if(counter === 10) {
+//         clearInterval(i);
+//     }
+// }, 200);
