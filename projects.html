@@ -9,8 +9,6 @@
 	<title>Windfish Projects</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
-	<script src="https://kit.fontawesome.com/6ca2ce03cb.js" crossorigin="anonymous"></script><!--Get your own code at fontawesome.com-->
-	
 	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
@@ -19,6 +17,8 @@
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" src="images/PlayPause.png"> <!-- FABICON -->
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
+	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
 	<script src="/JavaScript/functions.js"></script>
 
 	<style>
@@ -53,7 +53,7 @@
 
 		.cursor
 		{
-			display: none;
+			display: inline;
 			position: absolute;
 			top: 0;
 		}
@@ -72,11 +72,23 @@
 			position: relative;
 			width: auto;
 			margin-top: 0;
+			/* text-decoration: line-through; */
 		}
 
 		.diffBtn h3
 		{
 			margin: 0;
+		}
+
+		.dash
+		{
+			z-index: -1;
+			position: absolute;
+			background: url(/images/dash.png);
+			image-rendering: pixelated;
+			transform: scale(2);
+			top: 8px;
+			left: 16px;
 		}
 
 		.contBlock
@@ -174,12 +186,15 @@
 	<div class="diffContainer">
 		<span class="diffBtn">
 			<h3>EASY</h3>
+			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
 		</span>
 		<span class="diffBtn">
 			<h3>NORMAL</h3>
+			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 54px; left: 25px;">
 		</span>
 		<span class="diffBtn">
 			<h3>HARD</h3>
+			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
 		</span>
 	</div>
 
@@ -198,7 +213,7 @@
 				<img src="/projects/geometric_pots/pot_thumbnail.jpg" alt="Geometric Pots Thumbnail">
 				<h3>Aeometric Pots</h3>
 				<h4>13 Mar 2021</h4>
-				<h4>difficulty: EADY</h4>
+				<h4>difficulty: EASY</h4>
 				<p>Geometry-themed pots for small plants</p>
 			</a>
 		</div>
