@@ -19,7 +19,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/functions.js"></script>
+	<script src="/JavaScript/projects.js"></script>
 
 	<style>
 		main
@@ -49,11 +49,13 @@
 		.sortBtn h3
 		{
 			margin: 0;
+			cursor: pointer;
+			/* cursor: context-menu; */
 		}
 
 		.cursor
 		{
-			display: inline;
+			display: none;
 			position: absolute;
 			top: 0;
 		}
@@ -72,16 +74,18 @@
 			position: relative;
 			width: auto;
 			margin-top: 0;
-			/* text-decoration: line-through; */
 		}
 
 		.diffBtn h3
 		{
 			margin: 0;
+			cursor: pointer;
+			/* cursor: context-menu; */
 		}
 
 		.dash
 		{
+			display: none;
 			z-index: -1;
 			position: absolute;
 			background: url(/images/dash.png);
@@ -168,32 +172,32 @@
 	
 	<div class="sortContainer">
 		<span class="sortBtn">
-			<h3>DATE</h3>
+			<h3 id="DATE" onclick="sortProjects(this)">DATE</h3>
 			<h3 class="cursor" style="left: -17px;">[</h3>
 			<h3 class="cursor" style="right: -17px;">]</h3>
 		</span>
 		<span class="sortBtn">
-			<h3>NAME</h3>
+			<h3 onclick="sortProjects(this)">NAME</h3>
 			<h3 class="cursor" style="left: -17px;">[</h3>
 			<h3 class="cursor" style="right: -17px;">]</h3>
 		</span>
 		<span class="sortBtn">
-			<h3>RANDOM</h3>
+			<h3 onclick="sortProjects(this)">RANDOM</h3>
 			<h3 class="cursor" style="left: -17px;">[</h3>
 			<h3 class="cursor" style="right: -17px;">]</h3>
 		</span>
 	</div>
 	<div class="diffContainer">
 		<span class="diffBtn">
-			<h3>EASY</h3>
+			<h3 onclick="toggleDiff(this)">EASY</h3>
 			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
 		</span>
 		<span class="diffBtn">
-			<h3>NORMAL</h3>
+			<h3 onclick="toggleDiff(this)">NORMAL</h3>
 			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 54px; left: 25px;">
 		</span>
 		<span class="diffBtn">
-			<h3>HARD</h3>
+			<h3 onclick="toggleDiff(this)">HARD</h3>
 			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
 		</span>
 	</div>
