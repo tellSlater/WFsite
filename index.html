@@ -14,7 +14,7 @@
 
 
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" src="images/PlayPause.png"> <!-- FABICON -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FABICON -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
@@ -93,6 +93,8 @@
 			width: 100%;
 			margin: auto;
 			background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
+			/* background-position: 0 6px; Moving sea? */
+
 			/* background-color: rgb(117, 158, 247); */
 
 			/* border: 2px solid wheat; */
@@ -611,6 +613,28 @@
 			}
 		}*/
 
+		/* Scrolbar style */
+		/* width */
+		::-webkit-scrollbar {
+		width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		background: rgba(92, 92, 92, 0.3);
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		background: rgb(0, 0, 0);
+		width: 6px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		background: rgb(0, 0, 0);
+		}
+
 		@media screen and (hover: none) and (pointer: coarse)
 		{
 			/* div.linkTXT
@@ -636,7 +660,7 @@
 				height: 180px;
 			}
 
-			 header div.desktop
+			header div.desktop
 			{
 				display: none;
 			}

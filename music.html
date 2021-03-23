@@ -12,13 +12,131 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+	<!-- My main external CSS -->
 	<link rel="stylesheet" href="CSS/article.css">
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" src="images/PlayPause.png"> <!-- FABICON -->
+	<link rel="icon" src="images/PlayPause.png"> <!-- FAVICON -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
 	<script src="/JavaScript/functions.js"></script>
+
+	<style>
+		main
+		{
+			margin-top: 36px;
+			margin-bottom: 36px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 500px;
+			height: calc(100vh - 170px - 220px - 72px);
+			min-height: 300px;
+			text-align: center;
+			overflow-x: hidden;
+			overflow-y: hidden;
+
+			border-top: 6px solid #000;
+			border-bottom: 6px solid #000;
+		}
+
+		main:hover
+		{
+			overflow-y: scroll;
+		}
+
+		.radio
+		{
+			height: 220px
+		}
+
+		/* width */
+		::-webkit-scrollbar {
+		width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		background: rgba(92, 92, 92, 0.3); 
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		background: rgb(0, 0, 0); 
+		width: 6px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		background: rgb(0, 0, 0); 
+		}
+
+		.filler
+		{
+			margin-top: 18px;
+			margin-bottom: 18px;
+			height: auto;
+			display: flex;
+			justify-content: left;
+		}
+
+		.filler:first-child
+		{
+			margin: 0;
+		}
+
+		.filler:last-child
+		{
+			margin: 0;
+		}
+
+		.filler img
+		{
+			height: 100px;
+			margin-right: 18px;			
+		}
+
+/* 		For sorting stuff that I am not using for now
+		.sortContainer
+		{
+			width: 500px;
+			margin: auto;
+			padding: 36px 0 12px 0;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.sortBtn
+		{
+			position: relative;
+			width: auto;
+			margin-top: 0;
+		}
+
+		.sortBtn h3
+		{
+			margin: 0;
+			cursor: context-menu;
+
+			-webkit-user-select: none;       
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.sortBtn .by
+		{
+			z-index: 10;
+			cursor: pointer;
+		}
+
+		.cursor
+		{
+			display: none;
+			position: absolute;
+			top: 0;
+		} */
+
+	</style>
 </head>
 	
 <body>
@@ -37,49 +155,91 @@
 		<div class="stripe"></div>
 	</header>
 		
-	<main>
-		<h3>
-			Creation
-		</h3>
-		<p>
-			I enjoy creating and sharing - I treasure the feeling that I get when I see others enjoy my work, learn from my work or being entertained by it.
-			I decided to create this site in order to have a place where I can gather all my projects, document them properly and share them with you.
-			I may also have the oprotunity to share some of the projects of a few close friends.
-		</p>
-		<p>
-			You may ask "why not make a profile on instructables or any other such website?".
-			The answer is that I wanted to try and take on the challenge of building a website on my own - using HTML and CSS.
-			Making a profile and using it on a platform is one thing but I have come to realize that making your own site is quite another - there is so much freedom in what you can do.
-			I could compare the experience as living in a hotel room (a platform) or living in your own house (own website).
-			No matter how many utilities and comforts a big hotel may have, it will never be as cosy as your own room.
-			Thus, this site was born!
-		</p>
-		<h3>
-			Content
-		</h3>
-		<p>
-			The content on this site falls in two main categories in the home page: <b>projects</b> and <b>music</b>.
-			On the <b>projects</b> page there is content mainly about crafting-themed projects that revolve around 3d designing, 3d printing, electornics, synthesizers, CNC and more.
-			On the <b>music</b> page there is content about songs that I write, improvise, cover or interprete alone or with friends.
-			There is also a link to a contact form on the main page - feel free to ask me anything you like!
-		</p>
-		<h3>
-			My background
-		</h3>
-		<p>
-			I studied classical and electric guitar in my younger years and have acquired the RGT grade 7 diploma for electric guitar.
-			I graduated from the “Lycée Léonin de Patissia Athènes” high-school.
-			Finally, I received a Master’s degree in Mechanical Engineering from the University of Thessaly.
-			Other than my “legitimately proven knowledge” that is stated in the previous three sentences, I have been developing other skills on my own as well.
-			This world has so many beautiful and intriguing subjects in it that every month I catch myself trying to learn or create something new (learning HTML and CSS and creating this site for instance).
-		</p>
-		<p>
-			If you wish to know more about me, I suggest you browse my list of projects or contact me.
-		</p>
+	
+	<!-- Aight, probably no need to be sorting here... for now
+		<div class="sortContainer">
+		<span class="sortBtn">
+			<h3 class="by" id="DATE" onclick="sortProjects(this)">DATE</h3>
+			<h3 class="cursor" style="left: -17px;">[</h3>
+			<h3 class="cursor" style="right: -17px;">]</h3>
+		</span>
+		<span class="sortBtn">
+			<h3 class="by" onclick="sortProjects(this)">NAME</h3>
+			<h3 class="cursor" style="left: -17px;">[</h3>
+			<h3 class="cursor" style="right: -17px;">]</h3>
+		</span>
+		<span class="sortBtn">
+			<h3 class="by" onclick="sortProjects(this)">RANDOM</h3>
+			<h3 class="cursor" style="left: -17px;">[</h3>
+			<h3 class="cursor" style="right: -17px;">]</h3>
+		</span>
+	</div> -->
 
+	<main>
+
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
+		
+		<div class="filler">
+			<img src="/music/Wavewatching.jpg" alt="">
+			<h3>Wavewatching</h3>
+		</div>
 
 	</main>
 
+	<div class="radio"></div>
 	
 	<script>
 	</script>
