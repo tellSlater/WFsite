@@ -1,6 +1,3 @@
-
-
-
 //Play and pause audio
 var paused = true;
 function doAudio(AudioID) {

@@ -32,6 +32,7 @@ html,
 body {
   height: 100%;
 
+  overflow-x: hidden;
   /* -webkit-transition: background-color 10s linear;
   -ms-transition: background-color 10s linear;
   transition: background-color 10s linear; */
@@ -59,6 +60,7 @@ header {
 
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 
   /* border: 1px solid black; */
 }
@@ -153,13 +155,22 @@ main {
   margin-left: 8%;
   margin-right: 8%;
 
+  overflow-x: hidden;
   /* border: 2px dashed black; */
+}
+
+main img {
+  display: block;
+  margin: auto;
+  width: 100%;
+
+  border: 3px solid black;
 }
 
 /* Scrolbar style */
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 /* Track */

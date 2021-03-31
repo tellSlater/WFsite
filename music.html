@@ -16,10 +16,10 @@
 	<link rel="stylesheet" href="CSS/article.css">
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" src="images/PlayPause.png"> <!-- FAVICON -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/functions.js"></script>
+	<script src="/JavaScript/musicAudio.js"></script>
 
 	<style>
 		main
@@ -28,7 +28,7 @@
 			margin-bottom: 36px;
 			margin-left: auto;
 			margin-right: auto;
-			width: 500px;
+			width: 494px;
 			height: calc(100vh - 170px - 220px - 72px);
 			min-height: 300px;
 			text-align: center;
@@ -46,95 +46,202 @@
 
 		.radio
 		{
+			margin: 0;
 			height: 220px
-		}
-
-		/* width */
-		::-webkit-scrollbar {
-		width: 10px;
-		}
-
-		/* Track */
-		::-webkit-scrollbar-track {
-		background: rgba(92, 92, 92, 0.3); 
-		}
-
-		/* Handle */
-		::-webkit-scrollbar-thumb {
-		background: rgb(0, 0, 0); 
-		width: 6px;
-		}
-
-		/* Handle on hover */
-		::-webkit-scrollbar-thumb:hover {
-		background: rgb(0, 0, 0); 
 		}
 
 		.filler
 		{
-			margin-top: 18px;
-			margin-bottom: 18px;
-			height: auto;
+			position: relative;
+			margin-top: 6px;
+			margin-bottom: 6px;
+			height: 100px;
+			width: 100%;
 			display: flex;
 			justify-content: left;
+			text-align: left;
 		}
 
-		.filler:first-child
+		.filler h3
 		{
-			margin: 0;
+			width: 300px;
 		}
 
-		.filler:last-child
+		/* .filler:hover
 		{
-			margin: 0;
+			border-left: 12px solid #e75858;
+		} */
+
+		.filler:hover .playpause
+		{
+			display: inline-block;
 		}
 
-		.filler img
+		.tnail
 		{
 			height: 100px;
-			margin-right: 18px;			
+			width: 100px;
+			margin-left: 0;
+			margin-right: 18px;
+
+			border: none;
 		}
 
-/* 		For sorting stuff that I am not using for now
-		.sortContainer
+		.radio img
 		{
-			width: 500px;
-			margin: auto;
-			padding: 36px 0 12px 0;
-			display: flex;
-			justify-content: space-between;
+			image-rendering: pixelated;
+			transform: translate(-50%, -50%) scale(6);
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			top: 86px;
 		}
 
-		.sortBtn
+		.radio .cassette
 		{
+			z-index: 20;
+			height: 3px;
+			width: 11px;
+			image-rendering: pixelated;
+			transform: translate(-50%, -50%) scale(6);
+			background: url(/images/RadioCassette.png) 0px 0;
 			position: relative;
-			width: auto;
-			margin-top: 0;
+			top: 122px;
+			left: calc(50% - 21px);
 		}
 
-		.sortBtn h3
-		{
-			margin: 0;
-			cursor: context-menu;
-
-			-webkit-user-select: none;       
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-		}
-
-		.sortBtn .by
-		{
-			z-index: 10;
-			cursor: pointer;
-		}
-
-		.cursor
+		.playpause
 		{
 			display: none;
+			image-rendering: pixelated;
+			transform: scale(6);
 			position: absolute;
-			top: 0;
-		} */
+			top: 42px;
+			left: 42px;
+			width: 16px;
+			height: 16px;
+			z-index: 10;
+			background: url(images/PlayPause.png) 0px 0;
+			background-repeat: no-repeat;
+			cursor: pointer;
+			
+			border: none;
+		}
+
+		.qmark
+		{
+			image-rendering: pixelated;
+			width: 40px;
+			height: 40px;
+			display: none;
+			
+			border: none;
+		}
+
+		.aqmark
+		{
+			width: 40px;
+			height: 40px;
+			margin-top: 28px;
+		}
+
+
+		.filler:hover .qmark
+		{
+			display: inline;
+		}
+
+		#volslider
+		{
+			width: 100px;
+			height: 6px;
+			position: absolute;
+			display: inline;
+			z-index: 100;
+			-webkit-transform:rotate(-90deg);
+			left: calc(50% + 103px);
+			top: 112px;
+		}
+
+		input[type=range]::-webkit-slider-runnable-track
+		{
+			width: 100%;
+			cursor: pointer;
+			background: #7a7a7a;
+		}
+
+		input[type="range"]
+		{
+			-webkit-appearance: none;
+			width: 100%;
+			height: 8px;
+			outline: none !important;
+			appearance:none;
+			border:none;
+			border-radius:30px;
+		}
+		input[type="range"]::-moz-focus-outer
+		{
+			border: 0;
+		}
+		input[type="range"]:hover
+		{
+			outline:none;
+		}
+
+		/* Chrome */
+
+		input[type="range"]::-webkit-slider-thumb
+		{
+			-webkit-appearance: none;
+			appearance: none;
+			width: 12px;
+			height: 6px;
+			background: #000000;
+			cursor: pointer;
+			outline:none;
+		}
+
+		/* Moz */
+
+		input[type="range"]::-moz-range-thumb
+		{
+			width: 12px;
+			height: 6px;
+			background: #000000;
+			cursor: pointer;
+			border:none;
+			outline:none;
+		}
+		input[type="range"]::-moz-range-progress
+		{
+			background-color: #7a7a7a;
+			height: 100%;
+			border:none;
+		}
+		input[type="range"]::-moz-range-track
+		{  
+			background-color: #7a7a7a;
+			border:none;
+			height: 100%;
+		}
+
+		/* IE*/
+
+		input[type="range"]::-ms-fill-lower
+		{
+			background-color: #7a7a7a;
+			height: 100%;
+			border-radius:30px;
+			border:none;
+		}
+		input[type="range"]::-ms-fill-upper
+		{  
+			background-color: #7a7a7a;
+			border-radius:30px;
+			border:none;
+			height: 100%;
+		}
 
 	</style>
 </head>
@@ -155,91 +262,41 @@
 		<div class="stripe"></div>
 	</header>
 		
-	
-	<!-- Aight, probably no need to be sorting here... for now
-		<div class="sortContainer">
-		<span class="sortBtn">
-			<h3 class="by" id="DATE" onclick="sortProjects(this)">DATE</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-		<span class="sortBtn">
-			<h3 class="by" onclick="sortProjects(this)">NAME</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-		<span class="sortBtn">
-			<h3 class="by" onclick="sortProjects(this)">RANDOM</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-	</div> -->
-
 	<main>
 
 		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
+			<img class="tnail" src="/music/Wavwwatching/Wavewatching.jpg" alt="">
+			<img class="playpause" src="/images/transparent.png" alt="">
+			<div class="name"><h3>Wavewatching</h3></div>
+			<a class="aqmark" href="/music/Wavwwatching/Wavewatching.html" target="_blank">
+				<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+			</a>
+			<audio id="myAudio" onended="showPlay()">
+				<source src="/music/Wavwwatching/Wavewatching.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
 		</div>
 		
 		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
-		</div>
-		
-		<div class="filler">
-			<img src="/music/Wavewatching.jpg" alt="">
-			<h3>Wavewatching</h3>
+			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="">
+			<img class="playpause" src="/images/transparent.png" alt="">
+			<div class="name"><h3>Harmonics</h3></div>
+			<a class="aqmark" href="/music/Wavwwatching/Wavewatching.html" target="_blank">
+				<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+			</a>
+			<audio id="myAudio" onended="showPlay()">
+				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
 		</div>
 
 	</main>
 
-	<div class="radio"></div>
+	<div class="radio">
+		<img src="/images/Radio.png" alt="A radio on the beach">
+		<div class="cassette" id="cass"></div>
+		<div><input type="range" id="volslider" min="0" max="100" value="100" onchange="updateVolume(this.value)"/></div>
+	</div>
 	
 	<script>
 	</script>
