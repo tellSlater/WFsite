@@ -1,49 +1,85 @@
 //Play and pause audio
 var
 paused = true,
-volume = 1,
-canim = 0;
+volumeSLIDER = 1,
+canim = 0,
+prevAudio,
+currentAudio;
 
-function doAudio(AudioID) {
-    var myAudio = document.getElementById(AudioID);
-    if (!paused){
-        document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
-        document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
-        paused = true;
-        $("audio").stop();
-        $("audio").animate({volume:0}, 100);
-		var int_pause=setInterval(function(){
-                if (document.getElementById("myAudio").volume == 0){
-                    myAudio.pause();
-                    clearInterval(int_pause);
-                } 
-            }, 100); //When audio volume falls to 0 pause audio and stop looking to pause
 
+
+function doAudio(playb) {
+    prevAudio = currentAudio;
+    currentAudio = playb.parentNode.lastElementChild;
+
+
+    //pause previous audio
+    prevAudio.parentNode.querySelector('.playpause').style.backgroundPosition = "0px 0";
+    prevAudio.parentNode.style.border = "none";
+    
+    //activate current element
+    currentAudio.parentNode.style.borderLeft = "12px solid #445ff6";
+
+    //if new element rewind audio first and set initial volume to 0
+    if (prevAudio != currentAudio)
+    {
+        currentAudio.currentTime = 0;
+        currentAudio.volume = 0;
     }
-    else{
-        document.getElementById("PlayPauseDesktop").style.backgroundPosition ="-17px 0";
-        document.getElementById("PlayPauseMobile").style.backgroundPosition ="-17px 0";
+
+    //always pause previous audio first
+    $(prevAudio).stop();
+    $(prevAudio).animate({volume:0}, 150);
+    var prev_pause=setInterval(function(){
+            if (prevAudio.volume == 0){
+                prevAudio.pause();
+                clearInterval(prev_pause);
+            } 
+        }, 100); //When audio volume falls to 0 pause audio and stop looking to pause
+
+    if (!paused && (prevAudio == currentAudio))
+    {
+        paused = true;
+    }
+    else
+    {
+        currentAudio.parentNode.querySelector('.playpause').style.backgroundPosition = "-17px 0";
         paused = false;
-        $("audio").stop();
-        myAudio.play();
-        $("audio").animate({volume:1}, 100);
+        $(currentAudio).stop();
+        currentAudio.play();
+        $(currentAudio).animate({volume:volumeSLIDER}, 150);
     }
 }
 
-function showPlay() //Shows the play button again when audio ends
+function showPlay(thisaudio) //Shows the play button again when audio ends
 {
-    document.getElementById("PlayPauseDesktop").style.backgroundPosition ="0px 0";
-    document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
-    document.getElementById("myAudio").volume = 0;
+    thisaudio.parentNode.querySelector('.playpause').style.backgroundPosition ="0px 0";
+    thisaudio.volume = 0;
     paused = true;
 }
 
 function updateVolume(vol)
 {
-    volume = vol / 100;
+    volumeSLIDER = (Number(vol) + 0.1) / 100.1;
+    currentAudio.volume = volumeSLIDER;
 }
 
-function animateCasstette()
+function updateVolumeCon()
+{
+    var vol;
+    vol = document.getElementById("volslider").value;
+    volumeSLIDER = (Number(vol) + 0.1) / 100.1;
+    currentAudio.volume = volumeSLIDER;
+}
+
+
+
+function pauseAudio()
+{
+
+}
+
+function animateCassette()
 {
     if (!paused)
     {  
@@ -56,7 +92,18 @@ function animateCasstette()
 
 })();
 
-document.addEventListener("DOMContentLoaded", function(){
-    setInterval(animateCasstette, 400);
 
+
+document.addEventListener("DOMContentLoaded", function(e)
+{
+    setInterval(animateCassette, 400);
+
+    // setInterval(updateVolumeCon, 150)
+
+    prevAudio = document.getElementById("audio0");
+    currentAudio = document.getElementById("audio0");
+    
+    document.getElementById("volslider").addEventListener("change", function(e){
+    updateVolumeCon();
+    });
 });

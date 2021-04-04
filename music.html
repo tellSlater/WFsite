@@ -18,8 +18,9 @@
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/musicAudio.js"></script>
+	<script src="/JavaScript/musicAudio.js"></script>	<!-- External Functions: Audio related -->
 
 	<style>
 		main
@@ -64,13 +65,16 @@
 
 		.filler h3
 		{
-			width: 300px;
+			width: 308px;
+			margin-top: 45px;
 		}
 
-		/* .filler:hover
+		.filler:hover
 		{
-			border-left: 12px solid #e75858;
-		} */
+			/* border-left: 12px solid #e75858; */
+			/* border-left: 12px solid #445ff6; */
+			background: rgba(53, 55, 117, 0.3);
+		}
 
 		.filler:hover .playpause
 		{
@@ -114,10 +118,10 @@
 		{
 			display: none;
 			image-rendering: pixelated;
-			transform: scale(6);
+			transform: scale(4);
 			position: absolute;
-			top: 42px;
-			left: 42px;
+			top: 44px;
+			left: 44px;
 			width: 16px;
 			height: 16px;
 			z-index: 10;
@@ -128,11 +132,19 @@
 			border: none;
 		}
 
+		.buttonlinks
+		{
+			position: absolute;
+			right: 0px;
+		}
+
 		.qmark
 		{
 			image-rendering: pixelated;
 			width: 40px;
 			height: 40px;
+			margin: 6px;
+
 			display: none;
 			
 			border: none;
@@ -142,13 +154,13 @@
 		{
 			width: 40px;
 			height: 40px;
-			margin-top: 28px;
+			margin-top: 30px;
 		}
 
 
 		.filler:hover .qmark
 		{
-			display: inline;
+			display: block;
 		}
 
 		#volslider
@@ -159,6 +171,7 @@
 			display: inline;
 			z-index: 100;
 			-webkit-transform:rotate(-90deg);
+			transform:rotate(-90deg);
 			left: calc(50% + 103px);
 			top: 112px;
 		}
@@ -265,26 +278,147 @@
 	<main>
 
 		<div class="filler">
-			<img class="tnail" src="/music/Wavwwatching/Wavewatching.jpg" alt="">
-			<img class="playpause" src="/images/transparent.png" alt="">
+			<img class="tnail" src="/music/Wavewatching/Wavewatching.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
 			<div class="name"><h3>Wavewatching</h3></div>
-			<a class="aqmark" href="/music/Wavwwatching/Wavewatching.html" target="_blank">
-				<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-			</a>
-			<audio id="myAudio" onended="showPlay()">
-				<source src="/music/Wavwwatching/Wavewatching.mp3" type="audio/mpeg">
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
+				</a>
+			</div>
+			<audio id="audio0" onended="showPlay(this)">
+				<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
 		</div>
 		
 		<div class="filler">
-			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="">
-			<img class="playpause" src="/images/transparent.png" alt="">
+			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
 			<div class="name"><h3>Harmonics</h3></div>
-			<a class="aqmark" href="/music/Wavwwatching/Wavewatching.html" target="_blank">
-				<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-			</a>
-			<audio id="myAudio" onended="showPlay()">
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
+				</a>
+			</div>
+			<audio onended="showPlay(this)">
+				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+
+
+		<div class="filler">
+			<img class="tnail" src="/music/Wavewatching/Wavewatching.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<div class="name"><h3>Wavewatching</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio id="audio0" onended="showPlay(this)">
+				<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+		
+		<div class="filler">
+			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<div class="name"><h3>Harmonics</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio onended="showPlay(this)">
+				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+
+
+		<div class="filler">
+			<img class="tnail" src="/music/Wavewatching/Wavewatching.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<div class="name"><h3>Wavewatching</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio id="audio0" onended="showPlay(this)">
+				<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+		
+		<div class="filler">
+			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<div class="name"><h3>Harmonics</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio onended="showPlay(this)">
+				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+
+
+		<div class="filler">
+			<img class="tnail" src="/music/Wavewatching/Wavewatching.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<div class="name"><h3>Wavewatching</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio id="audio0" onended="showPlay(this)">
+				<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+		
+		<div class="filler">
+			<img class="tnail" src="/music/Harmonics/Harmonics.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<div class="name"><h3>Harmonics</h3></div>
+			<div class="buttonlinks">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
+					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				</a>
+			</div>
+			<audio onended="showPlay(this)">
 				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
@@ -295,7 +429,7 @@
 	<div class="radio">
 		<img src="/images/Radio.png" alt="A radio on the beach">
 		<div class="cassette" id="cass"></div>
-		<div><input type="range" id="volslider" min="0" max="100" value="100" onchange="updateVolume(this.value)"/></div>
+		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
 	</div>
 	
 	<script>
