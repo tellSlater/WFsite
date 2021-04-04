@@ -3,12 +3,45 @@ var
 paused = true,
 volumeSLIDER = 1,
 canim = 0,
+tipShown = false,
 prevAudio,
 currentAudio;
 
+function showTip()
+{
+    if (!tipShown)
+    {
+        document.querySelector(".voltip").style.display = "inline";
+        setTimeout(function(){
+            document.querySelector(".voltip").style.display = "none";
+        }, 10000); //When audio volume falls to 0 pause audio and stop looking to pause
+        tipShown = true;
+    }
+}
+
+function pressPlay()
+{
+    document.querySelector(".B1").style.display = "none";
+    document.querySelector(".B2").style.display = "inline";
+}
+
+function pressPause()
+{
+    document.querySelector(".B1").style.display = "inline";
+    document.querySelector(".B2").style.display = "none";
+}
+
+function pressEnd()
+{
+    document.querySelector(".B1").style.display = "inline";
+    document.querySelector(".B2").style.display = "inline";
+}
 
 
-function doAudio(playb) {
+
+function doAudio(playb)
+{
+    showTip();
     prevAudio = currentAudio;
     currentAudio = playb.parentNode.lastElementChild;
 
@@ -30,6 +63,7 @@ function doAudio(playb) {
     //always pause previous audio first
     $(prevAudio).stop();
     $(prevAudio).animate({volume:0}, 150);
+    pressPause();
     var prev_pause=setInterval(function(){
             if (prevAudio.volume == 0){
                 prevAudio.pause();
@@ -48,6 +82,7 @@ function doAudio(playb) {
         $(currentAudio).stop();
         currentAudio.play();
         $(currentAudio).animate({volume:volumeSLIDER}, 150);
+        pressPlay();
     }
 }
 
@@ -56,27 +91,14 @@ function showPlay(thisaudio) //Shows the play button again when audio ends
     thisaudio.parentNode.querySelector('.playpause').style.backgroundPosition ="0px 0";
     thisaudio.volume = 0;
     paused = true;
+    currentAudio.currentTime = 0;
+    pressEnd();
 }
 
 function updateVolume(vol)
 {
     volumeSLIDER = (Number(vol) + 0.1) / 100.1;
     currentAudio.volume = volumeSLIDER;
-}
-
-function updateVolumeCon()
-{
-    var vol;
-    vol = document.getElementById("volslider").value;
-    volumeSLIDER = (Number(vol) + 0.1) / 100.1;
-    currentAudio.volume = volumeSLIDER;
-}
-
-
-
-function pauseAudio()
-{
-
 }
 
 function animateCassette()
@@ -88,22 +110,23 @@ function animateCassette()
     document.getElementById("cass").style.backgroundPosition = String(11 * canim) + "px 0";
 }
 
-(function(){
+function animateProgBar()
+{
+    document.querySelector('.progress').style.width = String(114 * (currentAudio.currentTime / currentAudio.duration)) + "px";
+}
 
-})();
+function animateAll()
+{
+    animateCassette();
+    animateProgBar();
+}
 
 
 
 document.addEventListener("DOMContentLoaded", function(e)
 {
-    setInterval(animateCassette, 400);
-
-    // setInterval(updateVolumeCon, 150)
+    setInterval(animateAll, 400);
 
     prevAudio = document.getElementById("audio0");
     currentAudio = document.getElementById("audio0");
-    
-    document.getElementById("volslider").addEventListener("change", function(e){
-    updateVolumeCon();
-    });
 });

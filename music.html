@@ -176,6 +176,76 @@
 			top: 112px;
 		}
 
+		.B1
+		{
+			position: absolute;
+			left: calc(50% - 102px);
+			top: 29px;
+
+			width: 18px;
+			border-top: 6px solid black;
+			border-bottom: 6px solid #445ff6;
+		}
+
+		.B2
+		{
+			position: absolute;
+			left: calc(50% - 30px);
+			top: 29px;
+
+			width: 18px;
+			border-top: 6px solid black;
+			border-bottom: 6px solid #e75858;
+		}
+
+		.progbar
+		{
+			position: absolute;
+			left: calc(50% - 84px);
+			top: 53px;
+
+			width: 126px;
+			height: 18px;
+			background: #7a7a7a;
+			border: 6px solid black;
+
+			/* display: none; */
+		}
+
+		.progress
+		{
+			position: absolute;
+			height: 6px;
+			width: 0;
+			border-radius: 0;
+			background: #445ff6;
+			border: none;
+		}
+
+		.voltip
+		{
+			position: absolute;
+			left: calc(50%  + 140px);
+			top: -48px;
+			display: none;
+
+			-webkit-user-select: none; /* Safari */        
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* IE10+/Edge */
+			user-select: none; /* Standard */
+		}
+
+		.voltip .line
+		{
+			position: absolute;
+			top: 66px;
+			left: 36px;
+			height: 80px;
+			width: 40px;
+			border-right: 6px solid black;
+			border-bottom: 6px solid black;
+		}
+
 		input[type=range]::-webkit-slider-runnable-track
 		{
 			width: 100%;
@@ -322,8 +392,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio id="audio0" onended="showPlay(this)">
@@ -340,8 +410,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio onended="showPlay(this)">
@@ -359,8 +429,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio id="audio0" onended="showPlay(this)">
@@ -377,8 +447,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio onended="showPlay(this)">
@@ -396,8 +466,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Wavewatching/Wavewatching.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio id="audio0" onended="showPlay(this)">
@@ -414,8 +484,8 @@
 				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
+				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
+					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
 				</a>
 			</div>
 			<audio onended="showPlay(this)">
@@ -423,6 +493,8 @@
 				Your browser does not support the audio element.
 			</audio>
 		</div>
+
+
 
 	</main>
 
@@ -430,6 +502,10 @@
 		<img src="/images/Radio.png" alt="A radio on the beach">
 		<div class="cassette" id="cass"></div>
 		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
+		<div class="B1"></div>
+		<div class="B2"></div>
+		<div class="progbar"><div class="progress"></div></div>
+		<div class="voltip"><div class="line"></div><h3>Volume</h3></div>
 	</div>
 	
 	<script>
