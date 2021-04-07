@@ -644,6 +644,12 @@
 				display: inline !important;
 				opacity: 0.7;
 			} */
+			body
+			{
+			-moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+			zoom: 0.6; /* Other non-webkit browsers */
+			zoom: 60%; /* Webkit browsers */
+			}
 			div.mainlinkHolderDesktop
 			{
 				top: calc(33% - 120px);
@@ -680,6 +686,7 @@
 			div.mainlinkHolderMobile 
 			{
 				display: block;
+				margin-top: calc(50% - 236px);
 			}
 
 			div.mainlinkHolderMobile div.linkTXT
@@ -873,3 +880,5 @@
 </html>
 
 <!-- This line of code is for my friend Aggelos Chatziathanasiou who is hospitalized right now and asked me to code something for him -->
+
+<!-- http://127.0.0.1:5500/index.html - this is for the live server-->

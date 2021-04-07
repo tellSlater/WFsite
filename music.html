@@ -30,7 +30,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			width: 494px;
-			height: calc(100vh - 170px - 220px - 72px);
+			height: calc(100% - 170px - 220px - 72px);
 			min-height: 300px;
 			text-align: center;
 			overflow-x: hidden;
@@ -109,7 +109,8 @@
 			image-rendering: pixelated;
 			transform: translate(-50%, -50%) scale(6);
 			background: url(/images/RadioCassette.png) 0px 0;
-			position: relative;
+			background-repeat: none;
+			position: absolute;
 			top: 122px;
 			left: calc(50% - 21px);
 		}
@@ -179,23 +180,27 @@
 		.B1
 		{
 			position: absolute;
-			left: calc(50% - 102px);
+			left: calc(50% - 108px);
 			top: 29px;
 
-			width: 18px;
-			border-top: 6px solid black;
-			border-bottom: 6px solid #445ff6;
+			background: #445ff6;
+			width: 30px;
+			height: 18px;
+			border: 6px solid black;
+			border-radius: 0;
 		}
 
 		.B2
 		{
 			position: absolute;
-			left: calc(50% - 30px);
+			left: calc(50% - 36px);
 			top: 29px;
 
-			width: 18px;
-			border-top: 6px solid black;
-			border-bottom: 6px solid #e75858;
+			background: #e75858;
+			width: 30px;
+			height: 18px;
+			border: 6px solid black;
+			border-radius: 0;
 		}
 
 		.progbar
@@ -326,6 +331,22 @@
 			height: 100%;
 		}
 
+		
+		@media screen and (hover: none) and (pointer: coarse) {
+			body {
+				-moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+				zoom: 0.6; /* Other non-webkit browsers */
+				zoom: 60%; /* Webkit browsers */
+			}
+
+			.filler .name
+			{
+				-webkit-user-select: none; /* Safari */        
+				-moz-user-select: none; /* Firefox */
+				-ms-user-select: none; /* IE10+/Edge */
+				user-select: none; /* Standard */
+			}
+		}
 	</style>
 </head>
 	
@@ -499,7 +520,7 @@
 	</main>
 
 	<div class="radio">
-		<img src="/images/Radio.png" alt="A radio on the beach">
+		<img src="/images/RadioNew.png" alt="A radio on the beach">
 		<div class="cassette" id="cass"></div>
 		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
 		<div class="B1"></div>

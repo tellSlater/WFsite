@@ -28,6 +28,11 @@ p {
   text-align: justify;
 }
 
+.secondary {
+  font-style: italic;
+  color: rgb(70, 70, 70);
+}
+
 html,
 body {
   height: 100%;
@@ -187,4 +192,12 @@ main img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 0, 0);
+}
+
+@media screen and (hover: none) and (pointer: coarse) {
+  body {
+    -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+    zoom: 0.6; /* Other non-webkit browsers */
+    zoom: 60%; /* Webkit browsers */
+  }
 }
