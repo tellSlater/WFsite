@@ -47,6 +47,7 @@ function doAudio(playb)
 
 
     //pause previous audio
+    pressPause();
     prevAudio.parentNode.querySelector('.playpause').style.backgroundPosition = "0px 0";
     prevAudio.parentNode.style.border = "none";
     
@@ -62,14 +63,9 @@ function doAudio(playb)
 
     //always pause previous audio first
     $(prevAudio).stop();
-    $(prevAudio).animate({volume:0}, 150);
-    pressPause();
-    var prev_pause=setInterval(function(){
-            if (prevAudio.volume == 0){
-                prevAudio.pause();
-                clearInterval(prev_pause);
-            } 
-        }, 100); //When audio volume falls to 0 pause audio and stop looking to pause
+    $(prevAudio).animate({volume:0}, 150, 'linear', function(){
+        prevAudio.pause();
+    } );
 
     if (!paused && (prevAudio == currentAudio))
     {
@@ -77,12 +73,12 @@ function doAudio(playb)
     }
     else
     {
+        pressPlay();
         currentAudio.parentNode.querySelector('.playpause').style.backgroundPosition = "-17px 0";
         paused = false;
         $(currentAudio).stop();
         currentAudio.play();
-        $(currentAudio).animate({volume:volumeSLIDER}, 150);
-        pressPlay();
+        $(currentAudio).animate({volume:volumeSLIDER}, 150, 'linear');
     }
 }
 
