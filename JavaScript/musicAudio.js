@@ -39,11 +39,11 @@ function pressEnd()
 
 
 
-function doAudio(playb)
+function doAudio(aud)
 {
     showTip();
     prevAudio = currentAudio;
-    currentAudio = playb.parentNode.lastElementChild;
+    currentAudio = aud;
 
 
     //pause previous audio
@@ -63,7 +63,7 @@ function doAudio(playb)
 
     //always pause previous audio first
     $(prevAudio).stop();
-    $(prevAudio).animate({volume:0}, 150, 'linear', function(){
+    $(prevAudio).animate({volume:0}, 100, 'linear', function(){
         prevAudio.pause();
     } );
 
@@ -74,12 +74,27 @@ function doAudio(playb)
     else
     {
         pressPlay();
+        activateB2();
         currentAudio.parentNode.querySelector('.playpause').style.backgroundPosition = "-17px 0";
         paused = false;
         $(currentAudio).stop();
         currentAudio.play();
-        $(currentAudio).animate({volume:volumeSLIDER}, 150, 'linear');
+        $(currentAudio).animate({volume:volumeSLIDER}, 100, 'linear');
     }
+}
+
+function activateB2()
+{
+    var B2 = document.querySelector('.B2');
+    B2.style.cursor = "pointer";
+    B2.onclick = doAudio.bind(null, currentAudio);
+}
+
+function deactivateB2()
+{
+    var B2 = document.querySelector('.B2');
+    B2.style.cursor = "context-menu";
+    B2.onclick = null;
 }
 
 function showPlay(thisaudio) //Shows the play button again when audio ends
@@ -89,6 +104,7 @@ function showPlay(thisaudio) //Shows the play button again when audio ends
     paused = true;
     currentAudio.currentTime = 0;
     pressEnd();
+    deactivateB2();
 }
 
 function updateVolume(vol)
@@ -118,11 +134,17 @@ function animateAll()
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function(e)
 {
     setInterval(animateAll, 400);
 
     prevAudio = document.getElementById("audio0");
     currentAudio = document.getElementById("audio0");
+
+    document.body.onkeyup = function(e){
+        if(e.keyCode == 32){
+            doAudio(currentAudio);
+        }
+    };
+
 });

@@ -17,6 +17,7 @@
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
+	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
@@ -87,6 +88,8 @@
 			width: 100px;
 			margin-left: 0;
 			margin-right: 18px;
+			margin-top: 0;
+			margin-bottom: 0;
 
 			border: none;
 		}
@@ -125,6 +128,7 @@
 			left: 44px;
 			width: 16px;
 			height: 16px;
+			margin: 0;
 			z-index: 10;
 			background: url(images/PlayPause.png) 0px 0;
 			background-repeat: no-repeat;
@@ -149,6 +153,7 @@
 			display: none;
 			
 			border: none;
+			background: none;
 		}
 
 		.aqmark
@@ -156,6 +161,8 @@
 			width: 40px;
 			height: 40px;
 			margin-top: 30px;
+			
+			background: none;
 		}
 
 
@@ -188,6 +195,7 @@
 			height: 18px;
 			border: 6px solid black;
 			border-radius: 0;
+			cursor: pointer;
 		}
 
 		.B2
@@ -369,10 +377,10 @@
 
 		<div class="filler">
 			<img class="tnail" src="/music/SunnySunday/ThumbSunnySunday.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Sunny Sunday</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/SunnySunday/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/SunnySunday/Sunny Sunday.mp3" download>
@@ -387,7 +395,7 @@
 
 		<div class="filler">
 			<img class="tnail" src="/music/Wavewatching/ThumbWavewatching.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Wavewatching</h3></div>
 			<div class="buttonlinks">
 				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
@@ -405,10 +413,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/piosIneAftos/ThumbpiosIneAftos.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Pios ine aftos (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/piosIneAftos/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/piosIneAftos/piosIneAftos.mp3" download>
@@ -424,10 +432,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Harmonics/ThumbHarmonics.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Harmonics</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Harmonics/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
@@ -443,10 +451,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/All-ok-now/ThumbAllOkNow.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>All ok now</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/All-ok-now/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/All-ok-now/AllOkNow.mp3" download>
@@ -462,10 +470,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Turkish-march/ThumbTurkish-march.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Turkish march (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Turkish-march/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Turkish-march/Turkish-march.mp3" download>
@@ -481,10 +489,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Vamvakaris-Money/ThumbVamvakaris-Money.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Osi ehune pola lefta (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Vamvakaris-Money/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Vamvakaris-Money/Vamvakaris-Money.mp3" download>
@@ -500,10 +508,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Overworld-Zelda/ThumbOverworld-Zelda.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">ZELDA Overworld guitar trio cover</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Overworld-Zelda/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Overworld-Zelda/Overworld-Zelda.wav" download>
@@ -519,10 +527,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/A-Jam-Session/ThumbA-Jam-Session.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>A jam session</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/A-Jam-Session/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/A-Jam-Session/A-Jam-Session.mp3" download>
@@ -538,10 +546,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Ghost-house/ThumbGhost-house.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Ghost house theme (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Ghost-house/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Ghost-house/Ghost-house.mp3" download>
@@ -557,10 +565,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/WindWaker-lyra-cover/ThumbWindWaker-lyra-cover.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Wind Waker (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/WindWaker-lyra-cover/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3" download>
@@ -576,10 +584,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Playtime/ThumbPlaytime.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Playtime</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Playtime/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Playtime/Playtime.mp3" download>
@@ -595,10 +603,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Absence/ThumbAbsence.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Absence</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Absence/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Absence/Absence.mp3" download>
@@ -614,10 +622,10 @@
 
 		<div class="filler">
 			<img class="tnail" src="/music/Thought/ThumbThought.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Thought</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Thought/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Thought/Thought.mp3" download>
@@ -632,10 +640,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Ghosts/ThumbGhosts.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Ghosts</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Ghosts/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Ghosts/Ghosts.mp3" download>
@@ -650,10 +658,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/FMA-nocturne/ThumbFMA-nocturne.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">FMA Nocturne of Amestris (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/FMA-nocturne/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/FMA-nocturne/FMA-nocturne.mp3" download>
@@ -668,10 +676,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/Fable-TempleOfLight/ThumbFable-TempleOfLight.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Temple of Light (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/Fable-TempleOfLight/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3" download>
@@ -685,11 +693,11 @@
 		</div>
 		
 		<div class="filler">
-			<img class="tnail" src="/music/NobodyHome/ThumbNobodyHome.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="tnail" src="/music/NobodyHome/ThumbNobodyHome2.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">Nobody home (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/NobodyHome/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/NobodyHome/NobodyHome.mp3" download>
@@ -703,11 +711,11 @@
 		</div>
 		
 		<div class="filler">
-			<img class="tnail" src="/music/beOverYou/ThumbbeOverYou.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="tnail" src="/music/beOverYou/ThumbbeOverYou2.jpg" alt="song thumbnail">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">I'll be over you (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/beOverYou/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/beOverYou/beOverYou.mp3" download>
@@ -722,10 +730,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/15fathoms/Thumb15fathoms.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3 style="margin-top: 36px;">15 fathoms, counting (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/15fathoms/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/15fathoms/15fathoms.mp3" download>
@@ -741,10 +749,10 @@
 
 		<div class="filler">
 			<img class="tnail" src="/music/PrayCover/ThumbPrayCover.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Pray (cover)</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/PrayCover/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/PrayCover/PrayCover.mp3" download>
@@ -759,10 +767,10 @@
 		
 		<div class="filler">
 			<img class="tnail" src="/music/SeasonsOfLife/ThumbSeasonsOfLife.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this)">
+			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
 			<div class="name"><h3>Seasons of Life</h3></div>
 			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
+				<a class="aqmark" href="/music/SeasonsOfLife/aboutsong.html" target="_blank">
 					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
 				</a>
 				<a class="aqmark" href="/music/SeasonsOfLife/SeasonsOfLife.mp3" download>
@@ -783,7 +791,7 @@
 		<img src="/images/Radio.png" alt="A radio on the beach">
 		<div class="cassette" id="cass"></div>
 		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
-		<div class="B1"></div>
+		<div class="B1" onclick="doAudio(currentAudio)"></div>
 		<div class="B2"></div>
 		<div class="progbar"><div class="progress"></div></div>
 		<div class="voltip"><div class="line"></div><h3>Volume</h3></div>

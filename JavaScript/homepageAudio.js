@@ -7,7 +7,7 @@ function doAudio(AudioID) {
         document.getElementById("PlayPauseMobile").style.backgroundPosition ="0px 0";
         paused = true;
         $("audio").stop();
-        $("audio").animate({volume:0}, 1000);
+        $("audio").animate({volume:0}, 150);
 		var int_pause=setInterval(function(){
                 if (document.getElementById("myAudio").volume == 0){
                     myAudio.pause();
@@ -22,7 +22,7 @@ function doAudio(AudioID) {
         paused = false;
         $("audio").stop();
         myAudio.play();
-        $("audio").animate({volume:1}, 1000);
+        $("audio").animate({volume:1}, 150);
     }
 }
 

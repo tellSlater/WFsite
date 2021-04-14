@@ -2,20 +2,20 @@
 h1 {
   color: black;
   font-size: 32px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", sans-serif;
 }
 
 h2 {
   color: black;
   font-size: 24px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", sans-serif;
 }
 
 h3 {
   color: black;
   font-weight: bold;
   font-size: 18px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", sans-serif;
   margin-top: 40px;
 }
 
@@ -23,7 +23,7 @@ h4 {
   color: black;
   font-weight: bold;
   font-size: 12px;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", sans-serif;
   /* margin-top: 40px; */
 }
 
@@ -137,28 +137,34 @@ img.header:hover {
 }
 
 a:link {
-  color: black;
+  color: #445ff6;
   font-style: normal;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: #e75858;
+  font-style: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: #445ff6; */
+  font-style: normal;
+  text-decoration: underline;
+}
+
+a:active {
+  /* color: #445ff6; */
   font-style: normal;
   text-decoration: none;
 }
 
 header a:hover {
-  color: black;
+  /* color: #445ff6; */
   font-style: normal;
   text-decoration: none;
   opacity: 0.7;
-}
-
-a:active {
-  color: black;
-  font-style: normal;
-  text-decoration: none;
 }
 
 main {
@@ -172,9 +178,11 @@ main {
 
 main img {
   display: block;
-  margin: auto;
+  margin: 18px auto 18px auto;
   width: 100%;
+  max-width: 490px;
 
+  background: black;
   border: 3px solid black;
 }
 
@@ -198,6 +206,16 @@ main img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 0, 0);
+}
+
+main iframe {
+  display: block;
+  margin: 18px auto 18px auto;
+  width: 100%;
+  max-width: 490px;
+
+  background: black;
+  border: 3px solid black;
 }
 
 @media screen and (hover: none) and (pointer: coarse) {
