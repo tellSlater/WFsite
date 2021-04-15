@@ -116,8 +116,8 @@
 		{
 			position: relative;
 			display: inline-block;
-			width: 350px;
-			height: 400px;
+			width: 384px;
+			height: 444px;
 			margin: 20px;
 			vertical-align: middle;
 
@@ -136,17 +136,16 @@
 			vertical-align: middle;
 			overflow: hidden;
 
-			background-color: rgba(255,255,255,0.2);
-
+			/* background-color: rgba(255,255,255,0.2);
 			border-top: 2px solid black;
 			border-left: 2px solid black;
 			border-bottom: 6px solid black;
-			border-right: 6px solid black;
-			
-			/* border: 6px dashed black; */
+			border-right: 6px solid black; */
 		}
 
-		.contBlockLink:active
+
+
+		/* .contBlockLink:active
 		{
 			background-color: rgba(196, 196, 196, 0.2);
 
@@ -154,11 +153,12 @@
 			border-left: 6px solid black;
 			border-bottom: 6px double black;
 			border-right: 6px double black;;
-		}
+		} */
 		
 		.contBlockLink:hover
 		{
 			text-decoration: none;
+			transform: scale(1.02);
 		}
 
 		/* .contBlockLink:hover 
@@ -166,6 +166,18 @@
 			background-color: rgba(255,255,255,0.4);
 		} */
 
+		.contBlockLink .paper
+		{
+			z-index: -10;
+			image-rendering: pixelated;
+			width: 64px;
+			height: 74px;
+			transform: translate(-50%, -50%) scale(6);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-repeat: no-repeat;
+		}
 
 		.contBlock img
 		{
@@ -246,6 +258,7 @@
 				<h4>15 Mar 2021</h4>
 				<h4>difficulty: HARD</h4>
 				<p>Geometry-themed pots for small plants</p>
+				<div class="paper" style="background: url(/images/Paper1.png)"></div>
 			</a>
 		</div>
 
@@ -256,6 +269,7 @@
 				<h4>11 Mar 2021</h4>
 				<h4>difficulty: NORMAL</h4>
 				<p>Geometry-themed pots for small plants</p>
+				<div class="paper" style="background: url(/images/Paper2.png)"></div>
 			</a>
 		</div>
 
@@ -266,6 +280,18 @@
 				<h4>13 Mar 2021</h4>
 				<h4>difficulty: EASY</h4>
 				<p>Geometry-themed pots for small plants</p>
+				<div class="paper" style="background: url(/images/Paper3.png)"></div>
+			</a>
+		</div>
+
+		<div class="contBlock">
+			<a class="contBlockLink" href="">
+				<img src="/projects/geometric_pots/pot_thumbnail.jpg" alt="Geometric Pots Thumbnail">
+				<h3>Aeometric Pots</h3>
+				<h4>13 Mar 2021</h4>
+				<h4>difficulty: EASY</h4>
+				<p>Geometry-themed pots for small plants</p>
+				<div class="paper" style="background: url(/images/Paper4.png)"></div>
 			</a>
 		</div>
 
