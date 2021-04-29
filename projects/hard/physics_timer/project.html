@@ -133,6 +133,7 @@
 			The schematic is a pretty standard comparator configuration.
 		</p>
 		<img src="/projects/hard/physics_timer/sensorBoard.jpg" alt="sensorBoard.jpg" title="Sensor board">
+		<img src="/projects/hard/physics_timer/sensorBoardSchematic.jpg" alt="sensorBoard.jpg" title="Sensor board schematic">
 		<p>
 			The main board on the timer uses an ATTiny2313a.
 			A standard configuration for an external oscillator is used.
@@ -141,9 +142,57 @@
 			On the bottom side of the board there is a beeper, a pushbutton and a filtering capacitor for the IC.
 		</p>
 		<img src="/projects/hard/physics_timer/mainUnitBoard.jpg" alt="mainUnitBoard.jpg" title="Main unit board">
+		<a class="img" href="/projects/hard/physics_timer/EAGLEbig.jpg" target="_blank">
+			<img src="/projects/hard/physics_timer/EAGLEsmall.jpg" alt="EAGLEsmall.jpg" title="Main unit board schematic">
+		</a>
 		<h3>
-
+			Circuit board
 		</h3>
+		<p>
+			The board was designed in EAGLE.
+			The components were packed as close as possible.
+			Thermally relieved vias were used for hand soldering them in stead of rivetting.
+			(The silk screen below does not contain the filtering capacitor for the IC.
+			It should be added between GND and VBAT)
+		</p>
+		<img src="/projects/hard/physics_timer/SilkScreen.png" alt="SilkScreen.png" title="EAGLE design">
+		<p>
+			The double sided board was cut using FlatCam and a 3D printer that was converted to a milling cutter.
+			(Available as a project <a href="/projects/hard/printer_to_cnc/project.html">here</a>)
+		</p>
+		<img src="/projects/hard/physics_timer/millingBoard.jpg" alt="millingBoard.jpg" title="Milling the board">
+		<img src="/projects/hard/physics_timer/milledBoard.jpg" alt="milledBoard.jpg" title="Resulted milled board">
+		<p>
+			You can download the gerber and drill files for the board <a href="/projects/hard/physics_timer/CAMOutputs.rar" download>here</a>.
+		</p>
+		<h3>
+			Programming the AVR
+		</h3>
+		<p>
+			The code was developed in Cpp using Atmel Studio 7.
+			The chip is operated on an external 16MHz crystal oscillator.
+			The chip's timer 0 overflow interrupt is used for all the timing needs.
+			A pin change interrupt is used to read the sensors with precise timing.
+			The source code is well commented and you can download it along with the compiled .hex file
+			<a href="/projects/hard/physics_timer/physicsTimerCode.rar" download="">here</a>.
+		</p>
+		<h3>
+			Casing
+		</h3>
+		<p>
+			The case for the timer was designed in Fusion360.
+			The main unit's casing can be 3D printed without supports.
+			It features a print in place hinge, a clip-in circuit board mount and a bending push button cover.
+		</p>
+		<img src="/projects/hard/physics_timer/casingMain.jpg" alt="casingMain.jpg" title="Main unit casing">
+		<p>
+			The sensor's casing bottom part needs a couple supports to be printed correctly.
+			The two halves of the casing clip together.
+		</p>
+		<img src="/projects/hard/physics_timer/casingSensor.jpg" alt="casingSensor.jpg" title="Sensor casing">
+		<p>
+			To download the casing's STL files click <a href="/projects/hard/physics_timer/physicsTimerCasingSTL.rar" download>here</a>.
+		</p>
 	</main>
 
 	
