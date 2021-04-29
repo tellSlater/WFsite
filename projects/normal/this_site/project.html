@@ -6,13 +6,13 @@
 	<meta name="author" content="Ilias Chatziefstathiou">
 	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>About</title>
+	<title>This site</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="CSS/article.css">
+	<link rel="stylesheet" href="/CSS/article.css">
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
@@ -23,7 +23,7 @@
 	<style>
 		.PS2P
 		{
-			font-family: "Press Start 2P", cursive;
+			font-family: "Press Start 2P", sans-serif;
 			font-size: 12px;
 		}
 	</style>
@@ -32,13 +32,13 @@
 <body>
 	<header id="sky">
 		<div style="margin-left: 8%;">
-			<a  href="index.html" >
-				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+			<a  href="/index.html" >
+				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
 			</a>
 		</div>
 		<div>
-			<a  href="about.html" class="themeTXT">
-				<h1>About</h1>
+			<a  href="/projects.html" class="themeTXT">
+				<h1>Projects</h1>
 			</a>
 		</div>
 		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
@@ -46,57 +46,174 @@
 	</header>
 		
 	<main>
+		<h2>
+			This site
+		</h2>
 		<h3>
-			Ceation
+			Summary
 		</h3>
 		<p>
-			I decided to create this site in order to have a place where I can gather all my projects, document them properly and share them with you.
-			I enjoy creating and sharing - I treasure the feeling that I get when I see others enjoy my work, learn from my work or being entertained by it.
-			I may also have the opportunity to share some of the projects of a few close friends.
+			I was inspired by mitxela(<a href="https://mitxela.com/"  target="_blank">mitxela.com</a>) and
+			bigclive(<a href="http://www.bigclive.com/" target="_blank">bigclive.com</a>) about creating my own website.
+			As far as I know, they both created their sites themselves.
+			They are a couple of brilliant individuals!
 		</p>
-		<p class="secondary">
-			You may ask "why not make a profile on Instructables or any other such website?".
-			The answer is that I wanted to try and take on the challenge of building a website on my own.
-			In the process, I have come to realize that making a profile and using it on a platform is one thing but making your own website is quite another.
-			I could compare the experience as living in a hotel room (a platform) or living in your own house (own website).
-			No matter how many utilities and comforts a big hotel may have, it will never be as cosy as your own space.
-			Thus, this site was born!
+		<p>
+			If you feel inspired about creating your own site, you can!
+			All you have to do is put in the effort - the knowledge is very well documented out there.
+			<b>In this page I will guide you through the sources I used to learn how to build this site and all the programs-tools I used.</b>
+			Keep in mind I had no knowledge on web development and it took me about 2 months to learn and develop this site.
 		</p>
 		<h3>
-			Content
+			Website anatomy
 		</h3>
 		<p>
-			The content on this site falls in two main categories in the home page: <b class="PS2P">PROJECTS</b> and <b class="PS2P">MUSIC</b>.
-			On the <b class="PS2P">PROJECTS</b> page there is content mainly about crafting-themed projects that revolve around 3d designing, 3d printing, electronics, synthesizers, CNC and more.
-			On the <b class="PS2P">MUSIC</b> page there is content about songs that I write, improvise, cover or interpret alone or with friends.
-			There is also a link to a contact form on the main page - feel free to ask me anything you like or just send me a message!
+			A website like this one is made from three languages: <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>.
+			<b>HTML</b> is used to write any text and separate it into paragraphs or sections.
+			<b>CSS</b> is then used on top of the HTML code to specify styling for the page such as fonts, colors or backgrounds.
+			Last but not least, <b>JavaScript</b> helps make the page more interactive -
+			you can make any element on the page change based on any user input.
+		</p>
+		<p>
+			You can definitely write a beautiful, well working website without ever having to write a line of JavaScript.
+			If you are planning to learn and use JavaScript, having previous knowledge with any other programming language will help immensely.
+			HTML and CSS are not exactly programming languages and are easier to grasp.
 		</p>
 		<h3>
-			Difficulties
+			Hello world
 		</h3>
 		<p>
-			I decided to categorize the projects according to their difficulty in three categories: <b class="PS2P">EASY</b>, <b class="PS2P">NORMAL</b> and <b class="PS2P">HARD</b>.
-			Don't expect this to be an accurate estimation and, moreover, don't let the titled difficulty of a project disheart you.
-			I am sure that anyone can tackle any project if he/she really wants to do it.
-			Difficulties are only a broad line I drew to let you know of the amount of effort I had to put into each project and the possible amount of effort a project could demand from you as well.
+			Writing your first "Hello world!" site is as easy as creating a .txt file,
+			renaming the file to "(use any name here).html",
+			opening the file with a text editor, writing "Hello world!" and then saving it.
+			Here is what such a file looks like when opened with a web browser --> <a href="/projects/normal/this_site/helloWorld.html" target="_blank">helloWorld.html</a>.
+		</p>
+		<p>
+			Now if instead of writing just "Hello world!" in this file, I wrote "&lt;h1&gt;Hello world!&lt;/h1&gt;"
+			the resulting website would be this --> <a href="/projects/normal/this_site/helloWorld2.html" target="_blank">helloWorld2.html</a>.
+			I used HTML markup code to indicate that my text is an h1 headline so the font is now bigger in size.
+		</p>
+		<p>
+			Changing the color can be done by using CSS.
+			This time I write two lines of code in my HTML text file.
+			On the first line I use CSS to indicate that all h1 headlines should be blue: "&lt;style&gt;h1{color: blue;}&lt;/style&gt;".
+			The second line of code is the same line that was used before: "&lt;h1&gt;Hello world!&lt;/h1&gt;".
+			Opening my file in a web browser now results in --> <a href="/projects/normal/this_site/helloWorld3.html" target="_blank">helloWorld3.html</a>.
+		</p>
+		<p>
+			This is actually not the proper way of writing these languages but it works for a short example.
 		</p>
 		<h3>
-			My background
+			Source for learning
 		</h3>
 		<p>
-			I studied classical and electric guitar in my younger years and have acquired the RGT grade 7 diploma for electric guitar.
-			I graduated from the “Lycée Léonin de Patissia Athènes” high-school.
-			Finally, I received a Master’s degree in Mechanical Engineering from the University of Thessaly.
-			Other than my “legitimately proven knowledge” that is stated in the previous three sentences, I have been developing other skills on my own as well.
-			There are so many interesting subjects in this world that every month I catch myself trying to learn or create something new (learning HTML, CSS and JavaScript and creating this site for instance).
+			I learnt these three languages over on a website called w3schools (<a href="https://www.w3schools.com/" target="_blank">w3schools.com</a>).
+			Their tutorials are packed with important knowledge to get you started and are well written.
+			There are also exercises and an online platform where you can mess around with code.
+			I suggest starting with their HTML tutorials and then heading over to CSS.
+			You can create a complete site using these two languages.
+			If you are planning on implementing an audio player or a sortable grid of content or any other interactive element,
+			you will need to learn to use JavaScript as well.
 		</p>
-		<!-- <p>
-			If you wish to know more about me, I suggest you browse my list of projects or contact me.
-		</p> -->
-
-
+		<h3>
+			Text editor
+		</h3>
+		<p>
+			A text editor is necessary for typing code.
+			Although an entire site could be written using Windows' notepad, it is not the best choice.
+			Today there are smarter text editors designed to make coding faster and more efficient.
+			Modern text editors will help by marking your code, autofill code, guess what you want to write, auto format your code and more.
+			One of the most famous editors today is <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a>, it is available for free and is easy to use.
+			This text editor has a big community behind it and a number of extensions available to make programming easier.
+			Here is a list of extensions I use with VS Code for writing HTML, CSS and JavaScript:
+		</p>
+		<ol type="1">
+			<li>HTML CSS support - Code suggestions/autofill</li>
+			<li>Auto Rename Tag - Helps rename html start and end tags simultaneously</li>
+			<li>Bracket Pair Colorizer 2 - Colorizes bracket pairs (duh!)</li>
+			<li>Prettier - Code formatter</li>
+			<li>Live Server - Lets you open the page you are editing and have it change live, every time you change the code (very helpful)</li>
+			<li>Indent rainbow - Helps visualize the code indents</li>
+			<li>Code Spell Checker - Checks spelling for the English language</li>
+		</ol>
+		<h3>
+			Versioning
+		</h3>
+		<p>
+			If you are taking over a large programming project such as building a website,
+			it is highly recommended that you use a versioning program.
+			A versioning program helps keep track of all the changes you make in the code and why you make them.
+			It helps you keep a very analytical history of your project's progress.
+			It also gives the advantage of being able to rollback to previous versions
+			which is invaluable if you ever regret changes that you made.
+		</p>
+		<p>
+			<a href="https://git-scm.com/" target="_blank">Git</a> is the most used versioning program nowadays (Apr 2021).
+			By default it is terminal based - it has no graphical user interface and is operated via a terminal.
+			If that scares you, there are programs such as <a href="https://www.gitkraken.com/" target="_blank">GitKraken</a>
+			designed to offer a graphical user interface for Git.
+		</p>
+		<h3>
+			Inspecting
+		</h3>
+		<p>
+			You can inspect any webpage's code and files by right clicking on it and selecting "inspect".
+			In the inspect menu you can read the page's HTML,
+			you can read the active CSS styling rules on each page element
+			and you can read any JavaScript program that runs on the page.
+			This is very useful in many ways:
+		</p>
+		<ol type="1">
+			<li>Inspect your own page to better understand how your code behaves</li>
+			<li>Inspect your favorite web page to get inspired by how it is coded and have a good example in mind</li>
+			<li>Use the JavaScript Debugger to tune and correct your JavaScript code</li>
+		</ol>
+		<p>
+			Try right clicking on the first paragraph of this site and then press "inspect".
+			This is what should appear:
+		</p>
+		<img src="/projects/normal/this_site/inspect.png" alt="inspect.png" title="Inspect Element">
+		<p>
+			On the left side there is the site's HTML and the paragraph you selected is highlighted.
+			Under the Styles tab all the CSS rules that affect the selected paragraph are visible (font, color etc.).
+			On the Sources tab, all the files that make up the page are available and that includes the JavaScript files:
+		</p>
+		<img src="/projects/normal/this_site/inspectJS.png" alt="inspect.png" title="Inspecting the JavaScript">
+		<h3>
+			Hosting
+		</h3>
+		<p>
+			After writing your website all that remains is making it available on the internet.
+			You can host your website using your own computer and network or
+			you can pay for a hosting service.
+			The limitations of hosting yourself are your network speed and the
+			fact that you need to keep your computer busy all the time.
+			Other than that, hosting from your own PC is a good way to get some first impressions and it is free.
+			Hosting alone is enough to make your site available on the internet.
+			Anyone will be able to visit your site using the server's public IP address.
+		</p>
+		<h3>
+			Domain name
+		</h3>
+		<p>
+			Associating a name to the server's IP address is advised because a name is easier to remember and share with people.
+			After doing so, anyone who types your domain name in the URL bar, will be redirected to your server's IP.
+			You can get a free domain name associated to your chosen IP in <a href="https://www.noip.com/" target="_blank">noip.com</a>.
+			You can also pay for a more formal name with a .com or .org extension.
+		</p>
+		<h3>
+			In conclusion
+		</h3>
+		<p>
+			Learning how to develop a website is not hard!
+			Just head over to <a href="https://www.w3schools.com/" target="_blank">w3schools.com</a>
+			and read their tutorials on HTML, CSS and JavaScript.
+			Use <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a> as your text editor
+			and consider using a versioning program such as <a href="https://git-scm.com/" target="_blank">Git</a>
+			to keep track of your progress.
+			"Right click --&gt; Inspect" is a great tool for understanding how your code translates to site elements.
+		</p>
 	</main>
-
 	
 	<script>
 	</script>

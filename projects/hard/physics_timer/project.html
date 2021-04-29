@@ -6,19 +6,21 @@
 	<meta name="author" content="Ilias Chatziefstathiou">
 	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>About</title>
+	<title>Physics timer</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="CSS/article.css">
+	<link rel="stylesheet" href="/CSS/article.css">
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
+	<script src="/JavaScript/myVideo.js"></script> 	<!-- External Functions: Custom video player -->
+
 
 	<style>
 		.PS2P
@@ -32,13 +34,13 @@
 <body>
 	<header id="sky">
 		<div style="margin-left: 8%;">
-			<a  href="index.html" >
-				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+			<a  href="/index.html" >
+				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
 			</a>
 		</div>
 		<div>
-			<a  href="about.html" class="themeTXT">
-				<h1>About</h1>
+			<a  href="/projects.html" class="themeTXT">
+				<h1>Projects</h1>
 			</a>
 		</div>
 		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
@@ -46,55 +48,102 @@
 	</header>
 		
 	<main>
+		<h2>
+			Physics timer
+		</h2>
 		<h3>
-			Ceation
+			Summary
 		</h3>
 		<p>
-			I decided to create this site in order to have a place where I can gather all my projects, document them properly and share them with you.
-			I enjoy creating and sharing - I treasure the feeling that I get when I see others enjoy my work, learn from my work or being entertained by it.
-			I may also have the opportunity to share some of the projects of a few close friends.
+			This is a timer with precision to the millisecond.
+			It uses two sensors to operate.
+			When the first sensor triggers, the timer starts.
+			When the second sensor is triggered, the timer stops.
+			The timer is destined to help in small, in-class physics experiments.
 		</p>
-		<p class="secondary">
-			You may ask "why not make a profile on Instructables or any other such website?".
-			The answer is that I wanted to try and take on the challenge of building a website on my own.
-			In the process, I have come to realize that making a profile and using it on a platform is one thing but making your own website is quite another.
-			I could compare the experience as living in a hotel room (a platform) or living in your own house (own website).
-			No matter how many utilities and comforts a big hotel may have, it will never be as cosy as your own space.
-			Thus, this site was born!
-		</p>
+		<img src="/projects/hard/physics_timer/physics_timer_photo.jpg" alt="physics_timer.jpg" title="Physics timer">
 		<h3>
-			Content
+			
 		</h3>
 		<p>
-			The content on this site falls in two main categories in the home page: <b class="PS2P">PROJECTS</b> and <b class="PS2P">MUSIC</b>.
-			On the <b class="PS2P">PROJECTS</b> page there is content mainly about crafting-themed projects that revolve around 3d designing, 3d printing, electronics, synthesizers, CNC and more.
-			On the <b class="PS2P">MUSIC</b> page there is content about songs that I write, improvise, cover or interpret alone or with friends.
-			There is also a link to a contact form on the main page - feel free to ask me anything you like or just send me a message!
+			The timer is using 3 AAA batteries in series and draws about 75mA on average.
+			That means these batteries should last for roughly 6-7 hours of use.
+			After 1' of being idle, the timer enters sleep mode and the amount of current drawn is negligible(&lt;0.1uA).
+			It should have a shelf life of tens of years.
 		</p>
 		<h3>
-			Difficulties
+			Using the timer
 		</h3>
 		<p>
-			I decided to categorize the projects according to their difficulty in three categories: <b class="PS2P">EASY</b>, <b class="PS2P">NORMAL</b> and <b class="PS2P">HARD</b>.
-			Don't expect this to be an accurate estimation and, moreover, don't let the titled difficulty of a project disheart you.
-			I am sure that anyone can tackle any project if he/she really wants to do it.
-			Difficulties are only a broad line I drew to let you know of the amount of effort I had to put into each project and the possible amount of effort a project could demand from you as well.
+			When placing the sensors at a known distance apart, the speed of an object can be estimated
+			by dividing this distance with the measured time.
+			It can help in measuring pendulum periods or the speed of an object after rolling from a ramp.
+			This could help students see how the numbers they calculate using the physics equations
+			are good approximations of real world phenomena.
 		</p>
+		<div class="video">
+			<video src="/projects/hard/physics_timer/timer_test_blendered.mp4" loop title="Using the timer"></video>
+			<div class="playpause" onclick="doVid(this)"></div>
+			<div class="progbar"></div>
+			<div class="preplay"></div>
+		</div>
+		<p>
+			In this video the two sensors are set 10cm apart.
+			A small paper ball passes by them and a time interval of 79ms is measured.
+			Dividing the traveled distance with the time measured gives a speed of roughly 0.1m / 0.079s = 1.27m/s.
+		</p>
+		<h3>How to operate</h3>
+		<p>
+			Other than the sensors, the only input the timer has is a button.
+			To turn on the timer the button has to be pressed once.
+		</p>
+		<img src="/projects/hard/physics_timer/mainUnit.jpg" alt="mainUnit.jpg" title="Main unit">
+		<p>
+			Once turned on, the timer can be in one of these three states - ready, running or stopped.
+		</p>
+		<ul>
+			<li>
+				Ready - the timer enters this state when it is first turned on or
+				when the timer is in the stopped state and the button is pressed once.
+				The display shows blinking zeroes in this state.
+			</li>
+			<li>
+				Running - when in the ready state, the timers starts running if the button is pressed once
+				or if the sensor A is triggered. On the display the timer starts running.
+			</li>
+			<li>
+				Stopped - when in the running state, the timer stops if the button is pressed once
+				or sensor B is triggered. The display shows the measured time.
+			</li>
+		</ul>
+		<p>
+			Before taking a measurement it must be ensured that
+			the sensors are triggered when the object passes by them.
+			When triggered a green triangle lights up on the sensors.
+			If a sensor is not working properly, its sensitivity can be adjusted with a phillips screw driver.
+			The sensor works by emitting infrared light and measuring its reflection on the passing object.
+			External sources of infrared radiation can trigger the sensors and result in a bad measurement.
+		</p>
+		<img src="/projects/hard/physics_timer/sensor.jpg" alt="sensor.jpg" title="Infrared sensor">
 		<h3>
-			My background
+			Schematics
 		</h3>
 		<p>
-			I studied classical and electric guitar in my younger years and have acquired the RGT grade 7 diploma for electric guitar.
-			I graduated from the “Lycée Léonin de Patissia Athènes” high-school.
-			Finally, I received a Master’s degree in Mechanical Engineering from the University of Thessaly.
-			Other than my “legitimately proven knowledge” that is stated in the previous three sentences, I have been developing other skills on my own as well.
-			There are so many interesting subjects in this world that every month I catch myself trying to learn or create something new (learning HTML, CSS and JavaScript and creating this site for instance).
+			The IR sensors use a board usually sold as "Infrared sensor for Arduino".
+			The schematic is a pretty standard comparator configuration.
 		</p>
-		<!-- <p>
-			If you wish to know more about me, I suggest you browse my list of projects or contact me.
-		</p> -->
+		<img src="/projects/hard/physics_timer/sensorBoard.jpg" alt="sensorBoard.jpg" title="Sensor board">
+		<p>
+			The main board on the timer uses an ATTiny2313a.
+			A standard configuration for an external oscillator is used.
+			The 4 digit 7-segment display is run using an 8-bit shift register.
+			There are also 4 current limiting resistors - one for each digit of the display.
+			On the bottom side of the board there is a beeper, a pushbutton and a filtering capacitor for the IC.
+		</p>
+		<img src="/projects/hard/physics_timer/mainUnitBoard.jpg" alt="mainUnitBoard.jpg" title="Main unit board">
+		<h3>
 
-
+		</h3>
 	</main>
 
 	

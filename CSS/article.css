@@ -34,6 +34,25 @@ p {
   text-align: justify;
 }
 
+ol {
+  color: black;
+  font-size: 16px;
+  font-family: "Helvetica", sans-serif;
+  text-align: justify;
+}
+
+ul {
+  color: black;
+  font-size: 16px;
+  font-family: "Helvetica", sans-serif;
+  text-align: justify;
+}
+
+.PS2P {
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+}
+
 .secondary {
   font-style: italic;
   color: rgba(100, 100, 100, 0.8);
@@ -184,6 +203,74 @@ main img {
 
   background: black;
   border: 3px solid black;
+}
+
+main video {
+  /* z-index: -2; */
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 490px;
+}
+
+main .video {
+  /* z-index: -3; */
+  display: block;
+  position: relative;
+  margin: 18px auto 18px auto;
+  width: 100%;
+  max-width: 490px;
+
+  background: black;
+  border: 3px solid black;
+}
+
+.video .preplay {
+  /* z-index: -1; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  height: 16px;
+  width: 16px;
+
+  background: url(/images/PlayPause.png);
+  image-rendering: pixelated;
+  transform: translate(-50%, -50%) scale(6);
+}
+
+.video .playpause {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  height: 16px;
+  width: 16px;
+
+  background: url(/images/PlayPause.png);
+  image-rendering: pixelated;
+  transform: translate(-50%, -50%) scale(6);
+
+  cursor: pointer;
+  display: none;
+}
+.video:hover .playpause {
+  display: block;
+}
+
+.video .progbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  width: 0;
+  margin: 0;
+
+  background: #445ff6;
+  opacity: 0.7;
+  border-radius: 0;
 }
 
 /* Scrolbar style */
