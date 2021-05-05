@@ -32,12 +32,14 @@
 		form#fs-frm
 		{
 			min-width: 240px;
-			background-color: rgba(255,255,255,0.2);
+			/* background-color: rgba(255,255,255,0.2); */
 			margin: auto;
 			padding: 36px;
-			max-width: 600px;
+			max-width: 494px;
 
-			border: 6px dashed black;
+			/* border: 6px dashed black; */
+			border-top: 6px solid black;
+			border-bottom: 6px solid black;
 		}
 
 		main label
@@ -87,13 +89,30 @@
 			width: 100%;
 		}
 
-		@media screen and (hover: none) and (pointer: coarse)
+		.bottle
+		{
+			height: 198px;
+			position: relative;
+			padding-top: 36px;
+			padding-bottom: 36px;
+		}
+
+		.bottle img
+		{
+			position: absolute;
+			left: 50%;
+			image-rendering: pixelated;
+			transform: translate(-50%) scale(6);
+
+		}
+
+		/* @media screen and (hover: none) and (pointer: coarse)
 		{
 			form#fs-frm
 			{
 				margin-top: 15vh;
 			}
-		}
+		} */
 
 	</style>
 
@@ -131,6 +150,9 @@
 
 
 	</main>
+	<div class="bottle">
+		<img src="/images/messageInaBottle.png" alt="messageInaBottle.png">
+	</div>
 
 	
 	<script>
