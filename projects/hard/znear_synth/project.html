@@ -172,7 +172,10 @@
 				It communicates with the LCD using SPI protocol
 			</li>
 			<li>
-				It is run on an external 20MHz crystal oscillator
+				It is run on a standard configuration of an external 20MHz crystal oscillator
+			</li>
+			<li>
+				Two 4.7uF filtering capacitors are used - one for the IC and one for the analog to digital multiplexer.
 			</li>
 		</ul>
 		<p>
@@ -183,22 +186,59 @@
 			in combination with a buck converter to supply constant voltage.
 			There is also a battery CC/CV charging module for recharging the battery.
 		</p>
-		<img src="" alt="">
+		<img src="/projects/hard/znear_synth/schematicButtonsArrows.jpg" alt="schematicButtonsArrows.jpg" title="Arrow buttons - Up, Down, Right, Left">
+		<img src="/projects/hard/znear_synth/schematicButtonsNotes.jpg" alt="schematicButtonsNotes.jpg" title="Note buttons">
+		<img src="/projects/hard/znear_synth/schematicSlider.jpg" alt="schematicSlider.jpg" title="Slider">
+		<img src="/projects/hard/znear_synth/schematicLCD.jpg" alt="schematicLCD.jpg" title="LCD">
+		<img src="/projects/hard/znear_synth/schematicAVR.jpg" alt="schematicAVR.jpg" title="Chip configuration">
+		<img src="/projects/hard/znear_synth/schematicAnalog.jpg" alt="schematicAnalog.jpg" title="Output through filter and volume knob to jack">
+		<img src="/projects/hard/znear_synth/schematicPower.jpg" alt="schematicPower.jpg" title="Battery, buck converter and battery charging circuit">
+
 		<h3>
 			Circuit board
 		</h3>
+		<p>
+			The circuit was put together using mostly free hand soldering.
+			A prototyping board was used to put together some of the parts close to the AVR
+			such as the filter, the oscillator and the filtering capacitors.
+			A chip socket was used to avoid soldering the IC directly on the board.
+			The rest of the connections were made with wire.
+			The boards and components were secured on the casing with hot glue and zip ties.
+		</p>
+		<img src="/projects/hard/znear_synth/ZNEARboard.jpg" alt="ZNEARboard.jpg" title="Inside the synth">
 		<h3>
 			Programming the AVR
 		</h3>
 		<p>
-
+			The chip was programmed in C++ using Atmel Studio 7.
+			A library was used for the communication with the Nokia 5110 LCD.
+			You can find the library's github page <a href="https://github.com/LittleBuster/avr-nokia5110" target="_blank">here</a>.
+			In this project the library was upgraded with some custom bitmap rendering functions.
+			The source code of the synthesizer, the edited library and the compiled .hex file are available
+			for download <a href="/projects/hard/znear_synth/znear_synth_code.rar" download>here</a>.
+		</p>
+		<p>
+			The technique used to synthesize the sounds is called Direct Digital Synthesis.
+			About 39216 times a second, a timer overflow ISR is called that calculates and outputs the next wave sample.
+			The timer is operated in phase correct mode so the overflow frequency is calculated by
+			dividing the clock frequency by 510(20MHz / 510 = 39215.69).
+			This ensures a stable sample rate output.
+		</p>
+		<p>
+			Every procedure that does not demand precise timing is kept in the main routine.
+			The software button de-bouncing, the monitor control, the envelopes effect, the vibrato and sweep effects
+			all are calculated in a much slower rate in main.
 		</p>
 		<h3>
 			Casing
 		</h3>
 		<p>
-
+			The main casing was made out of a solid piece of wood that was made hollow using a glass drill and a hand router.
+			The plastic parts of the casing hide some less beautiful spots of the wood and they were 3D printed.
+			A transparent piece of plastic cut out from a CD case is used as protection over the LCD display.
+			The wooden case was finished with linseed oil.
 		</p>
+		<img src="/projects/hard/znear_synth/ZNEARcase.jpg" alt="ZNEARcase.jpg" title="Casing">
 	</main>
 </body>
 
