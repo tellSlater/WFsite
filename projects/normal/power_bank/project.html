@@ -44,8 +44,81 @@
 			Power bank
 		</h2>
 		<h3>
-			Coming soon!
+			Summary
 		</h3>
+		<p>
+			This is a small power bank made of two 18650 lithium batteries.
+			<b>In this page files and instructions necessary for building it</b>.
+
+			
+			
+		</p>
+		<img src="/projects/normal/power_bank/power_bank.jpg" alt="power_bank.jpg">
+		<h3>
+			Schematic
+		</h3>
+		<p>
+			The design incorporates a small ready-to-use board and only requires a minium amount of soldering.
+			The two 18650 batteries should be soldered in parallel and then to the board's B+ and B- poles.
+		</p>
+		<img src="" alt="schematic.jpg">
+		<h3>
+			Batteries in parallel
+		</h3>
+		<p>
+			Before soldering batteries in parallel it must be made sure that they have over-current protection or
+			that they are outputting the same voltage.
+			This is important since when connected in parallel, the emptier battery is charged by the other one
+			until the two output the same voltage.
+			This charge current is not controlled and could exceed the battery's maximum current ratings if the batteries are not protected.
+		</p>
+		<img src="" alt="batteryBalanceBAD.jpg">
+		<p>
+			Connecting the batteries through a current limiting resistor will cause them to balance while keeping the current low.
+		</p>
+		<img src="" alt="batteryBalanceResistor.jpg">
+		<p>
+			Most 18650 batteries are protected by an embedded over-current, over-voltage protection board
+			that should prevent such mistakes from damaging the battery.
+		</p>
+		<img src="" alt="batteryBalanceProtected.jpg">
+		<h3>
+			Circuit
+		</h3>
+		<img src="" alt="circuitInCasing.jpg">
+		<p>
+			The soldered components will be embedded in the casing as shown in the above image.
+			Electrical tape should be used in between the top portion of the batteries and the board
+			to prevent any short circuits.
+			Also, some elastic material (e.g. packaging foam) should be used on the bottom of the batteries
+			to ensure that they will not rattle in the casing.
+		</p>
+		<h3>
+			Casing
+		</h3>
+		<p>
+			The casing is designed to be 3d printed.
+			It is composed of two parts - the bottom and the top halves.
+		</p>
+		<img src="" alt="casing.jpg">
+		<p>
+			The two halves of the casing are to be fastened together with a decorative cord or rubber bands.
+		</p>
+		<img src="" alt="casingCORD.jpg">
+		<img src="" alt="casingRBANDS.jpg">
+		<p>
+			The STL files for the casing can be downloaded <a href="" download>here</a>.
+		</p>
+		<h3>
+			Leash
+		</h3>
+		<p>
+			There is a hole for attaching a leash on the casing.
+			It can be helpful since the powerbank could be worn on the wrist while it charges the phone in hand.
+			A leash can be made by cord or an old leash can be used (e.g. from an old handheld gadget, flashlight or console).
+		</p>
+		<img src="" alt="cordLeash.jpg">
+		<img src="" alt="pspLeash.jpg">
 	</main>
 </body>
 

@@ -44,8 +44,104 @@
 			Bench PSU
 		</h2>
 		<h3>
-			Coming soon!
+			Summary
 		</h3>
+		<img src="" alt="DP20V2A.jpg">
+		<p>
+			A bench PSU is a great tool for anyone who want to start tinkering with electronics.
+			Unfortunately, their price can easily reach north of 100€.
+			This 40W PSU costs less than 20€ delivered!
+			It is usually listed online as <b>DP20V2A</b>.
+			It might not be as powerful as most bench PSUs but it can be a great tool for starters.
+			<b>In this page there are basic specifications for the unit as well as a how to build a casing for it</b>.
+		</p>
+		<h3>
+			Basic specifications
+		</h3>
+		<p>
+			As stated by various sellers, the specifications of this PSU are:
+		</p>
+		<ul>
+			<li>
+				Maximum output voltage: 20V
+			</li>
+			<li>
+				Voltage selection resolution: 0.01V
+			</li>
+			<li>
+				Output voltage accuracy: +/- (0.5% + 1 digit)
+			</li>
+			<li>
+				Maximum output current: 2A
+			</li>
+			<li>
+				Current selection resolution: 0.01A
+			</li>
+			<li>
+				Output current accuracy: +/- (0.5% + 2 digits)
+			</li>
+			<li>
+				Maximum output wattage: 40W
+			</li>
+			<li>
+				Input voltage: 4.5 - 23V DC
+			</li>
+		</ul>
+		<p>
+			It should be noted that the PSU requires a DC input to operate.
+			23V is its absolute maximum rating and should not be exceeded.
+			The PSU works in step-down mode and can supply voltages up to 3V bellow its input voltage to its output.
+			If 23V are applied to its input it will be able to output up to 20V at its output.
+			If in stead a standard 12V wall adapter is used to supply the PSU, it will only be able to output up to 9V.
+		</p>
+		<p>
+			When specifying accuracy, "+x digits" means least significant digits of the display.
+			In the case of voltage accuracy +1 digit would be 0.01V.
+			As for the current accuracy, +2 digits corresponds to a 0.1A error.
+			The percentage errors should be added to these constant values to estimate the total error for these outputs.
+		</p>
+		<p>
+			These specifications are obviously not great but acceptable when factoring in the price of this instrument.
+		</p>
+		<h3>
+			Casing
+		</h3>
+		<p>
+			The casing that was used for this unit was designed in Fusion360 and was 3D printed.
+			Some extra components such as banana plugs and a switch were used for the casing.
+		</p>
+		<img src="" alt="fusionCase.jpg">
+		<p>
+			The STL files for this casing can be downloaded <a href="" download>here</a>.
+			Alternatively, there are countless other designs available for 3D printing on
+			<a href="https://www.thingiverse.com/search?q=DP20V2A&type=things&sort=relevant" target="_blank">thingiverse</a>.
+		</p>
+		<p>
+			Other than 3D printing, a case could be made out of any small box that is available.
+		</p>
+		<h3>
+			Supplying the PSU
+		</h3>
+		<p>
+			As stated above, the PSU accepts a DC input of maximum 23V.
+			The higher the input the more range its output will have in voltage since the PSU operates in step-down mode.
+			ideally a 23V - 2A supply should be used.
+			If such a supply is not available, any outlet adapter can be used.
+			When using a random adapter to source the PSU it is important to note that:
+		</p>
+		<ol>
+			<li>
+				The output of the PSU will be capped at 3V lower than the supply voltage
+			</li>
+			<li>
+				The adapter will most probably be rated lower than 40W and should not be used beyond its limits
+			</li>
+		</ol>
+		<p>
+			A 12V/1A wall adapter could be used to supply the PSU but if the PSU tries to pull more than 1A,
+			the adapter could be damaged.
+			Great care must be taken in general when using components that were not designed to be used together.
+		</p>
 	</main>
 </body>
 
