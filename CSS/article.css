@@ -32,6 +32,16 @@ p {
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
   text-align: justify;
+  /* overflow: visible; */
+}
+
+p.secondary {
+  font-style: italic;
+  color: rgba(100, 100, 100, 0.8);
+}
+
+p.mjax {
+  overflow-x: auto;
 }
 
 ol {
@@ -51,11 +61,6 @@ ul {
 .PS2P {
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
-}
-
-.secondary {
-  font-style: italic;
-  color: rgba(100, 100, 100, 0.8);
 }
 
 html,
@@ -284,17 +289,19 @@ main .video {
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgba(92, 92, 92, 0.3);
+  height: 6px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(0, 0, 0);
   width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(92, 92, 92, 0.3);
 }
 
 /* Handle on hover */

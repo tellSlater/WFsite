@@ -20,6 +20,22 @@
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	"HTML-CSS": { linebreaks: { automatic: true } },
+			SVG: { linebreaks: { automatic: true } }
+	});
+	</script> <!-- MATHJAX wrapping-->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <!-- MATHJAX -->
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!-- MATHJAX -->
+	<script>
+		window.MathJax = {
+		tex: {
+		tags: 'ams'
+		}
+		};
+	</script> <!-- MATHJAX eq labeling on-->
+
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
 </head>
 
@@ -47,11 +63,210 @@
 			Summary
 		</h3>
 		<p>
-			A stepper motor is a special kind of electric DC motor.
-			It can execute precise movements without the need of a closed loop control system.
-			<b>In this page  a mathematical model of such a motor is constructed and the model's constants are examined and tuned
-			so that the model's performance fits the actual performance of the motor.</b>
+			A stepper motor is a special kind of brushless DC motor.
+			It can execute precise movements without the need of a closed loop control system or a sensor.
+			<b>In this page  a mathematical model of such a motor is derived and the model's parameters are examined and tuned
+			so that the model's performance mimics the actual performance of the motor.</b>
 		</p>
+		<h3>
+			Motor used
+		</h3>
+		<p>
+			This model focuses on a NEMA 17 stepper motor but the process followed is similar for modelling other stepper motors as well.
+			The exact motor used is described by the code name 42HD4027-01 under the NEMA standard.
+			The following section includes mechanical drawings, photos and the datasheet of this stepper motor. 
+		</p>
+		<img src="" alt="OGstepper.jpg" title="42HD4027-01 NEMA 17 stepper motor">
+		<h3>
+			Motor design
+		</h3>
+		<p>
+			Assembled motor:
+		</p>
+		<img src="" alt="stepperAssembled.jpg">
+		<p>
+			Disassembled motor:
+		</p>
+		<img src="" alt="stepperDisassembled.jpg">
+		<p>
+			Section:
+		</p>
+		<img src="" alt="sectionView.jpg">
+		<p>
+			Exploded view:
+		</p>
+		<img src="" alt="explodedView.jpg">
+		<p>
+			Parts:
+		</p>
+		<img src="" alt="">
+		<p>
+			Datasheet:
+		</p>
+		<img src="" alt="nema17datasheet.jpg">
+		<h3>
+			Model block diagram
+		</h3>
+		<p>
+			<b>Inputs</b>
+		</p>
+		<p>
+			This stepper motor has two separate phases.
+			Therefore, the main inputs for the model are <b>the two voltage differentials applied to each of the two phases</b>.
+			Other secondary inputs are the <b>moment of inertia of the load attached to the motor</b> and
+			any <b>external torques applied to the load and/or motor shaft</b>.
+			Also some inputs in the form of primary conditions are the <b>initial angular position and speed of the rotor</b> and <b>the initial currents in each phase</b>.
+		</p>
+		<p class="secondary">
+			The friction in the motor is neglected in this model but it can easily be implemented as an external source of torque.
+		</p>
+		<p>
+			<b>Outputs</b>
+		</p>
+		<p>
+			After solving the differential equations of the model, <b>the kinematic response of the rotor</b> can be extracted as well as <b>the electric response of the phases</b>.
+			On the kinematic side, the outputs are the angular position, speed, acceleration, jerk(or rate of change of acceleration) and torque.
+			The electric response includes phase current and voltage induced by the spinning magnetic rotor.
+		</p>
+		<img src="" alt="modelBlockDiagram.jpg">
+		<p>
+			*explains block diagram*
+		</p>
+		<h3>
+			Physics
+		</h3>
+		<p>
+			These are the basic physics laws used to describe the behavior of the motor:
+		</p>
+		<ul>
+			<li>
+				<b>Newton's second law for rotation</b><br>
+				The torque applied is directly proportional to the moment of inertia times the angular acceleration.<br>
+				<p class="mjax">
+					\begin{equation}
+					T = I \cdot \dot \omega
+					\label{eq:newt2}
+					\end{equation}
+				</p>
+			</li>
+			<li>
+				<b>kirchhoff's second law</b><br>
+				The directed sum of the voltages around any closed loop is zero.<br>
+				<p class="mjax">
+					\begin{equation}
+					V_1 + V_2 + V_3 - V = 0
+					\label{eq:kirch2}
+					\end{equation}
+				</p>
+				<img src="" alt="closedLoopVoltages.jpg">
+			</li>
+			<li>
+				<b>Faraday's law of induction</b><br>
+				The EMF induced in a conductor is given by the rate of change of the magnetic flux in it.<br>
+				<p class="mjax">
+					\begin{equation}
+					\varepsilon = - \frac{d \Phi_B}{dt}
+					\label{eq:fara}
+					\end{equation}
+				</p>
+			</li>
+		</ul>
+		<p>
+			Apart from the above well known and broadly applicable theorems,
+			there are a few equations that specifically describe the nature and behavior of some aspects of this stepper motor:
+		</p>
+		<ul>
+			<li>
+				<b>Phase current/max torque linear dependency</b><br>
+				A phase's current is linearly dependent to the maximum torque the phase can exert to the rotor.
+				Therefore, the two can be related to each other by the use of one constant (\( K_T \)).<br>
+				<p class="mjax">
+					\begin{equation}
+					T_{maxPhase} = K_T \cdot I_{Phase}
+					\label{eq:curtor}
+					\end{equation}
+				</p>
+			</li>
+			<li>
+				<b>Phase torque</b><br>
+				The torque a phase exerts on the rotor depends on the phase current as well as on the rotor's current position.
+				This happens because of the way the motor is built, due to geometric characteristics of the rotor and the stator.<br>
+				<p class="mjax">
+					\begin{equation}
+					T_{Phase} = - K_T \cdot I_{Phase} \cdot \sin (p \cdot \theta)
+					\label{eq:phator}
+					\end{equation}
+				</p>
+				\( \theta \) is the rotor's angular position and
+				\( p \) the number of teeth on the rotor (on one side only).
+			</li>
+			<li>
+				<b>Detent torque</b><br>
+				This is a "parasitic" torque that exists due to the magnetic rotor.
+				It is small in magnitude compared to the motor's maximum holding torque but should still be accounted in the model
+				since it interferes significantly with the positioning and movements of the rotor.<br>
+				<p class="mjax">
+					\begin{equation}
+					T_{dT} = - T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
+					\label{eq:detto}
+					\end{equation}
+				</p>
+			</li>
+			<li>
+				<b>Rate of change of magnetic flux linkage between one phase and the rotor</b><br>
+				This rate is important because, according to Faraday's law, it corresponds to the induced EMF in the phase.<br>
+				<p class="mjax">
+					\begin{equation}
+					\frac{d \Psi_A}{dt} = p \cdot \Psi_M \cdot \cos (p \cdot \theta) \frac{d \theta}{dt}
+					\label{eq:phidt}
+					\end{equation}
+				</p>
+				\( \Psi_M \) is the maximum magnetic flux linkage between a phase and the rotor.
+			</li>
+		</ul>
+		<h3>
+			Shaping the equations
+		</h3>
+		<p>
+			In order to derive the model of this system,
+			every equation that describes its nature must be related to each other.
+			Initially, the total torque felt by the rotor can be expressed as:
+		</p>
+		<p class="mjax">
+			\begin{equation}
+			T_{sum} = T_A + T_B + T_{dT} + T_{ext}
+			\label{eq:Tsum}
+			\end{equation}
+		</p>
+		<p>
+			Where \( T_{sum} \) is the total torque on the rotor,
+			\( T_A \) is the torque exerted by phase A on the rotor,
+			\( T_B \) is the torque exerted by phase B on the rotor and
+			\( T_{ext} \) is the sum of external torques on the rotor.
+		</p>
+		<p>
+			After substituting the known equations for \( T_{sum} \), \( T_A \), \( T_B \) and \( T_{dT} \), we get:
+			<p class="mjax">
+				\begin{equation}
+				(I_{ROTOR} + I_{LOAD} ) \cdot \dot \omega =
+				- K_T \cdot I_{A} \cdot \sin (p \cdot \theta)
+				- K_T \cdot I_{B} \cdot \cos (p \cdot \theta)
+				- T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
+				+ T_{ext}
+				\label{eq:Tsum2}
+				\end{equation}
+			</p>
+		</p>
+
+		<h3>
+			Equation parameters
+		</h3>
+		<p>
+
+		</p>
+		<h3>
+
+		</h3>
 	</main>
 </body>
 
