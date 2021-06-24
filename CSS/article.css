@@ -49,6 +49,8 @@ ol {
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
   text-align: justify;
+  list-style-type: 1;
+  padding-left: 24px;
 }
 
 ul {
@@ -56,6 +58,8 @@ ul {
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
   text-align: justify;
+  list-style-type: disc;
+  padding-left: 24px;
 }
 
 .PS2P {

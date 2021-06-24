@@ -74,36 +74,9 @@
 		<p>
 			This model focuses on a NEMA 17 stepper motor but the process followed is similar for modelling other stepper motors as well.
 			The exact motor used is described by the code name 42HD4027-01 under the NEMA standard.
-			The following section includes mechanical drawings, photos and the datasheet of this stepper motor. 
+			The last section in this page - <a href="#mdesign">Motor design</a> - includes mechanical drawings, photos and the datasheet of this stepper motor. 
 		</p>
 		<img src="" alt="OGstepper.jpg" title="42HD4027-01 NEMA 17 stepper motor">
-		<h3>
-			Motor design
-		</h3>
-		<p>
-			Assembled motor:
-		</p>
-		<img src="" alt="stepperAssembled.jpg">
-		<p>
-			Disassembled motor:
-		</p>
-		<img src="" alt="stepperDisassembled.jpg">
-		<p>
-			Section:
-		</p>
-		<img src="" alt="sectionView.jpg">
-		<p>
-			Exploded view:
-		</p>
-		<img src="" alt="explodedView.jpg">
-		<p>
-			Parts:
-		</p>
-		<img src="" alt="">
-		<p>
-			Datasheet:
-		</p>
-		<img src="" alt="nema17datasheet.jpg">
 		<h3>
 			Model block diagram
 		</h3>
@@ -116,6 +89,7 @@
 			Other secondary inputs are the <b>moment of inertia of the load attached to the motor</b> and
 			any <b>external torques applied to the load and/or motor shaft</b>.
 			Also some inputs in the form of primary conditions are the <b>initial angular position and speed of the rotor</b> and <b>the initial currents in each phase</b>.
+			The <b>moment of inertia of the load</b> can also be considered as an input.
 		</p>
 		<p class="secondary">
 			The friction in the motor is neglected in this model but it can easily be implemented as an external source of torque.
@@ -189,15 +163,15 @@
 			</li>
 			<li>
 				<b>Phase torque</b><br>
-				The torque a phase exerts on the rotor depends on the phase current as well as on the rotor's current position.
-				This happens because of the way the motor is built, due to geometric characteristics of the rotor and the stator.<br>
+				The torque a phase exerts on the rotor depends on the phase current as well as on the rotor's position.
+				This happens because of the way the motor is built - due to geometric characteristics of the rotor and the stator.<br>
 				<p class="mjax">
 					\begin{equation}
 					T_{Phase} = - K_T \cdot I_{Phase} \cdot \sin (p \cdot \theta)
 					\label{eq:phator}
 					\end{equation}
 				</p>
-				\( \theta \) is the rotor's angular position and
+				\( \theta \) is the rotor's angular position and <br>
 				\( p \) the number of teeth on the rotor (on one side only).
 			</li>
 			<li>
@@ -217,7 +191,7 @@
 				This rate is important because, according to Faraday's law, it corresponds to the induced EMF in the phase.<br>
 				<p class="mjax">
 					\begin{equation}
-					\frac{d \Psi_A}{dt} = p \cdot \Psi_M \cdot \cos (p \cdot \theta) \frac{d \theta}{dt}
+					\frac{d \Psi_A}{dt} = p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d \theta}{dt}
 					\label{eq:phidt}
 					\end{equation}
 				</p>
@@ -239,34 +213,284 @@
 			\end{equation}
 		</p>
 		<p>
-			Where \( T_{sum} \) is the total torque on the rotor,
-			\( T_A \) is the torque exerted by phase A on the rotor,
-			\( T_B \) is the torque exerted by phase B on the rotor and
+			\( T_{sum} \) is the total torque on the rotor,<br>
+			\( T_A \) is the torque exerted by phase A on the rotor,<br>
+			\( T_B \) is the torque exerted by phase B on the rotor and<br>
 			\( T_{ext} \) is the sum of external torques on the rotor.
 		</p>
+		<img src="" alt="torqueSum.jpg">
 		<p>
 			After substituting the known equations for \( T_{sum} \), \( T_A \), \( T_B \) and \( T_{dT} \), we get:
-			<p class="mjax">
-				\begin{equation}
-				(I_{ROTOR} + I_{LOAD} ) \cdot \dot \omega =
-				- K_T \cdot I_{A} \cdot \sin (p \cdot \theta)
-				- K_T \cdot I_{B} \cdot \cos (p \cdot \theta)
-				- T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
-				+ T_{ext}
-				\label{eq:Tsum2}
-				\end{equation}
-			</p>
 		</p>
-
+		<p class="mjax">
+			\begin{equation}
+			(I_{ROTOR} + I_{LOAD} ) \cdot \dot \omega =
+			- K_T \cdot I_{A} \cdot \sin (p \cdot \theta)
+			- K_T \cdot I_{B} \cdot \cos (p \cdot \theta)
+			- T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
+			+ T_{ext}
+			\label{eq:Tsum2}
+			\end{equation}
+		</p>
+		<p>
+			The two expressions for the torques \( T_A \) and \( T_B \) have a phase difference of \( \pi / 2 \).
+			This behavior is due to the way the motor is constructed -
+			it is due to the geometric characteristics of the stator and rotor and the way they interact.
+		</p>
+		<p>
+			Afterwards, kirchhoff's 2nd law can be applied for each of the two phases of the motor:
+		</p>
+		<p>
+			Phase A
+		</p>
+		<p class="mjax">
+			\begin{equation}
+			V_A = R \cdot I_A + L \dot{I_A} - e_A
+			\label{eq:VsumA}
+			\end{equation}
+		</p>
+		<p>
+			Phase B
+		</p>
+		<p class="mjax">
+			\begin{equation}
+			V_B = R \cdot I_B + L \dot{I_B} - e_B
+			\label{eq:VsumB}
+			\end{equation}
+		</p>
+		<p>
+			\( I_A \) and \( I_B \) are the currents in phases A and B respectively,<br>
+			\( V_A \) and \( V_B \) are the applied voltages,<br>
+			\( R \) and \( L \) are the phase resistance and phase inductance and<br>
+			\( e_A \) and \( e_B \) are the voltages induced in each phase by the spinning rotor.
+		</p>
+		<img src="" alt="phaseVoltageDiagram.jpg">
+		<p>
+			According to Faraday's law ( \ref{eq:fara} ) the induced voltage is equal to the rate of change of magnetic flux linkage.
+			Therefore, substituting \( e_A \) and \( e_B \) for the rate of change of magnetic flux linkage between one phase and the rotor we get:
+		</p><p>
+			Phase A
+		</p>
+		<p class="mjax">
+			\begin{equation}
+			V_A = R \cdot I_A + L \dot{I_A} - p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d \theta}{dt}
+			\label{eq:VsumA2}
+			\end{equation}
+		</p>
+		<p>
+			Phase B
+		</p>
+		<p class="mjax">
+			\begin{equation}
+			V_B = R \cdot I_B + L \dot{I_B} - p \cdot \Psi_M \cdot \cos (p \cdot \theta) \frac{d \theta}{dt}
+			\label{eq:VsumB2}
+			\end{equation}
+		</p>
+		<p>
+			The two expressions for the induced voltages \( e_A \) and \( e_B \) have a phase difference of \( \pi / 2 \).
+			This again happens due to the geometric characteristics of the stator and rotor and the way they interact.
+		</p>
+		<p>
+			At this point, equations \ref{eq:Tsum2}, \ref{eq:VsumA2}, \ref{eq:VsumB2} and
+			the initial conditions for speed and position of the rotor and
+			initial currents in phases A and B
+			are enough to solve this system and calculate the response of the motor.
+		</p>
 		<h3>
 			Equation parameters
 		</h3>
 		<p>
-
+			The parameters in equation \ref{eq:Tsum2} are:
+		</p>
+		<ol>
+			<li>
+				\( I_{ROTOR} \) - moment of inertia of the rotor
+			</li>
+			<li>
+				\( I_{LOAD} \) - moment of inertia of the load (although this could also be considered an input)
+			</li>
+			<li>
+				\( K_T \) - constant relating phase current to maximum phase torque
+			</li>
+			<li>
+				\( p \) - number of teeth on the rotor
+			</li>
+			<li>
+				\( T_{dTmax} \) - maximum detent torque
+			</li>
+		</ol>
+		<p>
+			The parameters in equations \ref{eq:VsumA2} and \ref{eq:VsumB2} are:
+		</p>
+		<ol start="6">
+			<li>
+				\( R \) - phase resistance
+			</li>
+			<li>
+				\( L \) - phase inductance
+			</li>
+			<li>
+				\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor
+			</li>
+		</ol>
+		<p>
+			Changing the values of these parameters will affect the behavior of the model.
+			In order to tune these parameters so that the model mimics the behavior of the motor,
+			their values must be derived from the motor's characteristics.
+			This is possible by either making measurements on the motor or by consulting the motor's datasheet.
+			Unfortunately, not all information needed is always available in the datasheet,
+			so some measurements are often required.
 		</p>
 		<h3>
-
+			Tuning the parameters
 		</h3>
+		<p>
+			The parameters can be tuned by either consulting the motor's datasheet or taking measurements of the motor.
+		</p>
+		<ol>
+			<li>
+				<b>\( I_{ROTOR} \) - moment of inertia of the rotor</b><br>
+				It is usually given in the motor's datasheet but can also be calculated by the rotor's geometry.
+				<img src="" alt="IrotorDatasheet.jpg">
+			</li>
+			<li>
+				<b>\( I_{LOAD} \) - moment of inertia of the load</b><br>
+				Can be arbitrarily chosen or should be calculated for a specific load based on the load characteristics.
+			</li>
+			<li>
+				<b>\( K_T \) - constant relating phase current to maximum phase torque</b><br>
+				Revisiting equation \ref{eq:curtor}, it is evident that a phase current value and
+				its corresponding maximum phase torque are enough to calculate \( K_T \).
+				Unfortunately, the motor's datasheet provides the maximum phase current and the
+				corresponding maximum holding torque of the <u>combination of two phases</u>.
+				To derive the holding torque of one phase, the two phase holding torque must be divided by \( \sqrt{2} \).
+				Therefore, \( K_T \) can be calculated by:
+				<p class="mjax">
+					\begin{equation}
+					K_T = \frac{T_{hmaxPhase}}{I_{maxPhase}} = \frac{T_{hmax2Phase}}{ \sqrt{2} \cdot I_{maxPhase}}
+					\label{eq:KTcalc}
+					\end{equation}
+				</p>
+				Where:<br>
+				\( I_{maxPhase} \) is the nominal current of a phase,<br>
+				\( T_{hmaxPhase} \) is the maximum holding toque of one phase and<br>
+				\( T_{hmax2Phase} \) is the maximum holding torque of two phases.
+				<img src="" alt="KTDatasheet.jpg">
+				Manufacturers probably prefer to display the two phase holding torque in the datasheet because it is greater.
+			</li>
+			<li>
+				<b>\( p \) - number of teeth on the rotor</b><br>
+				The rotor has as many teeth as a quarter of the steps the motor can execute in a full circle (360°).
+				<img src="" alt="stepAngleDatasheet.jpg">
+				Consequently, for a step angle of 1.8°:
+				<p class="mjax">
+					\begin{equation}
+					p = \frac{360°}{ 1.8° \cdot 4 } = 50
+					\label{eq:pcalc}
+					\end{equation}
+				</p>
+				Alternatively, the teeth of the rotor can be counted by eye.
+				<img src="" alt="rotorTeethCount.jpg">
+			</li>
+			<li>
+				<b>\( T_{dTmax} \) - maximum detent torque</b><br>
+				This value is rarely if ever given in the datasheet.
+				The maximum torque the motor exerts when both phases are inactive (0 current) is the maximum detent torque.
+				It can be measured with a precision scale by placing the motor on a jig as shown in the next image:
+				<img src="" alt="dTJig.jpg">
+				Alternatively, it can be estimated to be about 2% of the motor's two phase holding torque
+				(this percentage gets smaller for bigger motors).
+			</li>
+			<li>
+				<b>\( R \) - phase resistance</b><br>
+				The motor's phase resistance is given in the datasheet and can be easily measured using a multimeter.
+				<img src="" alt="resistanceDatasheet.jpg">
+				<img src="" alt="resistanceMulti.jpg">
+			</li>
+			<li>
+				<b>\( L \) - phase inductance</b><br>
+				The motor's phase inductance is also given in the datasheet and can be easily measured using an LCR meter.
+				<img src="" alt="inductanceDatasheet.jpg">
+				<img src="" alt="inductanceLCR.jpg">
+			</li>
+			<li>
+				<b>\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor</b><br>
+				This value will most probably not be in the datasheet and cannot be estimated based on other information in it.
+				There are several ways to calculate it but they require some tools.
+				The main concept is measuring the signal produced in a phase when the rotor is rotated and then
+				deriving the maximum flux linkage based on that signal.
+				<ul>
+					<li>
+						<b>Oscilloscope methods</b><br>
+						The probes of the oscilloscope are tied to a phase of the motor.
+						The motor's shaft is rotated at a constant speed with a help of an external motor (e.g. a hand drill).
+						The induced voltage is measured - it has the shape of a sine wave.
+						<img src="" alt="inducedWave.jpg">
+						This induced sine wave is described by equation \ref{eq:phidt} and when it takes its maximum value the equation gives:
+						\begin{equation}
+						\frac{d \Psi_A}{dt}_{max} = e_{Amax} = p \cdot \Psi_M \cdot \frac{d \theta}{dt} \Rightarrow
+						\Psi_M = \frac{e_{Amax}}{p \cdot \omega}
+						\label{eq:phidtmax}
+						\end{equation}
+						The maximum flux linkage between the rotor and a phase can be calculated by
+						the angular speed of the rotor(\( \omega \)) and the corresponding maximum induced voltage in a phase(\( e_{Amax} \)).
+						The maximum induced voltage can be directly extracted from the graph of the induced voltage.
+						The speed of the rotor is directly related to and can be estimated by the period of the signal(\( T_e \)):
+						\begin{equation}
+						\omega = \frac{ 0.1257 }{T_e}
+						\label{eq:Tspeed}
+						\end{equation}
+						There is also a way to directly calculate the maximum magnetic flux linkage using the induced signal.
+						It is actually equal to the area under each of the sine wave's curve and the time axis.
+						Some modern oscilloscopes might even be able to integrate the curve and get a quick result.
+						In the next image each of the areas(E) are equal to the maximum magnetic flux linkage.
+						<img src="" alt="inducedWaveE.jpg">
+					</li>
+					<li>
+						<b>Multimeter and tachometer</b><br>
+						An estimation of the magnetic flux linkage can be made using these simpler tools.
+						In this case the multimeter is used to measure the RMS value of the induced sine wave and
+						the tachometer is used to measure the speed of the rotation.
+						<img src="" alt="MultiTacho.jpg">
+						Afterwards, the maximum induced voltage can be calculated by multiplying the RMS value by \( \sqrt{2} \)
+						and then equation \ref{eq:phidtmax} can be used to calculate the maximum magnetic flux linkage.
+					</li>
+				</ul>
+			</li>
+		</ol>
+		<h3>
+			Implementation in Xcos
+		</h3>
+		<p>
+			*implement it in Xcos*
+		</p>
+		<h3 id="mdesign">
+			Motor design
+		</h3>
+		<p>
+			Assembled motor:
+		</p>
+		<img src="" alt="stepperAssembled.jpg">
+		<p>
+			Disassembled motor:
+		</p>
+		<img src="" alt="stepperDisassembled.jpg">
+		<p>
+			Section:
+		</p>
+		<img src="" alt="sectionView.jpg">
+		<p>
+			Exploded view:
+		</p>
+		<img src="" alt="explodedView.jpg">
+		<p>
+			Parts:
+		</p>
+		<img src="" alt="">
+		<p>
+			Datasheet:
+		</p>
+		<img src="" alt="nema17datasheet.jpg">
 	</main>
 </body>
 
