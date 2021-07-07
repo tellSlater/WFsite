@@ -88,8 +88,7 @@
 			Therefore, the main inputs for the model are <b>the two voltage differentials applied to each of the two phases</b>.
 			Other secondary inputs are the <b>moment of inertia of the load attached to the motor</b> and
 			any <b>external torques applied to the load and/or motor shaft</b>.
-			Also some inputs in the form of primary conditions are the <b>initial angular position and speed of the rotor</b> and <b>the initial currents in each phase</b>.
-			The <b>moment of inertia of the load</b> can also be considered as an input.
+			Also some inputs in the form of initial conditions are the <b>initial angular position and speed of the rotor</b> and <b>the initial currents in each phase</b>.
 		</p>
 		<p class="secondary">
 			The friction in the motor is neglected in this model but it can easily be implemented as an external source of torque.
@@ -102,10 +101,27 @@
 			On the kinematic side, the outputs are the angular position, speed, acceleration, jerk(or rate of change of acceleration) and torque.
 			The electric response includes phase current and voltage induced by the spinning magnetic rotor.
 		</p>
-		<img src="" alt="modelBlockDiagram.jpg">
+		<img src="/projects/hard/stepper_motor_model/modelBlockDiagram.jpg" alt="modelBlockDiagram.jpg" title="Model block diagram">
 		<p>
-			*explains block diagram*
+			The above diagram shows the main idea of this model:
 		</p>
+		<ol>
+			<li>
+				Voltage is applied to the phases
+			</li>
+			<li>
+				That generates current in the phases
+			</li>
+			<li>
+				Phases run with current generate torque on the motor's shaft
+			</li>
+			<li>
+				Torque on the shaft rotates it, changing its speed and position
+			</li>
+			<li>
+				The speed and position of the motor's shaft affect both the torque applied by the phases and the current in the phases
+			</li>
+		</ol>
 		<h3>
 			Physics
 		</h3>
@@ -204,7 +220,7 @@
 		<p>
 			In order to derive the model of this system,
 			every equation that describes its nature must be related to each other.
-			Initially, the total torque felt by the rotor can be expressed as:
+			Initially, the total torque exerted on the rotor can be expressed as:
 		</p>
 		<p class="mjax">
 			\begin{equation}
@@ -218,7 +234,7 @@
 			\( T_B \) is the torque exerted by phase B on the rotor and<br>
 			\( T_{ext} \) is the sum of external torques on the rotor.
 		</p>
-		<img src="" alt="torqueSum.jpg">
+		<img src="/projects/hard/stepper_motor_model/torqueSum.jpg" alt="torqueSum.jpg" title="Sources of torque">
 		<p>
 			After substituting the known equations for \( T_{sum} \), \( T_A \), \( T_B \) and \( T_{dT} \), we get:
 		</p>
@@ -238,7 +254,7 @@
 			it is due to the geometric characteristics of the stator and rotor and the way they interact.
 		</p>
 		<p>
-			Afterwards, kirchhoff's 2nd law can be applied for each of the two phases of the motor:
+			Kirchhoff's 2nd law can be applied for each of the two phases of the motor:
 		</p>
 		<p>
 			Phase A
@@ -264,7 +280,7 @@
 			\( R \) and \( L \) are the phase resistance and phase inductance and<br>
 			\( e_A \) and \( e_B \) are the voltages induced in each phase by the spinning rotor.
 		</p>
-		<img src="/projects/hard/stepper_motor_model/phaseVoltageDiagram.jpg" alt="phaseVoltageDiagram.jpg" title="Equivalent circuit for phase A">
+		<img src="/projects/hard/stepper_motor_model/phaseVoltageDiagram.jpg" alt="phaseVoltageDiagram.jpg" title="Equivalent circuit of phase A">
 		<p>
 			According to Faraday's law ( \ref{eq:fara} ) the induced voltage is equal to the rate of change of magnetic flux linkage.
 			Therefore, substituting \( e_A \) and \( e_B \) for the rate of change of magnetic flux linkage between one phase and the rotor we get:
@@ -463,11 +479,16 @@
 			</li>
 		</ol>
 		<h3>
-			Implementation in Xcos
+			Solving the model
 		</h3>
 		<p>
-			*implement it in Xcos*
+			After having created an accurate model, it must be solved.
+			The best way to tackle this is using a firmware such as Simulink of Matlab or Xcos of Scilab.
+			The following image shows an implementation of the above model in Simulink:
 		</p>
+		<a class="img" href="/projects/hard/stepper_motor_model/simulinkModel.jpg" target="_blank">
+			<img src="/projects/hard/stepper_motor_model/simulinkModelSMALL.jpg" alt="simulinkModel.jpg" title="Simulink model">
+		</a>
 		<h3 id="mdesign">
 			Motor design
 		</h3>
