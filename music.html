@@ -211,7 +211,7 @@
 			border-radius: 0;
 		}
 
-		.progbar
+		.RADIOprogbar
 		{
 			position: absolute;
 			left: calc(50% - 78px);
@@ -224,7 +224,7 @@
 			/* cursor: pointer; */
 		}
 
-		.progress
+		.RADIOprogress
 		{
 			position: absolute;
 			height: 6px;
@@ -232,6 +232,21 @@
 			border-radius: 0;
 			background: #445ff6;
 			border: none;
+
+			/* cursor: default; */
+		}
+
+		.RADIOhitbox
+		{
+			z-index: 50;
+			position: absolute;
+			height: 6px;
+			width: 100%;
+			border-radius: 0;
+			background: #ffffff00;
+			border: none;
+
+			cursor: pointer;
 		}
 
 		.voltip
@@ -793,7 +808,10 @@
 		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
 		<div class="B1" onclick="doAudio(currentAudio)"></div>
 		<div class="B2"></div>
-		<div class="progbar"><div class="progress"></div></div>
+		<div class="RADIOprogbar">
+			<div class="RADIOprogress"></div>
+			<div class="RADIOhitbox" onclick="doAudioReloc(event)"></div>
+		</div>
 		<div class="voltip"><div class="line"></div><h3>Volume</h3></div>
 	</div>
 	

@@ -124,7 +124,52 @@ function animateCassette()
 
 function animateProgBar()
 {
-    document.querySelector('.progress').style.width = String(114 * (currentAudio.currentTime / currentAudio.duration)) + "px";
+    document.querySelector('.RADIOprogress').style.width = String(114 * (currentAudio.currentTime / currentAudio.duration)) + "px";
+}
+
+function doAudioReloc(e)
+{
+    
+    currentAudio.currentTime = currentAudio.duration * e.offsetX/113;
+    animateProgBar();
+}
+
+function doAudioStep(step)
+{
+    if (step < 0)
+    {
+        if (currentAudio.currentTime > -step)
+        currentAudio.currentTime += step;
+        else
+        currentAudio.currentTime = 0;
+    }
+    else
+    {
+        if ((currentAudio.duration - currentAudio.currentTime) > step)
+        currentAudio.currentTime += step;
+        else
+        currentAudio.currentTime = currentAudio.duration;
+    }
+    animateProgBar();
+}
+
+function doAudioVolume(step)
+{
+    if (step < 0)
+    {
+        if (currentAudio.volume > -step)
+        currentAudio.volume += step;
+        else
+        currentAudio.volume = 0;
+    }
+    else
+    {
+        if (1-currentAudio.volume > step)
+        currentAudio.volume += step;
+        else
+        currentAudio.volume = 1;
+    }
+    $( "#volslider" ).val(currentAudio.volume * 100);
 }
 
 function animateAll()
@@ -133,7 +178,7 @@ function animateAll()
     animateProgBar();
 }
 
-
+var spaceDown = false;
 document.addEventListener("DOMContentLoaded", function(e)
 {
     setInterval(animateAll, 400);
@@ -141,9 +186,28 @@ document.addEventListener("DOMContentLoaded", function(e)
     prevAudio = document.getElementById("audio0");
     currentAudio = document.getElementById("audio0");
 
+    document.body.onkeydown = function(e){
+        if(e.keyCode == 32){
+            if (spaceDown) return;
+            doAudio(currentAudio);
+            spaceDown = true;
+        }
+        if(e.keyCode == 37){
+            doAudioStep(-5);
+        }
+        if(e.keyCode == 39){
+            doAudioStep(5);
+        }
+        if(e.keyCode == 38){
+            doAudioVolume(0.05);
+        }
+        if(e.keyCode == 40){
+            doAudioVolume(-0.05);
+        }
+    };
     document.body.onkeyup = function(e){
         if(e.keyCode == 32){
-            doAudio(currentAudio);
+            spaceDown = false;
         }
     };
 
