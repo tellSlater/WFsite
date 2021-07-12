@@ -201,7 +201,7 @@
 		.B2
 		{
 			position: absolute;
-			left: calc(50% - 36px);
+			left: calc(50% - 60px);
 			top: 29px;
 
 			background: #e75858;
@@ -209,6 +209,37 @@
 			height: 18px;
 			border: 6px solid black;
 			border-radius: 0;
+		}
+
+		.B3
+		{
+			position: absolute;
+			left: calc(50% - 12px);
+			top: 29px;
+
+			background-image: repeating-linear-gradient(90deg, #445ff6, #445ff6 6px, #4c4c4c 6px,#4c4c4c 18px);
+
+			width: 30px;
+			height: 18px;
+			border: 6px solid black;
+			border-radius: 0;
+			
+			cursor: pointer;
+		}
+		
+		.B4
+		{
+			position: absolute;
+			left: calc(50% + 36px);
+			top: 29px;
+
+			background-image: repeating-linear-gradient(90deg, #4c4c4c, #4c4c4c 12px,#445ff6  12px,#445ff6 18px);
+			width: 30px;
+			height: 18px;
+			border: 6px solid black;
+			border-radius: 0;
+			
+			cursor: pointer;
 		}
 
 		.RADIOprogbar
@@ -805,12 +836,14 @@
 	<div class="radio">
 		<img src="/images/Radio.png" alt="A radio on the beach">
 		<div class="cassette" id="cass"></div>
-		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)"/></div> <!-- onchange="updateVolume(this.value)" -->
-		<div class="B1" onclick="doAudio(currentAudio)"></div>
+		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)" onkeydown="event.preventDefault()"/></div>
+		<div class="B1" onmousedown="doAudio(currentAudio)"></div>
 		<div class="B2"></div>
+		<div class="B3" onmousedown="pressLeftArrow()" ontouchstart="pressLeftArrow()"></div>
+		<div class="B4" onmousedown="pressRightArrow()" ontouchstart="pressRightArrow()"></div>
 		<div class="RADIOprogbar">
 			<div class="RADIOprogress"></div>
-			<div class="RADIOhitbox" onclick="doAudioReloc(event)"></div>
+			<!-- <div class="RADIOhitbox" onclick="doAudioReloc(event)"></div> -->
 		</div>
 		<div class="voltip"><div class="line"></div><h3>Volume</h3></div>
 	</div>
