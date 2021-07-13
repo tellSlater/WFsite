@@ -21,6 +21,7 @@
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+	<script src="/JavaScript/myVideo.js"></script> 	<!-- External Functions: Custom video player -->
 </head>
 
 <body>
@@ -87,8 +88,36 @@
 			It is not easy to overheat the tip though - the wattage on the tip seems to be low.
 			After all this tip is designed for larger torches.
 		</p>
+		<h3>
+			Power test
+		</h3>
 		<p>
-			*temp-time diagram*
+			The net heat transferred to the tip is measured by monitoring the tip's temperature.
+			A K-type thermocouple is attached to the tip with some thermal grease.
+			The thermal grease is rated for 300°C.
+		</p>
+		<img src="/projects/easy/mini_solder_torch/HY510thermalGrease.jpg" alt="HY510thermalGrease.jpg" title="HY510 thermal grease">
+		<p>
+			The torch is lit on a medium flame and the time interval for ascending 100°C is measured.
+		</p>
+		<div class="video">
+			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Using the timer"></video>
+			<div class="playpause" onclick="doVid(this)"></div>
+			<div class="progbar"></div>
+		
+			<div class="preplay"></div>
+		</div>
+		<p>
+			It takes 25.5 seconds for the temperature to ascend from 29°C to 129°C.
+			The soldering tip is quite small made of steel and weights 1.8 grams.
+			Its heat capacity can be estimated by multiplying by the material's heat capacity.
+			Steel has a heat capacity of about 450 Joules per Kg per °C, so the tip has a heat capacity of 450 * 0.0018 = 0.81 Joules per °C.
+			When its temperature ascends 100°C in 25.5 seconds, it absorbed 81 Joules.
+			Therefore, the wattage of the heat transfer on the tip is 81 Joules / 25.5 seconds = 3.18 Watts.
+		</p>
+		<p>
+			This power is quite low for a soldering iron but
+			the it is still able to reach a proper soldering temperature and help make a few fixes.
 		</p>
 	</main>
 </body>
