@@ -101,10 +101,13 @@
 			The torch is lit on a medium flame and the time interval for ascending 100°C is measured.
 		</p>
 		<div class="video">
-			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Using the timer"></video>
+			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Testing the soldering tip" ontimeupdate ="animProg(this.parentNode)" controls></video>
 			<div class="playpause" onclick="doVid(this)"></div>
 			<div class="progbar"></div>
-		
+			<div class="progbarHitbox" onmousedown="relocateVideo(event, this)"></div>
+			<div class="speaker" onclick="doSpeaker(this)"></div>
+			<div class="volbar"></div>
+			<div class="volbarHitbox" onmousedown="relocateVolume(event, this)"></div>
 			<div class="preplay"></div>
 		</div>
 		<p>
@@ -116,8 +119,8 @@
 			Therefore, the wattage of the heat transfer on the tip is 81 Joules / 25.5 seconds = 3.18 Watts.
 		</p>
 		<p>
-			This power is quite low for a soldering iron but
-			the it is still able to reach a proper soldering temperature and help make a few fixes.
+			This power is very low for a soldering iron but
+			it is still able to reach a proper soldering temperature and help make a few fixes.
 		</p>
 	</main>
 </body>
