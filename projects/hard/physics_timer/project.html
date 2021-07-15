@@ -19,7 +19,7 @@
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideo.js"></script> 	<!-- External Functions: Custom video player -->
+	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
 
 
 	<style>
@@ -84,11 +84,7 @@
 		</p>
 		<div class="video">
 			<video src="/projects/hard/physics_timer/timer_test_blendered.mp4" loop title="Using the timer"></video>
-			<div class="playpause" onclick="doVid(this)"></div>
-			<div class="progbar"></div>
-			<div class="progbarHitbox" onclick="relocateVideo(event,this.parentNode)"></div>
-		
-			<div class="preplay"></div>
+			<div class="preplay" onclick="startPlayer(this)"></div>
 		</div>
 		<p>
 		<p>

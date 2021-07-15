@@ -21,7 +21,7 @@
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideo.js"></script> 	<!-- External Functions: Custom video player -->
+	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom simple video player -->
 </head>
 
 <body>
@@ -101,14 +101,8 @@
 			The torch is lit on a medium flame and the time interval for ascending 100°C is measured.
 		</p>
 		<div class="video">
-			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Testing the soldering tip" ontimeupdate ="animProg(this.parentNode)" controls></video>
-			<div class="playpause" onclick="doVid(this)"></div>
-			<div class="progbar"></div>
-			<div class="progbarHitbox" onmousedown="relocateVideo(event, this)"></div>
-			<div class="speaker" onclick="doSpeaker(this)"></div>
-			<div class="volbar"></div>
-			<div class="volbarHitbox" onmousedown="relocateVolume(event, this)"></div>
-			<div class="preplay"></div>
+			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Testing the soldering tip" ontimeupdate ="animProg(this.parentNode)"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
 		</div>
 		<p>
 			It takes 25.5 seconds for the temperature to ascend from 29°C to 129°C.

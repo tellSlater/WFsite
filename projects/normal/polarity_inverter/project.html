@@ -21,7 +21,7 @@
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideo.js"></script> 	<!-- External Functions: Custom video player -->
+	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
 </head>
 
 <body>
@@ -105,9 +105,7 @@
 		<img src="/projects/normal/polarity_inverter/polarityInverter.jpg" alt="polarityInverter.jpg" title="Inverter circuit">
 		<div class="video">
 			<video src="/projects/hard/printer_to_cnc/autoLeveling.mp4" loop title="Auto leveling"></video>
-			<div class="playpause" onclick="doVid(this)"></div>
-			<div class="progbar"></div>
-			<div class="preplay"></div>
+			<div class="preplay" onclick="startPlayer(this)"></div>
 		</div>
 	</main>
 </body>
