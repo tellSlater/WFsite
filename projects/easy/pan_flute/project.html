@@ -21,6 +21,7 @@
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom simple video player -->
 </head>
 
 <body>
@@ -44,8 +45,65 @@
 			Pan flute
 		</h2>
 		<h3>
-			Coming soon!
+			Summary
 		</h3>
+		<p>
+			This is a classic pan flute made of Arundo Donax reed.
+			<b>In this page there is information about making tuning and playing this instrument</b>.
+		</p>
+		<h3>
+			How it sounds
+		</h3>
+		<p>
+			The sound is mellow although not as full as some commercially bought pan flutes.
+		</p>
+		<div class="video">
+			<video src="/projects/easy/pan_flute/panFlutePlaying.mp4" loop title="Playing the pan flute"
+				ontimeupdate="animProg(this.parentNode)"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
+		</div>
+		<h3>
+			How to play
+		</h3>
+		<p>
+			Air is blown perpendicular to the reed tubes in order to make sound.
+			The technique is similar to playing the flute or making sound out of a glass bottle.
+		</p>
+		<img src="/projects/easy/pan_flute/blowingTechnique.jpg" alt="blowingTechnique.jpg" title="Blowing technique">
+		<p class="secondary">
+			To succeed in making sound one should try blowing air tangent to one's chin.
+			The head must remain upright.
+			The flute or bottle or pan flute should then be positioned vertically on the chin.
+		</p>
+		<h3>
+			Arundo Donax reed
+		</h3>
+		<p>
+			This species of reed is native to the greater middle East (countries such as Egypt, Turkey, Iran ...).
+			The pieces used in this project were harvested near a river in Greece.
+			There is more information about Arundo Donax on its <a href="https://en.wikipedia.org/wiki/Arundo_donax" target="_blank">wikipedia page</a>.
+		</p>
+		<img src="/projects/easy/reed_flute/ArundoDonaxStems.jpg" alt="ArundoDonaxStems.jpg" title="Arundo Donax stems">
+		<h3>
+			Tuning the flute pieces
+		</h3>
+		<p>
+			The pieces of reed can be tuned by altering their length.
+			The shorter a piece the higher in pitch is the note it produces.
+		</p>
+		<img src="/projects/easy/pan_flute/lengthTuning.jpg" alt="lengthTuning.jpg" title="Reed pieces length tuning">
+		<h3>
+			Tying the flute pieces
+		</h3>
+		<p>
+			After all the pieces of reed are tuned, they should be tied together on some short of chassis.
+			There are different shorts of chassis used for pan flutes.
+			The main idea is fixing the pieces together in order from longer to shorter (or from the most bass note to the most treble).
+		</p>
+		<p>
+			This instrument was tied with twine onto a couple pieces of reed
+			positioned vertically to the pieces of reed that produce the notes.
+		</p>
 	</main>
 </body>
 
