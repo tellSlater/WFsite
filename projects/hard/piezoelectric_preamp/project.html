@@ -7,7 +7,7 @@
 	<meta name="author" content="Ilias Chatziefstathiou">
 	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reed flute</title>
+	<title>Piezoelectric preamp</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,13 +45,172 @@
 			Piezoelectric preamp
 		</h2>
 		<h3>
-			Coming soon!
+			Summary
 		</h3>
-		<!-- <div class="video">
-			<video src="/projects/easy/reed_flute/reedFlutePlaying.mp4" loop title="Playing the reed flute"
+		<p>
+			This is a preamplifier for a piezoelectric contact microphone.
+			The piezoelectric element can pick sound when in contact with any acoustic instrument.
+			The preamplifier then amplifies the element's signal so that it can be read by
+			any standard guitar amplifier or console input.
+			<b>In this page there is information about building this preamplifier and how it sounds</b>.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/preampOnGuitar.jpg" alt="preampOnGuitar.jpg" title="The preamplifier on a classical guitar">
+		<h3>
+			How it sounds
+		</h3>
+		<p>
+			It should be noted though that the sound of a contact microphone is very sensitive
+			to the location on the instrument that it will be attached to.
+			On guitars the element is usually attached near the bridge or,
+			if the installation of the element is not external, right under the bridge of the instrument.
+			Nevertheless, some interesting timbres could be achieved by experimenting with the contact microphone positioning.
+		</p>
+		<p>
+			The piezoelectric element outputs a somewhat steel sound.
+			In this setup, the element is positioned right under the casing of the preamplifier, near the bridge of the guitar.
+			There are two knobs on the unit - the top one is for volume and the one near the jack is a tone knob.
+		</p>
+		<div class="video">
+			<video src="/projects/hard/piezoelectric_preamp/piezoSound.mp4" loop title="Guitar sound through the piezoelectric preamp"
 				ontimeupdate="animProg(this.parentNode)"></video>
 			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div> -->
+		</div>
+		<p>
+			The piezoelectric pickup can help bring out percussive sounds such as taps on the body or strings of the guitar:
+		</p>
+		<audio controls>
+			<source src="/projects/hard/piezoelectric_preamp/piezoTest.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<h3>
+			Schematic
+		</h3>
+		<p>
+			The preamplifier is based on a Texas Instrument LM386 audio amplifier IC.
+			This IC features a bass-boost feature that was used to implement the tone knob.
+			A gain of 20 to 200 can be set with external components on this IC.
+			For this project a gain of approximately 60 was chosen as it yielded a signal of 2 volts peak to peak.
+			As for the power, this IC works for a wide range of supply voltages: 4V - 12V.
+			A 9V battery was chosen to supply the preamp.
+		</p>
+		<a class="img" href="/projects/hard/piezoelectric_preamp/schematicBIG.jpg" target="_blank">
+			<img src="/projects/hard/piezoelectric_preamp/schematicSMALL.jpg" alt="schematicSMALL.jpg" title="Preamp board schematic">
+		</a>
+		<p>
+			The PCB was designed in EAGLE.
+			The gerber and drill files are available for download <a href="/projects/hard/piezoelectric_preamp/piezoelectric_preamp_gerber_drill_silkscreen.rar" download>here</a>.
+		</p>
+		<a class="img" href="/projects/hard/piezoelectric_preamp/BRDbig.jpg" target="_blank">
+			<img src="/projects/hard/piezoelectric_preamp/BRD.jpg" alt="BRD.jpg" title="Preamp board design">
+		</a>
+		<h3>
+			LM386
+		</h3>
+		<p>
+			There are some examples in the chip's datasheet that were used as reference to design the board.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/LMgain.jpg" alt="LMgain.jpg" title="Gain resistor">
+		<p>
+			The resistor circled in the above image is responsible for tuning the gain of the amplifier.
+			An infinite value corresponds to a gain of 20 while a short to a gain of 200.
+			A resistor of 1.2KΩ corresponds to a gain of 50.
+			For this design a resistor of 1KΩ was chosen through experimentation.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/LMbassBoost.jpg" alt="LMbassBoost.jpg" title="Bass boost resistor">
+		<p>
+			The bass boost feature was used to implement a tone knob.
+			The resistor circled in the above image is responsible for tuning the frequency response of the amplifier.
+			When there is a BYPASS capacitor the bass boost resistor can be as small as 2KΩ and yields a maximum bass amplification.
+			For this reason a 2KΩ resistor is used in series with a 10KΩ potentiometer for tinkering with the frequency response of the amplifier.
+			The greater value this resistor has, the more flat the frequency response of the amplifier gets.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/LMbassBoostFreqResponse.jpg" alt="LMbassBoostFreqResponse.jpg" title="Bass boost frequency response">
+		<p>
+			The datasheet for the LM386 amplifier IC is available <a href="https://www.ti.com/lit/ds/symlink/lm386.pdf" target="_blank">here</a>.
+		</p>
+		<h3>
+			Board
+		</h3>
+		<p>
+			The circuit board was designed in EAGLE and was machined out of one sided copper clad board.
+			A 3D printer converted to a milling cutter was used for this purpose(available as a project <a href="/projects/hard/printer_to_cnc/project.html" target="_blank">here</a>).
+			The next video is a time lapse of the process at x10 speed:
+		</p>
+		<div class="video">
+			<video src="/projects/hard/piezoelectric_preamp/BoardCuttingFinal.mp4" loop title="Cutting the board"
+				ontimeupdate="animProg(this.parentNode)"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
+		</div>
+		<p>
+			This video skips two jobs of the process.
+			The 1mm holes are pre-drilled with the V-bit to make it easier for the thin 1mm drill to grip.
+			Also the traces are engraved twice because it helps get rid of copper filings that sometimes cause shorts.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/piezoelectricPCB.jpg" alt="piezoelectricPCB.jpg" title="Cut board">
+		<h3>
+			Component placement
+		</h3>
+		<p>
+			The components were placed as the silk screen suggests except from the capacitors.
+			The capacitors were tilted to save space and make the housing smaller.
+			The positioning of the capacitors was determined using 3D models in Fusion360.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/capPositioning.jpg" alt="capPositioning.jpg" title="Capacitor positioning">
+		<p>
+			The battery was placed near the board and the female jack to the side as shown above.
+			The jack was also trimmed with a Dremel to make it thinner.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/jackSmaller.jpg" alt="jackSmaller.jpg" title="Shrinking the female jack">
+		<h3>
+			Female jack mod
+		</h3>
+		<p>
+			There is no on/off switch in the design.
+			In stead of using one, the female jack was modded so that the battery connects when a male jack is inserted.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/jackMod.jpg" alt="jackMod.jpg" title="Jack mod schematic">
+		<p>
+			The original switched female jack's contact is blocked with duct tape.
+			A new contact for the switch is placed on the opposite side.
+			A piece of thin sheet metal is hot glued in place.
+			When a male jack is inserted, the tip's contact is moved to the right and the switch closes,
+			connecting the switch pin of the female jack to its ground connection.
+			The battery's ground is connected to the switch pin so that when a male jack is inserted,
+			the battery's ground connects with the board.
+		</p>
+		<h3>
+			Circuit
+		</h3>
+		<p>
+			This is how the complete circuit looks in the casing:
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/circuit.jpg" alt="circuit.jpg" title="Circuit">
+		<p>
+			The piezoelectric element is fixed with a thin layer of white tag onto
+			the wooden body of the guitar, right underneath the casing of the preamplifier.
+			A hole is manually made on the bottom of the casing for the piezoelectric element's wiring.
+			The preamplifier is placed on top with double sided tape.
+		</p>
+		<h3>
+			Casing
+		</h3>
+		<p>
+			The casing was designed to be easily 3D printed using a minimum amount of supports.
+			The only geometry that needs supports to print correctly is the clip for the circuit board.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/supportRequirement.jpg" alt="supportRequirement.jpg" title="Geometry that requires supports">
+		<p>
+			The bottom part of the case should be printed lying on its base while
+			the top part(the cap) should be printed on its side with a brim for adhesion.
+			The potentiometer knobs should be printed up side down.
+		</p>
+		<img src="/projects/hard/piezoelectric_preamp/botPrint.jpg" alt="botPrint.jpg" title="Orientation for printing">
+		<img src="/projects/hard/piezoelectric_preamp/topPrint.jpg" alt="topPrint.jpg" title="Orientation for printing">
+		<!-- <img src="/projects/hard/piezoelectric_preamp/potPrint.jpg" alt="potPrint.jpg" title="Orientation for printing"> -->
+		<p>
+			The STL files for the casing and the knobs for the potentiometers can be downloaded
+			<a href="/projects/hard/piezoelectric_preamp/PiezoelectricPreampSTLs.rar" download>here</a>.
+		</p>
 	</main>
 </body>
 
