@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Music, electronics, engineering, programming and control projects">
+    <meta name="author" content="Ilias Chatziefstathiou">
+    <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windfish Shores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+    <!-- <link rel="stylesheet" href="CSS/article.css"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
+    <script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+    <script src="/JavaScript/homepageAudio.js"></script> <!-- External Functions: Homepage audio -->
+
+    <style>
+        html,
+        body {
+            height: 100%;
+
+            overflow-x: hidden;
+
+            /* background-color: #efe1c5; */
+            /* background-color: #f7d7ab; */
+            /* background-color: #e0cba4; */
+
+            /* -webkit-transition: background-color 10s linear;
+			-ms-transition: background-color 10s linear;
+			transition: background-color 10s linear; */
+
+            /* border: 4px solid black; */
+        }
+
+
+        header {
+            height: 280px;
+
+            /* -webkit-transition: background-color 10s linear;
+			-ms-transition: background-color 10s linear;
+			transition: background-color 10s linear; */
+
+            /* background-color: #d5ecff; */
+            /* background-color: #ffb788; */
+            /* background-color: #464646; */
+        }
+
+        /*---------- DESKTOP STUFF ----------*/
+
+        header div.desktop {
+            position: relative;
+            margin: auto;
+            display: static;
+            height: 280px;
+
+            /* z-index: -2; */
+
+            /* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
+            /* background-color: rgb(255, 151, 151); */
+
+            /* border: 1px solid black; */
+        }
+
+        header div.desktop img.header {
+            image-rendering: pixelated;
+            transform: translate(-50%, -50%) scale(6);
+            display: block;
+            margin: auto;
+            position: absolute;
+            z-index: 10;
+            left: 50%;
+            top: 115px;
+            margin-top: 36px;
+            margin-bottom: 36px;
+
+            /* border: 1px solid black; */
+        }
+
+        header div.desktop .stripe {
+            /* z-index: -1; */
+            position: absolute;
+            top: 160px;
+            height: 120px;
+            width: 100%;
+            margin: auto;
+            background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
+            /* background-position: 0 6px; Moving sea? */
+
+            /* background-color: rgb(117, 158, 247); */
+
+            /* border: 2px solid wheat; */
+        }
+
+        main {
+            height: calc(100vh - 280px);
+        }
+
+        /*---------- MOBILE STUFF ----------*/
+
+        header div.mobile {
+            display: none;
+            position: relative;
+            margin: auto;
+            display: static;
+            height: 180px;
+
+            /* z-index: -2; */
+
+            /* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
+            /* background-color: rgb(255, 151, 151); */
+
+            /* border: 1px solid black; */
+        }
+
+        header div.mobile img.header {
+            image-rendering: pixelated;
+            transform: translate(-50%, -50%) scale(6);
+            display: block;
+            margin: auto;
+            position: absolute;
+            z-index: 10;
+            left: 50%;
+            top: 74px;
+            margin-top: 36px;
+            /* margin-bottom: 36px; */
+
+            /* border: 1px solid black; */
+        }
+
+        header div.mobile .stripe {
+            /* z-index: -1; */
+            position: absolute;
+            top: 50px;
+            height: 120px;
+            width: 100%;
+            margin: auto;
+            background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
+            /* background-color: rgb(117, 158, 247); */
+
+            /* border: 2px solid wheat; */
+        }
+
+        h3 {
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: "Press Start 2P", sans-serif;
+            margin-top: 40px;
+        }
+
+        /*---------- HOVERS ----------*/
+
+        img.header:hover {
+            opacity: 0.7;
+        }
+
+        a:link {
+            color: black;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: black;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        /* Scrolbar style */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: rgba(92, 92, 92, 0.3);
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            width: 6px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(0, 0, 0);
+        }
+
+        @media screen and (hover: none) and (pointer: coarse) {
+
+            /* div.linkTXT
+			{
+				display: inline !important;
+				opacity: 0.7;
+			} */
+            body {
+                -moz-transform: scale(0.6, 0.6);
+                /* Moz-browsers */
+                zoom: 0.6;
+                /* Other non-webkit browsers */
+                zoom: 60%;
+                /* Webkit browsers */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio" onended="showPlay()">
+        <source src="Wavewatching.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <header id="sky">
+        <div class="desktop">
+            <a href="index.html">
+                <img class="header" src="images/LogoBetterTrans.png" alt="Link thumbnail" />
+            </a>
+            <div class="stripe"></div>
+        </div>
+        <div class="mobile">
+            <a href="index.html">
+                <img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+            </a>
+            <div class="stripe"></div>
+        </div>
+    </header>
+
+    <main>
+        <h3 style="text-align: center">
+            404: Page not found
+        </h3>
+    </main>
+
+</body>
+
+</html>
+
+<!-- This line of code is for my friend Aggelos Chatziathanasiou who is hospitalized right now and asked me to code something for him -->
+
+<!-- http://127.0.0.1:5500/index.html - this is for the live server-->
