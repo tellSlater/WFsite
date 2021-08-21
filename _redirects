@@ -1,21 +1,21 @@
 # Redirects from what the browser requests to what we serve
 
-/projects    /projects.html  
-/project    /projects.html  
-/projcts    /projects.html  
-/rojects    /projects.html 
+/projects    /projects 
+/project    /projects
+/projcts    /projects
+/rojects    /projects
 
-/music      /music.html
-/musics     /music.html
-/msic      /music.html
-/usic      /music.html
+/music      /music
+/musics     /music
+/msic      /music
+/usic      /music
 
-/about      /about.html
-/abut      /about.html
-/abou      /about.html
-/bout      /about.html
+/about      /about
+/abut      /about
+/abou      /about
+/bout      /about
 
-/contact        /contact.html
-/ontact        /contact.html
-/contct        /contact.html
-/contac        /contact.html
+/contact        /contact
+/ontact        /contact
+/contct        /contact
+/contac        /contact
