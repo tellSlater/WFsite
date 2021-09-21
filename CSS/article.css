@@ -121,6 +121,7 @@ div.sand:after {
 
 header img.header {
   z-index: 10;
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
   transform: translate(-50%, -50%) scale(6);
   margin-left: 58px;
@@ -252,6 +253,7 @@ main .video {
   width: 16px;
 
   background: url(/images/PlayPause.png);
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
   transform: translate(-50%, -50%) scale(6);
 

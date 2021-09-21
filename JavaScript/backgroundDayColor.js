@@ -31,6 +31,7 @@ const sunPos = {
             savingsHour = 0,
             nowItIs = 0;
 
+        //Checks for saving hour
         if (h.getMonth() > 1 && h.getMonth() < 9) {
             savingsHour = 1;
         }
@@ -42,6 +43,7 @@ const sunPos = {
             var lastDay = getDay(Date(h.getFullYear(), h.getMonth(), 31));
             if (h.getDate() < (31 - lastDay)) savingsHour = 1;
         }
+
 
         if (minsNow < sunPos.sunriseMonthToMins(md) + savingsHour * 60) {
             nowItIs = 0;
