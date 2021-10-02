@@ -36,11 +36,13 @@ const sunPos = {
             savingsHour = 1;
         }
         else if (h.getMonth() == 1) {
-            var lastDay = getDay(Date(h.getFullYear(), h.getMonth(), 31));
+            var lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
+            lastDay = lastDate.getDay();
             if (h.getDate() >= (31 - lastDay)) savingsHour = 1;
         }
         else if (h.getMonth() == 9) {
-            var lastDay = getDay(Date(h.getFullYear(), h.getMonth(), 31));
+            var lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
+            lastDay = lastDate.getDay();
             if (h.getDate() < (31 - lastDay)) savingsHour = 1;
         }
 
