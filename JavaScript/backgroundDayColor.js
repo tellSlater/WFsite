@@ -36,16 +36,15 @@ const sunPos = {
             savingsHour = 1;
         }
         else if (h.getMonth() == 1) {
-            var lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
-            lastDay = lastDate.getDay();
+            const lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
+            var lastDay = lastDate.getDay();
             if (h.getDate() >= (31 - lastDay)) savingsHour = 1;
         }
         else if (h.getMonth() == 9) {
-            var lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
-            lastDay = lastDate.getDay();
+            const lastDate = new Date(h.getFullYear(), h.getMonth(), 31);
+            var lastDay = lastDate.getDay();
             if (h.getDate() < (31 - lastDay)) savingsHour = 1;
         }
-
 
         if (minsNow < sunPos.sunriseMonthToMins(md) + savingsHour * 60) {
             nowItIs = 0;
