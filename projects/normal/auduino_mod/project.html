@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Music, electronics, engineering, programming and control projects">
+	<meta name="author" content="Ilias Chatziefstathiou">
+	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auduino mod</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="/CSS/article.css">
+
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
+	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
+</head>
+
+<body>
+	<header id="sky">
+		<div style="margin-left: 8%;">
+			<a href="/index.html">
+				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+			</a>
+		</div>
+		<div>
+			<a href="/projects.html" class="themeTXT">
+				<h1>Projects</h1>
+			</a>
+		</div>
+		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
+		<div class="stripe"></div>
+	</header>
+
+	<main>
+		<h2>
+			Auduino mod
+		</h2>
+		<h3>
+			Summary
+		</h3>
+		<p>
+			Auduino is an old project - more information about it is available
+			<a href="https://code.google.com/archive/p/tinkerit/wikis/Auduino.wiki" target="_blank">here</a>.
+			It is a synthesizer based on the Arduino UNO.
+			It uses a technique called granular synthesis to produce very interesting sounds.
+			<b>In this project some weaknesses of the synthesizer are addressed and modifications are made to compensate for them</b>.
+		</p>
+		<img src="/projects/normal/auduino_mod/moddedAuduino.jpg" alt="moddedAuduino.jpg" title="Modded Auduino">
+		<h3>
+			How it sounds
+		</h3>
+		<p>
+			The modded Auduino has a more mellow sound timbre from the original,
+			it can produce a more groovy melody with variable volume dynamics
+			and the musical scale it uses is displayed and can be changed with the push of a button.
+		</p>
+		<div class="video">
+			<video src="/projects/normal/auduino_mod/testingAuduino.mp4" loop title="Testing the synth"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
+		</div>
+		<h3>
+			About the Auduino
+		</h3>
+		<p>
+			The Auduino produces sound by adding two decaying triangle waves together
+			and repeating them as often as the user chooses.
+			The two decaying triangle waves make up the grain and the frequency of its repetition (grain frequency)
+			defines the primary note.
+		</p>
+		<img src="/projects/normal/auduino_mod/outputOscilloscope.jpg" alt="outputOscilloscope.jpg" title="Auduino output">
+		<p class="secondary">
+			To make the example easier to follow only one of the triangle waves was used in the image.
+			Also, this oscillation is not the direct output of the arduino.
+			The PWM output was filtered through a low pass filter in order to make the oscillations visually clearer.
+		</p>
+		<p>
+			In the above image the Auduino's output was probed.
+			It is evident that there is a triangle wave that slowly decays
+			and that it is being repeated after some time.
+			These are two grains of the synthesis.
+		</p>
+		<p>
+			By altering the frequency and decay time of the triangle wave,
+			it is possible to emphasize on certain harmonics of the primary note (defined by the grain frequency).
+			By utilizing both the available triangle waves that make up one grain in the Auduino,
+			it is possible to synthesize a note and emphasize on two different regions of its harmonic content.
+		</p>
+		<p>
+			Looking again at the Auduino output above it is evident that the grain repeats every 25ms
+			- that makes a grain frequency of 40Hz and thus a note of 40Hz or an E1.
+			It is also easy to observe that the triangle wave's frequency is 5.5 times greater than the grain frequency.
+			It is then expected that the output will sound like an E1 with rich sound in its 5th and 6th harmonic regions.
+		</p>
+		<p>
+			There are originally five controls for this synthesizer
+		</p>
+		<ol>
+			<li>
+				Frequency of triangle wave 1 (harmonics to emphasize)
+			</li>
+			<li>
+				Decay of triangle wave 1 (how much emphasis)
+			</li>
+			<li>
+				Frequency of triangle wave 2 (harmonics to emphasize)
+			</li>
+			<li>
+				Decay of triangle wave 2 (how much emphasis)
+			</li>
+			<li>
+				Grain frequency (primary note that is being played)
+			</li>
+		</ol>
+		<p>
+			The Auduino uses an analog output(PWM) in order to produce a wave of variable magnitude.
+			The analog output is altered about 32000 times a second in an interrupt sub routine
+			- this means the output has a sample rate of about 32KHz.
+		</p>
+		<h3>
+			Rhythm
+		</h3>
+		<p>
+			The Auduino synthesizer produces a tone that is continuous and constant in volume.
+			This is why it is very difficult to produce a melody that has rhythm.
+		</p>
+		<img src="/projects/normal/auduino_mod/pedal.jpg" alt="pedal.jpg" title="Pedal">
+		<p>
+			In order to address that problem a sound pedal was added.
+			The sound pedal is nothing more than a switch much like the sustain pedal on a piano.
+			When held down (closed switch), the synthesizer produces sound and when it is up (open switch), the sound stops.
+			The starting and stopping of the sound was written in a way that prevents output discontinuity.
+		</p>
+		<p>
+			The pedal used was a small DIY project that is available <a href="/projects/easy/footswitch/project.html" target="_blank">here</a>.
+		</p>
+		<h3>
+			Dynamics 
+		</h3>
+		<p>
+			After addressing the rhythm problem(which is arguably the most important aspect of music),
+			it is time to work on dynamics.
+			There are two options here:
+			<ol>
+				<li>
+					An ADSR envelope written in code that activates every time the pedal is pressed
+				</li>
+				<li>
+					A simple volume slider so that the volume of each note can be adjusted by hand
+				</li>
+			</ol>
+		</p>
+		<p>
+			The second solution was chosen because it offers more freedom to the player.
+			It may also be more difficult to use than an automated ADSR but
+			since the player is supposed to have both hands free, it is a viable solution.
+		</p>
+		<img src="/projects/normal/auduino_mod/volSlider.jpg" alt="volSlider.jpg" title="Volume slider">
+		<p>
+			A logarithmic 10KOhm slider potentiometer was used for that purpose.
+		</p>
+		<h3>
+			Note consistency
+		</h3>
+		<p>
+			It is a bit difficult to land on a desired note on the original Auduino because of two reasons:
+			<ol>
+				<li>
+					A very small movement of the potentiometer corresponds to a note change
+				</li>
+				<li>
+					The input of the potentiometer is noisy and there are areas of the potentiometer
+					where the output oscillates between neighboring notes.
+				</li>
+			</ol>
+		</p>
+		<p>
+			To address the first problem, the range of the synthesizer was shrank to about 5 octaves.
+			The very low octaves and also most of the high octaves were removed.
+			The sound at extreme bass and treble octaves is not great to begin with so this is not a big sacrifice.
+			On top of that, a large slider potentiometer was used to increase the user's accuracy in selecting notes.
+		</p>
+		<img src="/projects/normal/auduino_mod/noteSelect.jpg" alt="noteSelect.jpg" title="Note slider pot">
+		<p>
+			To deal with the second problem, the input of the potentiometer that is responsible for the note change
+			is filtered using a method called a rolling mean(or moving average).
+			It is a low-pass filter that can be easily implemented in code.
+		</p>
+		<p>
+			This method of filtering works by taking the average of a number of N values from the original input.
+			These N values are stored in a LIFO fashion.
+			Also important for designing the filter is the sampling frequency of the original input
+			- that means how often a new value from the input enters the LIFO structure.
+		</p>
+		<p>
+			The cutoff frequency of the rolling mean can be estimated using the equations that follow.
+			It depends on the number of input values that are being averaged(N)
+			and the sampling frequency(fs).
+			Equation (1) gives the normalized frequency - the cutoff frequency in Hz is calculated using equation (2).
+		</p>
+		<img src="/projects/normal/auduino_mod/FcutoffRollingMean.jpg" alt="FcutoffRollingMean.jpg" title="Cutoff frequency approximation formula">
+		<p>
+			The downside of using a moving average filter is that it slows down the responsiveness of the control.
+			In order to keep the response time low, N was chosen to be 8 and a sampling rate of 500Hz was used.
+			Using the formulas these values give a cutoff frequency of about 28Hz
+			which is more than enough to improve the noise problem.
+		</p>
+		<h3>
+			Musical scales
+		</h3>
+		<p>
+			The original synthesizer could be programmed to use either a pentatonic scale or the chromatic scale.
+			This is a bit of a handicap since the chromatic scale is difficult to use by adjusting a potentiometer
+			and using only one of the 12 pentatonic scales is not guaranteed to be in tune with a song.
+		</p>
+		<p>
+			In order to tackle this, the synthesizer was equipped with a display for showing the current scale's key note
+			and two buttons for changing it.
+			The user can select between every pentatonic scale and the chromatic scale.
+			The code can be altered to add any other desireable scale.
+		</p>
+		<img src="/projects/normal/auduino_mod/displayCloseup.jpg" alt="displayCloseup.jpg" title="Display and buttons">
+		<p>
+			The display's "dot" symbol is used to represent a musical sharp(#) symbol.
+			In that sense, in the image above the display is read as C# and it corresponds to a C# minor pentatonic scale.
+			Additional functionality can be added to the buttons by implementing long button presses.
+		</p>
+		<h3>
+			Output discontinuity
+		</h3>
+		<p>
+			The synthesizer is prone to outputting waves that are discontinuous at the end of grains.
+			That gives some notes a timbre that resembles a sawtooth wave and makes them sound harsh.
+			This discontinuity is visible in the next image and the resemblance to a sawtooth wave is visible.
+		</p>
+		<img src="/projects/normal/auduino_mod/noFadeout.jpg" alt="noFadeout.jpg" title="Output wave discontinuity">
+		<p>
+			Here is how that discontinuity sounds like:
+		</p>
+		<audio controls>
+			<source src="/projects/normal/auduino_mod/grainFadeout0.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<p>
+			A technique that can be used to eliminate this behavior is
+			introducing a small linear fade-out tens of samples before the end of each grain.
+			After implementing the fadeout, the discontinuity disappears and the sound is much more mellow.
+		</p>
+		<img src="/projects/normal/auduino_mod/fadeout.jpg" alt="fadeout.jpg" title="Output with grain fade-out">
+		<p>
+			Here is how eliminating the discontinuity sounds like:
+		</p>
+		<audio controls>
+			<source src="/projects/normal/auduino_mod/grainFadeout2.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<p>
+			Having this sawtooth-like quality appear in the sound could be someone's preference.
+			The grain fade-out can be easily commented out in the Arduino code.
+		</p>
+		<h3>Features</h3>
+		<p>
+			These are the features of the final build:
+		</p>
+		<img src="/projects/normal/auduino_mod/features.jpg" alt="features.jpg" title="Main controls">
+		<p>
+			The arduino is easily accessible for re-programming.
+			The wooden lid that covers the top portion of the synth slides out.
+		</p>
+		<img src="/projects/normal/auduino_mod/sideFeatures.jpg" alt="sideFeatures.jpg" title="Power and input/output">
+		<h3>
+			Code
+		</h3>
+		<p>
+			The original Auduino code was reworked using the Arduino IDE.
+			These are the features that were added in the program:
+		</p>
+		<ol>
+			<li>
+				Output disable based on digital input pin state for the pedal
+			</li>
+			<li>
+				A moving average filter for the grain frequency ADC input
+			</li>
+			<li>
+				Reduced range for the grain frequency
+			</li>
+			<li>
+				A system for cycling through scales of different key
+			</li>
+			<li>
+				Seven segment display communication
+			</li>
+			<li>
+				Software debounced pushbutton reading (for changing scales)
+			</li>
+			<li>
+				Grain fade out
+			</li>
+		</ol>
+		<p>
+			The code is available for download <a href="/projects/normal/auduino_mod/Auduino_WindFishMOD.ino" download>here</a>.
+		</p>
+		<h3>
+			Schematic
+		</h3>
+		<p>
+			The schematic is identical to the original Auduino except for the extra components that are used.
+			This means that eight extra pins from the arduino are used for the display,
+			two more pins are used for the buttons
+			and one extra pin is used to read the pedal position.
+		</p>
+		<img src="/projects/normal/auduino_mod/schematicNano.jpg" alt="schematicNano.jpg" title="Arduino Nano">
+		<img src="/projects/normal/auduino_mod/schematicPots.jpg" alt="schematicPots.jpg" title="Potentiometers">
+		<img src="/projects/normal/auduino_mod/schematicDisp.jpg" alt="schematicDisp.jpg" title="Display and buttons">
+		<p>
+			A simple low pass filter is used before outputting the signal to the output female jack.
+			Another female jack is used for the pedal input.
+		</p>
+		<img src="/projects/normal/auduino_mod/schematicInOut.jpg" alt="schematicInOut.jpg" title="Filter, output and pedal input">
+		<p>
+			The Arduino is powered through a step-up converter at 5V.
+			The converter is powered by a 18650 lithium battery.
+			The battery is also connected to a charging board that is able to recharge the battery through a micro USB connector.
+		</p>
+		<img src="/projects/normal/auduino_mod/schematicPower.jpg" alt="schematicPower.jpg" title="Power supply">
+		<h3>
+			Circuit
+		</h3>
+		<p>
+			A small prototyping board was used to mount the arduino and the low pass filter.
+			Everything else was soldered together with wires.
+			Hot glue was used for securing the battery and the circuit boards in place.
+		</p>
+		<img src="/projects/normal/auduino_mod/topElectronics.jpg" alt="topElectronics.jpg" title="Power circuit and Arduino">
+		<img src="/projects/normal/auduino_mod/botElectronics.jpg" alt="botElectronics.jpg" title="Potentiometers and display">
+		<h3>
+			Casing
+		</h3>
+		<p>
+			The casing was carved out of a piece of plywood.
+			The electronics were placed freely in order to find a good place for everything.
+		</p>
+		<img src="/projects/normal/auduino_mod/planning.jpg" alt="planning.jpg" title="Experimenting with component positions">
+		<p>
+			A power-drill and some chisels were used to hollow the wood for installing the electronics.
+		</p>
+		<img src="/projects/normal/auduino_mod/chiseling.jpg" alt="chiseling.jpg" title="Hollowing the wood">
+		<p>
+			Afterwards the location and holes for every component was marked down with a pencil.
+		</p>
+		<img src="/projects/normal/auduino_mod/marking.jpg" alt="marking.jpg" title="Marking the positions">
+		<p>
+			After giving the casing its final form, it was coated with linseed oil.
+		</p>
+		<img src="/projects/normal/auduino_mod/oiled.jpg" alt="oiled.jpg" title="Coated case">
+		<h3>
+			3D printed parts
+		</h3>
+		<p>
+			All the potentiometer knobs for this projects were 3D printed and painted by hand.
+			The display's cover was also 3D-printed along with some flexible button covers.
+			The circuit board with the display and the buttons is fastened behind it with screws.
+		</p>
+		<img src="/projects/normal/auduino_mod/display.jpg" alt="display.jpg" title="Display design in Fusion360">
+		<img src="/projects/normal/auduino_mod/potCaps.jpg" alt="potCaps.jpg" title="3D printed potentiometer caps">
+		<p>
+			All the parts are available for download in STL form <a href="/projects/normal/auduino_mod/AuduinoModSTLs.rar" download>here</a>.
+		</p>
+	</main>
+</body>
+</html>
