@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Music, electronics, engineering, programming and control projects">
+	<meta name="author" content="Ilias Chatziefstathiou">
+	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Origami light</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="/CSS/article.css">
+
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
+	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+	<script src="/JavaScript/myVideoSimple.js"></script> <!-- External Functions: Custom video player -->
+</head>
+
+<body>
+	<header id="sky">
+		<div style="margin-left: 8%;">
+			<a href="/index.html">
+				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+			</a>
+		</div>
+		<div>
+			<a href="/projects.html" class="themeTXT">
+				<h1>Projects</h1>
+			</a>
+		</div>
+		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
+		<div class="stripe"></div>
+	</header>
+
+	<main>
+		<h2>
+			Origami light
+		</h2>
+		<h3>
+			Summary
+		</h3>
+		<p>
+			This is an modular origami that has been fitted with LED lights a tilt sensor and a light sensor.
+			It will detect darkness and light up. Alternatively, it will also light up if it detects movement.
+			It can be used as emergency lighting or simply as a light.
+			<b>In this page there is information about how it was designed and made</b>.
+		</p>
+		<img src="/projects/normal/origami_light/origamiLight_dark.jpg" alt="origamiLight_dark.jpg" title="Origami light">
+		<h3>
+			Functionality
+		</h3>
+		<p>
+			The origami light can be used in several ways:
+		</p>
+		<ol>
+			<li>
+				As an ornament
+			</li>
+			<li>
+				As an emergency light (e.g. during a power outage)
+			</li>
+			<li>
+				As a night light
+			</li>
+		</ol>
+		<p>
+			As an ornament, modular origamis are always interesting to look at and can offer to the aesthetics of a room.
+		</p>
+		<img src="/projects/normal/origami_light/ornament.jpg" alt="ornament.jpg" title="Origami light as an ornament">
+		<p>
+			The origami is equipped with a light sensor.
+			When the room goes dark, the origami lights up revealing its position.
+			Afterwards, it can be picked up by the user and help traverse a dark area.
+		</p>
+		<div class="video">
+			<video src="/projects/normal/auduino_mod/testingAuduino.mp4" loop title="Testing the synth"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
+		</div>
+		<p>
+			The origami is also equipped with a tilt sensor - it will light up upon sensing movement if someone picks it up.
+			The user can pick it up and use it as a night light (e.g. for visiting the kitchen late at night for a glass of water).
+		</p>
+		<h3>
+			The origami
+		</h3>
+		<p>
+			The origami is a modular design and was found in the book "a handbook of origami" by Rick Beech.
+			It is called "Japanese brocade" and can be found at page 232 of this book.
+		</p>
+		<p>
+			This origami is made of six square papers of dimensions 22x22cm:
+		</p>
+		<img src="/projects/normal/origami_light/papers.jpg" alt="papers.jpg" title="Paper dimension and count">
+		<p>
+			The paper used in this project is a kind of hard, plastic, water resistant paper.
+			This kind of paper is not meant for folding into origami and was hard to work with but gives a very durable result.
+			Using durable paper is recommended for this project.
+		</p>
+		<p>
+			In order to make the origami, each of the six square papers is folded into identical puzzle like pieces.
+			Afterwards, the six pieces interlock with each other to make the final design.
+		</p>
+		<p>
+			Folding the six pieces:
+		</p>
+		<ol>
+			<li>
+				The paper is fold in half. The right edge should touch the left edge of the square:
+				<img src="/projects/normal/origami_light/origami1.jpg" alt="origami1.jpg" title="Half fold">
+			</li>
+			<li>
+				The first fold is undone and the left and right edges of the square are folded to meet the visible crease that was made by the fold in step 1:
+				<img src="/projects/normal/origami_light/origami2.jpg" alt="origami2.jpg" title="Quarter fold">
+			</li>
+			<li>
+				The top right corner is fold to the left edge and the bottom left corner to the right edge:
+				<img src="/projects/normal/origami_light/origami3.jpg" alt="origami3.jpg" title="Corners fold">
+			</li>
+			<li>
+				The paper is unfold completely. The corners of the square paper are fold along the visible quarter creases as shown:
+				<img src="/projects/normal/origami_light/origami4a.jpg" alt="origami4a.jpg" title="Unfold paper creases">
+				<img src="/projects/normal/origami_light/origami4b.jpg" alt="origami4b.jpg" title="Corners fold">
+			</li>
+			<li>
+				The right and left edges are fold inwards along the vertical quarter crease:
+				<img src="/projects/normal/origami_light/origami5.jpg" alt="origami5.jpg" title="Edges to quarter crease">
+			</li>
+			<li>
+				The top right corner is fold along the left quarter crease:
+				<img src="/projects/normal/origami_light/origami6.jpg" alt="origami6.jpg" title="Top right corner to left quarter crease">
+			</li>
+			<li>
+				The right edge and the edge at the bottom of the previous folded part are folded simultaneously as shown bellow.
+				The two folds must happen at the same time because one enables the other. 
+				<img src="/projects/normal/origami_light/origami7a.jpg" alt="origami7a.jpg" title="Simultaneous fold, before folding">
+				<img src="/projects/normal/origami_light/origami7b.jpg" alt="origami7b.jpg" title="Simultaneous fold, after folding">
+			</li>
+			<li>
+				The previous two steps are mirrored for the bottom left corner resulting to this:
+				<img src="/projects/normal/origami_light/origami8.jpg" alt="origami8.jpg" title="Steps 6 & 7 mirrored">
+			</li>
+			<li>
+				Finally what was originally the bottom left corner is tucked under the flap near the right edge.
+				<img src="/projects/normal/origami_light/origami9.jpg" alt="origami9.jpg" title="Tucking the corner">
+			</li>
+		</ol>
+		<p>
+			All six pieces must be folded as described above.
+			Afterwards the six pieces can be put together like a puzzle to form a cube.
+			The pieces consist of a face part and two flaps.
+		</p>
+		<img src="/projects/normal/origami_light/origami10a.jpg" alt="origami10a.jpg" title="Piece anatomy">
+		<p>
+			The flaps of one piece are docked into the face parts of other pieces creating the final result.
+		</p>
+		<img src="/projects/normal/origami_light/origami10b.jpg" alt="origami10b.jpg" title="Docking two pieces">
+		<img src="/projects/normal/origami_light/origamiAssembly.jpg" alt="origamiAssembly.jpg" title="Origami assembly">
+		<h3>
+			Chassis
+		</h3>
+		<p>
+			In order to fit the electronics inside the origami a special chassis was designed in Fusion360.
+		</p>
+		<img src="/projects/normal/origami_light/chassisFusion360.jpg" alt="chassisFusion360.jpg" title="Chassis design">
+		<p>
+			The origami is cube-shaped and is decorated by a tetrahedron pattern on the outside.
+			The chassis was designed in a tetrahedron shape so that
+			these decorations would protect the chassis edges from impact.
+		</p>
+		<p>
+			The chassis is designed a bit larger than the available cavity in the origami but has the ability to be compressed.
+			When compressed and fit into the origami, it expands wedging itself tightly into the origami's cavity.
+			In order to give the chassis its springiness, a compliant mechanism was used.
+			The face part was designed to have a spring-like action when compressed.
+		</p>
+		<img src="/projects/normal/origami_light/facePart.jpg" alt="facePart.jpg" title="Tetrahedron face part">
+		<p>
+			The golden ratio was used as reference for designing these spirals in hopes that they would create interesting shadows.
+		</p>
+		<div class="video">
+			<video src="/projects/normal/origami_light/chassisBend.mp4" loop title="Compressing the chassis"></video>
+			<div class="preplay" onclick="startPlayer(this)"></div>
+		</div>
+		<p>
+			The chassis consists of eight parts that are identical by four.
+			There are four identical face parts and four identical corner parts.
+		</p>
+		<img src="/projects/normal/origami_light/chassisAssembly.jpg" alt="chassisAssembly.jpg" title="Chassis assembly">
+		<p>
+			The LEDs are meant to be fitted at the center holes of the face parts.
+			The electronics and battery are hanged in the center of the tetrahedron
+			using springs or rubber bands that attach to the tetrahedron's corners.
+		</p>
+		<img src="/projects/normal/origami_light/internals.jpg" alt="internals.jpg" title="Chassis and internals">
+		<img src="/projects/normal/origami_light/internalsLit.jpg" alt="internalsLit.jpg" title="Chassis with lit LEDs">
+		<p>
+			This ensures that the heavier parts are not rigidly attached to the chassis and
+			can help make the structure more durable.
+		</p>
+		<p>
+			When the chassis is compressed, the forces that are developed help keep the chassis parts together.
+			This is why there is no need for fasteners or glue to assemble it.
+			When the electronics are installed, the forces exerted to the chassis from the springs (or rubber bands)
+			compress the chassis a bit and help keep it together.
+		</p>
+		<p>
+			The parts can be easily 3D printed without supports.
+			They should be 3D printed with an orientation as shown in the next images:
+		</p>
+		<img src="/projects/normal/origami_light/faceOrientation.jpg" alt="faceOrientation.jpg" title="Orientation for 3D printing">
+		<img src="/projects/normal/origami_light/cornerOrientation.jpg" alt="cornerOrientation.jpg" title="Orientation for 3D printing">
+		<p>
+			The STLs are available for download <a href="/projects/normal/origami_light/origamiLightSTLs.rar" doanload>here</a>.
+			(They are not in the right orientation for 3D printing!)
+		</p>
+		<h3>
+			Springs
+		</h3>
+		<p>
+			The springs used in the chassis were made by hand and they were tuned to the needs of the application.
+			Wire of 0.6mm diameter was tied around a cylindrical screw driver clamped on a drill's chuck.
+		</p>
+		<!-- <img src="/projects/normal/origami_light/customSpringA.jpg" alt="customSpringA.jpg" title="Making the springs"> -->
+		<img src="/projects/normal/origami_light/customSpringB.jpg" alt="customSpringB.jpg" title="Making the springs">
+		<p>
+			After forming the main body of the spring, pliers were used to form the edges.
+		</p>
+		<img src="/projects/normal/origami_light/springs.jpg" alt="springs.jpg" title="Final springs">
+		<h3>
+			Schematic
+		</h3>
+		<h3>
+			Circuit
+		</h3>
+		<p>
+			A 250mAh small lithium battery is used for powering the main board and LEDs.
+		</p>
+		<img src="/projects/normal/origami_light/lithiumBattery.jpg" alt="lithiumBattery.jpg" title="Lithium battery">
+		<p>
+			A board based on the TP4056 lithium charger IC is used for recharging the board through USB micro.
+			The board was set for charging bigger batteries and the program resistor had to be changed to decrease the charging current.
+			Fortunately, the datasheet of this IC is available online. The 1.2KΩ program resistor was located and replaced with a 10KΩ one.
+		</p>
+		<img src="/projects/normal/origami_light/TP4056.jpg" alt="TP4056.jpg" title="TP4056">
+		<img src="/projects/normal/origami_light/chargingBoard.jpg" alt="chargingBoard.jpg" title="Charging board">
+		<p>
+			The replacement resistor was bigger in size but it soldered in place successfully.
+			The datasheet for the TP4056 IC is available <a href="/projects/normal/origami_light/TP4056.pdf" target="_blank">here</a>.
+		</p>
+		<p class="secondary">
+			The 10KΩ program resistor sets the charging current to 130mA according to the datasheet and it is the minimum current available for this IC.
+			Unfortunately, this battery is rated for 125mA maximum charging current but has also a protection circuit.
+			The setup was tested none the less and during the charging procedure the maximum current observed was 108mA.
+			After charging the battery and confirming that its maximum rated was not exceeded the setup was used.
+		</p>
+		<p>
+			The lithium charging board, the battery and the main board
+			were wrapped in electrical tape and tied together with a small zip tie.
+		</p>
+		<img src="/projects/normal/origami_light/boardsNbattery.jpg" alt="boardsNbattery.jpg" title="Boards and battery">
+		<p>
+			The LEDs were sanded in order to diffuse the light better.
+			They were attached to the main board with 0.1mm copper wire.
+			This thin copper wire was chosen because it does not cast significant shadows
+			that could hinder the aesthetics of the origami.
+		</p>
+		<img src="/projects/normal/origami_light/wireNleds.jpg" alt="wireNleds.jpg" title="Wire and LEDs">
+		<img src="/projects/normal/origami_light/boardLEDs.jpg" alt="boardLEDs.jpg" title="LEDs on board">
+		<p>
+			The main board consists of
+			the microcontroller(ATTiny13A), two resistors, one capacitor, one photoresistor and the tilt sensor.
+		</p>
+		<img src="/projects/normal/origami_light/mainBoard.jpg" alt="mainBoard.jpg" title="Main board">
+		<p>
+			The components were put together on a piece of prototyping board and were packed together as tightly as possible.
+			Afterwards, the board was cut out using a rotary tool.
+		</p>
+		<h3>
+			Code
+		</h3>
+		<p>
+			The code for the ATTiny13A microcontroller was written using Atmel Studio 7 and
+			was later written to the chip using USBASP as the programmer.
+		</p>
+		<p>
+			The code is very well commented and is available for download <a href="/projects/normal/origami_light/GccApplicationOrigamiLight.rar" downlaod>here</a>
+			along with the entire GccApplication from Atmel Studio.
+		</p>
+		<p>
+			The chip is set up to use its internal oscillator as a clock source at 8MHz.
+			Timer 0 clock is prescaled by /256 and the timer 0 overflow interrupt is used for measuring time in seconds.
+			The tilt sensor output is read using a pin change interrupt on PINB1.
+			The light sensor is hooked on PINB2 and is read once every 8 seconds in the watchdog timer ISR which also wakes the chip from sleep.
+			The chip reads the sensor in microseconds and goes back to sleep immediately so the battery consumption is negligible.
+			Power down sleep mode is used to lower the power consumption when the chip is idle.
+			Finally, PWM on PINB0 is used to dim the light on and off smoothly.
+		</p>
+		<p class="secondary">
+			All content on this website along with this code is licensed under  the <a href="/other/gpl.pdf" target="_blank">General Public License V3</a>.
+		</p>
+		<h3>
+
+		</h3>
+	</main>
+</body>
+
+</html>
