@@ -48,7 +48,7 @@
 			Summary
 		</h3>
 		<p>
-			This is an modular origami that has been fitted with LED lights a tilt sensor and a light sensor.
+			This is a modular origami that has been fitted with LED lights a tilt sensor and a light sensor.
 			It will detect darkness and light up. Alternatively, it will also light up if it detects movement.
 			It can be used as emergency lighting or simply as a light.
 			<b>In this page there is information about how it was designed and made</b>.
@@ -81,7 +81,7 @@
 			Afterwards, it can be picked up by the user and help traverse a dark area.
 		</p>
 		<div class="video">
-			<video src="/projects/normal/auduino_mod/testingAuduino.mp4" loop title="Testing the synth"></video>
+			<video src="/projects/normal/origami_light/origamiLightDark.mp4" loop title="Detecting darkness"></video>
 			<div class="preplay" onclick="startPlayer(this)"></div>
 		</div>
 		<p>
@@ -100,7 +100,7 @@
 		</p>
 		<img src="/projects/normal/origami_light/papers.jpg" alt="papers.jpg" title="Paper dimension and count">
 		<p>
-			The paper used in this project is a kind of hard, plastic, water resistant paper.
+			The paper used in this project is hard, plastic, water resistant and, of course, transparent.
 			This kind of paper is not meant for folding into origami and was hard to work with but gives a very durable result.
 			Using durable paper is recommended for this project.
 		</p>
@@ -237,6 +237,25 @@
 		<h3>
 			Schematic
 		</h3>
+		<p>
+			The main board, battery and charging board are wired in parallel.
+		</p>
+		<img src="/projects/normal/origami_light/schPower.jpg" alt="schPower.jpg" title="Power circuit">
+		<p>
+			On the ATTiny13A board, the photoresistor in combination with the 430KΩ resistor form a voltage divider.
+			Its output connects to pin seven on the microcontroller.
+			Pin six's pull up resistor is enabled and it is used for reading the tilt sensor.
+			When the tilt sensor is closed, it draws the pin low.
+			Finally, pin five is in PWM mode and is used for supplying and dimming the LEDs.
+		</p>
+		<img src="/projects/normal/origami_light/schMainBoard.jpg" alt="schMainBoard.jpg" title="ATTiny13A connections">
+		<p>
+			The 50Ω current limiting resistor is soldered onto the main board.
+			Although it is not textbook not to use one current limiting resistor per LED,
+			the limited space inside the origami demanded a small board.
+			The one resistor setup was tested and since these LEDs drew approximately the same amount of current, this setup was used.
+		</p>
+		<img src="/projects/normal/origami_light/schLEDS.jpg" alt="schLEDS.jpg" title="LED lights">
 		<h3>
 			Circuit
 		</h3>
@@ -245,7 +264,7 @@
 		</p>
 		<img src="/projects/normal/origami_light/lithiumBattery.jpg" alt="lithiumBattery.jpg" title="Lithium battery">
 		<p>
-			A board based on the TP4056 lithium charger IC is used for recharging the board through USB micro.
+			A board based on the TP4056 lithium charger IC is used for recharging the battery through USB micro.
 			The board was set for charging bigger batteries and the program resistor had to be changed to decrease the charging current.
 			Fortunately, the datasheet of this IC is available online. The 1.2KΩ program resistor was located and replaced with a 10KΩ one.
 		</p>
@@ -303,9 +322,9 @@
 			Power down sleep mode is used to lower the power consumption when the chip is idle.
 			Finally, PWM on PINB0 is used to dim the light on and off smoothly.
 		</p>
-		<p class="secondary">
+		<!-- <p class="secondary">
 			All content on this website along with this code is licensed under  the <a href="/other/gpl.pdf" target="_blank">General Public License V3</a>.
-		</p>
+		</p> -->
 		<h3>
 
 		</h3>
