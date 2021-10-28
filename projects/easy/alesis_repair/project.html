@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Repairing the casing of an Alesis HR-16">
+	<meta name="author" content="Ilias Chatziefstathiou">
+	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alesis repair</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<!--google font-->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="/CSS/article.css">
+
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
+	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
+</head>
+
+<body>
+	<header id="sky">
+		<div style="margin-left: 8%;">
+			<a href="/index.html">
+				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
+			</a>
+		</div>
+		<div>
+			<a href="/projects.html" class="themeTXT">
+				<h1>Projects</h1>
+			</a>
+		</div>
+		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
+		<div class="stripe"></div>
+	</header>
+
+	<main>
+		<h2>
+			Alesis repair
+		</h2>
+		<h3>
+			Summary
+		</h3>
+		<p>
+			This is a repair for the screw holes of a vintage drum machine - the Alesis HR-16.
+			<b>In this page there are photos and description of the repair, as well as STL files for implementing it.</b>
+		</p>
+		<img src="/projects/easy/alesis_repair/casing.jpg" alt="casing.jpg" title="Casing to be repaired">
+		<h3>
+			The damage
+		</h3>
+		<p>
+			The screw holes/pegs that are used to screw down the board with the drum pads have sustained serious damage.
+		</p>
+		<img src="/projects/easy/alesis_repair/damage.jpg" alt="damage.jpg" title="Damaged pegs">
+		<p>
+			Since the instrument is about 40 years old and is made of plastic, it is expected that these regions on the chassis could be damaged
+			because they absorb the shock of the player hitting the drum pads.
+			The damage could also be an effect of a sloppy repair attempt.
+		</p>
+		<h3>
+			Seeking solution
+		</h3>
+		<p>
+			There is some material on the internet about repairing exactly this damage on the Alesis HR-16
+			but it mainly consists of using two component clay to stuff up the screw hole regions and then drilling new holes after it sets.
+			In this repair and since clay was not available, an alternative approach was used.
+			A small part was 3D designed to be glued in place of the old screw hole/pegs.
+		</p>
+		<img src="/projects/easy/alesis_repair/design.jpg" alt="design.jpg" title="Fusion 360 design">
+		<p>
+			The initial part was designed to be easily 3D printed on its side.
+			This is important because the weak 3D print layer direction must not be positioned perpendicular to the tensile loads that are expected.
+		</p>
+		<img src="/projects/easy/alesis_repair/3Dprint.jpg" alt="3Dprint.jpg" title="Overhangs">
+		<p>
+			The part is also made extra long in order to offer a bigger bottom area for strongly gluing it to the casing.
+		</p>
+		<p>
+			This solution has the benefit of not requiring drilling since the hole can be designed to be 3D printed.
+			The STL file for this part is available for download <a href="/projects/easy/alesis_repair/scrHoleAlesis3.stl" download>here</a>.
+		</p>
+		<h3>Implementing the solution</h3>
+		<p>
+			In the beginning one screw hole replacement was 3D printed with ABS filament for every damaged peg on the casing.
+		</p>
+		<img src="/projects/easy/alesis_repair/3Dprinting.jpg" alt="3Dprinting.jpg" title="Arranged parts for 3D printing">
+		<p>
+			A detailed drawing was made marking down the exact positions of the pegs that would be hard to locate after removing them.
+		</p>
+		<img src="/projects/easy/alesis_repair/drawing.jpg" alt="drawing.jpg" title="Drawing for placement">
+		<p>
+			Afterwards, the damaged pegs were removed with the help of a rotary tool and then the area was sanded down flat.
+			Using the existing drawing and visual markings were made on the casing to help position the parts properly.
+			Super glue was used to glue them in place.
+		</p>
+		<img src="/projects/easy/alesis_repair/pegsGlued.jpg" alt="pegsGlued.jpg" title="Final repair">
+		<img src="/projects/easy/alesis_repair/pegGlued.jpg" alt="pegGlued.jpg">
+		<p>
+			All the screw holes were positioned properly and the board was able to be screwed back on the casing.
+		</p>
+		<img src="/projects/easy/alesis_repair/alesis.jpg" alt="alesis.jpg" title="Alesis HR-16 assembled">
+	</main>
+</body>
+
+</html>
