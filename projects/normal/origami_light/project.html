@@ -322,6 +322,13 @@
 			Power down sleep mode is used to lower the power consumption when the chip is idle.
 			Finally, PWM on PINB0 is used to dim the light on and off smoothly.
 		</p>
+		<p class="secondary">
+			Aside from the IC that indeed draws bellow 1uA in sleep mode,
+			there is extra leakage in the light sensing voltage divider (4uA to 8uA dependant on incoming light)
+			and there is also possible leakage in the tilt sensor
+			(the AVR's internal pull up resistor remains active in sleep mode and if the tilt sensor happens to be in the closed position a leakage of 210uA will be present).
+			These are problematic behaviors that will be dealt with in future versions.
+		</p>
 		<!-- <p class="secondary">
 			All content on this website along with this code is licensed under  the <a href="/other/gpl.pdf" target="_blank">General Public License V3</a>.
 		</p> -->
