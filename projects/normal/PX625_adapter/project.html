@@ -45,8 +45,131 @@
 			PX625 vintage battery adapter
 		</h2>
 		<h3>
-			Coming soon!
+			Summary
 		</h3>
+		<p>
+			This is an adapter that uses modern battery cells and emulates the behavior of discontinued old batteries.
+			Some vintage products require batteries that are no longer available in the market and this adapter is the solution.
+			<b>In this page there is information about its design and use as well as files for creating one</b>.
+		</p>
+		<img src="/projects/normal/PX625_adapter/386adapter.jpg" alt="386adapter.jpg" title="386 silver oxide battery adapter">
+		<h3>
+			The old batteries
+		</h3>
+		<p>
+			This adapter replaces a series of button cells that were discontinued because their chemistry was harmful to the environment.
+			Manufacturing of the PX625 and all mercury batteries is today banned in most countries.
+			Nevertheless, at the time of writing this page (12/2021), mercury batteries are still available for purchase on e-Bay by Russian sellers.
+		</p>
+		<p>
+			These batteries were chosen by manufacturers in the past because they offer very stable voltage throughout their entire discharge cycle.
+			This enabled the manufacturers to avoid installing voltage regulators in their cameras and products thus cutting a lot of costs from production.
+			Out of all the vintage cameras today, only a couple models are equipped with voltage regulators and can function correctly with modern batteries
+			(more information <a href="http://camera-wiki.org/wiki/PX625" target="_blank">here</a>).
+		</p>
+		<img src="/projects/normal/PX625_adapter/mercuryBat.jpg" alt="mercuryBat.jpg" title="РЦ-53 mercury battery">
+		<h3>
+			Modern batteries
+		</h3>
+		<p>
+			Today, there are two kinds of batteries that are mostly used to replace old mercury cells:
+		</p>
+		<ol>
+			<li>
+				<p><b>Zinc-air batteries</b> are mostly intended for use with hearing aids.
+					Much like old mercury cells, these cells are able to produce a stable output voltage.
+					They have good capacity (2-4 months of use) but need ventilation in order to work.
+					These batteries produce voltage through a chemical reaction that requires oxygen.
+					Therefore, when using these cells the battery compartment must have access to fresh air.
+					<b>In order to use a zinc-air battery</b>, it is important to have good ventilation in the battery compartment
+					and, also, some short of adapter might be needed because they are typically smaller in size than the old mercury batteries.
+				</p>
+				<img src="/projects/normal/PX625_adapter/zinc-airEnergizer.jpg" alt="zinc-airEnergizer.jpg" title="Energizer zinc-air button cell">
+				<p>
+					These cells have tabs on them for blocking the oxygen and staying inactive.
+					In order to use one, its tab must be removed.
+				</p>
+			</li>
+			<li>
+				<p>
+					<b>Silver oxide batteries</b> are mostly marketed for use with watches.
+					They have a stable voltage output and lower capacity than the zinc-air batteries
+					but they do not require air to work since all the reactants are enclosed within the cell.
+					<b>Using silver oxide batteries</b> requires a way to regulate their higher voltage.
+					This can be achieved by adding a diode in series with the battery.
+					It also requires some short of adapter due to its smaller size.
+				</p>
+				<img src="/projects/normal/PX625_adapter/386Energizer.jpg" alt="386Energizer.jpg" title="Energizer 386 silver oxide button cell">
+			</li>
+		</ol>
+		<h3>
+			Schematic
+		</h3>
+		<p>
+			Silver oxide battery give off a 1.55V potential.
+			Most vintage cameras require around 1.35V to operate correctly.
+			Therefore, 0.2V must be dropped across the diode.
+		</p>
+		<img src="/projects/normal/PX625_adapter/schematic.jpg" alt="schematic.jpg" title="Adapter schematic">
+		<p>
+			This diode must be carefully selected so that it drops as much voltage as needed.
+			The selection becomes a bit complicated because the diode's forward voltage is a function of the current drawn through it.
+			Ideally, the current draw of each application should be measured before selecting the diode.
+			The diode for this adaptor was chosen by assuming most old light meters draw between 1mA and 1uA of current.
+			After going through datasheets of various diodes, the BAT47 schottky diode was chosen.
+		</p>
+		<img src="/projects/normal/PX625_adapter/datasheetGraph.jpg" alt="datasheetGraph.jpg" title="Datasheet characteristics for BAT47 diode">
+		<p>
+			After purchasing the diodes, their forward voltage was tested.
+			The battery's voltage was imitated with a power supply at 1.55V and a trimmer potentiometer was used as the load.
+		<p>
+		<img src="/projects/normal/PX625_adapter/diodeTest.jpg" alt="diodeTest.jpg" title="Forward voltage test">
+		</p>
+			The BAT47 diode's forward voltage was probed at 0.2V for a forward current  of 213uA.
+			Furthermore, it is operating within 6% error of the required 0.2V for a wide region of forward currents within the wanted range (1uA - 1mA).
+			In fact its forward voltage drops to 0.188V at a forward current of 131uA and reaches 0.212V for a forward current of 696uA.
+		</p>
+		<img src="/projects/normal/PX625_adapter/diodeTestResults.jpg" alt="diodeTestResults.jpg" title="Test results for BAT47 diode">
+		<p>
+
+		</p>
+		<h3>
+			Circuit
+		</h3>
+		<p>
+			In order to place the diode in series with the battery in the adaptor, a piece of double sided copper clad board is used.
+			The diode connects the two sides of the board and the battery sits on top of it.
+			The direction of the current and the layout of the circuit becomes clearer in the next image.
+		</p>
+		<img src="/projects/normal/PX625_adapter/circuit.jpg" alt="circuit.jpg" title="Adapter circuit">
+		<p>
+			The copper clad board and thin steel sheet used were cut with a rotary tool.
+		</p>
+		<img src="/projects/normal/PX625_adapter/adaptorMaking.jpg" alt="adaptorMaking.jpg" title="Cutting the board">
+		<h3>
+			Casing
+		</h3>
+		<p>
+			Casings for both the 386 and the smaller 392 cells were designed.
+			The casing of the 392 cell also requires a piece of 1mm thick conductive material to fill in because the cell is too short in its own.
+
+		</p>
+		<img src="/projects/normal/PX625_adapter/392parts.jpg" alt="392parts.jpg" title="Parts fof the 392 cell adapter">
+		<img src="/projects/normal/PX625_adapter/392section.jpg" alt="392section.jpg" title="392 adapter section view">
+		<p>
+			The 386 battery is much thicker so the diode was positioned inside the copper clad board and the board was trimmed a bit around that point.
+		</p>
+		<img src="/projects/normal/PX625_adapter/386section.jpg" alt="386section.jpg" title="386 adapter section view">
+		<img src="/projects/normal/PX625_adapter/386adapter.jpg" alt="386adapter.jpg" title="386 silver oxide battery adapter">
+		<p>
+			The casings for both adaptors are printable without supports by orienting them thin side down.
+			The STL files for both adaptors can be downloaded <a href="/projects/normal/PX625_adapter/adapterCasing.rar" download>here</a>
+		</p>
+		<p class="secondary">
+			Some battery compartments require electrical contact with the battery on its side.
+			This adapter is plastic on its side and this could be a problem in such an application.
+			Aluminum foil carefully wrapped on the appropriate side of the adaptor and around it could solve this problem.
+		</p>
 	</main>
 </body>
 

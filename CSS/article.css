@@ -332,11 +332,12 @@ th {
 } */
 
 tr:nth-child(odd) {
-  background-color: rgba(143, 178, 255, 0.2);
+  background-color: rgba(143, 178, 255, 0.1);
 }
 
 tr:hover {
-  background-color: rgba(255, 236, 206, 0.6);
+  background-color: rgba(237, 88, 88, 0.1);
+  /* background-color: rgba(255, 236, 206, 0.6); */
   /* background-color: wheat; */
 }
 
