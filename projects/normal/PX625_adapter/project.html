@@ -114,23 +114,26 @@
 			This diode must be carefully selected so that it drops as much voltage as needed.
 			The selection becomes a bit complicated because the diode's forward voltage is a function of the current drawn through it.
 			Ideally, the current draw of each application should be measured before selecting the diode.
-			The diode for this adaptor was chosen by assuming most old light meters draw between 1mA and 1uA of current.
-			After going through datasheets of various diodes, the BAT47 schottky diode was chosen.
+			The diode for this adaptor was chosen by assuming most old light meters draw between 0.5mA and 1uA of current.
+			After going through datasheets of various diodes, the BAT47 and BAT43 schottky diodes were chosen.
 		</p>
 		<img src="/projects/normal/PX625_adapter/datasheetGraph.jpg" alt="datasheetGraph.jpg" title="Datasheet characteristics for BAT47 diode">
 		<p>
-			After purchasing the diodes, their forward voltage was tested.
-			The battery's voltage was imitated with a power supply at 1.55V and a trimmer potentiometer was used as the load.
+			After purchasing the diodes, their forward voltage was tested. A new 1.55V 386 silver-oxide battery was used for the test.
+			The battery was discharged slightly through a resistor prior to using it in order to skip the higher voltage region at the beginning of its lifespan.
+			A potentiometer was used as the load and the schottky diodes were connected in series with the load and the battery.
+			The resistance of the load was altered until forward voltages of 0.19, 0.2 and 0.21 Volts were measured on the diodes.
+			The current draw was then measured for each forward voltage on the two diodes.
 		<p>
 		<img src="/projects/normal/PX625_adapter/diodeTest.jpg" alt="diodeTest.jpg" title="Forward voltage test">
 		</p>
-			The BAT47 diode's forward voltage was probed at 0.2V for a forward current  of 213uA.
-			Furthermore, it is operating within 6% error of the required 0.2V for a wide region of forward currents within the wanted range (1uA - 1mA).
-			In fact its forward voltage drops to 0.188V at a forward current of 131uA and reaches 0.212V for a forward current of 696uA.
+			The BAT47 diode's forward voltage was probed at 0.2V for a forward current  of 207uA while the BAT43 diode dropped that much voltage at 86uA.
+			Choosing which one of the two to use requires further understanding of the electronics and current draw of each application.
+			The results are as follow:
 		</p>
-		<img src="/projects/normal/PX625_adapter/diodeTestResults.jpg" alt="diodeTestResults.jpg" title="Test results for BAT47 diode">
+		<img src="/projects/normal/PX625_adapter/diodeTestResults.jpg" alt="diodeTestResults.jpg" title="Test results for diodes">
 		<p>
-
+			Nevertheless, the BAT43 diode is a safe bet for most applications and it is the diode used with other such adaptors.
 		</p>
 		<h3>
 			Circuit
@@ -176,8 +179,7 @@
 		</p>
 		<p class="secondary">
 			Some battery compartments require electrical contact with the battery on its side.
-			This adapter is plastic on its side and this could be a problem in such an application.
-			Aluminum foil carefully wrapped on the appropriate side of the adaptor and around it could possibly solve this problem (not tested).
+			This adapter is plastic on its side and this will be a problem in such an application.
 		</p>
 		<h3>
 			User manual
