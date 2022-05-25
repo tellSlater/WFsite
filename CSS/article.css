@@ -84,11 +84,9 @@ body {
 }
 
 header {
-  position: relative;
   margin: auto;
-  display: static;
   height: 170px;
-
+  position: relative;
   /* -webkit-transition: background-color 10s linear;
   -ms-transition: background-color 10s linear;
   transition: background-color 10s linear; */
@@ -97,19 +95,30 @@ header {
   /* background-color: #ffb788; */
   /* background-color: #464646; */
 
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-
   /* border: 1px solid black; */
 }
 
-header > div {
+header div.headerFlex{
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 64px;
+  padding-right: 64px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+header div.left {
   z-index: 10;
-  position: relative;
   display: inline;
   width: auto;
-  margin: 36px 36px 18px 36px;
+  margin: 36px 72px 18px 36px;
+}
+
+header div.mid {
+  z-index: 10;
+  width: auto;
+  margin-top: 97px;
   text-align: center;
 }
 
@@ -119,19 +128,18 @@ div.sand:after {
   clear: both;
 }
 
-header img.header {
+header img.logoSmall {
   z-index: 10;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
-  transform: translate(-50%, -50%) scale(6);
-  margin-left: 58px;
+  transform: translate(-20%, -50%) scale(6);
+  /* margin-left: 58px; */
   margin-top: 74px;
 
   /* border: 1px solid black; */
 }
 
 header a.themeTXT {
-  display: flex;
   margin-top: 61px;
 }
 
@@ -197,10 +205,15 @@ header a:hover {
 }
 
 main {
-  margin-top: 36px;
+  /* margin-top: 36px;
   margin-left: 8%;
-  margin-right: 8%;
+  margin-right: 8%; */
 
+  max-width: 1000px;
+  padding-left: 64px;
+  padding-right: 64px;
+  margin: auto;
+  
   overflow-x: hidden;
   /* border: 2px dashed black; */
 }
