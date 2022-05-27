@@ -13,6 +13,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet">
 
 	<link rel="stylesheet" href="CSS/article.css">
+	<link rel="stylesheet" href="CSS/thinHeader.css" />
+	<script type="module" src="JavaScript/templates/thin-header.js"></script>
 
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
@@ -24,7 +26,6 @@
 
 		main
 		{
-			margin: 0;
 			padding: 36px;
 		}
 
@@ -119,20 +120,8 @@
 </head>
 	
 <body>
-	<header id="sky">
-		<div style="margin-left: 8%;">
-			<a  href="index.html" >
-				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
-			</a>
-		</div>
-		<div>
-			<a  href="Contact.html" class="themeTXT">
-				<h1>Contact</h1>
-			</a>
-		</div>
-		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
-		<div class="stripe"></div>
-	</header>
+	
+	<thin-header name="Contact" link="/contact.html"></thin-header>
 		
 	<main>
 		<form id="fs-frm" name="Windfish shores" accept-charset="utf-8" action="https://formspree.io/f/xjvpqpnq" method="post" data-netlify="true">

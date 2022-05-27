@@ -1,154 +1,169 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Projects</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="Music, electronics, engineering, programming and control projects"
+        />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta
+            name="keywords"
+            content="music, electronics, engineering, programming, control, projects, arduino, avr"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projects</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
 
-	<link rel="stylesheet" href="/CSS/article.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P"
+            rel="stylesheet"
+        />
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="stylesheet" href="/CSS/article.css" />
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/projects.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="CSS/thinHeader.css" />
+        <script
+            type="module"
+            src="JavaScript/templates/thin-header.js"
+        ></script>
 
-	<link rel="preload" as="image" href="/images/dash.png">
-	<style>
-		main
-		{
-			margin-top: 0;
-			margin-left: 0;
-			margin-right: 0;
-			text-align: center;
-		}
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link
+            rel="apple-touch-icon"
+            sizes="128x128"
+            href="homescreenIcon.png"
+        />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-		.sortContainer
-		{
-			width: 460px;
-			margin: auto;
-			padding: 36px 0 12px 0;
-			display: flex;
-			justify-content: space-between;
-		}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- JQuery -->
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/projects.js"></script>
 
-		.sortBtn
-		{
-			position: relative;
-			width: auto;
-			margin-top: 0;
-		}
+        <link rel="preload" as="image" href="/images/dash.png" />
+        <style>
+            main {
+                max-width: 100%;
+                margin: auto;
+                padding-left: 64px;
+                padding-right: 64px;
+                display: block;
+                text-align: center;
+            }
 
-		.sortBtn h3
-		{
-			margin: 0;
-			cursor: context-menu;
+            .sortContainer {
+                width: 460px;
+                margin: auto;
+                padding: 36px 0 12px 0;
+                display: flex;
+                justify-content: space-between;
+            }
 
-			-webkit-user-select: none; /* Safari */        
-			-moz-user-select: none; /* Firefox */
-			-ms-user-select: none; /* IE10+/Edge */
-			user-select: none; /* Standard */
-		}
+            .sortBtn {
+                position: relative;
+                width: auto;
+                margin-top: 0;
+            }
 
-		.sortBtn .by
-		{
-			z-index: 10;
-			cursor: pointer;
-			/* cursor: context-menu; */
-		}
+            .sortBtn h3 {
+                margin: 0;
+                cursor: context-menu;
 
-		.cursor
-		{
-			display: none;
-			position: absolute;
-			top: 0;
-		}
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
 
-		.diffContainer
-		{
-			width: 460px;
-			margin: auto;
-			padding: 12px 0 36px 0;
-			display: flex;
-			justify-content: space-between;
-		}
+            .sortBtn .by {
+                z-index: 10;
+                cursor: pointer;
+                /* cursor: context-menu; */
+            }
 
-		.diffBtn
-		{
-			position: relative;
-			width: auto;
-			margin-top: 0;
-		}
+            .cursor {
+                display: none;
+                position: absolute;
+                top: 0;
+            }
 
-		.diffBtn h3
-		{
-			margin: 0;
-			cursor: pointer;
-			/* cursor: context-menu; */
+            .diffContainer {
+                width: 460px;
+                margin: auto;
+                padding: 12px 0 36px 0;
+                display: flex;
+                justify-content: space-between;
+            }
 
-			-webkit-user-select: none; /* Safari */        
-			-moz-user-select: none; /* Firefox */
-			-ms-user-select: none; /* IE10+/Edge */
-			user-select: none; /* Standard */
-		}
+            .diffBtn {
+                position: relative;
+                width: auto;
+                margin-top: 0;
+            }
 
-		.dash
-		{
-			display: block;
-			opacity: 0;
-			z-index: -1;
-			position: absolute;
-			background: url(/images/dash.png);
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: scale(2);
-			top: 8px;
-			left: 16px;
-		}
+            .diffBtn h3 {
+                margin: 0;
+                cursor: pointer;
+                /* cursor: context-menu; */
 
-		.contBlock
-		{
-			position: relative;
-			display: inline-block;
-			width: 354px;
-			height: 412px;
-			margin: 20px;
-			vertical-align: middle;
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
 
-			/* background-color: rgba(95, 134, 160, 0.3); */
-		}
+            .dash {
+                display: block;
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+                background: url(/images/dash.png);
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: scale(2);
+                top: 8px;
+                left: 16px;
+            }
 
+            .contBlock {
+                position: relative;
+                display: inline-block;
+                width: 354px;
+                height: 412px;
+                margin: 20px;
+                vertical-align: middle;
 
+                /* background-color: rgba(95, 134, 160, 0.3); */
+            }
 
-		.contBlockLink
-		{
-			position: relative;
-			display: inline-block;
-			width: 100%;
-			height: 100%;
-			padding: 12px 34px 12px 34px;
-			vertical-align: middle;
-			overflow: hidden;
+            .contBlockLink {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                padding: 12px 34px 12px 34px;
+                vertical-align: middle;
+                overflow: hidden;
 
-			/* background-color: rgba(255,255,255,0.2);
+                /* background-color: rgba(255,255,255,0.2);
 			border-top: 2px solid black;
 			border-left: 2px solid black;
 			border-bottom: 6px solid black;
 			border-right: 6px solid black; */
-		}
+            }
 
-
-
-		/* .contBlockLink:active
+            /* .contBlockLink:active
 		{
 			background-color: rgba(196, 196, 196, 0.2);
 
@@ -157,361 +172,583 @@
 			border-bottom: 6px double black;
 			border-right: 6px double black;;
 		} */
-		
-		.contBlockLink:hover
-		{
-			text-decoration: none;
-			transform: scale(1.02);
-		}
 
-		/* .contBlockLink:hover 
+            .contBlockLink:hover {
+                text-decoration: none;
+                transform: scale(1.02);
+            }
+
+            /* .contBlockLink:hover 
 		{
 			background-color: rgba(255,255,255,0.4);
 		} */
 
-		.contBlockLink .paper
-		{
-			z-index: -10;
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			width: 64px;
-			height: 74px;
-			transform: translate(-50%, -50%) scale(5.5);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			background-repeat: no-repeat;
-		}
+            .contBlockLink .paper {
+                z-index: -10;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                width: 64px;
+                height: 74px;
+                transform: translate(-50%, -50%) scale(5.5);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background-repeat: no-repeat;
+            }
 
-		.contBlock img
-		{
-			height: 180px;
-			width: auto;
+            .contBlock img {
+                height: 180px;
+                width: auto;
 
-			border: 3px solid black;
-		}
+                border: 3px solid black;
+            }
 
-		.contBlockLink h3
-		{
-			margin-top: 20px;
-			margin-bottom: 20px;
-			text-align: center;
-		}
+            .contBlockLink h3 {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
 
-		.contBlockLink p
-		{
-			text-align: center;
-		}
-	</style>
-</head>
+            .contBlockLink p {
+                text-align: center;
+            }
+        </style>
+    </head>
 
-<body>
-	<header id="sky">
-		<div style="margin-left: 8%;">
-			<a  href="index.html" >
-				<img class="header" src="/images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
-			</a>
-		</div>
-		<div>
-			<a  href="Projects.html" class="themeTXT">
-				<h1>Projects</h1>
-			</a>
-		</div>
-		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
-		<div class="stripe"></div>
-	</header>
-	
-	<div class="sortContainer">
-		<span class="sortBtn">
-			<h3 class="by" id="DATE" onclick="sortProjects(this)">DATE</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-		<span class="sortBtn">
-			<h3 class="by" onclick="sortProjects(this)">NAME</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-		<span class="sortBtn">
-			<h3 class="by" onclick="sortProjects(this)">RANDOM</h3>
-			<h3 class="cursor" style="left: -17px;">[</h3>
-			<h3 class="cursor" style="right: -17px;">]</h3>
-		</span>
-	</div>
-	<div class="diffContainer">
-		<span class="diffBtn">
-			<h3 onclick="toggleDiff(this)">EASY</h3>
-			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
-		</span>
-		<span class="diffBtn">
-			<h3 onclick="toggleDiff(this)">NORMAL</h3>
-			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 54px; left: 25px;">
-		</span>
-		<span class="diffBtn">
-			<h3 onclick="toggleDiff(this)">HARD</h3>
-			<img class="dash" src="images/transparent.png" width="1" height="1" alt="-------" style="width: 38px;">
-		</span>
-	</div>
+    <body>
+		
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<main id="main">
+        <div class="sortContainer">
+            <span class="sortBtn">
+                <h3 class="by" id="DATE" onclick="sortProjects(this)">DATE</h3>
+                <h3 class="cursor" style="left: -17px">[</h3>
+                <h3 class="cursor" style="right: -17px">]</h3>
+            </span>
+            <span class="sortBtn">
+                <h3 class="by" onclick="sortProjects(this)">NAME</h3>
+                <h3 class="cursor" style="left: -17px">[</h3>
+                <h3 class="cursor" style="right: -17px">]</h3>
+            </span>
+            <span class="sortBtn">
+                <h3 class="by" onclick="sortProjects(this)">RANDOM</h3>
+                <h3 class="cursor" style="left: -17px">[</h3>
+                <h3 class="cursor" style="right: -17px">]</h3>
+            </span>
+        </div>
+        <div class="diffContainer">
+            <span class="diffBtn">
+                <h3 onclick="toggleDiff(this)">EASY</h3>
+                <img
+                    class="dash"
+                    src="images/transparent.png"
+                    width="1"
+                    height="1"
+                    alt="-------"
+                    style="width: 38px"
+                />
+            </span>
+            <span class="diffBtn">
+                <h3 onclick="toggleDiff(this)">NORMAL</h3>
+                <img
+                    class="dash"
+                    src="images/transparent.png"
+                    width="1"
+                    height="1"
+                    alt="-------"
+                    style="width: 54px; left: 25px"
+                />
+            </span>
+            <span class="diffBtn">
+                <h3 onclick="toggleDiff(this)">HARD</h3>
+                <img
+                    class="dash"
+                    src="images/transparent.png"
+                    width="1"
+                    height="1"
+                    alt="-------"
+                    style="width: 38px"
+                />
+            </span>
+        </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/geometric_pots/project.html">
-				<img src="/projects/easy/geometric_pots/geometric_pots.png" alt="geometric_pots.jpg">
-				<h3>Geometric pots</h3>
-				<h4>15 Mar 2021</h4>
-				<h4>difficulty: EASY</h4>
-				<p>Geometry-themed pots for small plants</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+        <main id="main">
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/geometric_pots/project.html"
+                >
+                    <img
+                        src="/projects/easy/geometric_pots/geometric_pots.png"
+                        alt="geometric_pots.jpg"
+                    />
+                    <h3>Geometric pots</h3>
+                    <h4>15 Mar 2021</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>Geometry-themed pots for small plants</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/bench_power_supply/project.html">
-				<img src="/projects/easy/bench_power_supply/bench_psu.jpg" alt="bench_psu.jpg">
-				<h3>Bench PSU</h3>
-				<h4>8 Jun 2020</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A small cheap and handy bench power supply unit</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/bench_power_supply/project.html"
+                >
+                    <img
+                        src="/projects/easy/bench_power_supply/bench_psu.jpg"
+                        alt="bench_psu.jpg"
+                    />
+                    <h3>Bench PSU</h3>
+                    <h4>8 Jun 2020</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>A small cheap and handy bench power supply unit</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/knife_sharpening/project.html">
-				<img src="/projects/easy/knife_sharpening/knife_sharpening.jpg" alt="knife_sharpening.jpg">
-				<h3>Knife sharpening</h3>
-				<h4>16 Nov 2018</h4>
-				<h4>difficulty: EASY</h4>
-				<p>Why and how to sharpen knives and making a DIY sharpening tool</p>
-				<div class="paper" style="background: url(/images/Paper3.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/knife_sharpening/project.html"
+                >
+                    <img
+                        src="/projects/easy/knife_sharpening/knife_sharpening.jpg"
+                        alt="knife_sharpening.jpg"
+                    />
+                    <h3>Knife sharpening</h3>
+                    <h4>16 Nov 2018</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>
+                        Why and how to sharpen knives and making a DIY
+                        sharpening tool
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper3.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="projects/easy/mini_solder_torch/project.html">
-				<img src="/projects/easy/mini_solder_torch/mini_solder_torch.jpg" alt="solder_torch.jpg">
-				<h3>Mini solder torch</h3>
-				<h4>10 Jun 2019</h4>
-				<h4>difficulty: EASY</h4>
-				<p>DIY pocket soldering tool</p>
-				<div class="paper" style="background: url(/images/Paper4.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="projects/easy/mini_solder_torch/project.html"
+                >
+                    <img
+                        src="/projects/easy/mini_solder_torch/mini_solder_torch.jpg"
+                        alt="solder_torch.jpg"
+                    />
+                    <h3>Mini solder torch</h3>
+                    <h4>10 Jun 2019</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>DIY pocket soldering tool</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper4.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/pan_flute/project.html">
-				<img src="/projects/easy/pan_flute/pan_flute.jpg" alt="pan_flute.jpg">
-				<h3>Pan flute</h3>
-				<h4>12 Jul 2016</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A pan flute built from reed</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/pan_flute/project.html"
+                >
+                    <img
+                        src="/projects/easy/pan_flute/pan_flute.jpg"
+                        alt="pan_flute.jpg"
+                    />
+                    <h3>Pan flute</h3>
+                    <h4>12 Jul 2016</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>A pan flute built from reed</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/reed_flute/project.html">
-				<img src="/projects/easy/reed_flute/reed_flute.jpg" alt="reed_flute.jpg">
-				<h3>Reed flute</h3>
-				<h4>16 Aug 2016</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A reed flute with a reed mouthpiece and saxophone-like sound</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/reed_flute/project.html"
+                >
+                    <img
+                        src="/projects/easy/reed_flute/reed_flute.jpg"
+                        alt="reed_flute.jpg"
+                    />
+                    <h3>Reed flute</h3>
+                    <h4>16 Aug 2016</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>
+                        A reed flute with a reed mouthpiece and saxophone-like
+                        sound
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/yoga_stool/project.html">
-				<img src="/projects/easy/yoga_stool/yoga_stool.jpg" alt="yoga_stool.jpg">
-				<h3>Yoga stool</h3>
-				<h4>19 Sep 2020</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A simple yoga stool and why use one</p>
-				<div class="paper" style="background: url(/images/Paper3.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/yoga_stool/project.html"
+                >
+                    <img
+                        src="/projects/easy/yoga_stool/yoga_stool.jpg"
+                        alt="yoga_stool.jpg"
+                    />
+                    <h3>Yoga stool</h3>
+                    <h4>19 Sep 2020</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>A simple yoga stool and why use one</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper3.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="projects/normal/polarity_inverter/project.html">
-				<img src="/projects/normal/polarity_inverter/polarity_inverter.jpg" alt="polarity_inverter.jpg">
-				<h3>Polarity inverter</h3>
-				<h4>25 Jan 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>Inverting the polarity of an input pin without using a VCC connection</p>
-				<div class="paper" style="background: url(/images/Paper4.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="projects/normal/polarity_inverter/project.html"
+                >
+                    <img
+                        src="/projects/normal/polarity_inverter/polarity_inverter.jpg"
+                        alt="polarity_inverter.jpg"
+                    />
+                    <h3>Polarity inverter</h3>
+                    <h4>25 Jan 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>
+                        Inverting the polarity of an input pin without using a
+                        VCC connection
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper4.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/power_bank/project.html">
-				<img src="/projects/normal/power_bank/power_bank.jpg" alt="power_bank.jpg">
-				<h3>Power bank</h3>
-				<h4>15 Jun 2020</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>A small DIY power bank</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/power_bank/project.html"
+                >
+                    <img
+                        src="/projects/normal/power_bank/power_bank.jpg"
+                        alt="power_bank.jpg"
+                    />
+                    <h3>Power bank</h3>
+                    <h4>15 Jun 2020</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>A small DIY power bank</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/this_site/project.html">
-				<img src="/projects/normal/this_site/this_site.jpg" alt="WFsite.jpg">
-				<h3>This website</h3>
-				<h4>17 Apr 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>How to learn to make static sites like this one</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/this_site/project.html"
+                >
+                    <img
+                        src="/projects/normal/this_site/this_site.jpg"
+                        alt="WFsite.jpg"
+                    />
+                    <h3>This website</h3>
+                    <h4>17 Apr 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>How to learn to make static sites like this one</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/hard/floating_knife/project.html">
-				<img src="/projects/hard/floating_knife/floating_knife.jpg" alt="floating_knife.jpg">
-				<h3>Floating knife</h3>
-				<h4>5 Sep 2020</h4>
-				<h4>difficulty: HARD</h4>
-				<p>A 3D printed floating knife with removable blades</p>
-				<div class="paper" style="background: url(/images/Paper3.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/hard/floating_knife/project.html"
+                >
+                    <img
+                        src="/projects/hard/floating_knife/floating_knife.jpg"
+                        alt="floating_knife.jpg"
+                    />
+                    <h3>Floating knife</h3>
+                    <h4>5 Sep 2020</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>A 3D printed floating knife with removable blades</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper3.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="projects/hard/physics_timer/project.html">
-				<img src="/projects/hard/physics_timer/physics_timer.jpg" alt="physics_timer.jpg">
-				<h3>Physics timer</h3>
-				<h4>9 Feb 2021</h4>
-				<h4>difficulty: HARD</h4>
-				<p>A sensor triggered, precision timer for use in physics experiments</p>
-				<div class="paper" style="background: url(/images/Paper4.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="projects/hard/physics_timer/project.html"
+                >
+                    <img
+                        src="/projects/hard/physics_timer/physics_timer.jpg"
+                        alt="physics_timer.jpg"
+                    />
+                    <h3>Physics timer</h3>
+                    <h4>9 Feb 2021</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>
+                        A sensor triggered, precision timer for use in physics
+                        experiments
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper4.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/hard/printer_to_cnc/project.html">
-				<img src="/projects/hard/printer_to_cnc/printer_to_cnc.jpg" alt="printer_to_cnc.jpg">
-				<h3>3D printer to CNC mill</h3>
-				<h4>26 Jan 2021</h4>
-				<h4>difficulty: HARD</h4>
-				<p>Converting a 3D printer into a CNC mill</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/hard/printer_to_cnc/project.html"
+                >
+                    <img
+                        src="/projects/hard/printer_to_cnc/printer_to_cnc.jpg"
+                        alt="printer_to_cnc.jpg"
+                    />
+                    <h3>3D printer to CNC mill</h3>
+                    <h4>26 Jan 2021</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>Converting a 3D printer into a CNC mill</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/hard/stepper_motor_model/project.html">
-				<img src="/projects/hard/stepper_motor_model/stepper_motor_model.jpg" alt="stepper_model.jpg">
-				<h3>Stepper motor math model</h3>
-				<h4>15 Feb 2020</h4>
-				<h4>difficulty: HARD</h4>
-				<p>A mathematical model of a stepper motor</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/hard/stepper_motor_model/project.html"
+                >
+                    <img
+                        src="/projects/hard/stepper_motor_model/stepper_motor_model.jpg"
+                        alt="stepper_model.jpg"
+                    />
+                    <h3>Stepper motor math model</h3>
+                    <h4>15 Feb 2020</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>A mathematical model of a stepper motor</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/hard/znear_synth/project.html">
-				<img src="/projects/hard/znear_synth/znear_synth.jpg" alt="znear_synth.jpg">
-				<h3>ZNEAR synth</h3>
-				<h4>19 Oct 2020</h4>
-				<h4>difficulty: HARD</h4>
-				<p>A DIY synthesizer using the ATMega328p AVR microcontroller</p>
-				<div class="paper" style="background: url(/images/Paper3.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/hard/znear_synth/project.html"
+                >
+                    <img
+                        src="/projects/hard/znear_synth/znear_synth.jpg"
+                        alt="znear_synth.jpg"
+                    />
+                    <h3>ZNEAR synth</h3>
+                    <h4>19 Oct 2020</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>
+                        A DIY synthesizer using the ATMega328p AVR
+                        microcontroller
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper3.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/hard/piezoelectric_preamp/project.html">
-				<img src="/projects/hard/piezoelectric_preamp/thumb_preamp.jpg" alt="thumb_preamp.jpg">
-				<h3>Piezoelectric preamp</h3>
-				<h4>30 May 2021</h4>
-				<h4>difficulty: HARD</h4>
-				<p>A preamplifier/filter combo for a piezoelectric contact microphone</p>
-				<div class="paper" style="background: url(/images/Paper4.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/hard/piezoelectric_preamp/project.html"
+                >
+                    <img
+                        src="/projects/hard/piezoelectric_preamp/thumb_preamp.jpg"
+                        alt="thumb_preamp.jpg"
+                    />
+                    <h3>Piezoelectric preamp</h3>
+                    <h4>30 May 2021</h4>
+                    <h4>difficulty: HARD</h4>
+                    <p>
+                        A preamplifier/filter combo for a piezoelectric contact
+                        microphone
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper4.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/auduino_mod/project.html">
-				<img src="/projects/normal/auduino_mod/thumb_auduino.jpg" alt="thumb_auduino.jpg">
-				<h3>Auduino mod</h3>
-				<h4>21 Sep 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>A modification for the famous Auduino synthesizer</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/auduino_mod/project.html"
+                >
+                    <img
+                        src="/projects/normal/auduino_mod/thumb_auduino.jpg"
+                        alt="thumb_auduino.jpg"
+                    />
+                    <h3>Auduino mod</h3>
+                    <h4>21 Sep 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>A modification for the famous Auduino synthesizer</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/footswitch/project.html">
-				<img src="/projects/easy/footswitch/thumb_footswitch.jpg" alt="thumb_footswitch.jpg">
-				<h3>Foot switch</h3>
-				<h4>28 Aug 2021</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A durable DIY foot pedal</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/footswitch/project.html"
+                >
+                    <img
+                        src="/projects/easy/footswitch/thumb_footswitch.jpg"
+                        alt="thumb_footswitch.jpg"
+                    />
+                    <h3>Foot switch</h3>
+                    <h4>28 Aug 2021</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>A durable DIY foot pedal</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/origami_light/project.html">
-				<img src="/projects/normal/origami_light/thumb_origamiLight.jpg" alt="thumb_origamiLight.jpg">
-				<h3>Origami light</h3>
-				<h4>10 Oct 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>An origami ornament that doubles as emergency lighting</p>
-				<div class="paper" style="background: url(/images/Paper3.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/origami_light/project.html"
+                >
+                    <img
+                        src="/projects/normal/origami_light/thumb_origamiLight.jpg"
+                        alt="thumb_origamiLight.jpg"
+                    />
+                    <h3>Origami light</h3>
+                    <h4>10 Oct 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>
+                        An origami ornament that doubles as emergency lighting
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper3.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/easy/alesis_repair/project.html">
-				<img src="/projects/easy/alesis_repair/thumb_alesis.jpg" alt="thumb_alesis.jpg">
-				<h3>Alesis repair</h3>
-				<h4>25 Oct 2021</h4>
-				<h4>difficulty: EASY</h4>
-				<p>A repair on the casing of a vintage drum machine, the Alesis HR-16</p>
-				<div class="paper" style="background: url(/images/Paper4.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/easy/alesis_repair/project.html"
+                >
+                    <img
+                        src="/projects/easy/alesis_repair/thumb_alesis.jpg"
+                        alt="thumb_alesis.jpg"
+                    />
+                    <h3>Alesis repair</h3>
+                    <h4>25 Oct 2021</h4>
+                    <h4>difficulty: EASY</h4>
+                    <p>
+                        A repair on the casing of a vintage drum machine, the
+                        Alesis HR-16
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper4.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/lens_cap/project.html">
-				<img src="/projects/normal/lens_cap/thumb_lensCap.jpg" alt="thumb_lensCap.jpg">
-				<h3>Printable lens caps</h3>
-				<h4>26 Nov 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>Easy to print lens caps for all lens sizes</p>
-				<div class="paper" style="background: url(/images/Paper1.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/lens_cap/project.html"
+                >
+                    <img
+                        src="/projects/normal/lens_cap/thumb_lensCap.jpg"
+                        alt="thumb_lensCap.jpg"
+                    />
+                    <h3>Printable lens caps</h3>
+                    <h4>26 Nov 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>Easy to print lens caps for all lens sizes</p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper1.png)"
+                    ></div>
+                </a>
+            </div>
 
-		<div class="contBlock">
-			<a class="contBlockLink" href="/projects/normal/PX625_adapter/project.html">
-				<img src="/projects/normal/PX625_adapter/thumb_PX625adapter.jpg" alt="thumb_PX625adapter.jpg">
-				<h3>PX625 vintage battery adapter</h3>
-				<h4>10 Dec 2021</h4>
-				<h4>difficulty: NORMAL</h4>
-				<p>This adapter enables the use of modern batteries for some vintage equipment</p>
-				<div class="paper" style="background: url(/images/Paper2.png)"></div>
-			</a>
-		</div>
+            <div class="contBlock">
+                <a
+                    class="contBlockLink"
+                    href="/projects/normal/PX625_adapter/project.html"
+                >
+                    <img
+                        src="/projects/normal/PX625_adapter/thumb_PX625adapter.jpg"
+                        alt="thumb_PX625adapter.jpg"
+                    />
+                    <h3>PX625 vintage battery adapter</h3>
+                    <h4>10 Dec 2021</h4>
+                    <h4>difficulty: NORMAL</h4>
+                    <p>
+                        This adapter enables the use of modern batteries for
+                        some vintage equipment
+                    </p>
+                    <div
+                        class="paper"
+                        style="background: url(/images/Paper2.png)"
+                    ></div>
+                </a>
+            </div>
+        </main>
 
-	</main>
+        <script>
+            // var m = document.getElementById("main"),
+            // 	me = m.children,
+            // 	d = new Date();
 
-	
-	<script>
-
-		// var m = document.getElementById("main"),
-		// 	me = m.children,
-		// 	d = new Date();
-
-
-		// for (i=1;i<me.length;i++)
-		// {
-		// 	me[i].innerHTML = i + "<br>" + d.getDate() + " " + d.getMonth() + " " + String(d.getFullYear()+i);
-		// }
-
-	</script>
-</body>
+            // for (i=1;i<me.length;i++)
+            // {
+            // 	me[i].innerHTML = i + "<br>" + d.getDate() + " " + d.getMonth() + " " + String(d.getFullYear()+i);
+            // }
+        </script>
+    </body>
 </html>

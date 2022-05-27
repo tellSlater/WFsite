@@ -1,612 +1,592 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Windfish Shores</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="Music, electronics, engineering, programming and control projects"
+        />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta
+            name="keywords"
+            content="music, electronics, engineering, programming, control, projects, arduino, avr"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Windfish Shores</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
 
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P"
+            rel="stylesheet"
+        />
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="CSS/thinHeader.css" />
+        <script
+            type="module"
+            src="JavaScript/templates/thin-header.js"
+        ></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/homepageAudio.js"></script> 	<!-- External Functions: Homepage audio -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link
+            rel="apple-touch-icon"
+            sizes="128x128"
+            href="homescreenIcon.png"
+        />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<style>
-		
-		html,body
-		{
-			height: 100%;
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- JQuery -->
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/homepageAudio.js"></script>
+        <!-- External Functions: Homepage audio -->
 
-			overflow-x: hidden;
+        <style>
+            html,
+            body {
+                height: 100%;
 
-			/* background-color: #efe1c5; */
-			/* background-color: #f7d7ab; */
-			/* background-color: #e0cba4; */
+                overflow-x: hidden;
 
-			/* -webkit-transition: background-color 10s linear;
+                /* background-color: #efe1c5; */
+                /* background-color: #f7d7ab; */
+                /* background-color: #e0cba4; */
+
+                /* -webkit-transition: background-color 10s linear;
 			-ms-transition: background-color 10s linear;
 			transition: background-color 10s linear; */
 
-			/* border: 4px solid black; */
-		}
+                /* border: 4px solid black; */
+            }
 
+            header {
+                height: 280px;
 
-		header
-		{
-			height: 280px;
-
-			/* -webkit-transition: background-color 10s linear;
+                /* -webkit-transition: background-color 10s linear;
 			-ms-transition: background-color 10s linear;
 			transition: background-color 10s linear; */
 
-			/* background-color: #d5ecff; */
-			/* background-color: #ffb788; */
-			/* background-color: #464646; */
-		}
-
-		/*---------- DESKTOP STUFF ----------*/
-
-		header div.desktop
-		{
-			position: relative;
-			margin: auto;
-			display: static;
-			height: 280px;
-			
-			/* z-index: -2; */
-
-			/* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
-			/* background-color: rgb(255, 151, 151); */
-			
-			/* border: 1px solid black; */
-		}
-
-		header div.desktop img.header
-		{
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: translate(-50%, -50%) scale(6);
-			display: block;
-			margin: auto;
-			position: absolute;
-			z-index: 10;
-			left: 50%;
-			top: 115px;
-			margin-top: 36px;
-			margin-bottom: 36px;
-
-			/* border: 1px solid black; */
-		}
-
-		header div.desktop .stripe
-		{
-			/* z-index: -1; */
-			position: absolute;
-			top: 160px;
-			height: 120px;
-			width: 100%;
-			margin: auto;
-			background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
-			/* background-position: 0 6px; Moving sea? */
-
-			/* background-color: rgb(117, 158, 247); */
-
-			/* border: 2px solid wheat; */
-		}
-
-		main
-		{
-			height: calc(100vh - 280px);
-		}
-
-		div.mainlinkHolderDesktop
-		{
-			position: relative;
-			height: 516px;
-			top: 48px;
-
-			background-repeat: no-repeat;
-			
-			color: black;
-			font-size: 32px;
-			font-family: 'Press Start 2P', sans-serif;
-
-			overflow-x:hidden;
-
-			/* background-color: wheat; */
-			/* border: 4px solid black; */
-		}
-
-		div.mainlinkHolderDesktop:after
-		{
-			content: "";
-			display: table;
-			clear: both;
-		}
-
-		.mainlinkHolderDesktop div.el
-		{
-			/* width: 96px; */
-			height: 96px;
-			
-			display: inline;
-			position: absolute;
-
-			/* background-color: wheat; */
-			/* border: 1px solid rgb(150, 50, 50) */
-		}
-
-		main img
-		{
-
-			/* margin: 40px; */
-			position: absolute;
-			top: 40px;
-			left: 40px;
-			transform: scale(6);
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			width: 16px;
-			height: 16px;
-			background-repeat: none;
-
-
-			/* background-color: wheat; */
-
-
-			/* border: 1px solid blue; */
-		}
-
-		div.mainlinkHolderDesktop .imgdivR
-		{
-			box-sizing: border-box;
-			display: inline;
-			float: left;
-
-			width: 96px;
-			height: 96px;
-
-			z-index: 15;
-			/* border: 1px dotted rgb(124, 135, 236); */
-		}
-		
-		div.mainlinkHolderDesktop .imgdivR + div.linkTXT
-		{
-			text-align: left;
-			left: 86px;
-		}
-		
-		div.mainlinkHolderDesktop .imgdivR + div.cursor
-		{
-			text-align: left;
-			left: -3px;
-		}
-		
-		div.mainlinkHolderDesktop .imgdivL
-		{
-			box-sizing: border-box;
-			display: inline;
-			float: left;
-
-			width: 96px;
-			height: 96px;
-
-			z-index: 15;
-			/* border: 1px dotted rgb(255, 72, 0); */
-		}
-
-		
-		div.mainlinkHolderDesktop .imgdivL + div
-		{
-			text-align: right;
-			left: -420px;
-		}
-
-		div.mainlinkHolderDesktop .linkTXT
-		{
-			position: absolute;
-			box-sizing: border-box;
-			width: 200px;
-			height: 96px;
-			padding-top: 28px;
-			margin-left: 40px;
-
-			
-			float: left;
-			display: none;
-			/* opacity: 0; */
-
-			/* border: 1px solid rgb(0, 255, 106); */
-		}
-
-		
-		/* --CURSOR-- */
-
-		div.mainlinkHolderDesktop .cursor
-		{
-			box-sizing: border-box;
-			display: inline;
-
-			position: absolute;
-			left: -3px;
-			top: 0;
-			width: 96px;
-			/* border: 2px solid rgb(43, 219, 51); */
-		}
-
-		div.mainlinkHolderDesktop #cursor
-		{
-			/* z-index: 0; */
-			width: 22px;
-			height: 16px;
-			background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
-			opacity: 0;
-
-			pointer-events: none;
-
-			
-			/* border: 1px solid rgb(255, 72, 0); */
-		}
-
-		/* --LINK 1-- */
-
-		div.mainlinkHolderDesktop #el1
-		{
-			left: 50%;
-			margin-left: 24px;
-			top: 0px;
-		}
-		#_1
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) 0 0;
-		}
-		
-
-		/* --LINK 2-- */
-
-		div.mainlinkHolderDesktop #el2
-		{
-			left: 50%;
-			margin-left: 120px;
-			top: 96px;
-		}
-		#_2
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -17px 0;
-			
-		}
-
-
-		/* --LINK 3-- */
-
-		div.mainlinkHolderDesktop #el3
-		{
-			left: 50%;
-			margin-left: 120px;
-			top: 240px;
-		}
-		#_3
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -34px 0;
-		}
-
-
-		/* --LINK 4-- */
-
-		div.mainlinkHolderDesktop #el4
-		{
-			left: 50%;
-			margin-left: 24px;
-			top: 336px;
-		}
-		#_4
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -51px 0;
-		}
-
-
-		/* --LINK 5-- */
-
-		div.mainlinkHolderDesktop #el5
-		{
-			right: 50%;
-			margin-right: 24px;
-			top: 336px;
-		}
-		#_5
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -68px 0;
-		}
-
-
-		/* --LINK 6-- */
-
-		div.mainlinkHolderDesktop #el6
-		{
-			right: 50%;
-			margin-right: 120px;
-			top: 240px;
-		}
-		#_6
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -85px 0;
-		}
-
-
-		/* --LINK 7-- */
-
-		div.mainlinkHolderDesktop #el7
-		{
-			right: 50%;
-			margin-right: 120px;
-			top: 96px;
-		}
-		#_7
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -102px 0;
-		}
-
-
-		/* --LINK 8-- */
-
-		div.mainlinkHolderDesktop #el8
-		{
-			right: 50%;
-			margin-right: 24px;
-			top: 0px;
-		}
-		#_8
-		{
-			background: url(images/MyLAinstrumentsTrans-b.png) -119px 0;
-		}
-
-		/*---------- MOBILE STUFF ----------*/
-
-		header div.mobile
-		{
-			display: none;
-			position: relative;
-			margin: auto;
-			display: static;
-			height: 180px;
-			
-			/* z-index: -2; */
-
-			/* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
-			/* background-color: rgb(255, 151, 151); */
-			
-			/* border: 1px solid black; */
-		}
-
-		header div.mobile img.header
-		{
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: translate(-50%, -50%) scale(6);
-			display: block;
-			margin: auto;
-			position: absolute;
-			z-index: 10;
-			left: 50%;
-			top: 74px;
-			margin-top: 36px;
-			/* margin-bottom: 36px; */
-
-			/* border: 1px solid black; */
-		}
-
-		header div.mobile .stripe
-		{
-			/* z-index: -1; */
-			position: absolute;
-			top: 50px;
-			height: 120px;
-			width: 100%;
-			margin: auto;
-			background-image: repeating-linear-gradient(rgba(228, 237, 255, 0.6), rgb(228, 237, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 6px, rgba(143, 178, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 12px, rgba(100, 149, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 18px, rgba(78, 134, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 24px, rgba(27, 99, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 36px, rgba(0, 81, 255, 0.6) 48px);
-			/* background-color: rgb(117, 158, 247); */
-
-			/* border: 2px solid wheat; */
-		}
-
-		div.mainlinkHolderMobile 
-		{
-			display: none;
-			position: relative;
-			height: 516px;
-			width: 100%;
-			padding-top: calc(30vh - 280px);
-			
-
-			background-repeat: no-repeat;
-			
-			color: black;
-			font-size: 36px;
-			font-family: 'Press Start 2P', sans-serif;
-
-			overflow-x: visible;
-
-			/* background-color: wheat; */
-			/* border: 1px solid black; */
-		}
-
-		div.mainlinkHolderMobile:after
-		{
-			content: "";
-			display: table;
-			clear: both;
-		}
-
-		div.mainlinkHolderMobile div.el
-		{
-			height: 64px;
-			margin: 56px auto calc(36px + 6vh) auto;
-			display: flex;
-			justify-content: center;
-			position: flex;
-
-			/* background-color: wheat; */
-			/* border: 1px solid black; */
-		}
-
-		div.mainlinkHolderMobile img
-		{
-			transform: translate(0, 0) scale(6);
-			position: relative;
-			top: 23px;
-			left: -6px;
-		}
-
-		div.mainlinkHolderMobile div.linkTXT
-		{
-			position:relative;
-			top: 16px;
-			left: 46px;
-			width: auto;
-
-			/* border: 1px solid black; */
-		}
-
-		img#cursorL
-		{
-			pointer-events: none;
-			z-index: 10;
-			position: relative;
-			width: 4px;
-			height: 16px;
-			background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
-			left: -50px;
-			opacity: 0;
-		}
-
-		img#cursorR
-		{
-			pointer-events: none;
-			z-index: 10;
-			position: relative;
-			width: 4px;
-			height: 16px;
-			background: url(images/MyLAinstrumentsTrans-b.png) -154px 0;
-			left: auto;
-			right: -50px;
-			opacity: 0;
-
-			/* border: 1px solid rebeccapurple; */
-		}
-
-		
-		/*---------- PAUSE/PLAY ----------*/
-
-		.PlayPauseDesktop
-		{
-			position: absolute;
-			left: calc(50% + 6px);
-			top: 216px;
-			width: 16px;
-			height: 16px;
-			background: url(images/PlayPause.png) 0px 0;
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: translate(-50%, -50%) scale(6);
-			background-repeat: no-repeat;
-			cursor: pointer;
-
-			/* background-color: cadetblue; */
-		}
-
-		.PlayPauseMobile
-		{
-			position: fixed;
-			bottom: 52px;
-			right: 52px;
-			width: 16px;
-			height: 16px;
-			background: url(images/PlayPause.png) 0px 0;
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: scale(6);
-			background-repeat: no-repeat;
-			cursor: pointer;
-
-			/* background-color: cadetblue; */
-		}
-
-		/*---------- HOVERS ----------*/
-
-		div.imgdivR:hover #cursor
-		{
-			opacity: 1;
-		}
-		div.imgdivR:hover + .linkTXT
-		{
-			display: inline;
-			opacity: 1;
-		}
-		
-		div.imgdivL:hover #cursor
-		{
-			opacity: 1;
-		}
-		div.imgdivL:hover + .linkTXT
-		{
-			opacity: 1;
-		}
-
-		img.header:hover
-		{
-			opacity: 0.7;
-		}
-
-		div.mainlinkHolderMobile div.el:hover #cursorL
-		{
-			opacity: 1;
-		}
-
-		div.mainlinkHolderMobile div.el:hover #cursorR
-		{
-			opacity: 1;
-		}
-
-		a:link
-		{
-			color: black;
-			font-style: normal;
-			text-decoration: none;
-		}
-		
-		a:visited
-		{
-			color: black;
-			font-style: normal;
-			text-decoration: none;
-		}
-
-		a:hover
-		{
-			color: black;
-			font-style: normal;
-			text-decoration: none;
-		}
-
-		a:active
-		{
-			color: black;
-			font-style: normal;
-			text-decoration: none;
-		}
-
-		/* @media screen and (max-height:779px) */
-		/* @media screen and (max-height: 844px)
+                /* background-color: #d5ecff; */
+                /* background-color: #ffb788; */
+                /* background-color: #464646; */
+            }
+
+            /*---------- DESKTOP STUFF ----------*/
+
+            header div.desktop {
+                position: relative;
+                margin: auto;
+                display: static;
+                height: 280px;
+
+                /* z-index: -2; */
+
+                /* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
+                /* background-color: rgb(255, 151, 151); */
+
+                /* border: 1px solid black; */
+            }
+
+            header div.desktop img.header {
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: translate(-50%, -50%) scale(6);
+                display: block;
+                margin: auto;
+                position: absolute;
+                z-index: 10;
+                left: 50%;
+                top: 115px;
+                margin-top: 36px;
+                margin-bottom: 36px;
+
+                /* border: 1px solid black; */
+            }
+
+            header div.desktop .stripe {
+                /* z-index: -1; */
+                position: absolute;
+                top: 160px;
+                height: 120px;
+                width: 100%;
+                margin: auto;
+                background-image: repeating-linear-gradient(
+                    rgba(228, 237, 255, 0.6),
+                    rgb(228, 237, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 48px
+                );
+                /* background-position: 0 6px; Moving sea? */
+
+                /* background-color: rgb(117, 158, 247); */
+
+                /* border: 2px solid wheat; */
+            }
+
+            main {
+                height: calc(100vh - 280px);
+            }
+
+            div.mainlinkHolderDesktop {
+                position: relative;
+                height: 516px;
+                top: 48px;
+
+                background-repeat: no-repeat;
+
+                color: black;
+                font-size: 32px;
+                font-family: "Press Start 2P", sans-serif;
+
+                overflow-x: hidden;
+
+                /* background-color: wheat; */
+                /* border: 4px solid black; */
+            }
+
+            div.mainlinkHolderDesktop:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .mainlinkHolderDesktop div.el {
+                /* width: 96px; */
+                height: 96px;
+
+                display: inline;
+                position: absolute;
+
+                /* background-color: wheat; */
+                /* border: 1px solid rgb(150, 50, 50) */
+            }
+
+            main img {
+                /* margin: 40px; */
+                position: absolute;
+                top: 40px;
+                left: 40px;
+                transform: scale(6);
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                width: 16px;
+                height: 16px;
+                background-repeat: none;
+
+                /* background-color: wheat; */
+
+                /* border: 1px solid blue; */
+            }
+
+            div.mainlinkHolderDesktop .imgdivR {
+                box-sizing: border-box;
+                display: inline;
+                float: left;
+
+                width: 96px;
+                height: 96px;
+
+                z-index: 15;
+                /* border: 1px dotted rgb(124, 135, 236); */
+            }
+
+            div.mainlinkHolderDesktop .imgdivR + div.linkTXT {
+                text-align: left;
+                left: 86px;
+            }
+
+            div.mainlinkHolderDesktop .imgdivR + div.cursor {
+                text-align: left;
+                left: -3px;
+            }
+
+            div.mainlinkHolderDesktop .imgdivL {
+                box-sizing: border-box;
+                display: inline;
+                float: left;
+
+                width: 96px;
+                height: 96px;
+
+                z-index: 15;
+                /* border: 1px dotted rgb(255, 72, 0); */
+            }
+
+            div.mainlinkHolderDesktop .imgdivL + div {
+                text-align: right;
+                left: -420px;
+            }
+
+            div.mainlinkHolderDesktop .linkTXT {
+                position: absolute;
+                box-sizing: border-box;
+                width: 200px;
+                height: 96px;
+                padding-top: 28px;
+                margin-left: 40px;
+
+                float: left;
+                display: none;
+                /* opacity: 0; */
+
+                /* border: 1px solid rgb(0, 255, 106); */
+            }
+
+            /* --CURSOR-- */
+
+            div.mainlinkHolderDesktop .cursor {
+                box-sizing: border-box;
+                display: inline;
+
+                position: absolute;
+                left: -3px;
+                top: 0;
+                width: 96px;
+                /* border: 2px solid rgb(43, 219, 51); */
+            }
+
+            div.mainlinkHolderDesktop #cursor {
+                /* z-index: 0; */
+                width: 22px;
+                height: 16px;
+                background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
+                opacity: 0;
+
+                pointer-events: none;
+
+                /* border: 1px solid rgb(255, 72, 0); */
+            }
+
+            /* --LINK 1-- */
+
+            div.mainlinkHolderDesktop #el1 {
+                left: 50%;
+                margin-left: 24px;
+                top: 0px;
+            }
+            #_1 {
+                background: url(images/MyLAinstrumentsTrans-b.png) 0 0;
+            }
+
+            /* --LINK 2-- */
+
+            div.mainlinkHolderDesktop #el2 {
+                left: 50%;
+                margin-left: 120px;
+                top: 96px;
+            }
+            #_2 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -17px 0;
+            }
+
+            /* --LINK 3-- */
+
+            div.mainlinkHolderDesktop #el3 {
+                left: 50%;
+                margin-left: 120px;
+                top: 240px;
+            }
+            #_3 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -34px 0;
+            }
+
+            /* --LINK 4-- */
+
+            div.mainlinkHolderDesktop #el4 {
+                left: 50%;
+                margin-left: 24px;
+                top: 336px;
+            }
+            #_4 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -51px 0;
+            }
+
+            /* --LINK 5-- */
+
+            div.mainlinkHolderDesktop #el5 {
+                right: 50%;
+                margin-right: 24px;
+                top: 336px;
+            }
+            #_5 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -68px 0;
+            }
+
+            /* --LINK 6-- */
+
+            div.mainlinkHolderDesktop #el6 {
+                right: 50%;
+                margin-right: 120px;
+                top: 240px;
+            }
+            #_6 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -85px 0;
+            }
+
+            /* --LINK 7-- */
+
+            div.mainlinkHolderDesktop #el7 {
+                right: 50%;
+                margin-right: 120px;
+                top: 96px;
+            }
+            #_7 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -102px 0;
+            }
+
+            /* --LINK 8-- */
+
+            div.mainlinkHolderDesktop #el8 {
+                right: 50%;
+                margin-right: 24px;
+                top: 0px;
+            }
+            #_8 {
+                background: url(images/MyLAinstrumentsTrans-b.png) -119px 0;
+            }
+
+            /*---------- MOBILE STUFF ----------*/
+
+            header div.mobile {
+                display: none;
+                position: relative;
+                margin: auto;
+                display: static;
+                height: 180px;
+
+                /* z-index: -2; */
+
+                /* background-image: repeating-linear-gradient(rgb(217, 222, 255) 0, rgb(217, 222, 255) 160px, rgb(0,0,0,0) 160px, rgb(0,0,0,0) 600px); */
+                /* background-color: rgb(255, 151, 151); */
+
+                /* border: 1px solid black; */
+            }
+
+            header div.mobile img.header {
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: translate(-50%, -50%) scale(6);
+                display: block;
+                margin: auto;
+                position: absolute;
+                z-index: 10;
+                left: 50%;
+                top: 74px;
+                margin-top: 36px;
+                /* margin-bottom: 36px; */
+
+                /* border: 1px solid black; */
+            }
+
+            header div.mobile .stripe {
+                /* z-index: -1; */
+                position: absolute;
+                top: 50px;
+                height: 120px;
+                width: 100%;
+                margin: auto;
+                background-image: repeating-linear-gradient(
+                    rgba(228, 237, 255, 0.6),
+                    rgb(228, 237, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 48px
+                );
+                /* background-color: rgb(117, 158, 247); */
+
+                /* border: 2px solid wheat; */
+            }
+
+            div.mainlinkHolderMobile {
+                display: none;
+                position: relative;
+                height: 516px;
+                width: 100%;
+                padding-top: calc(30vh - 280px);
+
+                background-repeat: no-repeat;
+
+                color: black;
+                font-size: 36px;
+                font-family: "Press Start 2P", sans-serif;
+
+                overflow-x: visible;
+
+                /* background-color: wheat; */
+                /* border: 1px solid black; */
+            }
+
+            div.mainlinkHolderMobile:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            div.mainlinkHolderMobile div.el {
+                height: 64px;
+                margin: 56px auto calc(36px + 6vh) auto;
+                display: flex;
+                justify-content: center;
+                position: flex;
+
+                /* background-color: wheat; */
+                /* border: 1px solid black; */
+            }
+
+            div.mainlinkHolderMobile img {
+                transform: translate(0, 0) scale(6);
+                position: relative;
+                top: 23px;
+                left: -6px;
+            }
+
+            div.mainlinkHolderMobile div.linkTXT {
+                position: relative;
+                top: 16px;
+                left: 46px;
+                width: auto;
+
+                /* border: 1px solid black; */
+            }
+
+            img#cursorL {
+                pointer-events: none;
+                z-index: 10;
+                position: relative;
+                width: 4px;
+                height: 16px;
+                background: url(images/MyLAinstrumentsTrans-b.png) -136px 0;
+                left: -50px;
+                opacity: 0;
+            }
+
+            img#cursorR {
+                pointer-events: none;
+                z-index: 10;
+                position: relative;
+                width: 4px;
+                height: 16px;
+                background: url(images/MyLAinstrumentsTrans-b.png) -154px 0;
+                left: auto;
+                right: -50px;
+                opacity: 0;
+
+                /* border: 1px solid rebeccapurple; */
+            }
+
+            /*---------- PAUSE/PLAY ----------*/
+
+            .PlayPauseDesktop {
+                position: absolute;
+                left: calc(50% + 6px);
+                top: 216px;
+                width: 16px;
+                height: 16px;
+                background: url(images/PlayPause.png) 0px 0;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: translate(-50%, -50%) scale(6);
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                /* background-color: cadetblue; */
+            }
+
+            .PlayPauseMobile {
+                position: fixed;
+                bottom: 52px;
+                right: 52px;
+                width: 16px;
+                height: 16px;
+                background: url(images/PlayPause.png) 0px 0;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: scale(6);
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                /* background-color: cadetblue; */
+            }
+
+            /*---------- HOVERS ----------*/
+
+            div.imgdivR:hover #cursor {
+                opacity: 1;
+            }
+            div.imgdivR:hover + .linkTXT {
+                display: inline;
+                opacity: 1;
+            }
+
+            div.imgdivL:hover #cursor {
+                opacity: 1;
+            }
+            div.imgdivL:hover + .linkTXT {
+                opacity: 1;
+            }
+
+            img.header:hover {
+                opacity: 0.7;
+            }
+
+            div.mainlinkHolderMobile div.el:hover #cursorL {
+                opacity: 1;
+            }
+
+            div.mainlinkHolderMobile div.el:hover #cursorR {
+                opacity: 1;
+            }
+
+            a:link {
+                color: black;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: black;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: black;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            a:active {
+                color: black;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            /* @media screen and (max-height:779px) */
+            /* @media screen and (max-height: 844px)
 		{
 			div.sand
 			{
@@ -621,50 +601,47 @@
 			}
 		}*/
 
-		/* Scrolbar style */
-		/* width */
-		::-webkit-scrollbar {
-		width: 10px;
-		}
+            /* Scrolbar style */
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
 
-		/* Track */
-		::-webkit-scrollbar-track {
-		background: rgba(92, 92, 92, 0.3);
-		}
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: rgba(92, 92, 92, 0.3);
+            }
 
-		/* Handle */
-		::-webkit-scrollbar-thumb {
-		background: rgb(0, 0, 0);
-		width: 6px;
-		}
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(0, 0, 0);
+                width: 6px;
+            }
 
-		/* Handle on hover */
-		::-webkit-scrollbar-thumb:hover {
-		background: rgb(0, 0, 0);
-		}
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgb(0, 0, 0);
+            }
 
-		@media screen and (hover: none) and (pointer: coarse)
-		{
-			/* div.linkTXT
+            @media screen and (hover: none) and (pointer: coarse) {
+                /* div.linkTXT
 			{
 				display: inline !important;
 				opacity: 0.7;
 			} */
-			body
-			{
-			-moz-transform: scale(0.6, 0.6); /* Moz-browsers */
-			zoom: 0.6; /* Other non-webkit browsers */
-			zoom: 60%; /* Webkit browsers */
-			}
-			div.mainlinkHolderDesktop
-			{
-				top: calc(33% - 120px);
-			}
-		}
+                body {
+                    -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+                    zoom: 0.6; /* Other non-webkit browsers */
+                    zoom: 60%; /* Webkit browsers */
+                }
+                div.mainlinkHolderDesktop {
+                    top: calc(33% - 120px);
+                }
+            }
 
-		@media screen and (max-width:499px), (hover: none) and (pointer: coarse) and (max-width:836px)
-		{
-			/*div.sand
+            @media screen and (max-width: 499px),
+                (hover: none) and (pointer: coarse) and (max-width: 836px) {
+                /*div.sand
 			{
 				background-image: repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 170px, rgba(245, 222, 179, 0.8) 170px, rgba(245, 222, 179, 0.8) 3000px);
 			}
@@ -684,205 +661,345 @@
 				display: block;
 			} */
 
-			div.mainlinkHolderDesktop 
-			{
-				display: none;
-			}
+                div.mainlinkHolderDesktop {
+                    display: none;
+                }
 
-			div.mainlinkHolderMobile 
-			{
-				display: block;
-				margin-top: calc(50% - 236px);
-			}
+                div.mainlinkHolderMobile {
+                    display: block;
+                    margin-top: calc(50% - 236px);
+                }
 
-			div.mainlinkHolderMobile div.linkTXT
-			{
-				opacity: 1;
-			}
-		}
+                div.mainlinkHolderMobile div.linkTXT {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
 
-	</style>
-</head>
+    <body>
+        <audio id="myAudio" onended="showPlay()">
+            <source src="Wavewatching.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
 
-<body>
-	<audio id="myAudio" onended="showPlay()">
-		<source src="Wavewatching.mp3" type="audio/mpeg">
-		Your browser does not support the audio element.
-	</audio>
+        <header id="sky">
+            <div class="desktop">
+                <a href="index.html">
+                    <img
+                        class="header"
+                        src="images/LogoBetterTrans.png"
+                        alt="Link thumbnail"
+                    />
+                </a>
+                <div class="stripe"></div>
+            </div>
+            <div class="mobile">
+                <a href="index.html">
+                    <img
+                        class="header"
+                        src="images/LogoBetterTrans-Small.png"
+                        alt="Link thumbnail"
+                    />
+                </a>
+                <div class="stripe"></div>
+            </div>
+        </header>
 
-	<header id="sky">
-		<div class="desktop">
-			<a  href="index.html" >
-				<img class="header" src="images/LogoBetterTrans.png" alt="Link thumbnail" />
-			</a>
-			<div class="stripe"></div>
-		</div>
-		<div class="mobile">
-			<a  href="index.html" >
-				<img class="header" src="images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
-			</a>
-			<div class="stripe"></div>
-		</div>
-	</header>
+        <main>
+            <div class="mainlinkHolderDesktop">
+                <div class="el" id="el1">
+                    <div class="imgdivR">
+                        <a href="projects.html">
+                            <img
+                                id="_1"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                            <div class="cursor">
+                                <img
+                                    id="cursor"
+                                    src="images/transparent.png"
+                                    width="1"
+                                    height="1"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="linkTXT">Projects</div>
+                </div>
 
-	<main>
-		<div class="mainlinkHolderDesktop">
+                <div class="el" id="el2">
+                    <div class="imgdivR">
+                        <a href="music.html">
+                            <img
+                                id="_2"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                            <div class="cursor">
+                                <img
+                                    id="cursor"
+                                    src="images/transparent.png"
+                                    width="1"
+                                    height="1"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="linkTXT">Music</div>
+                </div>
 
-			<div class="el" id="el1">
-				<div class="imgdivR">
-					<a href="projects.html">
-						<img id="_1" src="images/transparent.png" width="1" height="1">
-						<div class="cursor">
-							<img id="cursor" src="images/transparent.png" width="1" height="1">
-						</div>
-					</a>
-				</div>
-				<div class="linkTXT">
-					Projects
-				</div>
-			</div>
+                <div class="el" id="el3">
+                    <div class="imgdivR">
+                        <a href="about.html">
+                            <img
+                                id="_3"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                            <div class="cursor">
+                                <img
+                                    id="cursor"
+                                    src="images/transparent.png"
+                                    width="1"
+                                    height="1"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="linkTXT">About</div>
+                </div>
 
-			<div class="el" id="el2">
-				<div class="imgdivR">
-					<a href="music.html">
-						<img id="_2" src="images/transparent.png" width="1" height="1">
-						<div class="cursor">
-							<img id="cursor" src="images/transparent.png" width="1" height="1">
-						</div>
-					</a>
-				</div>
-				<div class="linkTXT">
-					Music
-				</div>
-			</div>
+                <div class="el" id="el4">
+                    <div class="imgdivR">
+                        <a href="contact.html">
+                            <img
+                                id="_4"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                            <div class="cursor">
+                                <img
+                                    id="cursor"
+                                    src="images/transparent.png"
+                                    width="1"
+                                    height="1"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="linkTXT">Contact</div>
+                </div>
 
-			<div class="el" id="el3">
-				<div class="imgdivR">
-					<a href="about.html">
-						<img id="_3" src="images/transparent.png" width="1" height="1">
-						<div class="cursor">
-							<img id="cursor" src="images/transparent.png" width="1" height="1">
-						</div>
-					</a>
-				</div>
-				<div class="linkTXT">
-					About
-				</div>
-			</div>
-
-			<div class="el" id="el4">
-				<div class="imgdivR">
-					<a href="contact.html">
-						<img id="_4" src="images/transparent.png" width="1" height="1">
-						<div class="cursor">
-							<img id="cursor" src="images/transparent.png" width="1" height="1">
-						</div>
-					</a>
-				</div>
-				<div class="linkTXT">
-					Contact
-				</div>
-			</div>
-
-			<div class="el" id="el5">
-				<div class="imgdivL">
-					<img id="_5" src="images/transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="images/transparent.png" width="1" height="1">
-					</div>
-				</div>
-				<!-- <div class="linkTXT">
+                <div class="el" id="el5">
+                    <div class="imgdivL">
+                        <img
+                            id="_5"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="cursor">
+                            <img
+                                id="cursor"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                        </div>
+                    </div>
+                    <!-- <div class="linkTXT">
 					Slot empty
 				</div> -->
-			</div>
+                </div>
 
-			<div class="el" id="el6">
-				<div class="imgdivL">
-					<img id="_6" src="images/transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="images/transparent.png" width="1" height="1">
-					</div>
-				</div>
-				<!-- <div class="linkTXT">
+                <div class="el" id="el6">
+                    <div class="imgdivL">
+                        <img
+                            id="_6"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="cursor">
+                            <img
+                                id="cursor"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                        </div>
+                    </div>
+                    <!-- <div class="linkTXT">
 					Slot empty
 				</div> -->
-			</div>
+                </div>
 
-			<div class="el" id="el7">
-				<div class="imgdivL">
-					<img id="_7" src="images/transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="images/transparent.png" width="1" height="1">
-					</div>
-				</div>
-				<!-- <div class="linkTXT">
+                <div class="el" id="el7">
+                    <div class="imgdivL">
+                        <img
+                            id="_7"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="cursor">
+                            <img
+                                id="cursor"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                        </div>
+                    </div>
+                    <!-- <div class="linkTXT">
 					Slot empty
 				</div> -->
-			</div>
+                </div>
 
-			<div class="el" id="el8">
-				<div class="imgdivL">
-					<img id="_8" src="images/transparent.png" width="1" height="1">
-					<div class="cursor">
-						<img id="cursor" src="images/transparent.png" width="1" height="1">
-					</div>
-				</div>
-				<!-- <div class="linkTXT">
+                <div class="el" id="el8">
+                    <div class="imgdivL">
+                        <img
+                            id="_8"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="cursor">
+                            <img
+                                id="cursor"
+                                src="images/transparent.png"
+                                width="1"
+                                height="1"
+                            />
+                        </div>
+                    </div>
+                    <!-- <div class="linkTXT">
 					Slot empty
 				</div> -->
-			</div>
+                </div>
 
-			<div class="PlayPauseDesktop" id="PlayPauseDesktop" onclick="doAudio('myAudio')"></div>
-		</div>
+                <div
+                    class="PlayPauseDesktop"
+                    id="PlayPauseDesktop"
+                    onclick="doAudio('myAudio')"
+                ></div>
+            </div>
 
+            <div class="mainlinkHolderMobile">
+                <a href="projects.html" style="width: 0">
+                    <div class="el" id="el1" style="width: 279px">
+                        <img
+                            id="cursorL"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <img
+                            id="_1"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="linkTXT">Projects</div>
+                        <img
+                            id="cursorR"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                    </div>
+                </a>
 
-		<div class="mainlinkHolderMobile">
+                <a href="music.html" style="width: 0">
+                    <div class="el" id="el2" style="width: 201px">
+                        <img
+                            id="cursorL"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <img
+                            id="_2"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="linkTXT">Music</div>
+                        <img
+                            id="cursorR"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                    </div>
+                </a>
 
-			<a href="projects.html" style="width: 0;">
-				<div class="el" id="el1" style="width: 279px;">
-					<img id="cursorL" src="images/transparent.png" width="1" height="1">
-					<img id="_1" src="images/transparent.png" width="1" height="1">
-					<div class="linkTXT">Projects</div> 
-					<img id="cursorR" src="images/transparent.png" width="1" height="1">
-				</div>
-			</a>
+                <a href="about.html" style="width: 0">
+                    <div class="el" id="el3" style="width: 201px">
+                        <img
+                            id="cursorL"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <img
+                            id="_3"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="linkTXT">About</div>
+                        <img
+                            id="cursorR"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                    </div>
+                </a>
 
-			<a href="music.html" style="width: 0;">
-				<div class="el" id="el2" style="width: 201px;">
-					<img id="cursorL" src="images/transparent.png" width="1" height="1">
-					<img id="_2" src="images/transparent.png" width="1" height="1">
-					<div class="linkTXT">Music</div> 
-					<img id="cursorR" src="images/transparent.png" width="1" height="1">
-				</div>
-			</a>
+                <a href="contact.html" style="width: 0">
+                    <div class="el" id="el4" style="width: 253px">
+                        <img
+                            id="cursorL"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <img
+                            id="_4"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                        <div class="linkTXT">Contact</div>
+                        <img
+                            id="cursorR"
+                            src="images/transparent.png"
+                            width="1"
+                            height="1"
+                        />
+                    </div>
+                </a>
 
-			<a href="about.html" style="width: 0;">
-				<div class="el" id="el3" style="width: 201px;">
-					<img id="cursorL" src="images/transparent.png" width="1" height="1">
-					<img id="_3" src="images/transparent.png" width="1" height="1">
-					<div class="linkTXT">About</div> 
-					<img id="cursorR" src="images/transparent.png" width="1" height="1">
-				</div>
-			</a>
+                <div
+                    class="PlayPauseMobile"
+                    id="PlayPauseMobile"
+                    onclick="doAudio('myAudio')"
+                ></div>
+            </div>
+        </main>
 
-			<a href="contact.html" style="width: 0;">
-				<div class="el" id="el4" style="width: 253px;">
-					<img id="cursorL" src="images/transparent.png" width="1" height="1">
-					<img id="_4" src="images/transparent.png" width="1" height="1">
-					<div class="linkTXT">Contact</div> 
-					<img id="cursorR" src="images/transparent.png" width="1" height="1">
-				</div>
-			</a>
-
-			<div class="PlayPauseMobile" id="PlayPauseMobile" onclick="doAudio('myAudio')"></div>
-		</div>
-	</main>
-	
-
-	<script>
-		document.getElementById("myAudio").volume = 0; 	//Set audio initial volume to 0
-	</script>
-</body>
+        <script>
+            document.getElementById("myAudio").volume = 0; //Set audio initial volume to 0
+        </script>
+    </body>
 </html>
 
 <!-- This line of code is for my friend Aggelos Chatziathanasiou who is hospitalized right now and asked me to code something for him -->
