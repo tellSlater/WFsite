@@ -7,10 +7,10 @@ class ThinHeader extends HTMLElement {
         <header id="sky">
             <div class="headerFlex">
                 <div class="left">
-                    <a href="index.html">
+                    <a href="/index.html">
                         <img
                             class="logoSmall"
-                            src="images/LogoBetterTrans-Small.png"
+                            src="/images/LogoBetterTrans-Small.png"
                             alt="Link thumbnail"
                         />
                     </a>
