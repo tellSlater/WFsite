@@ -14,6 +14,10 @@
 
 	<link rel="stylesheet" href="/../CSS/article.css">
 	
+	<!-- Thin Header -->
+	<link rel="stylesheet" href="/CSS/thinHeader.css" />
+	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+	
 	<link rel="shortcut icon" type="image/ico" href="/../images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/../images/favicon.png" /> <!-- FAVICON -->
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
@@ -22,20 +26,8 @@
 </head>
 	
 <body>
-	<header id="sky">
-		<div style="margin-left: 8%;">
-			<a  href="/index.html" >
-				<img class="header" src="/../images/LogoBetterTrans-Small.png" alt="Link thumbnail" />
-			</a>
-		</div>
-		<div>
-			<a  href="/music.html" class="themeTXT">
-				<h1>Music</h1>
-			</a>
-		</div>
-		<div style="visibility:hidden; width: 79px; margin-right: 8%;"></div>
-		<div class="stripe"></div>
-	</header>
+
+        <thin-header name="Music" link="/music.html"></thin-header>
 		
 	<main>
 		<h2>
