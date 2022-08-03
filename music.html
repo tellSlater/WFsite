@@ -18,6 +18,7 @@
 	<!-- Thin Header -->
 	<link rel="stylesheet" href="CSS/thinHeader.css" />
 	<script type="module" src="JavaScript/templates/thin-header.js"></script>
+	<script type="module" src="JavaScript/templates/music-listElement.js"></script>
 	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
@@ -72,7 +73,8 @@
 		.filler h3
 		{
 			width: 308px;
-			margin-top: 45px;
+			margin-top: 8px;
+			/* margin-top: 45px; */
 		}
 
 		.filler:hover
@@ -418,416 +420,161 @@
 		
 	<main>
 
-		<div class="filler">
-			<img class="tnail" src="/music/SunnySunday/ThumbSunnySunday.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Sunny Sunday</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/SunnySunday/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/SunnySunday/Sunny Sunday.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio id="audio0" onended="showPlay(this)">
-				<source src="/music/SunnySunday/Sunny Sunday.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			ident="audio0"
+			title="Sunny Sunday"
+			thumb="/music/SunnySunday/ThumbSunnySunday.jpg"
+			about="/music/SunnySunday/aboutsong.html"
+			audio="/music/SunnySunday/Sunny Sunday.mp3">
+		</music-li>
 
-		<div class="filler">
-			<img class="tnail" src="/music/Wavewatching/ThumbWavewatching.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Wavewatching</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Wavewatching/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Wavewatching/Wavewatching.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/piosIneAftos/ThumbpiosIneAftos.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Pios ine aftos (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/piosIneAftos/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/piosIneAftos/piosIneAftos.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/piosIneAftos/piosIneAftos.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Wavewatching"
+			thumb="/music/Wavewatching/ThumbWavewatching.jpg"
+			about="/music/Wavewatching/aboutsong.html"
+			audio="/music/Wavewatching/Wavewatching.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Harmonics/ThumbHarmonics.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Harmonics</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Harmonics/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Harmonics/Harmonics.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Harmonics/Harmonics.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Pios ine aftos (cover)"
+			thumb="/music/piosIneAftos/ThumbpiosIneAftos.jpg"
+			about="/music/piosIneAftos/aboutsong.html"
+			audio="/music/piosIneAftos/piosIneAftos.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/All-ok-now/ThumbAllOkNow.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>All ok now</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/All-ok-now/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/All-ok-now/AllOkNow.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/All-ok-now/AllOkNow.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Harmonics"
+			thumb="/music/Harmonics/ThumbHarmonics.jpg"
+			about="/music/Harmonics/aboutsong.html"
+			audio="/music/Harmonics/Harmonics.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Turkish-march/ThumbTurkish-march.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Turkish march (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Turkish-march/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Turkish-march/Turkish-march.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Turkish-march/Turkish-march.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="All ok now"
+			thumb="/music/All-ok-now/ThumbAllOkNow.jpg"
+			about="/music/All-ok-now/aboutsong.html"
+			audio="/music/All-ok-now/AllOkNow.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Vamvakaris-Money/ThumbVamvakaris-Money.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Osi ehune pola lefta (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Vamvakaris-Money/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Vamvakaris-Money/Vamvakaris-Money.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Vamvakaris-Money/Vamvakaris-Money.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Turkish march (cover)"
+			thumb="/music/Turkish-march/ThumbTurkish-march.jpg"
+			about="/music/Turkish-march/aboutsong.html"
+			audio="/music/Turkish-march/Turkish-march.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Overworld-Zelda/ThumbOverworld-Zelda.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">ZELDA Overworld guitar trio cover</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Overworld-Zelda/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Overworld-Zelda/Overworld-Zelda.wav" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Overworld-Zelda/Overworld-Zelda.wav" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Osi ehune pola lefta (cover)"
+			thumb="/music/Vamvakaris-Money/ThumbVamvakaris-Money.jpg"
+			about="/music/Vamvakaris-Money/aboutsong.html"
+			audio="/music/Vamvakaris-Money/Vamvakaris-Money.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/A-Jam-Session/ThumbA-Jam-Session.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>A jam session</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/A-Jam-Session/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/A-Jam-Session/A-Jam-Session.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/A-Jam-Session/A-Jam-Session.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="ZELDA Overworld guitar trio cover"
+			thumb="/music/Overworld-Zelda/ThumbOverworld-Zelda.jpg"
+			about="/music/Overworld-Zelda/aboutsong.html"
+			audio="/music/Overworld-Zelda/Overworld-Zelda.wav">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Ghost-house/ThumbGhost-house.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Ghost house theme (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Ghost-house/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Ghost-house/Ghost-house.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Ghost-house/Ghost-house.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="A jam session"
+			thumb="/music/A-Jam-Session/ThumbA-Jam-Session.jpg"
+			about="/music/A-Jam-Session/aboutsong.html"
+			audio="/music/A-Jam-Session/A-Jam-Session.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/WindWaker-lyra-cover/ThumbWindWaker-lyra-cover.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Wind Waker (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/WindWaker-lyra-cover/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Ghost house theme (cover)"
+			thumb="/music/Ghost-house/ThumbGhost-house.jpg"
+			about="/music/Ghost-house/aboutsong.html"
+			audio="/music/Ghost-house/Ghost-house.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Playtime/ThumbPlaytime.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Playtime</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Playtime/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Playtime/Playtime.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Playtime/Playtime.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Wind Waker (cover)"
+			thumb="/music/WindWaker-lyra-cover/ThumbWindWaker-lyra-cover.jpg"
+			about="/music/WindWaker-lyra-cover/aboutsong.html"
+			audio="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3">
+		</music-li>
 
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Absence/ThumbAbsence.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Absence</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Absence/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Absence/Absence.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Absence/Absence.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Playtime"
+			thumb="/music/Playtime/ThumbPlaytime.jpg"
+			about="/music/Playtime/aboutsong.html"
+			audio="/music/Playtime/Playtime.mp3">
+		</music-li>
 
+		<music-li
+			title="Absence"
+			thumb="/music/Absence/ThumbAbsence.jpg"
+			about="/music/Absence/aboutsong.html"
+			audio="/music/Absence/Absence.mp3">
+		</music-li>
 
-		<div class="filler">
-			<img class="tnail" src="/music/Thought/ThumbThought.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Thought</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Thought/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Thought/Thought.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio id="audio0" onended="showPlay(this)">
-				<source src="/music/Thought/Thought.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Ghosts/ThumbGhosts.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Ghosts</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Ghosts/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Ghosts/Ghosts.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Ghosts/Ghosts.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/FMA-nocturne/ThumbFMA-nocturne.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">FMA Nocturne of Amestris (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/FMA-nocturne/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/FMA-nocturne/FMA-nocturne.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/FMA-nocturne/FMA-nocturne.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/Fable-TempleOfLight/ThumbFable-TempleOfLight.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Temple of Light (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/Fable-TempleOfLight/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/NobodyHome/ThumbNobodyHome2.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">Nobody home (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/NobodyHome/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/NobodyHome/NobodyHome.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/NobodyHome/NobodyHome.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/beOverYou/ThumbbeOverYou2.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">I'll be over you (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/beOverYou/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/beOverYou/beOverYou.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/beOverYou/beOverYou.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-		
-		<div class="filler">
-			<img class="tnail" src="/music/15fathoms/Thumb15fathoms.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3 style="margin-top: 36px;">15 fathoms, counting (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/15fathoms/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/15fathoms/15fathoms.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/15fathoms/15fathoms.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="Thought"
+			thumb="/music/Thought/ThumbThought.jpg"
+			about="/music/Thought/aboutsong.html"
+			audio="/music/Thought/Thought.mp3">
+		</music-li>
 
+		<music-li
+			title="Ghosts"
+			thumb="/music/Ghosts/ThumbGhosts.jpg"
+			about="/music/Ghosts/aboutsong.html"
+			audio="/music/Ghosts/Ghosts.mp3">
+		</music-li>
 
-		<div class="filler">
-			<img class="tnail" src="/music/PrayCover/ThumbPrayCover.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE" onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Pray (cover)</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/PrayCover/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/PrayCover/PrayCover.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio id="audio0" onended="showPlay(this)">
-				<source src="/music/PrayCover/PrayCover.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
+		<music-li
+			title="FMA Nocturne of Amestris (cover)"
+			thumb="/music/FMA-nocturne/ThumbFMA-nocturne.jpg"
+			about="/music/FMA-nocturne/aboutsong.html"
+			audio="/music/FMA-nocturne/FMA-nocturne.mp3">
+		</music-li>
+
+		<music-li
+			title="Temple of Light (cover)"
+			thumb="/music/Fable-TempleOfLight/ThumbFable-TempleOfLight.jpg"
+			about="/music/Fable-TempleOfLight/aboutsong.html"
+			audio="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3">
+		</music-li>
+
+		<music-li
+			title="Nobody home (cover)"
+			thumb="/music/NobodyHome/ThumbNobodyHome2.jpg"
+			about="/music/NobodyHome/aboutsong.html"
+			audio="/music/NobodyHome/NobodyHome.mp3">
+		</music-li>
+
+		<music-li
+			title="I'll be over you (cover)"
+			thumb="/music/beOverYou/ThumbbeOverYou2.jpg"
+			about="/music/beOverYou/aboutsong.html"
+			audio="/music/beOverYou/beOverYou.mp3">
+		</music-li>
+
+		<music-li
+			title="15 fathoms, counting (cover)"
+			thumb="/music/15fathoms/Thumb15fathoms.jpg"
+			about="/music/15fathoms/aboutsong.html"
+			audio="/music/15fathoms/15fathoms.mp3">
+		</music-li>
+
+		<music-li
+			title="Pray (cover)"
+			thumb="/music/PrayCover/ThumbPrayCover.jpg"
+			about="/music/PrayCover/aboutsong.html"
+			audio="/music/PrayCover/PrayCover.mp3">
+		</music-li>
+
+		<music-li
+			title="Seasons of Life"
+			thumb="/music/SeasonsOfLife/ThumbSeasonsOfLife.jpg"
+			about="/music/SeasonsOfLife/aboutsong.html"
+			audio="/music/SeasonsOfLife/SeasonsOfLife.mp3">
+		</music-li>
 		
-		<div class="filler">
-			<img class="tnail" src="/music/SeasonsOfLife/ThumbSeasonsOfLife.jpg" alt="song thumbnail">
-			<img class="playpause" src="/images/transparent.png" alt="PLAY/PAUSE"  onclick="doAudio(this.parentNode.lastElementChild)">
-			<div class="name"><h3>Seasons of Life</h3></div>
-			<div class="buttonlinks">
-				<a class="aqmark" href="/music/SeasonsOfLife/aboutsong.html" target="_blank">
-					<img class="qmark" src="/images/QuestionMark.png" alt="About this song" title="About this song">
-				</a>
-				<a class="aqmark" href="/music/SeasonsOfLife/SeasonsOfLife.mp3" download>
-					<img class="qmark" src="/images/Download.png" alt="Download" title="Download">
-				</a>
-			</div>
-			<audio onended="showPlay(this)">
-				<source src="/music/SeasonsOfLife/SeasonsOfLife.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-
-
-
 	</main>
 
 	<div class="radio">
