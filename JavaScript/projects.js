@@ -15,6 +15,8 @@ function sortProjects(btn) {
     for (i = 0; i < divs.length; i++) {
         if (divs[i].tagName == 'DIV')
             a.push(divs[i].childNodes[1])
+        if (divs[i].tagName == 'PROJECT-BOX')
+            a.push(divs[i].childNodes[1].childNodes[1])
     }
 
     if ((by != "RANDOM") && (by === btn.innerHTML)) return;

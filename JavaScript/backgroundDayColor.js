@@ -1,5 +1,9 @@
 //Changes the page colors depending on the current time
 
+// This event will be triggered when background color changes so that
+// any other elements can listen to this event and change their color accordingly
+const bgColorChange = new CustomEvent('bgColorChange');
+
 //This object has functions for getting the sunrise and sunset times around the year
 const sunPos = {
     //returns true if it is day
@@ -58,6 +62,10 @@ const sunPos = {
         else if (minsNow < sunPos.sunsetMonthToMins(md) + savingsHour * 60 + 30) {
             nowItIs = 3;
         }
+        else {
+            nowItIs = 0;
+        }
+
         return nowItIs;
     }
 };
@@ -78,8 +86,9 @@ function backgroundDayColor() {
         document.getElementById("sky").style.backgroundColor = "#d5ecff";
     }
 
-    //This segment code helps debug by changing background every minute in stead of hour
-    //
+
+    // //This segment code helps debug by changing background every minute in stead of hour
+    
     // if (h.getMinutes()%3 === 0) {
     //     document.body.style.backgroundColor = "#e0cba4";
     //     document.getElementById("sky").style.backgroundColor = "#464646";
@@ -92,6 +101,9 @@ function backgroundDayColor() {
     //     document.body.style.backgroundColor = "#efe1c5";
     //     document.getElementById("sky").style.backgroundColor = "#d5ecff";
     // }
+
+    //Dispatches event "bgColorChange" so that other elements can change their colors in unison
+    document.dispatchEvent(bgColorChange);
 }
 
 //Sets transition for backgrounds to 10s

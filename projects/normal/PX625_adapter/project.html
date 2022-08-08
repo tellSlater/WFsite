@@ -10,33 +10,40 @@
 	<title>PX625 vintage battery adapter</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+	<!--google font - Press Start 2P-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="/../CSS/article.css">
+	<link rel="stylesheet" href="/CSS/article.css">
 	
 	<!-- Thin Header -->
 	<link rel="stylesheet" href="/CSS/thinHeader.css" />
 	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
-
+	
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
 	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
 	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
 	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
 	<script src="/JavaScript/myVideoSimple.js"></script> <!-- External Functions: Custom video player -->
+
+	<!-- Navigator -->
+	<link rel="stylesheet" href="/CSS/navigator.css">
+	<script src="/JavaScript/navigator.js"></script>
 </head>
 
 <body>
 
-        <thin-header name="Projects" link="/projects.html"></thin-header>
+    <thin-header name="Projects" link="/projects.html"></thin-header>
+
+	<div class="navigator">
+	</div>
 
 	<main>
 		<h2>
 			PX625 vintage battery adapter
 		</h2>
-		<h3>
+		<h3 id="sum">
 			Summary
 		</h3>
 		<p>
@@ -45,7 +52,7 @@
 			<b>In this page there is information about its design and use as well as files for creating one</b>.
 		</p>
 		<img src="/projects/normal/PX625_adapter/386adapter.jpg" alt="386adapter.jpg" title="386 silver oxide battery adapter">
-		<h3>
+		<h3 id="old">
 			The old batteries
 		</h3>
 		<p>
@@ -60,7 +67,7 @@
 			(more information <a href="http://camera-wiki.org/wiki/PX625" target="_blank">here</a>).
 		</p>
 		<img src="/projects/normal/PX625_adapter/mercuryBat.jpg" alt="mercuryBat.jpg" title="РЦ-53 mercury battery">
-		<h3>
+		<h3 id="modern">
 			Modern batteries
 		</h3>
 		<p>
@@ -93,7 +100,7 @@
 				<img src="/projects/normal/PX625_adapter/386Energizer.jpg" alt="386Energizer.jpg" title="Energizer 386 silver oxide button cell">
 			</li>
 		</ol>
-		<h3>
+		<h3 id="sch">
 			Schematic
 		</h3>
 		<p>
@@ -127,7 +134,7 @@
 		<p>
 			Nevertheless, the BAT43 diode is a safe bet for most applications and it is the diode used with other such adaptors.
 		</p>
-		<h3>
+		<h3 id="cir">
 			Circuit
 		</h3>
 		<p>

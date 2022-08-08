@@ -1,0 +1,44 @@
+/* Style for article/page navigator*/
+div.navigator {
+    margin-top: 20px;
+    margin-bottom: -122px;
+    margin-left: 6px;
+    padding-right: 8px;
+    max-height: 50%;
+    max-width: 120px;
+    position: sticky;
+    left: calc(50% - 565px);
+    top: 20px;
+    border-right: 3px solid black;
+    z-index: 10;
+    background-color: rgba(224, 203, 164, 0.87);
+    /* transition: all 0.2s; */
+    
+    overflow: hidden;
+    white-space: nowrap;
+    /* border-bottom: 2px solid black; */
+}
+
+/* div.navigator:hover {
+    max-width: 230px;
+    width: max-content;
+    box-shadow: 4px 3px 3px 0.2px rgba(0, 0, 0, 0.075);
+} */
+
+div.navigator h4 {
+    position: relative;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: "Press Start 2P", sans-serif;
+
+    /* margin-top: 40px; */
+}
+
+div.navigator a:hover{
+    text-decoration: none;
+    opacity: 0.7;
+    /* margin-top: 40px; */
+}
