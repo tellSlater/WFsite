@@ -1,7 +1,5 @@
 //Code for the navigator element
 
-var titles; //Array of h3 in main - titles of the page sections
-
 //Sleep milliseconds function
 function sleep(miliseconds) {
     var currentTime = new Date().getTime();
@@ -14,17 +12,24 @@ function initCode(e) {
     navWidth = 120;
 
     var
-    bdy = document.getElementsByTagName("body")[0],
-    mn = document.getElementsByTagName("main")[0],
-    nav = document.getElementsByClassName("navigator")[0],
+    bdy = document.getElementsByTagName("body")[0], //Body element
+    mn = document.getElementsByTagName("main")[0],  //Main element
+    nav = document.getElementsByClassName("navigator")[0],  //Navigator div
+    
+    //Elements inside navigator (gets refreshed on adding elements)
     elems = document.getElementsByClassName("navigator")[0].children,
-    maxElemWidth = 0,
-    mainPadding = parseInt(window.getComputedStyle(mn, null).getPropertyValue('padding-left').slice(0,-2));
+
+    maxElemWidth = 0,   //Calculated bellow based on added navigator elements
+
+    //Left padding of main
+    mainPadding = parseInt(window.getComputedStyle(mn, null).getPropertyValue('padding-left').slice(0,-2)),
+
+    titles; //Will contain titles of the sections of the page
 
     //Filling the navigator with the proper HTML and setting IDs for the sections of the page for linking
     titles = document.getElementsByTagName("main")[0].getElementsByTagName("h3");
     for (let i = 0; i < titles.length; i++) {
-        var tempID = (titles[i].innerHTML.replace(/\s/g,'').slice(0,6)).toString();
+        var tempID = (titles[i].innerHTML.replace(/\s/g, "")).toString();
         nav.innerHTML += '<a href="#' + tempID + '"><h4>' + titles[i].innerHTML + '</h4></a>';
         titles[i].id = tempID;
     }
@@ -122,7 +127,57 @@ function initCode(e) {
 
     });
 
+    ///////////////////////////////////////////////////////////////////////
+    //Code used for setting an index to the current section being browsed//
+    ///////////////////////////////////////////////////////////////////////
 
+    //Saving original titles (without the index)
+    const strTitles = [];
+    for (let i=0; i < elems.length; ++i) {
+        strTitles[i] = titles[i].innerHTML.trim();
+    }
+
+    //Removes index from all navigator elements
+    function deindexAll() {
+        for (let i=0; i < elems.length; ++i) {
+            elems[i].children[0].innerHTML = strTitles[i];
+        }
+    }
+
+    //Adds index to ith navigator element
+    function index_i(i) {
+        elems[i].children[0].innerHTML = '>' + strTitles[i];
+    }
+
+    //Add index to the navigator elements on click
+    for (let i=0; i < elems.length; ++i) {
+        elems[i].addEventListener("click", function(e) {
+            //Timeout used here for being the last sections that sets the indexes
+            //because bottom titles never scroll to top
+            setTimeout( function () {
+                deindexAll();
+                index_i(i);
+            }, 2);
+        });
+    }
+
+    //Add index to the navigator elements on scroll
+    bdy.addEventListener("scroll", function (e) {
+
+        //When scrolled to top no item has index
+        if (nav.offsetTop < titles[0].offsetTop + 20) {
+            deindexAll();
+            return;
+        }
+
+        var i = 0;
+        while (nav.offsetTop > titles[i].offsetTop) {
+            ++i
+            if (i >= titles.length) break;
+        }
+        deindexAll();
+        index_i(i-1);
+	});
 
 }
 
