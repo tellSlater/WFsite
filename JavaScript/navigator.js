@@ -60,7 +60,7 @@ function initCode(e) {
     //Setting bottom margin to negative so that navigator occupies no vertical space
     var
     elMargin = elems[0].children[0].offsetTop,
-    elHeight = elems[0].children[0].clientHeight;
+    elHeight = elems[0].children[0].offsetHeight + 0.188; //for some reason it returned 0.188 smaller so I had to add it here
     nav.style.marginBottom = '-' + (elems.length * (elHeight + elMargin) + elMargin + 20).toString() + 'px';
 
 
