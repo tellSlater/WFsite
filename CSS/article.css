@@ -41,6 +41,12 @@ p.secondary {
   color: rgba(100, 100, 100, 0.8);
 }
 
+.redfont {
+    color: #e75858;
+    font-style: normal;
+    text-decoration: none;
+}
+
 p.mjax {
   overflow-x: auto;
 }
