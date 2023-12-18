@@ -274,3 +274,12 @@ tr:hover {
 td {
   border-right: 2px dashed black;
 }
+
+mjx-container {
+  display: inline-block;
+}
+
+mjx-assistive-mml {
+  right: 0px;
+  bottom: 0px;
+}
