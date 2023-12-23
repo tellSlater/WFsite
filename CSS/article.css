@@ -29,7 +29,7 @@ h4 {
 }
 
 p {
-  color: black;
+  color:  #0f0f0f;
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
   text-align: justify;
@@ -282,4 +282,27 @@ mjx-container {
 mjx-assistive-mml {
   right: 0px;
   bottom: 0px;
+}
+
+/* Styling for inline code */
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: black;
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Styling for code blocks */
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: black;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto; /* Enable horizontal scroll */
+  line-height: 1.4; /* Adjust line height if needed */
+  white-space: pre-wrap; /* Preserve spaces and wrap lines */
 }

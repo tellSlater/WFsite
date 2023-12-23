@@ -45,7 +45,7 @@
 			Summary
 		</h3>
 		<p>
-			In this project, I turn a simple self hydrating pot into a "smart" pot, featuring:
+			In this project, I use a pi pico w to turn a simple self hydrating pot into a "smart" pot, featuring:
 		</p>
 		<ol>
 			<li>
@@ -82,61 +82,127 @@
 			</li>
 		</ol>
 		<p>
-			The reason quotes were used for "smart" is that this was mostly a way to learn new things for me.
+			The reason quotes were used for "smart" is that this was mostly a way to learn new things.
 			All of these sensors and logging is not necessary to automate watering plants.
-			The pump alone operating on a timer is sufficient.
-			<b>This page is a work in progress</b>.
+			The pump alone operating on a timer is sufficient. Also, for some plants, the amount of moisture
+			naturally escaping to the soil can be enough, especially if the plants have developed a deep enough root system.
+		</p>
+		<p>
+			This planter managed to keep my plants alive during almost an entire summer month.
+			<b>In this page there is info and files about building this planter</b>.
 		</p>
 		<img src="/projects/hard/pico_planter/pplanter_done.jpg" alt="pplanter_done.jpg" title="Finished planter">
-
-<!-- 		
 		<h3>
-			Design
+			Pot used
 		</h3>
 		<p>
-			The wooden part that is placed on top of the LACK table, was made by joining together two 30x60 cm pieces
-			of wood. The material used was a 18mm thick long oak bord with width 30cm. The two 60cm long pieces were cut
-			from that piece of wood and joined together with wood glue to for a 60x60 cm table top.
+			The pot used for this project was a Lidl purchase. A parkway brand orthogonal pot with a water tank on its bottom
+			and a floater for indicating the tank's water level.
 		</p>
-		<img src="/projects/normal/power_bank/schematic.jpg" alt="schematic.jpg" title="Power bank schematic">
+		<img src="/projects/hard/pico_planter/parkside_pot.jpg" alt="parkside_pot.jpg" title="Parkside pot">
 		<p>
-			The wood was finished by sanding up to 180 grit and applying several coats of linseed oil.
+			The dimensions of the pot are roughly 80x20x16 cm in length x width x height. The water tank has a capacity of approximately
+			3 liters which was enough to keep the plants fresh for about a month in Swedish summer.
 		</p>
 		<h3>
-			Printed fixtures
+			Sensors
 		</h3>
+		<h4>
+			Light
+		</h4>
 		<p>
-			A kotatsu top is supposed to fit one top of the table so that a blanket can be placed in between.
-			For that reason plastic fixtures were designed in fusion 360 that are meant to help the wooden top
-			fit nicely on top of the table and keep it in place on top of a blanket.
+			An LDR was used with a 10KOhm pull down resistor.
+			The pi pico w's ADC can read the voltage of the divider and the result can be translated to a light reading.
 		</p>
-		<img src="/projects/normal/kotatsu_lack/fusion_fixture.png" alt="fusion_fixture.png" title="Designed plastic fixture">
+		<img src="/projects/hard/pico_planter/LDR.jpg" alt="LDR.jpg" title="Light Dependent Resistor">
+		<h4>
+			Temperature/humidity
+		</h4>
 		<p>
-			The plastic fixtures were 3d printed and screwed under the wooden top part.
+			A DHT11 was used for temperature and humidity monitoring.
+			This sensor is widely available and circuitpython has a library for communicating with it.
 		</p>
-		<img src="/projects/normal/kotatsu_lack/fusion_section.png" alt="fusion_section.png" title="Placed fixture section view">
+		<img src="/projects/hard/pico_planter/DHT11_temp_humid.jpg" alt="DHT11_temp_humid.jpg" title="DHT11 temperature and humidity sensor">
+		<h4>
+			Soil moisture
+		</h4>
+		<p>
+			I used capacitive sensors for monitoring the soil moisture. Unfortunately, although there was an attempt on sealing them from water,
+			the sensors stopped working due to water damage after about 2 months of service. I used hot glue over the electronics but water managed
+			to sip through between the glue and the circuitboard. Better ways to insulate this sensor could be a plastic wrap like a ballon or
+			a glue that is intended for water tight sealing, like the silicone glues used in plumbing.
+		</p>
+		<img src="/projects/hard/pico_planter/moist_sensor.jpg" alt="moist_sensor.jpg" title="Soil moisture sensor">
+		<h4>
+			Water tank level
+		</h4>
+		<p>
+			For monitoring the level of the tank, a DIY sensor was used. A switch was made out of plain wires and some thin sheet metal.
+			The switch was embedded onto the existing floater indicator in such a way that it would close if the water in the tank gets too low:
+		</p>
+		<img src="/projects/hard/pico_planter/water_tank_level_sensor.jpg" alt="water_tank_level_sensor.jpg" title="DIY water tank level sensor">
+		<p>
+			Of course, this type of sensor has a very bad response or signal. In order to detect it, <code>countio</code> was used.
+			<code>countio</code> is a circuitpython library that uses interrupts to read pulses and it is able to detect fast signal inputs.
+		</p>
+		<p>
+			Once the water of the tank is refilled, the alarm can be deactivated with a pushbutton input.
+		</p>
 		<h3>
-			Finished kotatsu
+			Pump
 		</h3>
 		<p>
-			The finished result is a wooden board roughly larger than the top surface of an IKEA LACK table
-			that fits almost snuggly on top of it with the plastic fixtures. Some space is required between the
-			fixtures and the kotatsu to allow for a blanket to fit between them.
+			The only actuator used is a small 5V pump. The pump was combined with two transistors in Darlington configuration.
+			This enabled the pump to be directly connected to the 5V supply and pi pico and used directly.
 		</p>
-		<img src="/projects/normal/kotatsu_lack/fusion_3D_top_off.png" alt="fusion_3D_top_off.png" title="Finished kotatsu">
+		<img src="/projects/hard/pico_planter/pump.jpg" alt="pump.jpg" title="Pump configuration">
 		<p>
-			The only thing that remains is placing a blanket between the table and the wooden top, and fitting the top snuggly above the blanket.
+			Plastic tubing was used along with a 3D printed T part that split the water supply to both ends of the pot.
+			An STL for the T part can be downloaded in the "downloads" section bellow.
 		</p>
-		<img src="/projects/normal/kotatsu_lack/fusion_3D.png" alt="fusion_3D.png" title="Fitted top">
-		<img src="/projects/normal/kotatsu_lack/fusion_3D.png" alt="fusion_3D.png" title="Fitted top">
 		<h3>
-			Downloads
+			Data logging
 		</h3>
 		<p>
-			The plastic fixture can be downloaded <a href="/projects/normal/kotatsu_lack/kotatsu_fxture.stl" download>here</a>
-			and it can be printed on its side with no supports.
-		</p> -->
+			The sensor data as well as the state of the pump are saved locally on an SD card.
+			An SD card reader is used to read and write data to the card with SPI bus.
+		</p>
+		<img src="/projects/hard/pico_planter/sd_reader.jpg" alt="sd_reader.jpg" title="SD card reader">
+		<p>
+			The data is uploaded to influxDB periodically. InfluxDB is a time series database with a decent free plan.
+			Finally, a dashboard was created with grafana to visuaize the data.
+		</p>
+		<img src="/projects/hard/pico_planter/architecture.png" alt="architecture.png" title="Pico to influxDB to Grafana">
+		<img src="/projects/hard/pico_planter/grafana.jpg" alt="grafana.jpg" title="Grafana dashboard">
+		<h3>
+			Code
+		</h3>
+		<p>
+			The code for the pi pico w was written in python using circuitpython. Circuitpython has come a long way and nowadays
+			it is probably the easiest, fastest language to use for prototyping. It offers ready to use classes and libraries
+			for using the board's feateures or commonly used external sensors and peripherals.
+		</p>
+		<p>
+			The circuitpython code for the pico can be downloaded <a href="main.py" download>here</a>.
+		</p>
+		<h3>
+			Results
+		</h3>
+		<p>
+			The main program does crush some times but this is countered by using the watchdog timer to reset
+			on 8 seconds since last feed.
+			Otehr than that the pot worked great and helped me preserve my plants almost for the entire month of August while I was away.
+			Here is a comparison before August:
+		</p>
+		<img src="/projects/hard/pico_planter/pplanter_early.jpg" alt="pplanter_early.jpg" title="Before August">
+		<p>
+			And after August:
+		</p>
+		<img src="/projects/hard/pico_planter/pplanter_done.jpg" alt="pplanter_done.jpg" title="After August">
+		<p>
+			Great  success! The Basil was espacially tasty in red pasta sauces.
+			The leaves are very large on this species of basil. Try drinking some water out of a leaf and see how it tastes!
+		</p>
 	</main>
 </body>
-
 </html>
