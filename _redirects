@@ -1,23 +1,28 @@
-# Redirects from what the browser requests to what we serve
+# Redirects from what the browser requests to what is served
 
-/projects    /projects 
-/project    /projects
-/projcts    /projects
-/rojects    /projects
+# Mistyped links
 
-/music      /music
-/musics     /music
-/msic      /music
-/usic      /music
+/projects /projects
+/project /projects
+/projcts /projects
+/rojects /projects
 
-/about      /about
-/abut      /about
-/abou      /about
-/bout      /about
+/music /music
+/musics /music
+/msic /music
+/usic /music
 
-/contact        /contact
-/ontact        /contact
-/contct        /contact
-/contac        /contact
+/about /about
+/abut /about
+/abou /about
+/bout /about
 
-/adapterManualPX625     /projects/normal/PX625_adapter/PX625_adapter_manual.pdf
+/contact /contact
+/ontact /contact
+/contct /contact
+/contac /contact
+
+# QR code links
+
+/adapterManualPX625 /projects/normal/PX625_adapter/PX625_adapter_manual.pdf
+/ol2 product_showcase/ol2
