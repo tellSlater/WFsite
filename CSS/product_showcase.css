@@ -1,0 +1,26 @@
+main {
+    text-align: center;
+    height: auto;
+    overflow: visible;
+}
+
+div.product {
+    display: inline-block;
+    height: 450px;
+    overflow: visible;
+}
+
+img.product {
+    position: relative;
+    height: auto;
+    display: block;
+    z-index: 1000000;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    transform: scale(6);
+    padding-top: 50%;
+    margin-top: 74px;
+    background-color: transparent;
+    border: none;
+    margin-top: -90px;
+}
