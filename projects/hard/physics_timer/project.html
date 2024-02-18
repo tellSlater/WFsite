@@ -1,196 +1,191 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Physics timer</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Physics timer</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
-	
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<style>
-		.PS2P
-		{
-			font-family: "Press Start 2P", cursive;
-			font-size: 12px;
-		}
-	</style>
-</head>
-	
-<body>
-	
-	<thin-header name="Projects" link="/projects.html"></thin-header>
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<div class="navigator"></div>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom video player -->
 
-	<main>
-		<h2>
-			Physics timer
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This is a timer with precision to the millisecond.
-			It uses two sensors to operate.
-			When the first sensor triggers, the timer starts.
-			When the second sensor is triggered, the timer stops.
-			The timer is destined to help in small, in-class physics experiments.
-			<b>In this page there are necessary files and information for building this timer</b>.
-		</p>
-		<img src="/projects/hard/physics_timer/physics_timer_photo.jpg" alt="physics_timer.jpg" title="Physics timer">
-		<p>
-			The timer uses 3 AAA batteries in series and draws about 75mA on average.
-			That means these batteries should last for roughly 6-7 hours of use.
-			After 1' of being idle, the timer enters sleep mode and the amount of current drawn is negligible(&lt;0.1uA).
-			It should have a shelf life of tens of years.
-		</p>
-		<h3>
-			Using the timer
-		</h3>
-		<p>
-			When placing the sensors at a known distance apart, the speed of an object can be estimated
-			by dividing this distance with the measured time.
-			It can help in measuring pendulum periods or the speed of an object after rolling from a ramp.
-			This could help students see how the numbers they calculate using the physics equations
-			are good approximations of real world phenomena.
-		</p>
-		<div class="video">
-			<video src="/projects/hard/physics_timer/timer_test_blendered.mp4" loop title="Using the timer"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<p>
-		<p>
-			In this video the two sensors are set 10cm apart.
-			A small paper ball passes by them and a time interval of 79ms is measured.
-			Dividing the traveled distance with the time measured gives a speed of roughly 0.1m / 0.079s = 1.27m/s.
-		</p>
-		<h3>How to operate</h3>
-		<p>
-			Other than the sensors, the only input the timer has is a button.
-			To turn on the timer the button has to be pressed once.
-		</p>
-		<img src="/projects/hard/physics_timer/mainUnit.jpg" alt="mainUnit.jpg" title="Main unit">
-		<p>
-			Once turned on, the timer can be in one of these three states - ready, running or stopped.
-		</p>
-		<ul>
-			<li>
-				Ready - the timer enters this state when it is first turned on or
-				when the timer is in the stopped state and the button is pressed once.
-				The display shows blinking zeroes in this state.
-			</li>
-			<li>
-				Running - when in the ready state, the timers starts running if the button is pressed once
-				or if the sensor A is triggered. On the display the timer starts running.
-			</li>
-			<li>
-				Stopped - when in the running state, the timer stops if the button is pressed once
-				or sensor B is triggered. The display shows the measured time.
-			</li>
-		</ul>
-		<p>
-			Before taking a measurement it must be ensured that
-			the sensors are triggered when the object passes by them.
-			When triggered a green triangle lights up on the sensors.
-			If a sensor is not working properly, its sensitivity can be adjusted with a phillips screw driver.
-			The sensor works by emitting infrared light and measuring its reflection on the passing object.
-			External sources of infrared radiation can trigger the sensors and result in a bad measurement.
-		</p>
-		<img src="/projects/hard/physics_timer/sensor.jpg" alt="sensor.jpg" title="Infrared sensor">
-		<h3>
-			Schematics
-		</h3>
-		<p>
-			The IR sensors use a board usually sold as "Infrared sensor for Arduino".
-			The schematic is a pretty standard comparator configuration.
-		</p>
-		<img src="/projects/hard/physics_timer/sensorBoard.jpg" alt="sensorBoard.jpg" title="Sensor board">
-		<img src="/projects/hard/physics_timer/sensorBoardSchematic.jpg" alt="sensorBoard.jpg" title="Sensor board schematic">
-		<p>
-			The main board on the timer uses an ATTiny2313a.
-			A standard configuration for an external oscillator is used.
-			The 4 digit 7-segment display is run using an 8-bit shift register (Texas Instruments SN74HC595N).
-			There are also 4 current limiting resistors - one for each digit of the display.
-			On the bottom side of the board there is a beeper, a pushbutton and a filtering capacitor for the IC.
-		</p>
-		<img src="/projects/hard/physics_timer/mainUnitBoard.jpg" alt="mainUnitBoard.jpg" title="Main unit board">
-		<a class="img" href="/projects/hard/physics_timer/EAGLEbig.jpg" target="_blank">
-			<img src="/projects/hard/physics_timer/EAGLEsmall.jpg" alt="EAGLEsmall.jpg" title="Main unit board schematic">
-		</a>
-		<h3>
-			Circuit board
-		</h3>
-		<p>
-			The board was designed in EAGLE.
-			The components were packed as close as possible.
-			Thermally relieved vias were used for hand soldering them in stead of rivetting.
-			(The silk screen below does not contain the filtering capacitor for the IC.
-			It should be added between GND and VBAT)
-		</p>
-		<img src="/projects/hard/physics_timer/SilkScreen.png" alt="SilkScreen.png" title="EAGLE design">
-		<p>
-			The double sided board was cut using <a href="http://flatcam.org/" target="_blank">FlatCam</a> and a 3D printer that was converted to a milling cutter.
-			(Available as a project <a href="/projects/hard/printer_to_cnc/project.html" target="_blank">here</a>)
-		</p>
-		<img src="/projects/hard/physics_timer/millingBoard.jpg" alt="millingBoard.jpg" title="Milling the board">
-		<img src="/projects/hard/physics_timer/milledBoard2.jpg" alt="milledBoard2.jpg" title="Resulted milled board">
-		<p>
-			The gerber and drill files for the board are available for download <a href="/projects/hard/physics_timer/CAMOutputs.rar" download>here</a>.
-		</p>
-		<h3>
-			Programming the AVR
-		</h3>
-		<p>
-			The code was developed in Cpp using Atmel Studio 7.
-			The chip is operated on an external 16MHz crystal oscillator.
-			The chip's timer 0 overflow interrupt is used for all the timing needs.
-			A pin change interrupt is used to read the sensors with precise timing.
-			The source code is well commented and can be downloaded along with the compiled .hex file
-			<a href="/projects/hard/physics_timer/physicsTimerCode.rar" download="">here</a>.
-		</p>
-		<h3>
-			Casing
-		</h3>
-		<p>
-			The case for the timer was designed in Fusion360.
-			The main unit's casing can be 3D printed without supports.
-			It features a print in place hinge, a clip-in circuit board mount and a bending push button cover.
-		</p>
-		<img src="/projects/hard/physics_timer/casingMain.jpg" alt="casingMain.jpg" title="Main unit casing">
-		<p>
-			The sensor's casing bottom part needs a couple supports to be printed correctly.
-			The two halves of the casing clip together.
-		</p>
-		<img src="/projects/hard/physics_timer/casingSensor.jpg" alt="casingSensor.jpg" title="Sensor casing">
-		<p>
-			To download the casing's STL files click <a href="/projects/hard/physics_timer/physicsTimerCasingSTL.rar" download>here</a>.
-		</p>
-	</main>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
 
-	
-	<script>
-	</script>
-</body>
+        <style>
+            .PS2P {
+                font-family: "Press Start 2P", cursive;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
+
+        <div class="navigator"></div>
+
+        <main>
+            <h2>Physics timer</h2>
+            <h3>Summary</h3>
+            <p>
+                This is a timer with precision to the millisecond. It uses two sensors to operate. When the first sensor
+                triggers, the timer starts. When the second sensor is triggered, the timer stops. The timer is destined
+                to help in small, in-class physics experiments.
+                <b>In this page there are necessary files and information for building this timer</b>.
+            </p>
+            <img
+                src="/projects/hard/physics_timer/physics_timer_photo.jpg"
+                alt="physics_timer.jpg"
+                title="Physics timer"
+            />
+            <p>
+                The timer uses 3 AAA batteries in series and draws about 75mA on average. That means these batteries
+                should last for roughly 6-7 hours of use. After 1' of being idle, the timer enters sleep mode and the
+                amount of current drawn is negligible(&lt;0.1uA). It should have a shelf life of tens of years.
+            </p>
+            <h3>Using the timer</h3>
+            <p>
+                When placing the sensors at a known distance apart, the speed of an object can be estimated by dividing
+                this distance with the measured time. It can help in measuring pendulum periods or the speed of an
+                object after rolling from a ramp. This could help students see how the numbers they calculate using the
+                physics equations are good approximations of real world phenomena.
+            </p>
+            <div class="video">
+                <video src="/projects/hard/physics_timer/timer_test_blendered.mp4" loop title="Using the timer"></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <p></p>
+            <p>
+                In this video the two sensors are set 10cm apart. A small paper ball passes by them and a time interval
+                of 79ms is measured. Dividing the traveled distance with the time measured gives a speed of roughly 0.1m
+                / 0.079s = 1.27m/s.
+            </p>
+            <h3>How to operate</h3>
+            <p>
+                Other than the sensors, the only input the timer has is a button. To turn on the timer the button has to
+                be pressed once.
+            </p>
+            <img src="/projects/hard/physics_timer/mainUnit.jpg" alt="mainUnit.jpg" title="Main unit" />
+            <p>Once turned on, the timer can be in one of these three states - ready, running or stopped.</p>
+            <ul>
+                <li>
+                    Ready - the timer enters this state when it is first turned on or when the timer is in the stopped
+                    state and the button is pressed once. The display shows blinking zeroes in this state.
+                </li>
+                <li>
+                    Running - when in the ready state, the timers starts running if the button is pressed once or if the
+                    sensor A is triggered. On the display the timer starts running.
+                </li>
+                <li>
+                    Stopped - when in the running state, the timer stops if the button is pressed once or sensor B is
+                    triggered. The display shows the measured time.
+                </li>
+            </ul>
+            <p>
+                Before taking a measurement it must be ensured that the sensors are triggered when the object passes by
+                them. When triggered a green triangle lights up on the sensors. If a sensor is not working properly, its
+                sensitivity can be adjusted with a phillips screw driver. The sensor works by emitting infrared light
+                and measuring its reflection on the passing object. External sources of infrared radiation can trigger
+                the sensors and result in a bad measurement.
+            </p>
+            <img src="/projects/hard/physics_timer/sensor.jpg" alt="sensor.jpg" title="Infrared sensor" />
+            <h3>Schematics</h3>
+            <p>
+                The IR sensors use a board usually sold as "Infrared sensor for Arduino". The schematic is a pretty
+                standard comparator configuration.
+            </p>
+            <img src="/projects/hard/physics_timer/sensorBoard.jpg" alt="sensorBoard.jpg" title="Sensor board" />
+            <img
+                src="/projects/hard/physics_timer/sensorBoardSchematic.jpg"
+                alt="sensorBoard.jpg"
+                title="Sensor board schematic"
+            />
+            <p>
+                The main board on the timer uses an ATTiny2313a. A standard configuration for an external oscillator is
+                used. The 4 digit 7-segment display is run using an 8-bit shift register (Texas Instruments SN74HC595N).
+                There are also 4 current limiting resistors - one for each digit of the display. On the bottom side of
+                the board there is a beeper, a pushbutton and a filtering capacitor for the IC.
+            </p>
+            <img src="/projects/hard/physics_timer/mainUnitBoard.jpg" alt="mainUnitBoard.jpg" title="Main unit board" />
+            <a class="img" href="/projects/hard/physics_timer/EAGLEbig.jpg" target="_blank">
+                <img
+                    src="/projects/hard/physics_timer/EAGLEsmall.jpg"
+                    alt="EAGLEsmall.jpg"
+                    title="Main unit board schematic"
+                />
+            </a>
+            <h3>Circuit board</h3>
+            <p>
+                The board was designed in EAGLE. The components were packed as close as possible. Thermally relieved
+                vias were used for hand soldering them in stead of rivetting. (The silk screen below does not contain
+                the filtering capacitor for the IC. It should be added between GND and VBAT)
+            </p>
+            <img src="/projects/hard/physics_timer/SilkScreen.png" alt="SilkScreen.png" title="EAGLE design" />
+            <p>
+                The double sided board was cut using <a href="http://flatcam.org/" target="_blank">FlatCam</a> and a 3D
+                printer that was converted to a milling cutter. (Available as a project
+                <a href="/projects/hard/printer_to_cnc/project" target="_blank">here</a>)
+            </p>
+            <img src="/projects/hard/physics_timer/millingBoard.jpg" alt="millingBoard.jpg" title="Milling the board" />
+            <img
+                src="/projects/hard/physics_timer/milledBoard2.jpg"
+                alt="milledBoard2.jpg"
+                title="Resulted milled board"
+            />
+            <p>
+                The gerber and drill files for the board are available for download
+                <a href="/projects/hard/physics_timer/CAMOutputs.rar" download>here</a>.
+            </p>
+            <h3>Programming the AVR</h3>
+            <p>
+                The code was developed in Cpp using Atmel Studio 7. The chip is operated on an external 16MHz crystal
+                oscillator. The chip's timer 0 overflow interrupt is used for all the timing needs. A pin change
+                interrupt is used to read the sensors with precise timing. The source code is well commented and can be
+                downloaded along with the compiled .hex file
+                <a href="/projects/hard/physics_timer/physicsTimerCode.rar" download="">here</a>.
+            </p>
+            <h3>Casing</h3>
+            <p>
+                The case for the timer was designed in Fusion360. The main unit's casing can be 3D printed without
+                supports. It features a print in place hinge, a clip-in circuit board mount and a bending push button
+                cover.
+            </p>
+            <img src="/projects/hard/physics_timer/casingMain.jpg" alt="casingMain.jpg" title="Main unit casing" />
+            <p>
+                The sensor's casing bottom part needs a couple supports to be printed correctly. The two halves of the
+                casing clip together.
+            </p>
+            <img src="/projects/hard/physics_timer/casingSensor.jpg" alt="casingSensor.jpg" title="Sensor casing" />
+            <p>
+                To download the casing's STL files click
+                <a href="/projects/hard/physics_timer/physicsTimerCasingSTL.rar" download>here</a>.
+            </p>
+        </main>
+
+        <script></script>
+    </body>
 </html>

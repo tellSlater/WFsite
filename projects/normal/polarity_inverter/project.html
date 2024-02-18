@@ -1,111 +1,111 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Polarity inverter</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Polarity inverter</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom video player -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Polarity inverter
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This circuit is used to invert the polarity of an input pin.
-			A "triggered while open" sensor is converted to a "triggered while closed".
-			The same result could be achieved by using logic gates but
-			this circuit does not require a VCC connection so it is more of a plug-and-play solution.
-			<b>In this project the inverter schematic is explained</b>.
-		</p>
-		<h3>
-			The problem
-		</h3>
-		<p>
-			Inverting an input polarity by hardware may be easier than a software solution at times.
-			This inverter was developed for a 3D printer's min-z sensor.
-			The problem was having two alligator clips plug in where the original sensor docks and having them trigger on contact.
-		</p>
-		<img src="/projects/normal/polarity_inverter/inverterProblem.jpg" alt="inverterProblem.jpg" title="Problematic setup">
-		<p>
-			The previous setup won't work since the z-min sensor is triggered while open by default.
-		</p>
-		<h3>
-			Tackling the problem
-		</h3>
-		<p>
-			A circuit must be placed in between the alligator clips and the sensor and ground pins.
-			This circuit should be pulling the sensor pin low when the alligator clips are not in contact.
-			When there is continuity between the alligator clips, the sensor side should remain high.
-		</p>
-		<img src="/projects/normal/polarity_inverter/inverterSuggestion.jpg" alt="inverterSuggestion.jpg" title="Tackling the problem">
-		<h3>
-			The solution
-		</h3>
-		<p>
-			This simple circuit meets all the demands stated above.
-		</p>
-		<ol>
-			<li>
-				When there is no continuity between the bit and the copper board,
-				the base of the PNP is pulled low through the 67KOhm resistor.
-				The transistor activates and pulls the sensor pin low.
-			</li>
-			<li>
-				When there is continuity between the bit and the copper board,
-				the base of the PNP is pulled high through the sensor pin's 25KOhm internal pull up resistor.
-				The two resistors (25K and 67K Ohms) form a voltage divider and the sensor pin
-				is pulled to 3.1V which is more than enough to trigger its high state.
-			</li>
-		</ol>
-		<img src="/projects/normal/polarity_inverter/inverterSolution.jpg" alt="inverterSolution.jpg" title="Inverter solution">
-		<h3>
-			Implementation
-		</h3>
-		<p>
-			This inverter was used to enable auto leveling on copper clad boards with a modded 3D printer.
-			(project available <a href="/projects/hard/printer_to_cnc/project.html" target="_blank">here</a>)
-		</p>
-		<img src="/projects/normal/polarity_inverter/polarityInverter.jpg" alt="polarityInverter.jpg" title="Inverter circuit">
-		<div class="video">
-			<video src="/projects/hard/printer_to_cnc/autoLeveling.mp4" loop title="Auto leveling"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-	</main>
-</body>
-
+        <main>
+            <h2>Polarity inverter</h2>
+            <h3>Summary</h3>
+            <p>
+                This circuit is used to invert the polarity of an input pin. A "triggered while open" sensor is
+                converted to a "triggered while closed". The same result could be achieved by using logic gates but this
+                circuit does not require a VCC connection so it is more of a plug-and-play solution.
+                <b>In this project the inverter schematic is explained</b>.
+            </p>
+            <h3>The problem</h3>
+            <p>
+                Inverting an input polarity by hardware may be easier than a software solution at times. This inverter
+                was developed for a 3D printer's min-z sensor. The problem was having two alligator clips plug in where
+                the original sensor docks and having them trigger on contact.
+            </p>
+            <img
+                src="/projects/normal/polarity_inverter/inverterProblem.jpg"
+                alt="inverterProblem.jpg"
+                title="Problematic setup"
+            />
+            <p>The previous setup won't work since the z-min sensor is triggered while open by default.</p>
+            <h3>Tackling the problem</h3>
+            <p>
+                A circuit must be placed in between the alligator clips and the sensor and ground pins. This circuit
+                should be pulling the sensor pin low when the alligator clips are not in contact. When there is
+                continuity between the alligator clips, the sensor side should remain high.
+            </p>
+            <img
+                src="/projects/normal/polarity_inverter/inverterSuggestion.jpg"
+                alt="inverterSuggestion.jpg"
+                title="Tackling the problem"
+            />
+            <h3>The solution</h3>
+            <p>This simple circuit meets all the demands stated above.</p>
+            <ol>
+                <li>
+                    When there is no continuity between the bit and the copper board, the base of the PNP is pulled low
+                    through the 67KOhm resistor. The transistor activates and pulls the sensor pin low.
+                </li>
+                <li>
+                    When there is continuity between the bit and the copper board, the base of the PNP is pulled high
+                    through the sensor pin's 25KOhm internal pull up resistor. The two resistors (25K and 67K Ohms) form
+                    a voltage divider and the sensor pin is pulled to 3.1V which is more than enough to trigger its high
+                    state.
+                </li>
+            </ol>
+            <img
+                src="/projects/normal/polarity_inverter/inverterSolution.jpg"
+                alt="inverterSolution.jpg"
+                title="Inverter solution"
+            />
+            <h3>Implementation</h3>
+            <p>
+                This inverter was used to enable auto leveling on copper clad boards with a modded 3D printer. (project
+                available <a href="/projects/hard/printer_to_cnc/project" target="_blank">here</a>)
+            </p>
+            <img
+                src="/projects/normal/polarity_inverter/polarityInverter.jpg"
+                alt="polarityInverter.jpg"
+                title="Inverter circuit"
+            />
+            <div class="video">
+                <video src="/projects/hard/printer_to_cnc/autoLeveling.mp4" loop title="Auto leveling"></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+        </main>
+    </body>
 </html>

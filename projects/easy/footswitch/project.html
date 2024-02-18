@@ -1,109 +1,94 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Foot switch</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Foot switch</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom video player -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Foot switch
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This is a small foot-switch/pedal made of recycled parts.
-			<b>In this page there is information about making it</b>.
-		</p>
-		<h3>
-			Materials
-		</h3>
-		<p>
-			This pedal is made out of three components:
-		</p>
-		<ol>
-			<li>
-				A durable normally open switch that will withstand being stepped on
-			</li>
-			<li>
-				A female mono jack socket
-			</li>
-			<li>
-				A durable casing
-			</li>
-		</ol>
-		<p>
-			<b>The switch</b> was salvaged out of an old heater.
-			It was responsible for cutting the heater's power when it was tilted.
-		</p>
-		<img src="/projects/easy/footswitch/heater.jpg" alt="heater.jpg" title="Heater">
-		<p>
-			It is located on the bottom side of such heaters so that when they get tipped to the side, the switch opens.
-		</p>
-		<img src="/projects/easy/footswitch/switch.jpg" alt="switch.jpg" title="Safety switch">
-		<p>
-			Using safety components such as this switch is a good idea because, unlike other parts,
-			these are always designed to be durable and reliable above all else.
-		</p>
-		<p>
-			<b>A female mono jack</b> can be bought for cheap on the market.
-		</p>
-		<img src="/projects/easy/footswitch/femaleJack.jpg" alt="femaleJack.jpg" title="Female mono jack">
-		<p>
-			<b>A durable casing</b> can be made out of wood, acrylic or any strong material.
-			In this case, a few pieces of leftover wood were glued together to make a casing.
-		</p>
-		<h3>
-			Final product
-		</h3>
-		<p>
-			The pieces of wood were clamped and glued together with elmer's glue.
-			The switch was fastened on the wooden case with some screws.
-			Finally, the female jack was fastened in place with its nut.
-		</p>
-		<img src="/projects/easy/footswitch/footPedal.jpg" alt="footPedal.jpg" title="Foot pedal">
-		<p>
-			The casing is very compact and the pedal is light and can be carried easily.
-			It is not nearly as comfortable to use as a commercial sustain pedal
-			but it is robust and gets the job done.
-		</p>
-		<p>
-			The pedal was used in another project, available <a href="/projects/normal/auduino_mod/project.html" target="_blank">here</a>.
-		</p>
-	</main>
-</body>
+        <main>
+            <h2>Foot switch</h2>
+            <h3>Summary</h3>
+            <p>
+                This is a small foot-switch/pedal made of recycled parts.
+                <b>In this page there is information about making it</b>.
+            </p>
+            <h3>Materials</h3>
+            <p>This pedal is made out of three components:</p>
+            <ol>
+                <li>A durable normally open switch that will withstand being stepped on</li>
+                <li>A female mono jack socket</li>
+                <li>A durable casing</li>
+            </ol>
+            <p>
+                <b>The switch</b> was salvaged out of an old heater. It was responsible for cutting the heater's power
+                when it was tilted.
+            </p>
+            <img src="/projects/easy/footswitch/heater.jpg" alt="heater.jpg" title="Heater" />
+            <p>
+                It is located on the bottom side of such heaters so that when they get tipped to the side, the switch
+                opens.
+            </p>
+            <img src="/projects/easy/footswitch/switch.jpg" alt="switch.jpg" title="Safety switch" />
+            <p>
+                Using safety components such as this switch is a good idea because, unlike other parts, these are always
+                designed to be durable and reliable above all else.
+            </p>
+            <p><b>A female mono jack</b> can be bought for cheap on the market.</p>
+            <img src="/projects/easy/footswitch/femaleJack.jpg" alt="femaleJack.jpg" title="Female mono jack" />
+            <p>
+                <b>A durable casing</b> can be made out of wood, acrylic or any strong material. In this case, a few
+                pieces of leftover wood were glued together to make a casing.
+            </p>
+            <h3>Final product</h3>
+            <p>
+                The pieces of wood were clamped and glued together with elmer's glue. The switch was fastened on the
+                wooden case with some screws. Finally, the female jack was fastened in place with its nut.
+            </p>
+            <img src="/projects/easy/footswitch/footPedal.jpg" alt="footPedal.jpg" title="Foot pedal" />
+            <p>
+                The casing is very compact and the pedal is light and can be carried easily. It is not nearly as
+                comfortable to use as a commercial sustain pedal but it is robust and gets the job done.
+            </p>
+            <p>
+                The pedal was used in another project, available
+                <a href="/projects/normal/auduino_mod/project" target="_blank">here</a>.
+            </p>
+        </main>
+    </body>
 </html>

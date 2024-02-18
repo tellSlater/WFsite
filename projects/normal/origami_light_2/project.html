@@ -2,47 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="description"
-            content="This origami ornament doubles as emergency lighting!"
-        />
+        <meta name="description" content="This origami ornament doubles as emergency lighting!" />
         <meta name="author" content="Ilias Chatziefstathiou" />
-        <meta
-            name="keywords"
-            content="music, electronics, engineering, programming, control, projects, arduino, avr"
-        />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Origami light 2</title>
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
         <!--google font-->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
         <link rel="stylesheet" href="/CSS/article.css" />
 
         <!-- Thin Header -->
         <link rel="stylesheet" href="/CSS/thinHeader.css" />
-        <script
-            type="module"
-            src="/JavaScript/templates/thin-header.js"
-        ></script>
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
         <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
         <!-- favicon.ico not found fix -->
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <!-- FAVICON -->
-        <link
-            rel="apple-touch-icon"
-            sizes="128x128"
-            href="homescreenIcon.png"
-        />
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
         <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
         <script src="/JavaScript/backgroundDayColor.js"></script>
@@ -64,19 +45,13 @@
             <h2>Origami light 2</h2>
             <h3>Summary</h3>
             <p>
-                <a
-                    href="/projects/normal/origami_light/project.html"
-                    target="_blank"
-                    >Origami light</a
-                >
-                is a project about fitting a modular origami with sensors and
-                lights, essentially turning it into a useful ornament. This is
-                an attempt to make this gadget easier to manufacture and fix
-                some of the weak spots it had.
+                <a href="/projects/normal/origami_light/project" target="_blank">Origami light</a>
+                is a project about fitting a modular origami with sensors and lights, essentially turning it into a
+                useful ornament. This is an attempt to make this gadget easier to manufacture and fix some of the weak
+                spots it had.
                 <b
-                    >In this page there is information about each change that
-                    was made and files for printing and producing this
-                    version</b
+                    >In this page there is information about each change that was made and files for printing and
+                    producing this version</b
                 >.
             </p>
             <img
@@ -84,10 +59,7 @@
                 alt="origamiLight_dark.jpg"
                 title="Origami light"
             />
-            <p class="secondary">
-                This version of the origami light is completed but still
-                untested.
-            </p>
+            <p class="secondary">This version of the origami light is completed but still untested.</p>
             <h3>Original project issues</h3>
             <p>The original origami light has these main weaknesses:</p>
             <ol>
@@ -99,25 +71,19 @@
             </ol>
             <h4>Over-engineered and heavy chassis</h4>
             <p>
-                Although the idea for the original chassis was fun to make and
-                came with a practical use, it is better to stick with a simpler,
-                lighter design since it is viable. Here is how the old chassis looked like:
+                Although the idea for the original chassis was fun to make and came with a practical use, it is better
+                to stick with a simpler, lighter design since it is viable. Here is how the old chassis looked like:
             </p>
             <div class="video">
-                <video
-                    src="/projects/normal/origami_light/chassisBend.mp4"
-                    loop
-                    title="The old chassis"
-                ></video>
+                <video src="/projects/normal/origami_light/chassisBend.mp4" loop title="The old chassis"></video>
                 <div class="preplay" onclick="startPlayer(this)"></div>
             </div>
             <h4>Hard to access charging port</h4>
             <p>
-                For the construction of the original origami, an off the shelf
-                lithium battery charging board was used. That resulted in the
-                charging port being located inside the origami, in the center of
-                the chassis. This means that in order to charge its battery, the
-                origami must be disassembled, which is not very practical.
+                For the construction of the original origami, an off the shelf lithium battery charging board was used.
+                That resulted in the charging port being located inside the origami, in the center of the chassis. This
+                means that in order to charge its battery, the origami must be disassembled, which is not very
+                practical.
             </p>
             <img
                 src="/projects/normal/origami_light_2/chargingPort.jpg"
@@ -126,29 +92,18 @@
             />
             <h4>Difficult to make circuit</h4>
             <p>
-                There are many aspects to why the original circuit is difficult
-                to make. Some reasons may be soldering thin copper wires onto
-                3mm LEDS or fitting large THT components as tightly as possible.
-                A circuit like this is also hard to make copies of.
+                There are many aspects to why the original circuit is difficult to make. Some reasons may be soldering
+                thin copper wires onto 3mm LEDS or fitting large THT components as tightly as possible. A circuit like
+                this is also hard to make copies of.
             </p>
-            <img
-                src="/projects/normal/origami_light/wireNleds.jpg"
-                alt="wireNleds.jpg"
-                title="Wire and LEDs"
-            />
-            <img
-                src="/projects/normal/origami_light/boardLEDs.jpg"
-                alt="boardLEDs.jpg"
-                title="LEDs on board"
-            />
+            <img src="/projects/normal/origami_light/wireNleds.jpg" alt="wireNleds.jpg" title="Wire and LEDs" />
+            <img src="/projects/normal/origami_light/boardLEDs.jpg" alt="boardLEDs.jpg" title="LEDs on board" />
             <h4>Potentially high leakage current on sleep</h4>
             <p>
-                The original circuitry implemented a metal bead tilt sensor.
-                Unfortunately, a flaw of that sensor was overseen when designing
-                the prototype. When the sensor is in its close position, it
-                results in considerable leakage current that can greatly reduce
-                the battery life in sleep mode. This happens because the
-                internal pull-up resistor remains active in sleep mode.
+                The original circuitry implemented a metal bead tilt sensor. Unfortunately, a flaw of that sensor was
+                overseen when designing the prototype. When the sensor is in its close position, it results in
+                considerable leakage current that can greatly reduce the battery life in sleep mode. This happens
+                because the internal pull-up resistor remains active in sleep mode.
             </p>
             <img
                 src="/projects/normal/origami_light_2/tilt_leakage.jpg"
@@ -156,13 +111,11 @@
                 title="Current leaking through internal pull-up"
             />
             <h4>Low battery indication</h4>
-            <p>
-                The original design has no way of indicating the battery level.
-            </p>
+            <p>The original design has no way of indicating the battery level.</p>
             <h3>New chassis</h3>
             <p>
-                A new chassis was designed with the disadvantages of the
-                original one in mind. The design was made in Fusion360.
+                A new chassis was designed with the disadvantages of the original one in mind. The design was made in
+                Fusion360.
             </p>
             <img
                 src="/projects/normal/origami_light_2/new_chassis.jpg"
@@ -170,11 +123,9 @@
                 title="New chassis design"
             />
             <p>
-                The new design has no moving parts but fits tightly inside the
-                origami. Furthermore, it has half the part count and it is much
-                lighter and faster to 3D print. Finally, some flexible areas
-                were intentionally added to improve the chassis' resistance to
-                shock or fall damage.
+                The new design has no moving parts but fits tightly inside the origami. Furthermore, it has half the
+                part count and it is much lighter and faster to 3D print. Finally, some flexible areas were
+                intentionally added to improve the chassis' resistance to shock or fall damage.
             </p>
             <img
                 src="/projects/normal/origami_light_2/chassis_flexible.jpg"
@@ -182,50 +133,38 @@
                 title="Flexible regions on chassis beams"
             />
             <p>
-                The PCB is easily attached to the chassis while the battery is
-                attached using two small zip-ties.
-                The 250mAh li-polymer battery was also swapped out for a 800mAh 14500 battery
-                which, apart from the bigger capacity, has standardized dimensions and is easier to find.
+                The PCB is easily attached to the chassis while the battery is attached using two small zip-ties. The
+                250mAh li-polymer battery was also swapped out for a 800mAh 14500 battery which, apart from the bigger
+                capacity, has standardized dimensions and is easier to find.
             </p>
             <img
                 src="/projects/normal/origami_light_2/chassis-electronics_assembly.jpg"
                 alt="chassis-electronics_assembly.jpg"
                 title="Chassis and electronics model assembly"
             />
-			<p>
-				This is the chassis assembly with the battery attached and a mockup of the PCB:
-			</p>
+            <p>This is the chassis assembly with the battery attached and a mockup of the PCB:</p>
             <img
                 src="/projects/normal/origami_light_2/chassis-electronics_mockup.jpg"
                 alt="chassis-electronics_mockup.jpg"
                 title="Physical assembly with mockup PCB"
             />
-			<p>
-				The chassis is made of 2 different parts that are printed two times each
-				for a total of 4 parts, in order to create the tetrahedral chassis.
-				The STL files for these parts can be downloaded
-				<a href="/projects/normal/origami_light_2/OrigamiLamp2-STLs.rar" download>here</a>.
-			</p>
+            <p>
+                The chassis is made of 2 different parts that are printed two times each for a total of 4 parts, in
+                order to create the tetrahedral chassis. The STL files for these parts can be downloaded
+                <a href="/projects/normal/origami_light_2/OrigamiLamp2-STLs.rar" download>here</a>.
+            </p>
 
             <h3>Printed circuit board</h3>
             <p>
-                The circuit was reviewed and everything was integrated in a
-                small 0.6mm thick PCB design in Eagle. Every component that could be purchased as SMD
-                was swapped for a smaller package. Instead of using a separate
-                battery charging board, the battery charging IC was also
-                included in the design.
+                The circuit was reviewed and everything was integrated in a small 0.6mm thick PCB design in Eagle. Every
+                component that could be purchased as SMD was swapped for a smaller package. Instead of using a separate
+                battery charging board, the battery charging IC was also included in the design.
             </p>
-            <img
-                src="/projects/normal/origami_light_2/PCB_model.jpg"
-                alt="PCB_model.jpg"
-                title="PCB design"
-            />
+            <img src="/projects/normal/origami_light_2/PCB_model.jpg" alt="PCB_model.jpg" title="PCB design" />
             <p>
-                A female USB-C is etched on board and is designed to be
-                protruding to the outside of the origami. This way the battery
-                can be charged without disassembling the origami. The chassis is
-                designed with the shape of the PCB in mind - they lock onto each
-                other without the need for extra fasteners.
+                A female USB-C is etched on board and is designed to be protruding to the outside of the origami. This
+                way the battery can be charged without disassembling the origami. The chassis is designed with the shape
+                of the PCB in mind - they lock onto each other without the need for extra fasteners.
             </p>
             <img
                 src="/projects/normal/origami_light_2/PCB_on_chassis.jpg"
@@ -233,96 +172,84 @@
                 title="PCB on chassis"
             />
             <p>
-                The gerber and drill files for the board can be downloaded as a zip file <a href="">here</a>.
-                The 0.6mm thick PCB was ordered by JLCPCB.
+                The gerber and drill files for the board can be downloaded as a zip file <a href="">here</a>. The 0.6mm
+                thick PCB was ordered by JLCPCB.
             </p>
             <img
                 src="/projects/normal/origami_light_2/physical_pcb.jpg"
                 alt="physical_pcb.jpg"
                 title="Manufactured PCB"
             />
-            
-            <h3>
-                Circuit changes
-            </h3>
-            <p>
-                These are the changes made to the circuit:
-            </p>
+
+            <h3>Circuit changes</h3>
+            <p>These are the changes made to the circuit:</p>
             <ol>
                 <li>
-                    A voltage divider to the battery was added so that the microcontroller
-                    can read the battery level using its internal voltage reference
-                    and communicate it to the user by blinking the origami's LEDs.
+                    A voltage divider to the battery was added so that the microcontroller can read the battery level
+                    using its internal voltage reference and communicate it to the user by blinking the origami's LEDs.
                 </li>
                 <li>
                     The battery's voltage divider as well as the photoresistor divider are grounded through an I/O pin.
-                    That gives the advantage of disconnecting them from ground when they are not read,
-                    in order to decrease their leakage current during sleep mode.
+                    That gives the advantage of disconnecting them from ground when they are not read, in order to
+                    decrease their leakage current during sleep mode.
                 </li>
                 <li>
-                    The tilt sensor cannot be disconnected since it must remain active during sleep.
-                    It was therefore swapped out for another type of sensor (shock sensor) that is normally open,
-                    decreasing considerable leakage current.
+                    The tilt sensor cannot be disconnected since it must remain active during sleep. It was therefore
+                    swapped out for another type of sensor (shock sensor) that is normally open, decreasing considerable
+                    leakage current.
                 </li>
                 <li>
-                    Instead of 4 3mm LEDs, two 5050 SMD LEDs are used on either side of the board.
-                    In order to support the bigger load, an N-MOSFET was chosen
-                    rather than driving the LEDs directly from the microcontroller's pin.
+                    Instead of 4 3mm LEDs, two 5050 SMD LEDs are used on either side of the board. In order to support
+                    the bigger load, an N-MOSFET was chosen rather than driving the LEDs directly from the
+                    microcontroller's pin.
                 </li>
                 <li>
-                    The charging IC was added to the circuit rather than using an external
-                    lithium battery charging module.
+                    The charging IC was added to the circuit rather than using an external lithium battery charging
+                    module.
                 </li>
             </ol>
 
-            <p>
-                Autodesk's EAGLE was used to make the schematic and the board design.
-            </p>
+            <p>Autodesk's EAGLE was used to make the schematic and the board design.</p>
             <a class="img" href="/projects/normal/origami_light_2/SCHbig.jpg" target="_blank">
-                <img src="/projects/normal/origami_light_2/SCHsmall.jpg" alt="SCHsmall.jpg" title="EAGLE schematic">
+                <img src="/projects/normal/origami_light_2/SCHsmall.jpg" alt="SCHsmall.jpg" title="EAGLE schematic" />
             </a>
             <p>
                 The BOM for this board can be found
-                <a href="https://docs.google.com/spreadsheets/d/13w6dms-wyb8z4RlhpW_OCY-tnjWWUoamlVfsXwsNudI/" target="_blank">here</a>.
+                <a
+                    href="https://docs.google.com/spreadsheets/d/13w6dms-wyb8z4RlhpW_OCY-tnjWWUoamlVfsXwsNudI/"
+                    target="_blank"
+                    >here</a
+                >.
             </p>
 
-            <h3>
-                Code changes
-            </h3>
-            <p>
-                The new features that were added to the code were:
-            </p>
+            <h3>Code changes</h3>
+            <p>The new features that were added to the code were:</p>
             <ol>
+                <li>Reading the battery level with ADC's internal bandgap reference.</li>
+                <li>Outputting the low battery level to the user.</li>
+                <li>Using the RST pin as a digital ground to disconnect unused sensors, decreasing leakage current.</li>
                 <li>
-                    Reading the battery level with ADC's internal bandgap reference.
-                </li>
-                <li>
-                    Outputting the low battery level to the user.
-                </li>
-                <li>
-                    Using the RST pin as a digital ground to disconnect unused sensors, decreasing leakage current.
-                </li>
-                <li>
-                    Interfacing the ATtiny13 with the charging IC to deactivate all processes while charging.
-                    This helps achieve a better, healthier battery charge.
+                    Interfacing the ATtiny13 with the charging IC to deactivate all processes while charging. This helps
+                    achieve a better, healthier battery charge.
                 </li>
             </ol>
             <p>
-                Since the ATTiny13 only has 1K bytes of flash for all these new features,
-                the code was changed substantially in order to reduce its size and fit everything onto the chip.
-                The C++ code is well commented and can be downloaded along with the .hex file
+                Since the ATTiny13 only has 1K bytes of flash for all these new features, the code was changed
+                substantially in order to reduce its size and fit everything onto the chip. The C++ code is well
+                commented and can be downloaded along with the .hex file
                 <a href="/projects/normal/origami_light_2/OrigamiLight2Code.rar" download>here</a>.
             </p>
             <p>
                 The code is also available on github
                 <a href="" target="_blank">here</a>.
             </p>
-            
-            <h3>
-                Licensing
-            </h3>
+
+            <h3>Licensing</h3>
             <p>
-                This project is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a>.
+                This project is licensed under the
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                    >Creative Commons BY-NC-SA 4.0</a
+                >.
             </p>
         </main>
     </body>

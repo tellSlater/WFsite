@@ -1,239 +1,275 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>3D printer to CNC mill</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3D printer to CNC mill</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
-	
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom video player -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
-	
-<body>
-	
-	<thin-header name="Projects" link="/projects.html"></thin-header>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<div class="navigator"></div>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<main>
-		<h2>
-			3D printer to CNC mill
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			Any FDM 3D printer can be converted into a CNC milling machine.
-			This project revolves around a Kossel Linear Plus 3D printer.
-			Nonetheless, there is useful information here that applies to converting any printer.
-			<b>In this project there is information about turning any 3D printer into a CNC milling cutter</b>.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/KosselLinearPlus.jpg" alt="KosselLinearPlus.jpg" title="Kossel Linear Plus 3D printer">
-		<h3>
-			Concept
-		</h3>
-		<p>
-			The main idea behind converting the printer is removing the 3D printing head
-			and then finding a way to attach a rotary tool handpiece in its place.
-			It is also advised to replace the print bed with something like a thick piece of plywood
-			in order to avoid damaging the smooth printing surface during milling jobs.
-			Finally, the preferred CAM software can be used to produce Gcode for any milling job.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/printerPlusHandpiece.jpg" alt="printerPlusHandpiece.jpg" title="3D printer + rotary tool handpiece">
-		<h3>
-			Print bed replacement
-		</h3>
-		<p>
-			Preferably a soft material such as wood should be used as a bed for cutting.
-			A soft material can forgive an unexpected thrust onto it by being easily punctured while a
-			harder material could cause bigger forces onto the chassis of the printer in such a case.
-		</p>
-		<p>
-			The bed of the Kossel printer was not replaced.
-			In stead a thick piece of plywood was cut to fit snugly above the print bed.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/cuttingBed.png" alt="cuttingBed.png" title="Kossel Linear Plus print bed cover">
-		<p>
-			The plywood was wedged very tightly between the print bed's supports
-			and there was no need for any fasteners.
-		</p>
-		<h3>
-			Attaching the handpiece
-		</h3>
-		<p>
-			There are three roots one can take for attaching the handpiece to the printer:
-		</p>
-		<ol>
-			<li>
-				Designing and 3D printing a mount for the handpiece.
-			</li>
-			<li>
-				Searching for a design on <a href="https://www.thingiverse.com/" target="_blank">Thingiverse</a>.
-			</li>
-			<li>
-				Making a DIY mount - 3D printing is not always the solution.
-			</li>
-		</ol>
-		<p>
-			For attaching the handpiece on the Kossel Linear Plus, the 1st root was followed.
-			The print head's base and the handpiece were photographed and inserted to Fusion360.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/printHeadBase.png" alt="printHeadBase.png" title="Print head base photograph">
-		<img src="/projects/hard/printer_to_cnc/handpiece.png" alt="handpiece.png" title="Handpiece photograph">
-		<img src="/projects/hard/printer_to_cnc/designFusion.jpg" alt="designFusion.jpg" title="Designing using the photographs">
-		<p>
-			The final design uses a feature of the handpiece to lock it in place.
-			The bottom part of the handpiece unscrews and detaches from it.
-			The hand piece can then be inserted in the mount from the top.
-			When the detachable piece is screwed on it again from the bottom, the handpiece is wedged tightly in place.
-			It is quite sturdy, easy to install and uses no fasteners.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/mountSection.jpg" alt="mountSection.jpg" title="Handpiece mount section view">
-		<img src="/projects/hard/printer_to_cnc/handpieceAttached.jpg" alt="handpieceAttached.jpg" title="Handpiece attached">
-		<p>
-			The EXT_CIRCLE part is glued to the EXT_MAIN after printing.
-			The STL files for the mount can be downloaded <a href="/projects/hard/printer_to_cnc/handpieceMountSTLs.rar" download>here</a>.
-		</p>
-		<h3>
-			Rotary tool positioning
-		</h3>
-		<p>
-			The rotary tool should ideally be hanged above the printer so that the handpiece wire is loose and at the same time not bent too much.
-			On the Kossel delta printer the rotary tool was hanged up-side down from the printer's chassis for a more compact build.
-			This hanging chassis mount isolates the vibrations of the tool from the chassis of the printer.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/rotaryAttached.jpg" alt="rotaryAttached.jpg" title="Rotary tool mounted">
-		<img src="/projects/hard/printer_to_cnc/finalCNC.png" alt="finalCNC.png" title="Final result">
-		<p>
-			The STL files for the rotary tool mount can be downloaded <a href="/projects/hard/printer_to_cnc/rotaryMountSTLs.rar" download>here</a>.
-		</p>
-		<h3>
-			Auto bed leveling
-		</h3>
-		<p>
-			When using a V-bit to engrave PCBs, the engraving height should be stable throughout the process and very precise.
-			A small diversion in the engraving depth would affect the engraving width.
-			Thankfully, the 3D printer's auto bed leveling feature can be used to precisely sample the copper's position.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/autoLeveling.jpg" alt="autoLeveling.jpg" title="Setup for auto bed leveling">
-		<p>
-			After attaching the V-bit and placing the copper clad board, the two of them are connected to the auto bed leveling switch input with alligator clips.
-			During the auto bed leveling process, the V-bit approaches the board and when they touch, continuity between them triggers the auto bed leveling switch.
-			If for some reason continuity is not achieved on contact, the printer's head will keep proceeding downwards and crush onto the bed!
-			That's why it is important to ensure that the auto bed leveling switch does indeed trigger on contact before starting an auto bed leveling procedure.
-		</p>
-		<div class="video">
-			<video src="/projects/hard/printer_to_cnc/autoLeveling.mp4" loop title="Auto leveling"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<h3>
-			Trigger polarity issue
-		</h3>
-		<p>
-			On most printers the polarity of the auto bed leveling sensor is "triggered while open" by default because it is safer.
-			This polarity will not work in this case since a trigger is needed when there is continuity, when the bit touches the copper.
-		</p>
-		<p>
-			In the marlin firmware there is no command for inverting the polarity of this input.
-			The marlin firmware must be adjusted, compiled and rewritten on the printer's board.
-			In order to avoid this timely process every time the printer is used for milling,
-			a small circuit that inverts the input pin's polarity was designed.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/polarityInverter.jpg" alt="polarityInverter.jpg" title="Input polarity inverter">
-		<p>
-			This circuit is available as a project <a href="/projects/normal/polarity_inverter/project.html" target="_blank">here</a>.
-		</p>
-		<h3>
-			Milling bits
-		</h3>
-		<p>
-			Since the concept revolves around a Dremel-style handpiece, the useable bits will be limited in diameter.
-			This should not be a problem since using bigger bits would cause greater cutting forces and strain the printer and the rotary tool anyway.
-			By default rotary tools accept bits with 3.2mm shaft diameter.
-		</p>
-		<p>
-			Various 3.2mm milling bits can be found from online vendors such as <a href="https://www.ebay.com/" target="_blank">eBay</a>.
-			The listings usually include terms such as "PCB Drill Bits Engraving Cutter CNC".
-		</p>
-		<img src="/projects/hard/printer_to_cnc/millingBits.jpg" alt="millingBits.jpg" title="Milling bits 0.8-3.175mm">
-		<p>
-			There are also some sets of V-bits useful for engraving and PCB manufacture.
-		</p>
-		<img src="/projects/hard/printer_to_cnc/V-bits.jpg" alt="V-bits.jpg" title="V-bits for engraving">
-		<h3>
-			Pitfalls
-		</h3>
-		<p>
-			Things that require attention:
-		</p>
-		<ol>
-			<li>
-				The Gcode CAM software like <a href="http://flatcam.org/" target="_blank">FlatCam</a> produce is intended for actual milling machines and not 3d printers.
-				Consequently, the Gcode includes commands for tool changing or others that are not supported by 3D printer firmware like Marlin.
-				These commands can result in undefined behavior from the printer - it could execute unexpected movements and damage itself.
-				The only solution is manually editing these commands out of the Gcode using a text editor.
-				The final Gcode commands that are fed to the printer should be compatible with the printer's firmware. 
-			</li>
-			<br>
-			<li>
-				Before starting milling it is very important to make sure that the machine is set with the correct z-height after every tool change.
-				When the bit is changed to one that is longer, the print area height setting should be changed accordingly.
-				Executing and inspecting some manual movement commands along each axis helps ensure that the end of the milling bit is positioned correctly by the printer.
-			</li>
-			<br>
-			<li>
-				3D printer chassis are not designed to accept milling forces.
-				The milling job should be rendered in such a way as to limit the cutting forces as much as possible.
-				Cutting speeds should be kept low and little material should be removed with each pass.
-			</li>
-			<br>
-			<li>
-				The handpiece used should have no play on the x,y or z axis.
-				If the CNC's cutting is somewhat inaccurate, check for any loose movement on it's chuck.
-			</li>
-		</ol>
-		<h3>
-			Implementation
-		</h3>
-		<p>
-			The modded printer was used to engrave a PCB for another project, the <a href="/projects/hard/physics_timer/project.html" target="_blank">Physics timer</a>.
-		</p>
-		<img src="/projects/hard/physics_timer/milledBoard2.jpg" alt="milledBoard2.jpg" title="Physics timer PCB">
-		<p>
-			It was also used for the <a href="/projects/hard/piezoelectric_preamp/project.html" target="_blank">Piezoelectric preamp</a>
-			project where a time lapse(x10) video of the process was taken:
-		</p>
-		<div class="video">
-			<video src="/projects/hard/piezoelectric_preamp/BoardCuttingFinal.mp4" loop title="Cutting the board"
-				ontimeupdate="animProg(this.parentNode)"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<img src="/projects/hard/piezoelectric_preamp/piezoelectricPCB.jpg" alt="piezoelectricPCB.jpg" title="Cut board">
-	</main>
-</body>
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom video player -->
+
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+    </head>
+
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
+
+        <div class="navigator"></div>
+
+        <main>
+            <h2>3D printer to CNC mill</h2>
+            <h3>Summary</h3>
+            <p>
+                Any FDM 3D printer can be converted into a CNC milling machine. This project revolves around a Kossel
+                Linear Plus 3D printer. Nonetheless, there is useful information here that applies to converting any
+                printer.
+                <b>In this project there is information about turning any 3D printer into a CNC milling cutter</b>.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/KosselLinearPlus.jpg"
+                alt="KosselLinearPlus.jpg"
+                title="Kossel Linear Plus 3D printer"
+            />
+            <h3>Concept</h3>
+            <p>
+                The main idea behind converting the printer is removing the 3D printing head and then finding a way to
+                attach a rotary tool handpiece in its place. It is also advised to replace the print bed with something
+                like a thick piece of plywood in order to avoid damaging the smooth printing surface during milling
+                jobs. Finally, the preferred CAM software can be used to produce Gcode for any milling job.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/printerPlusHandpiece.jpg"
+                alt="printerPlusHandpiece.jpg"
+                title="3D printer + rotary tool handpiece"
+            />
+            <h3>Print bed replacement</h3>
+            <p>
+                Preferably a soft material such as wood should be used as a bed for cutting. A soft material can forgive
+                an unexpected thrust onto it by being easily punctured while a harder material could cause bigger forces
+                onto the chassis of the printer in such a case.
+            </p>
+            <p>
+                The bed of the Kossel printer was not replaced. In stead a thick piece of plywood was cut to fit snugly
+                above the print bed.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/cuttingBed.png"
+                alt="cuttingBed.png"
+                title="Kossel Linear Plus print bed cover"
+            />
+            <p>
+                The plywood was wedged very tightly between the print bed's supports and there was no need for any
+                fasteners.
+            </p>
+            <h3>Attaching the handpiece</h3>
+            <p>There are three roots one can take for attaching the handpiece to the printer:</p>
+            <ol>
+                <li>Designing and 3D printing a mount for the handpiece.</li>
+                <li>
+                    Searching for a design on <a href="https://www.thingiverse.com/" target="_blank">Thingiverse</a>.
+                </li>
+                <li>Making a DIY mount - 3D printing is not always the solution.</li>
+            </ol>
+            <p>
+                For attaching the handpiece on the Kossel Linear Plus, the 1st root was followed. The print head's base
+                and the handpiece were photographed and inserted to Fusion360.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/printHeadBase.png"
+                alt="printHeadBase.png"
+                title="Print head base photograph"
+            />
+            <img src="/projects/hard/printer_to_cnc/handpiece.png" alt="handpiece.png" title="Handpiece photograph" />
+            <img
+                src="/projects/hard/printer_to_cnc/designFusion.jpg"
+                alt="designFusion.jpg"
+                title="Designing using the photographs"
+            />
+            <p>
+                The final design uses a feature of the handpiece to lock it in place. The bottom part of the handpiece
+                unscrews and detaches from it. The hand piece can then be inserted in the mount from the top. When the
+                detachable piece is screwed on it again from the bottom, the handpiece is wedged tightly in place. It is
+                quite sturdy, easy to install and uses no fasteners.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/mountSection.jpg"
+                alt="mountSection.jpg"
+                title="Handpiece mount section view"
+            />
+            <img
+                src="/projects/hard/printer_to_cnc/handpieceAttached.jpg"
+                alt="handpieceAttached.jpg"
+                title="Handpiece attached"
+            />
+            <p>
+                The EXT_CIRCLE part is glued to the EXT_MAIN after printing. The STL files for the mount can be
+                downloaded <a href="/projects/hard/printer_to_cnc/handpieceMountSTLs.rar" download>here</a>.
+            </p>
+            <h3>Rotary tool positioning</h3>
+            <p>
+                The rotary tool should ideally be hanged above the printer so that the handpiece wire is loose and at
+                the same time not bent too much. On the Kossel delta printer the rotary tool was hanged up-side down
+                from the printer's chassis for a more compact build. This hanging chassis mount isolates the vibrations
+                of the tool from the chassis of the printer.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/rotaryAttached.jpg"
+                alt="rotaryAttached.jpg"
+                title="Rotary tool mounted"
+            />
+            <img src="/projects/hard/printer_to_cnc/finalCNC.png" alt="finalCNC.png" title="Final result" />
+            <p>
+                The STL files for the rotary tool mount can be downloaded
+                <a href="/projects/hard/printer_to_cnc/rotaryMountSTLs.rar" download>here</a>.
+            </p>
+            <h3>Auto bed leveling</h3>
+            <p>
+                When using a V-bit to engrave PCBs, the engraving height should be stable throughout the process and
+                very precise. A small diversion in the engraving depth would affect the engraving width. Thankfully, the
+                3D printer's auto bed leveling feature can be used to precisely sample the copper's position.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/autoLeveling.jpg"
+                alt="autoLeveling.jpg"
+                title="Setup for auto bed leveling"
+            />
+            <p>
+                After attaching the V-bit and placing the copper clad board, the two of them are connected to the auto
+                bed leveling switch input with alligator clips. During the auto bed leveling process, the V-bit
+                approaches the board and when they touch, continuity between them triggers the auto bed leveling switch.
+                If for some reason continuity is not achieved on contact, the printer's head will keep proceeding
+                downwards and crush onto the bed! That's why it is important to ensure that the auto bed leveling switch
+                does indeed trigger on contact before starting an auto bed leveling procedure.
+            </p>
+            <div class="video">
+                <video src="/projects/hard/printer_to_cnc/autoLeveling.mp4" loop title="Auto leveling"></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <h3>Trigger polarity issue</h3>
+            <p>
+                On most printers the polarity of the auto bed leveling sensor is "triggered while open" by default
+                because it is safer. This polarity will not work in this case since a trigger is needed when there is
+                continuity, when the bit touches the copper.
+            </p>
+            <p>
+                In the marlin firmware there is no command for inverting the polarity of this input. The marlin firmware
+                must be adjusted, compiled and rewritten on the printer's board. In order to avoid this timely process
+                every time the printer is used for milling, a small circuit that inverts the input pin's polarity was
+                designed.
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/polarityInverter.jpg"
+                alt="polarityInverter.jpg"
+                title="Input polarity inverter"
+            />
+            <p>
+                This circuit is available as a project
+                <a href="/projects/normal/polarity_inverter/project" target="_blank">here</a>.
+            </p>
+            <h3>Milling bits</h3>
+            <p>
+                Since the concept revolves around a Dremel-style handpiece, the useable bits will be limited in
+                diameter. This should not be a problem since using bigger bits would cause greater cutting forces and
+                strain the printer and the rotary tool anyway. By default rotary tools accept bits with 3.2mm shaft
+                diameter.
+            </p>
+            <p>
+                Various 3.2mm milling bits can be found from online vendors such as
+                <a href="https://www.ebay.com/" target="_blank">eBay</a>. The listings usually include terms such as
+                "PCB Drill Bits Engraving Cutter CNC".
+            </p>
+            <img
+                src="/projects/hard/printer_to_cnc/millingBits.jpg"
+                alt="millingBits.jpg"
+                title="Milling bits 0.8-3.175mm"
+            />
+            <p>There are also some sets of V-bits useful for engraving and PCB manufacture.</p>
+            <img src="/projects/hard/printer_to_cnc/V-bits.jpg" alt="V-bits.jpg" title="V-bits for engraving" />
+            <h3>Pitfalls</h3>
+            <p>Things that require attention:</p>
+            <ol>
+                <li>
+                    The Gcode CAM software like <a href="http://flatcam.org/" target="_blank">FlatCam</a> produce is
+                    intended for actual milling machines and not 3d printers. Consequently, the Gcode includes commands
+                    for tool changing or others that are not supported by 3D printer firmware like Marlin. These
+                    commands can result in undefined behavior from the printer - it could execute unexpected movements
+                    and damage itself. The only solution is manually editing these commands out of the Gcode using a
+                    text editor. The final Gcode commands that are fed to the printer should be compatible with the
+                    printer's firmware.
+                </li>
+                <br />
+                <li>
+                    Before starting milling it is very important to make sure that the machine is set with the correct
+                    z-height after every tool change. When the bit is changed to one that is longer, the print area
+                    height setting should be changed accordingly. Executing and inspecting some manual movement commands
+                    along each axis helps ensure that the end of the milling bit is positioned correctly by the printer.
+                </li>
+                <br />
+                <li>
+                    3D printer chassis are not designed to accept milling forces. The milling job should be rendered in
+                    such a way as to limit the cutting forces as much as possible. Cutting speeds should be kept low and
+                    little material should be removed with each pass.
+                </li>
+                <br />
+                <li>
+                    The handpiece used should have no play on the x,y or z axis. If the CNC's cutting is somewhat
+                    inaccurate, check for any loose movement on it's chuck.
+                </li>
+            </ol>
+            <h3>Implementation</h3>
+            <p>
+                The modded printer was used to engrave a PCB for another project, the
+                <a href="/projects/hard/physics_timer/project" target="_blank">Physics timer</a>.
+            </p>
+            <img src="/projects/hard/physics_timer/milledBoard2.jpg" alt="milledBoard2.jpg" title="Physics timer PCB" />
+            <p>
+                It was also used for the
+                <a href="/projects/hard/piezoelectric_preamp/project" target="_blank">Piezoelectric preamp</a>
+                project where a time lapse(x10) video of the process was taken:
+            </p>
+            <div class="video">
+                <video
+                    src="/projects/hard/piezoelectric_preamp/BoardCuttingFinal.mp4"
+                    loop
+                    title="Cutting the board"
+                    ontimeupdate="animProg(this.parentNode)"
+                ></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <img
+                src="/projects/hard/piezoelectric_preamp/piezoelectricPCB.jpg"
+                alt="piezoelectricPCB.jpg"
+                title="Cut board"
+            />
+        </main>
+    </body>
 </html>
