@@ -1,1 +1,150 @@
-WIP
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="Music, electronics, engineering, programming and control projects"
+        />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta
+            name="keywords"
+            content="music, electronics, engineering, programming, control, projects, arduino, avr"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Windfish Shores</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P"
+            rel="stylesheet"
+        />
+
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="CSS/thinHeader.css" />
+        <script
+            type="module"
+            src="JavaScript/templates/thin-header.js"
+        ></script>
+
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link
+            rel="apple-touch-icon"
+            sizes="128x128"
+            href="homescreenIcon.png"
+        />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- JQuery -->
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/homepageAudio.js"></script>
+        <!-- External Functions: Homepage audio -->
+
+        <style>
+            html,
+            body {
+                height: 100%;
+
+                overflow-x: hidden;
+            }
+
+            header {
+                height: 280px;
+            }
+
+            header div.desktop .stripe {
+                position: absolute;
+                top: 160px;
+                height: 120px;
+                width: 100%;
+                margin: auto;
+                background-image: repeating-linear-gradient(
+                    rgba(228, 237, 255, 0.6),
+                    rgb(228, 237, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 6px,
+                    rgba(143, 178, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 12px,
+                    rgba(100, 149, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 18px,
+                    rgba(78, 134, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 24px,
+                    rgba(27, 99, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 36px,
+                    rgba(0, 81, 255, 0.6) 48px
+                );
+            }
+
+            /* Scrolbar style */
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: rgba(92, 92, 92, 0.3);
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(0, 0, 0);
+                width: 6px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgb(0, 0, 0);
+            }
+
+            @media (max-width: 767px) {
+                body {
+                    -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+                    zoom: 0.6; /* Other non-webkit browsers */
+                    zoom: 60%; /* Webkit browsers */
+                }
+
+                div.mainlinkHolderDesktop {
+                    top: calc(33% - 120px);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <audio id="myAudio" onended="showPlay()">
+            <source src="Wavewatching.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+
+        <header id="sky">
+            <div class="desktop">
+                <a href="index.html"> </a>
+                <div class="stripe"></div>
+            </div>
+            <div class="mobile">
+                <a href="index.html"> </a>
+                <div class="stripe"></div>
+            </div>
+        </header>
+
+        <main></main>
+
+        <script>
+            document.getElementById("myAudio").volume = 0; //Set audio initial volume to 0
+        </script>
+    </body>
+</html>
+
+<!-- This line of code is for my friend Aggelos Chatziathanasiou who is hospitalized right now and asked me to code something for him -->
+
+<!-- http://127.0.0.1:5500/index.html - this is for the live server-->

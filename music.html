@@ -1,605 +1,603 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Music</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet">
-
-	<!-- My main external CSS -->
-	<link rel="stylesheet" href="CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="CSS/thinHeader.css" />
-	<script type="module" src="JavaScript/templates/thin-header.js"></script>
-	<script type="module" src="JavaScript/templates/music-listElement.js"></script>
-	
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQuery -->
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/musicAudio.js"></script>	<!-- External Functions: Audio related -->
-
-	<style>
-		main
-		{
-			margin-top: 36px;
-			margin-bottom: 36px;
-			margin-left: auto;
-			margin-right: auto;
-			padding: 0;
-			width: 494px;
-			height: calc(100% - 170px - 220px - 72px);
-			min-height: 336px;
-			text-align: center;
-			overflow-x: hidden;
-			overflow-y: hidden;
-
-			border-top: 6px solid #000;
-			border-bottom: 6px solid #000;
-		}
-
-		
-		h3
-		{
-			margin-top: 40px;
-			padding-top: 0px;
-		}
-
-		main:hover
-		{
-			overflow-y: scroll;
-		}
-
-		.radio
-		{
-			margin: 0;
-			height: 220px
-		}
-
-		.filler
-		{
-			position: relative;
-			margin-top: 6px;
-			margin-bottom: 6px;
-			height: 100px;
-			width: 100%;
-			display: flex;
-			justify-content: left;
-			text-align: left;
-		}
-
-		.filler h3
-		{
-			width: 308px;
-			margin-top: 8px;
-			/* margin-top: 45px; */
-		}
-
-		.filler:hover
-		{
-			/* border-left: 12px solid #e75858; */
-			/* border-left: 12px solid #445ff6; */
-			background: rgba(53, 55, 117, 0.3);
-		}
-
-		.filler:hover .playpause
-		{
-			display: inline-block;
-		}
-
-		.tnail
-		{
-			height: 100px;
-			width: 100px;
-			margin-left: 0;
-			margin-right: 18px;
-			margin-top: 0;
-			margin-bottom: 0;
-
-			border: none;
-		}
-
-		.radio img
-		{
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: translate(-50%, -50%) scale(6);
-			display: inline-block;
-			position: absolute;
-			left: 50%;
-			top: 86px;
-		}
-
-		.radio .cassette
-		{
-			z-index: 20;
-			height: 3px;
-			width: 11px;
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: translate(-50%, -50%) scale(6);
-			background: url(/images/RadioCassette.png) 0px 0;
-			background-repeat: none;
-			position: absolute;
-			top: 122px;
-			left: calc(50% - 21px);
-		}
-
-		.playpause
-		{
-			display: none;
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			transform: scale(4);
-			position: absolute;
-			top: 44px;
-			left: 44px;
-			width: 16px;
-			height: 16px;
-			margin: 0;
-			z-index: 10;
-			background: url(images/PlayPause.png) 0px 0;
-			background-repeat: no-repeat;
-			cursor: pointer;
-			
-			border: none;
-		}
-
-		.buttonlinks
-		{
-			position: absolute;
-			right: 0px;
-		}
-
-		.qmark
-		{
-			image-rendering: pixelated;
-			image-rendering: crisp-edges;
-			width: 40px;
-			height: 40px;
-			margin: 6px;
-
-			display: none;
-			
-			border: none;
-			background: none;
-		}
-
-		.aqmark
-		{
-			width: 40px;
-			height: 40px;
-			margin-top: 30px;
-			
-			background: none;
-		}
-
-
-		.filler:hover .qmark
-		{
-			display: block;
-		}
-
-		#volslider
-		{
-			width: 100px;
-			height: 6px;
-			position: absolute;
-			display: inline;
-			z-index: 100;
-			-webkit-transform:rotate(-90deg);
-			transform:rotate(-90deg);
-			left: calc(50% + 103px);
-			top: 112px;
-		}
-
-		.B1
-		{
-			position: absolute;
-			left: calc(50% - 108px);
-			top: 29px;
-
-			background: #445ff6;
-			width: 30px;
-			height: 18px;
-			border: 6px solid black;
-			border-radius: 0;
-			cursor: pointer;
-		}
-
-		.B2
-		{
-			position: absolute;
-			left: calc(50% - 60px);
-			top: 29px;
-
-			background: #e75858;
-			width: 30px;
-			height: 18px;
-			border: 6px solid black;
-			border-radius: 0;
-		}
-
-		.B3
-		{
-			position: absolute;
-			left: calc(50% - 12px);
-			top: 29px;
-
-			background-image: repeating-linear-gradient(90deg, #445ff6, #445ff6 6px, #4c4c4c 6px,#4c4c4c 18px);
-
-			width: 30px;
-			height: 18px;
-			border: 6px solid black;
-			border-radius: 0;
-			
-			cursor: pointer;
-		}
-		
-		.B4
-		{
-			position: absolute;
-			left: calc(50% + 36px);
-			top: 29px;
-
-			background-image: repeating-linear-gradient(90deg, #4c4c4c, #4c4c4c 12px,#445ff6  12px,#445ff6 18px);
-			width: 30px;
-			height: 18px;
-			border: 6px solid black;
-			border-radius: 0;
-			
-			cursor: pointer;
-		}
-
-		.RADIOprogbar
-		{
-			position: absolute;
-			left: calc(50% - 78px);
-			top: 59px;
-
-			width: 114px;
-			height: 6px;
-			background: #7a7a7a;
-
-			/* cursor: pointer; */
-		}
-
-		.RADIOprogress
-		{
-			position: absolute;
-			height: 6px;
-			width: 0;
-			border-radius: 0;
-			background: #445ff6;
-			border: none;
-
-			/* cursor: default; */
-		}
-
-		.RADIOhitbox
-		{
-			z-index: 50;
-			position: absolute;
-			height: 6px;
-			width: 100%;
-			border-radius: 0;
-			background: #ffffff00;
-			border: none;
-
-			cursor: pointer;
-		}
-
-		.voltip
-		{
-			position: absolute;
-			left: calc(50%  + 140px);
-			top: -48px;
-			display: none;
-
-			-webkit-user-select: none; /* Safari */        
-			-moz-user-select: none; /* Firefox */
-			-ms-user-select: none; /* IE10+/Edge */
-			user-select: none; /* Standard */
-		}
-
-		.voltip .line
-		{
-			position: absolute;
-			top: 66px;
-			left: 36px;
-			height: 80px;
-			width: 40px;
-			border-right: 6px solid black;
-			border-bottom: 6px solid black;
-		}
-
-		input[type=range]::-webkit-slider-runnable-track
-		{
-			width: 100%;
-			cursor: pointer;
-			background: #7a7a7a;
-		}
-
-		input[type="range"]
-		{
-			-webkit-appearance: none;
-			width: 100%;
-			height: 8px;
-			outline: none !important;
-			appearance:none;
-			border:none;
-			border-radius:30px;
-		}
-		input[type="range"]::-moz-focus-outer
-		{
-			border: 0;
-		}
-		input[type="range"]:hover
-		{
-			outline:none;
-		}
-
-		/* Chrome */
-
-		input[type="range"]::-webkit-slider-thumb
-		{
-			-webkit-appearance: none;
-			appearance: none;
-			width: 12px;
-			height: 6px;
-			background: #000000;
-			cursor: pointer;
-			outline:none;
-		}
-
-		/* Moz */
-
-		input[type="range"]::-moz-range-thumb
-		{
-			width: 12px;
-			height: 6px;
-			background: #000000;
-			cursor: pointer;
-			border:none;
-			outline:none;
-		}
-		input[type="range"]::-moz-range-progress
-		{
-			background-color: #7a7a7a;
-			height: 100%;
-			border:none;
-		}
-		input[type="range"]::-moz-range-track
-		{  
-			background-color: #7a7a7a;
-			border:none;
-			height: 100%;
-		}
-
-		/* IE*/
-
-		input[type="range"]::-ms-fill-lower
-		{
-			background-color: #7a7a7a;
-			height: 100%;
-			border-radius:30px;
-			border:none;
-		}
-		input[type="range"]::-ms-fill-upper
-		{  
-			background-color: #7a7a7a;
-			border-radius:30px;
-			border:none;
-			height: 100%;
-		}
-
-		
-		@media screen and (hover: none) and (pointer: coarse) {
-			body {
-				-moz-transform: scale(0.6, 0.6); /* Moz-browsers */
-				zoom: 0.6; /* Other non-webkit browsers */
-				zoom: 60%; /* Webkit browsers */
-			}
-
-			.filler .name
-			{
-				-webkit-user-select: none; /* Safari */        
-				-moz-user-select: none; /* Firefox */
-				-ms-user-select: none; /* IE10+/Edge */
-				user-select: none; /* Standard */
-			}
-		}
-	</style>
-</head>
-	
-<body>
-	
-	<thin-header name="Music" link="/music.html"></thin-header>
-		
-	<main>
-
-		<music-li
-			ident="audio0"
-			title="Sunny Sunday"
-			thumb="/music/SunnySunday/ThumbSunnySunday.jpg"
-			about="/music/SunnySunday/aboutsong.html"
-			audio="/music/SunnySunday/Sunny Sunday.mp3">
-		</music-li>
-
-		<music-li
-			title="Wavewatching"
-			thumb="/music/Wavewatching/ThumbWavewatching.jpg"
-			about="/music/Wavewatching/aboutsong.html"
-			audio="/music/Wavewatching/Wavewatching.mp3">
-		</music-li>
-
-		<music-li
-			title="Pios ine aftos (cover)"
-			thumb="/music/piosIneAftos/ThumbpiosIneAftos.jpg"
-			about="/music/piosIneAftos/aboutsong.html"
-			audio="/music/piosIneAftos/piosIneAftos.mp3">
-		</music-li>
-
-		<music-li
-			title="Harmonics"
-			thumb="/music/Harmonics/ThumbHarmonics.jpg"
-			about="/music/Harmonics/aboutsong.html"
-			audio="/music/Harmonics/Harmonics.mp3">
-		</music-li>
-
-		<music-li
-			title="All ok now"
-			thumb="/music/All-ok-now/ThumbAllOkNow.jpg"
-			about="/music/All-ok-now/aboutsong.html"
-			audio="/music/All-ok-now/AllOkNow.mp3">
-		</music-li>
-
-		<music-li
-			title="Turkish march (cover)"
-			thumb="/music/Turkish-march/ThumbTurkish-march.jpg"
-			about="/music/Turkish-march/aboutsong.html"
-			audio="/music/Turkish-march/Turkish-march.mp3">
-		</music-li>
-
-		<music-li
-			title="Osi ehune pola lefta (cover)"
-			thumb="/music/Vamvakaris-Money/ThumbVamvakaris-Money.jpg"
-			about="/music/Vamvakaris-Money/aboutsong.html"
-			audio="/music/Vamvakaris-Money/Vamvakaris-Money.mp3">
-		</music-li>
-
-		<music-li
-			title="ZELDA Overworld guitar trio cover"
-			thumb="/music/Overworld-Zelda/ThumbOverworld-Zelda.jpg"
-			about="/music/Overworld-Zelda/aboutsong.html"
-			audio="/music/Overworld-Zelda/Overworld-Zelda.wav">
-		</music-li>
-
-		<music-li
-			title="A jam session"
-			thumb="/music/A-Jam-Session/ThumbA-Jam-Session.jpg"
-			about="/music/A-Jam-Session/aboutsong.html"
-			audio="/music/A-Jam-Session/A-Jam-Session.mp3">
-		</music-li>
-
-		<music-li
-			title="Ghost house theme (cover)"
-			thumb="/music/Ghost-house/ThumbGhost-house.jpg"
-			about="/music/Ghost-house/aboutsong.html"
-			audio="/music/Ghost-house/Ghost-house.mp3">
-		</music-li>
-
-		<music-li
-			title="Wind Waker (cover)"
-			thumb="/music/WindWaker-lyra-cover/ThumbWindWaker-lyra-cover.jpg"
-			about="/music/WindWaker-lyra-cover/aboutsong.html"
-			audio="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3">
-		</music-li>
-
-		<music-li
-			title="Playtime"
-			thumb="/music/Playtime/ThumbPlaytime.jpg"
-			about="/music/Playtime/aboutsong.html"
-			audio="/music/Playtime/Playtime.mp3">
-		</music-li>
-
-		<music-li
-			title="Absence"
-			thumb="/music/Absence/ThumbAbsence.jpg"
-			about="/music/Absence/aboutsong.html"
-			audio="/music/Absence/Absence.mp3">
-		</music-li>
-
-		<music-li
-			title="Thought"
-			thumb="/music/Thought/ThumbThought.jpg"
-			about="/music/Thought/aboutsong.html"
-			audio="/music/Thought/Thought.mp3">
-		</music-li>
-
-		<music-li
-			title="Ghosts"
-			thumb="/music/Ghosts/ThumbGhosts.jpg"
-			about="/music/Ghosts/aboutsong.html"
-			audio="/music/Ghosts/Ghosts.mp3">
-		</music-li>
-
-		<music-li
-			title="FMA Nocturne of Amestris (cover)"
-			thumb="/music/FMA-nocturne/ThumbFMA-nocturne.jpg"
-			about="/music/FMA-nocturne/aboutsong.html"
-			audio="/music/FMA-nocturne/FMA-nocturne.mp3">
-		</music-li>
-
-		<music-li
-			title="Temple of Light (cover)"
-			thumb="/music/Fable-TempleOfLight/ThumbFable-TempleOfLight.jpg"
-			about="/music/Fable-TempleOfLight/aboutsong.html"
-			audio="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3">
-		</music-li>
-
-		<music-li
-			title="Nobody home (cover)"
-			thumb="/music/NobodyHome/ThumbNobodyHome2.jpg"
-			about="/music/NobodyHome/aboutsong.html"
-			audio="/music/NobodyHome/NobodyHome.mp3">
-		</music-li>
-
-		<music-li
-			title="I'll be over you (cover)"
-			thumb="/music/beOverYou/ThumbbeOverYou2.jpg"
-			about="/music/beOverYou/aboutsong.html"
-			audio="/music/beOverYou/beOverYou.mp3">
-		</music-li>
-
-		<music-li
-			title="15 fathoms, counting (cover)"
-			thumb="/music/15fathoms/Thumb15fathoms.jpg"
-			about="/music/15fathoms/aboutsong.html"
-			audio="/music/15fathoms/15fathoms.mp3">
-		</music-li>
-
-		<music-li
-			title="Pray (cover)"
-			thumb="/music/PrayCover/ThumbPrayCover.jpg"
-			about="/music/PrayCover/aboutsong.html"
-			audio="/music/PrayCover/PrayCover.mp3">
-		</music-li>
-
-		<music-li
-			title="Seasons of Life"
-			thumb="/music/SeasonsOfLife/ThumbSeasonsOfLife.jpg"
-			about="/music/SeasonsOfLife/aboutsong.html"
-			audio="/music/SeasonsOfLife/SeasonsOfLife.mp3">
-		</music-li>
-		
-	</main>
-
-	<div class="radio">
-		<img src="/images/Radio.png" alt="A radio on the beach">
-		<div class="cassette" id="cass"></div>
-		<div><input type="range" id="volslider" min="0" max="100" value="100" oninput="updateVolume(this.value)" onkeydown="event.preventDefault()"/></div>
-		<div class="B1" onmousedown="doAudio(currentAudio)"></div>
-		<div class="B2"></div>
-		<div class="B3" onmousedown="pressLeftArrow()" ontouchstart="pressLeftArrow()"></div>
-		<div class="B4" onmousedown="pressRightArrow()" ontouchstart="pressRightArrow()"></div>
-		<div class="RADIOprogbar">
-			<div class="RADIOprogress"></div>
-			<!-- <div class="RADIOhitbox" onclick="doAudioReloc(event)"></div> -->
-		</div>
-		<div class="voltip"><div class="line"></div><h3>Volume</h3></div>
-	</div>
-	
-	<script>
-	</script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Music</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet" />
+
+        <!-- My main external CSS -->
+        <link rel="stylesheet" href="CSS/article.css" />
+
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="CSS/thinHeader.css" />
+        <script type="module" src="JavaScript/templates/thin-header.js"></script>
+        <script type="module" src="JavaScript/templates/music-listElement.js"></script>
+
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- JQuery -->
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/musicAudio.js"></script>
+        <!-- External Functions: Audio related -->
+
+        <style>
+            main {
+                margin-top: 36px;
+                margin-bottom: 36px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0;
+                width: 494px;
+                height: calc(100% - 170px - 220px - 72px);
+                min-height: 336px;
+                text-align: center;
+                overflow-x: hidden;
+                overflow-y: hidden;
+
+                border-top: 6px solid #000;
+                border-bottom: 6px solid #000;
+            }
+
+            h3 {
+                margin-top: 40px;
+                padding-top: 0px;
+            }
+
+            main:hover {
+                overflow-y: scroll;
+            }
+
+            .radio {
+                margin: 0;
+                height: 220px;
+            }
+
+            .filler {
+                position: relative;
+                margin-top: 6px;
+                margin-bottom: 6px;
+                height: 100px;
+                width: 100%;
+                display: flex;
+                justify-content: left;
+                text-align: left;
+            }
+
+            .filler h3 {
+                width: 308px;
+                margin-top: 8px;
+                /* margin-top: 45px; */
+            }
+
+            .filler:hover {
+                /* border-left: 12px solid #e75858; */
+                /* border-left: 12px solid #445ff6; */
+                background: rgba(53, 55, 117, 0.3);
+            }
+
+            .filler:hover .playpause {
+                display: inline-block;
+            }
+
+            .tnail {
+                height: 100px;
+                width: 100px;
+                margin-left: 0;
+                margin-right: 18px;
+                margin-top: 0;
+                margin-bottom: 0;
+
+                border: none;
+            }
+
+            .radio img {
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: translate(-50%, -50%) scale(6);
+                display: inline-block;
+                position: absolute;
+                left: 50%;
+                top: 86px;
+            }
+
+            .radio .cassette {
+                z-index: 20;
+                height: 3px;
+                width: 11px;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: translate(-50%, -50%) scale(6);
+                background: url(/images/RadioCassette.png) 0px 0;
+                background-repeat: none;
+                position: absolute;
+                top: 122px;
+                left: calc(50% - 21px);
+            }
+
+            .playpause {
+                display: none;
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                transform: scale(4);
+                position: absolute;
+                top: 44px;
+                left: 44px;
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                z-index: 10;
+                background: url(images/PlayPause.png) 0px 0;
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                border: none;
+            }
+
+            .buttonlinks {
+                position: absolute;
+                right: 0px;
+            }
+
+            .qmark {
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                width: 40px;
+                height: 40px;
+                margin: 6px;
+
+                display: none;
+
+                border: none;
+                background: none;
+            }
+
+            .aqmark {
+                width: 40px;
+                height: 40px;
+                margin-top: 30px;
+
+                background: none;
+            }
+
+            .filler:hover .qmark {
+                display: block;
+            }
+
+            #volslider {
+                width: 100px;
+                height: 6px;
+                position: absolute;
+                display: inline;
+                z-index: 100;
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                left: calc(50% + 103px);
+                top: 112px;
+            }
+
+            .B1 {
+                position: absolute;
+                left: calc(50% - 108px);
+                top: 29px;
+
+                background: #445ff6;
+                width: 30px;
+                height: 18px;
+                border: 6px solid black;
+                border-radius: 0;
+                cursor: pointer;
+            }
+
+            .B2 {
+                position: absolute;
+                left: calc(50% - 60px);
+                top: 29px;
+
+                background: #e75858;
+                width: 30px;
+                height: 18px;
+                border: 6px solid black;
+                border-radius: 0;
+            }
+
+            .B3 {
+                position: absolute;
+                left: calc(50% - 12px);
+                top: 29px;
+
+                background-image: repeating-linear-gradient(90deg, #445ff6, #445ff6 6px, #4c4c4c 6px, #4c4c4c 18px);
+
+                width: 30px;
+                height: 18px;
+                border: 6px solid black;
+                border-radius: 0;
+
+                cursor: pointer;
+            }
+
+            .B4 {
+                position: absolute;
+                left: calc(50% + 36px);
+                top: 29px;
+
+                background-image: repeating-linear-gradient(90deg, #4c4c4c, #4c4c4c 12px, #445ff6 12px, #445ff6 18px);
+                width: 30px;
+                height: 18px;
+                border: 6px solid black;
+                border-radius: 0;
+
+                cursor: pointer;
+            }
+
+            .RADIOprogbar {
+                position: absolute;
+                left: calc(50% - 78px);
+                top: 59px;
+
+                width: 114px;
+                height: 6px;
+                background: #7a7a7a;
+
+                /* cursor: pointer; */
+            }
+
+            .RADIOprogress {
+                position: absolute;
+                height: 6px;
+                width: 0;
+                border-radius: 0;
+                background: #445ff6;
+                border: none;
+
+                /* cursor: default; */
+            }
+
+            .RADIOhitbox {
+                z-index: 50;
+                position: absolute;
+                height: 6px;
+                width: 100%;
+                border-radius: 0;
+                background: #ffffff00;
+                border: none;
+
+                cursor: pointer;
+            }
+
+            .voltip {
+                position: absolute;
+                left: calc(50% + 140px);
+                top: -48px;
+                display: none;
+
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
+
+            .voltip .line {
+                position: absolute;
+                top: 66px;
+                left: 36px;
+                height: 80px;
+                width: 40px;
+                border-right: 6px solid black;
+                border-bottom: 6px solid black;
+            }
+
+            input[type="range"]::-webkit-slider-runnable-track {
+                width: 100%;
+                cursor: pointer;
+                background: #7a7a7a;
+            }
+
+            input[type="range"] {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 8px;
+                outline: none !important;
+                appearance: none;
+                border: none;
+                border-radius: 30px;
+            }
+            input[type="range"]::-moz-focus-outer {
+                border: 0;
+            }
+            input[type="range"]:hover {
+                outline: none;
+            }
+
+            /* Chrome */
+
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 12px;
+                height: 6px;
+                background: #000000;
+                cursor: pointer;
+                outline: none;
+            }
+
+            /* Moz */
+
+            input[type="range"]::-moz-range-thumb {
+                width: 12px;
+                height: 6px;
+                background: #000000;
+                cursor: pointer;
+                border: none;
+                outline: none;
+            }
+            input[type="range"]::-moz-range-progress {
+                background-color: #7a7a7a;
+                height: 100%;
+                border: none;
+            }
+            input[type="range"]::-moz-range-track {
+                background-color: #7a7a7a;
+                border: none;
+                height: 100%;
+            }
+
+            /* IE*/
+
+            input[type="range"]::-ms-fill-lower {
+                background-color: #7a7a7a;
+                height: 100%;
+                border-radius: 30px;
+                border: none;
+            }
+            input[type="range"]::-ms-fill-upper {
+                background-color: #7a7a7a;
+                border-radius: 30px;
+                border: none;
+                height: 100%;
+            }
+
+            @media screen and (hover: none) and (pointer: coarse) {
+                body {
+                    -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+                    zoom: 0.6; /* Other non-webkit browsers */
+                    zoom: 60%; /* Webkit browsers */
+                }
+
+                .filler .name {
+                    -webkit-user-select: none; /* Safari */
+                    -moz-user-select: none; /* Firefox */
+                    -ms-user-select: none; /* IE10+/Edge */
+                    user-select: none; /* Standard */
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <thin-header name="Music" link="music.html"></thin-header>
+
+        <main>
+            <music-li
+                ident="audio0"
+                title="Sunny Sunday"
+                thumb="/music/SunnySunday/ThumbSunnySunday.jpg"
+                about="/music/SunnySunday/aboutsong.html"
+                audio="/music/SunnySunday/Sunny Sunday.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Wavewatching"
+                thumb="/music/Wavewatching/ThumbWavewatching.jpg"
+                about="/music/Wavewatching/aboutsong.html"
+                audio="/music/Wavewatching/Wavewatching.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Pios ine aftos (cover)"
+                thumb="/music/piosIneAftos/ThumbpiosIneAftos.jpg"
+                about="/music/piosIneAftos/aboutsong.html"
+                audio="/music/piosIneAftos/piosIneAftos.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Harmonics"
+                thumb="/music/Harmonics/ThumbHarmonics.jpg"
+                about="/music/Harmonics/aboutsong.html"
+                audio="/music/Harmonics/Harmonics.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="All ok now"
+                thumb="/music/All-ok-now/ThumbAllOkNow.jpg"
+                about="/music/All-ok-now/aboutsong.html"
+                audio="/music/All-ok-now/AllOkNow.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Turkish march (cover)"
+                thumb="/music/Turkish-march/ThumbTurkish-march.jpg"
+                about="/music/Turkish-march/aboutsong.html"
+                audio="/music/Turkish-march/Turkish-march.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Osi ehune pola lefta (cover)"
+                thumb="/music/Vamvakaris-Money/ThumbVamvakaris-Money.jpg"
+                about="/music/Vamvakaris-Money/aboutsong.html"
+                audio="/music/Vamvakaris-Money/Vamvakaris-Money.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="ZELDA Overworld guitar trio cover"
+                thumb="/music/Overworld-Zelda/ThumbOverworld-Zelda.jpg"
+                about="/music/Overworld-Zelda/aboutsong.html"
+                audio="/music/Overworld-Zelda/Overworld-Zelda.wav"
+            >
+            </music-li>
+
+            <music-li
+                title="A jam session"
+                thumb="/music/A-Jam-Session/ThumbA-Jam-Session.jpg"
+                about="/music/A-Jam-Session/aboutsong.html"
+                audio="/music/A-Jam-Session/A-Jam-Session.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Ghost house theme (cover)"
+                thumb="/music/Ghost-house/ThumbGhost-house.jpg"
+                about="/music/Ghost-house/aboutsong.html"
+                audio="/music/Ghost-house/Ghost-house.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Wind Waker (cover)"
+                thumb="/music/WindWaker-lyra-cover/ThumbWindWaker-lyra-cover.jpg"
+                about="/music/WindWaker-lyra-cover/aboutsong.html"
+                audio="/music/WindWaker-lyra-cover/WindWaker-lyra-cover.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Playtime"
+                thumb="/music/Playtime/ThumbPlaytime.jpg"
+                about="/music/Playtime/aboutsong.html"
+                audio="/music/Playtime/Playtime.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Absence"
+                thumb="/music/Absence/ThumbAbsence.jpg"
+                about="/music/Absence/aboutsong.html"
+                audio="/music/Absence/Absence.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Thought"
+                thumb="/music/Thought/ThumbThought.jpg"
+                about="/music/Thought/aboutsong.html"
+                audio="/music/Thought/Thought.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Ghosts"
+                thumb="/music/Ghosts/ThumbGhosts.jpg"
+                about="/music/Ghosts/aboutsong.html"
+                audio="/music/Ghosts/Ghosts.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="FMA Nocturne of Amestris (cover)"
+                thumb="/music/FMA-nocturne/ThumbFMA-nocturne.jpg"
+                about="/music/FMA-nocturne/aboutsong.html"
+                audio="/music/FMA-nocturne/FMA-nocturne.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Temple of Light (cover)"
+                thumb="/music/Fable-TempleOfLight/ThumbFable-TempleOfLight.jpg"
+                about="/music/Fable-TempleOfLight/aboutsong.html"
+                audio="/music/Fable-TempleOfLight/Fable-TempleOfLight.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Nobody home (cover)"
+                thumb="/music/NobodyHome/ThumbNobodyHome2.jpg"
+                about="/music/NobodyHome/aboutsong.html"
+                audio="/music/NobodyHome/NobodyHome.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="I'll be over you (cover)"
+                thumb="/music/beOverYou/ThumbbeOverYou2.jpg"
+                about="/music/beOverYou/aboutsong.html"
+                audio="/music/beOverYou/beOverYou.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="15 fathoms, counting (cover)"
+                thumb="/music/15fathoms/Thumb15fathoms.jpg"
+                about="/music/15fathoms/aboutsong.html"
+                audio="/music/15fathoms/15fathoms.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Pray (cover)"
+                thumb="/music/PrayCover/ThumbPrayCover.jpg"
+                about="/music/PrayCover/aboutsong.html"
+                audio="/music/PrayCover/PrayCover.mp3"
+            >
+            </music-li>
+
+            <music-li
+                title="Seasons of Life"
+                thumb="/music/SeasonsOfLife/ThumbSeasonsOfLife.jpg"
+                about="/music/SeasonsOfLife/aboutsong.html"
+                audio="/music/SeasonsOfLife/SeasonsOfLife.mp3"
+            >
+            </music-li>
+        </main>
+
+        <div class="radio">
+            <img src="/images/Radio.png" alt="A radio on the beach" />
+            <div class="cassette" id="cass"></div>
+            <div>
+                <input
+                    type="range"
+                    id="volslider"
+                    min="0"
+                    max="100"
+                    value="100"
+                    oninput="updateVolume(this.value)"
+                    onkeydown="event.preventDefault()"
+                />
+            </div>
+            <div class="B1" onmousedown="doAudio(currentAudio)"></div>
+            <div class="B2"></div>
+            <div class="B3" onmousedown="pressLeftArrow()" ontouchstart="pressLeftArrow()"></div>
+            <div class="B4" onmousedown="pressRightArrow()" ontouchstart="pressRightArrow()"></div>
+            <div class="RADIOprogbar">
+                <div class="RADIOprogress"></div>
+                <!-- <div class="RADIOhitbox" onclick="doAudioReloc(event)"></div> -->
+            </div>
+            <div class="voltip">
+                <div class="line"></div>
+                <h3>Volume</h3>
+            </div>
+        </div>
+
+        <script></script>
+    </body>
 </html>

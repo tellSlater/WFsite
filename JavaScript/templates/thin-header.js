@@ -2,12 +2,13 @@
 // It replaces <thin-header> html elements with the bellow html code
 // Also it grabs <thin-header> attributes "name" and "link" to use for the header's title
 class ThinHeader extends HTMLElement {
-    connectedCallback(){
-        this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML =
+            `
         <header id="sky">
             <div class="headerFlex">
                 <div class="left">
-                    <a href="/index.html">
+                    <a href="/">
                         <img
                             class="logoSmall"
                             src="/images/LogoBetterTrans-Small.png"
@@ -16,8 +17,12 @@ class ThinHeader extends HTMLElement {
                     </a>
                 </div>
                 <div class="mid">
-                    <a href="` + this.getAttribute("link") + `" class="themeTXT">
-                        <h1>` + this.getAttribute("name") + `</h1>
+                    <a href="` +
+            this.getAttribute("link") +
+            `" class="themeTXT">
+                        <h1>` +
+            this.getAttribute("name") +
+            `</h1>
                     </a>
                 </div>
                 <div
@@ -27,8 +32,8 @@ class ThinHeader extends HTMLElement {
             </div>
             <div class="stripe"></div>
         </header>
-        `
+        `;
     }
 }
 
-customElements.define('thin-header', ThinHeader)
+customElements.define("thin-header", ThinHeader);
