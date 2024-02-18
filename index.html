@@ -623,17 +623,13 @@
                 background: rgb(0, 0, 0);
             }
 
-            @media screen and (hover: none) and (pointer: coarse) {
-                /* div.linkTXT
-			{
-				display: inline !important;
-				opacity: 0.7;
-			} */
+            @media (max-width: 767px) {
                 body {
                     -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
                     zoom: 0.6; /* Other non-webkit browsers */
                     zoom: 60%; /* Webkit browsers */
                 }
+
                 div.mainlinkHolderDesktop {
                     top: calc(33% - 120px);
                 }

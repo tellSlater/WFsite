@@ -1,44 +1,44 @@
 /* Main style for articles (e.g. project pages, the about page etc)*/
 h1 {
-  color: black;
-  font-size: 32px;
-  font-family: "Press Start 2P", sans-serif;
+    color: black;
+    font-size: 32px;
+    font-family: "Press Start 2P", sans-serif;
 }
 
 h2 {
-  color: black;
-  font-size: 24px;
-  font-family: "Press Start 2P", sans-serif;
+    color: black;
+    font-size: 24px;
+    font-family: "Press Start 2P", sans-serif;
 }
 
 h3 {
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-  font-family: "Press Start 2P", sans-serif;
-  padding-top: 20px;
-  margin-top: 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Press Start 2P", sans-serif;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
 h4 {
-  color: black;
-  font-weight: bold;
-  font-size: 12px;
-  font-family: "Press Start 2P", sans-serif;
-  /* margin-top: 40px; */
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: "Press Start 2P", sans-serif;
+    /* margin-top: 40px; */
 }
 
 p {
-  color:  #0f0f0f;
-  font-size: 16px;
-  font-family: "Helvetica", sans-serif;
-  text-align: justify;
-  /* overflow: visible; */
+    color: #0f0f0f;
+    font-size: 16px;
+    font-family: "Helvetica", sans-serif;
+    text-align: justify;
+    /* overflow: visible; */
 }
 
 p.secondary {
-  font-style: italic;
-  color: rgba(100, 100, 100, 0.8);
+    font-style: italic;
+    color: rgba(100, 100, 100, 0.8);
 }
 
 .redfont {
@@ -48,213 +48,213 @@ p.secondary {
 }
 
 p.mjax {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 ol {
-  color: black;
-  font-size: 16px;
-  font-family: "Helvetica", sans-serif;
-  text-align: justify;
-  list-style-type: 1;
-  padding-left: 24px;
+    color: black;
+    font-size: 16px;
+    font-family: "Helvetica", sans-serif;
+    text-align: justify;
+    list-style-type: 1;
+    padding-left: 24px;
 }
 
 ul {
-  color: black;
-  font-size: 16px;
-  font-family: "Helvetica", sans-serif;
-  text-align: justify;
-  list-style-type: disc;
-  padding-left: 24px;
+    color: black;
+    font-size: 16px;
+    font-family: "Helvetica", sans-serif;
+    text-align: justify;
+    list-style-type: disc;
+    padding-left: 24px;
 }
 
 .PS2P {
-  font-family: "Press Start 2P", cursive;
-  font-size: 12px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 12px;
 }
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 
-  overflow-x: hidden;
-  /* -webkit-transition: background-color 10s linear;
+    overflow-x: hidden;
+    /* -webkit-transition: background-color 10s linear;
   -ms-transition: background-color 10s linear;
   transition: background-color 10s linear; */
 
-  /* background-color: #efe1c5; */
-  /* background-color: #f7d7ab; */
-  /* background-color: #e0cba4; */
+    /* background-color: #efe1c5; */
+    /* background-color: #f7d7ab; */
+    /* background-color: #e0cba4; */
 
-  /* border: 4px solid black; */
+    /* border: 4px solid black; */
 }
 
 a:link {
-  color: #445ff6;
-  font-style: normal;
-  text-decoration: none;
+    color: #445ff6;
+    font-style: normal;
+    text-decoration: none;
 }
 
 a:visited {
-  color: #e75858;
-  font-style: normal;
-  text-decoration: none;
+    color: #e75858;
+    font-style: normal;
+    text-decoration: none;
 }
 
 a:hover {
-  /* color: #445ff6; */
-  font-style: normal;
-  text-decoration: underline;
+    /* color: #445ff6; */
+    font-style: normal;
+    text-decoration: underline;
 }
 
 a:active {
-  /* color: #445ff6; */
-  font-style: normal;
-  text-decoration: none;
+    /* color: #445ff6; */
+    font-style: normal;
+    text-decoration: none;
 }
 
 header a:hover {
-  /* color: #445ff6; */
-  font-style: normal;
-  text-decoration: none;
-  opacity: 0.7;
+    /* color: #445ff6; */
+    font-style: normal;
+    text-decoration: none;
+    opacity: 0.7;
 }
 
 main {
-  /* margin-top: 36px;
+    /* margin-top: 36px;
   margin-left: 8%;
   margin-right: 8%; */
 
-  max-width: 1000px;
-  padding-left: 64px;
-  padding-right: 64px;
-  margin: auto;
-  
-  overflow-x: hidden;
-  /* border: 2px dashed black; */
+    max-width: 1000px;
+    padding-left: 64px;
+    padding-right: 64px;
+    margin: auto;
+
+    overflow-x: hidden;
+    /* border: 2px dashed black; */
 }
 
 main a.img {
-  display: block;
-  margin: 18px auto 18px auto;
-  width: 100%;
-  max-width: 490px;
+    display: block;
+    margin: 18px auto 18px auto;
+    width: 100%;
+    max-width: 490px;
 }
 
 main img {
-  display: block;
-  margin: 18px auto 18px auto;
-  width: 100%;
-  max-width: 490px;
+    display: block;
+    margin: 18px auto 18px auto;
+    width: 100%;
+    max-width: 490px;
 
-  background: black;
-  border: 3px solid black;
+    background: black;
+    border: 3px solid black;
 }
 
 main video {
-  /* z-index: -2; */
-  position: relative;
-  display: block;
-  margin: auto;
-  width: 100%;
-  max-width: 490px;
+    /* z-index: -2; */
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 490px;
 }
 
 main .video {
-  /* z-index: -3; */
-  display: block;
-  position: relative;
-  margin: 18px auto 18px auto;
-  width: 100%;
-  max-width: 490px;
+    /* z-index: -3; */
+    display: block;
+    position: relative;
+    margin: 18px auto 18px auto;
+    width: 100%;
+    max-width: 490px;
 
-  background: black;
-  border: 3px solid black;
+    background: black;
+    border: 3px solid black;
 }
 
 .video .preplay {
-  /* z-index: -1; */
-  position: absolute;
-  left: 50%;
-  top: 50%;
+    /* z-index: -1; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
 
-  height: 16px;
-  width: 16px;
+    height: 16px;
+    width: 16px;
 
-  background: url(/images/PlayPause.png);
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-  transform: translate(-50%, -50%) scale(6);
+    background: url(/images/PlayPause.png);
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    transform: translate(-50%, -50%) scale(6);
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* Scrolbar style */
 /* width */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 0, 0);
-  width: 6px;
-  height: 6px;
+    background: rgb(0, 0, 0);
+    width: 6px;
+    height: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(92, 92, 92, 0.3);
+    background: rgba(92, 92, 92, 0.3);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0);
+    background: rgb(0, 0, 0);
 }
 
 main iframe {
-  display: block;
-  margin: 18px auto 18px auto;
-  width: 100%;
-  max-width: 490px;
+    display: block;
+    margin: 18px auto 18px auto;
+    width: 100%;
+    max-width: 490px;
 
-  background: black;
-  border: 3px solid black;
+    background: black;
+    border: 3px solid black;
 }
 
 /* Zoom in for mobile and other touch devices */
-@media screen and (hover: none) and (pointer: coarse) {
-  body {
-    -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
-    zoom: 0.6; /* Other non-webkit browsers */
-    zoom: 60%; /* Webkit browsers */
-  }
+@media (max-width: 767px) {
+    body {
+        -moz-transform: scale(0.6, 0.6); /* Moz-browsers */
+        zoom: 0.6; /* Other non-webkit browsers */
+        zoom: 60%; /* Webkit browsers */
+    }
 }
 
 table {
-  margin: auto;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  text-align: center;
-  border: 3px solid black;
-  width: 490px;
-  border-collapse: collapse;
-  color: black;
-  font-size: 16px;
-  font-family: "Helvetica", sans-serif;
+    margin: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+    border: 3px solid black;
+    width: 490px;
+    border-collapse: collapse;
+    color: black;
+    font-size: 16px;
+    font-family: "Helvetica", sans-serif;
 }
 
 th {
-  background-color: rgba(27, 99, 255, 0.6);
-  color: black;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: "Press Start 2P", sans-serif;
-  text-align: center;
-  border: 3px solid black;
-  pointer-events: none;
+    background-color: rgba(27, 99, 255, 0.6);
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "Press Start 2P", sans-serif;
+    text-align: center;
+    border: 3px solid black;
+    pointer-events: none;
 }
 
 /* tr:nth-child(odd) {
@@ -262,47 +262,47 @@ th {
 } */
 
 tr:nth-child(odd) {
-  background-color: rgba(143, 178, 255, 0.1);
+    background-color: rgba(143, 178, 255, 0.1);
 }
 
 tr:hover {
-  background-color: rgba(237, 88, 88, 0.1);
-  /* background-color: rgba(255, 236, 206, 0.6); */
-  /* background-color: wheat; */
+    background-color: rgba(237, 88, 88, 0.1);
+    /* background-color: rgba(255, 236, 206, 0.6); */
+    /* background-color: wheat; */
 }
 
 td {
-  border-right: 2px dashed black;
+    border-right: 2px dashed black;
 }
 
 mjx-container {
-  display: inline-block;
+    display: inline-block;
 }
 
 mjx-assistive-mml {
-  right: 0px;
-  bottom: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
 /* Styling for inline code */
 code {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: black;
-  background-color: #f4f4f4;
-  padding: 2px 4px;
-  border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    color: black;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
 /* Styling for code blocks */
 pre {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: black;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 6px;
-  overflow-x: auto; /* Enable horizontal scroll */
-  line-height: 1.4; /* Adjust line height if needed */
-  white-space: pre-wrap; /* Preserve spaces and wrap lines */
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    color: black;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto; /* Enable horizontal scroll */
+    line-height: 1.4; /* Adjust line height if needed */
+    white-space: pre-wrap; /* Preserve spaces and wrap lines */
 }
