@@ -231,6 +231,9 @@ main iframe {
         zoom: 0.6; /* Other non-webkit browsers */
         zoom: 60%; /* Webkit browsers */
     }
+    p {
+        font-size: 22px;
+    }
 }
 
 table {
