@@ -1,590 +1,572 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stepper motor math model</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Stepper motor math model</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	"HTML-CSS": { linebreaks: { automatic: true } },
-			SVG: { linebreaks: { automatic: true } }
-	});
-	</script> <!-- MATHJAX wrapping-->
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <!-- MATHJAX -->
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> <!-- MATHJAX -->
-	<script>
-		window.MathJax = {
-		tex: {
-		tags: 'ams'
-		}
-		};
-	</script> <!-- MATHJAX eq labeling on-->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            "HTML-CSS": { linebreaks: { automatic: true } },
+            		SVG: { linebreaks: { automatic: true } }
+            });
+        </script>
+        <!-- MATHJAX wrapping-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <!-- MATHJAX -->
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- MATHJAX -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    tags: "ams",
+                },
+            };
+        </script>
+        <!-- MATHJAX eq labeling on-->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Stepper motor math model
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			A stepper motor is a special kind of brushless DC motor.
-			It can execute precise movements without the need of a closed loop control system or a sensor.
-			<b>In this page  a mathematical model of such a motor is derived and the model's parameters are examined and tuned
-			so that the model's performance mimics the actual performance of the motor.</b>
-		</p>
-		<h3>
-			Motor used
-		</h3>
-		<p>
-			This model focuses on a NEMA 17 stepper motor but the process followed is similar for modelling other stepper motors as well.
-			The exact motor used is described by the code name 42HD4027-01 under the NEMA standard.
-			The last section in this page - <a href="#mdesign">Motor design</a> - includes mechanical drawings, photos and the datasheet of this stepper motor. 
-		</p>
-		<img src="/projects/hard/stepper_motor_model/OGstepper.jpg" alt="OGstepper.jpg" title="42HD4027-01 NEMA 17 stepper motor">
-		<h3>
-			Model block diagram
-		</h3>
-		<p>
-			<b>Inputs</b>
-		</p>
-		<p>
-			This stepper motor has two separate phases.
-			Therefore, the main inputs for the model are <b>the two voltage differentials applied to each of the two phases</b>.
-			Other secondary inputs are the <b>moment of inertia of the load attached to the motor</b> and
-			any <b>external torques applied to the load and/or motor shaft</b>.
-			Also some inputs in the form of initial conditions are the <b>initial angular position and speed of the rotor</b> and <b>the initial currents in each phase</b>.
-		</p>
-		<p class="secondary">
-			The friction in the motor is neglected in this model but it can easily be implemented as an external source of torque.
-		</p>
-		<p>
-			<b>Outputs</b>
-		</p>
-		<p>
-			After solving the differential equations of the model, <b>the kinematic response of the rotor</b> can be extracted as well as <b>the electric response of the phases</b>.
-			On the kinematic side, the outputs are the angular position, speed, acceleration, jerk(or rate of change of acceleration) and torque.
-			The electric response includes phase current and voltage induced by the spinning magnetic rotor.
-		</p>
-		<img src="/projects/hard/stepper_motor_model/modelBlockDiagram.jpg" alt="modelBlockDiagram.jpg" title="Model block diagram">
-		<p>
-			The above diagram shows the main idea of this model:
-		</p>
-		<ol>
-			<li>
-				Voltage is applied to the phases
-			</li>
-			<li>
-				That generates current in the phases
-			</li>
-			<li>
-				Phases run with current generate torque on the motor's shaft
-			</li>
-			<li>
-				Torque on the shaft rotates it, changing its speed and position
-			</li>
-			<li>
-				The speed and position of the motor's shaft affect both the torque applied by the phases and the current in the phases
-			</li>
-		</ol>
-		<h3>
-			Physics
-		</h3>
-		<p>
-			These are the basic physics laws used to describe the behavior of the motor:
-		</p>
-		<ul>
-			<li>
-				<b>Newton's second law for rotation</b><br>
-				The torque applied is directly proportional to the moment of inertia times the angular acceleration.<br>
-				<p class="mjax">
-					\begin{equation}
-					T = I \cdot \dot \omega
-					\label{eq:newt2}
-					\end{equation}
-				</p>
-			</li>
-			<li>
-				<b>kirchhoff's second law</b><br>
-				The directed sum of the voltages around any closed loop is zero.<br>
-				<p class="mjax">
-					\begin{equation}
-					V_1 + V_2 + V_3 - V = 0
-					\label{eq:kirch2}
-					\end{equation}
-				</p>
-				<img src="/projects/hard/stepper_motor_model/closedLoopVoltages.jpg" alt="closedLoopVoltages.jpg" title="Voltages in a closed loop">
-			</li>
-			<li>
-				<b>Faraday's law of induction</b><br>
-				The EMF induced in a conductor is given by the rate of change of the magnetic flux in it.<br>
-				<p class="mjax">
-					\begin{equation}
-					\varepsilon = - \frac{d \Phi_B}{dt}
-					\label{eq:fara}
-					\end{equation}
-				</p>
-			</li>
-		</ul>
-		<p>
-			Apart from the above well known and broadly applicable theorems,
-			there are a few equations that specifically describe the behavior of this stepper motor:
-		</p>
-		<ul>
-			<li>
-				<b>Phase current/max torque linear dependency</b><br>
-				A phase's current is linearly dependent to the maximum torque the phase can exert to the rotor.
-				Therefore, the two can be related to each other by the use of one constant (\( K_T \)).<br>
-				<p class="mjax">
-					\begin{equation}
-					T_{maxPhase} = K_T \cdot I_{Phase}
-					\label{eq:curtor}
-					\end{equation}
-				</p>
-			</li>
-			<li>
-				<b>Phase torque</b><br>
-				The torque a phase exerts on the rotor depends on the phase current as well as on the rotor's position.
-				This happens because of the way the motor is built - due to geometric characteristics of the rotor and the stator.<br>
-				<p class="mjax">
-					\begin{equation}
-					T_{Phase} = - K_T \cdot I_{Phase} \cdot \sin (p \cdot \theta)
-					\label{eq:phator}
-					\end{equation}
-				</p>
-				\( \theta \) is the rotor's angular position and <br>
-				\( p \) the number of teeth on the rotor (on one side only).
-			</li>
-			<li>
-				<b>Detent torque</b><br>
-				This is a "parasitic" torque that exists due to the magnetic rotor.
-				It is small in magnitude compared to the motor's maximum holding torque but should still be accounted in the model
-				since it interferes significantly with the positioning and movements of the rotor.<br>
-				<p class="mjax">
-					\begin{equation}
-					T_{dT} = - T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
-					\label{eq:detto}
-					\end{equation}
-				</p>
-			</li>
-			<li>
-				<b>Rate of change of magnetic flux linkage between one phase and the rotor</b><br>
-				This rate is important because, according to Faraday's law, it corresponds to the induced EMF in the phase.<br>
-				<p class="mjax">
-					\begin{equation}
-					\frac{d \Psi_A}{dt} = p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d \theta}{dt}
-					\label{eq:phidt}
-					\end{equation}
-				</p>
-				\( \Psi_M \) is the maximum magnetic flux linkage between a phase and the rotor.
-			</li>
-		</ul>
-		<h3>
-			Shaping the equations
-		</h3>
-		<p>
-			In order to derive the model of this system,
-			every equation that describes its nature must be related to each other.
-			Initially, the total torque exerted on the rotor can be expressed as:
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			T_{sum} = T_A + T_B + T_{dT} + T_{ext}
-			\label{eq:Tsum}
-			\end{equation}
-		</p>
-		<p>
-			\( T_{sum} \) is the total torque on the rotor,<br>
-			\( T_A \) is the torque exerted by phase A on the rotor,<br>
-			\( T_B \) is the torque exerted by phase B on the rotor and<br>
-			\( T_{ext} \) is the sum of external torques on the rotor.
-		</p>
-		<img src="/projects/hard/stepper_motor_model/torqueSum.jpg" alt="torqueSum.jpg" title="Sources of torque">
-		<p>
-			After substituting the known equations for \( T_{sum} \), \( T_A \), \( T_B \) and \( T_{dT} \), we get:
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			(I_{ROTOR} + I_{LOAD} ) \cdot \dot \omega =
-			- K_T \cdot I_{A} \cdot \sin (p \cdot \theta)
-			- K_T \cdot I_{B} \cdot \cos (p \cdot \theta)
-			- T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta)
-			+ T_{ext}
-			\label{eq:Tsum2}
-			\end{equation}
-		</p>
-		<p>
-			The two expressions for the torques \( T_A \) and \( T_B \) have a phase difference of \( \pi / 2 \).
-			This behavior is due to the way the motor is constructed -
-			it is due to the geometric characteristics of the stator and rotor and the way they interact.
-		</p>
-		<p>
-			Kirchhoff's 2nd law can be applied for each of the two phases of the motor:
-		</p>
-		<p>
-			Phase A
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			V_A = R \cdot I_A + L \dot{I_A} - e_A
-			\label{eq:VsumA}
-			\end{equation}
-		</p>
-		<p>
-			Phase B
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			V_B = R \cdot I_B + L \dot{I_B} - e_B
-			\label{eq:VsumB}
-			\end{equation}
-		</p>
-		<p>
-			\( I_A \) and \( I_B \) are the currents in phases A and B respectively,<br>
-			\( V_A \) and \( V_B \) are the applied voltages,<br>
-			\( R \) and \( L \) are the phase resistance and phase inductance and<br>
-			\( e_A \) and \( e_B \) are the voltages induced in each phase by the spinning rotor.
-		</p>
-		<img src="/projects/hard/stepper_motor_model/phaseVoltageDiagram.jpg" alt="phaseVoltageDiagram.jpg" title="Equivalent circuit of phase A">
-		<p>
-			According to Faraday's law ( \ref{eq:fara} ) the induced voltage is equal to the rate of change of magnetic flux linkage.
-			Therefore, substituting \( e_A \) and \( e_B \) for the rate of change of magnetic flux linkage between one phase and the rotor we get:
-		</p>
-		<p>
-			Phase A
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			V_A = R \cdot I_A + L \dot{I_A} - p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d \theta}{dt}
-			\label{eq:VsumA2}
-			\end{equation}
-		</p>
-		<p>
-			Phase B
-		</p>
-		<p class="mjax">
-			\begin{equation}
-			V_B = R \cdot I_B + L \dot{I_B} - p \cdot \Psi_M \cdot \cos (p \cdot \theta) \frac{d \theta}{dt}
-			\label{eq:VsumB2}
-			\end{equation}
-		</p>
-		<p>
-			The two expressions for the induced voltages \( e_A \) and \( e_B \) have a phase difference of \( \pi / 2 \).
-			This again happens due to the geometric characteristics of the stator and rotor and the way they interact.
-		</p>
-		<p>
-			At this point, equations \ref{eq:Tsum2}, \ref{eq:VsumA2}, \ref{eq:VsumB2} and
-			the initial conditions for speed and position of the rotor and
-			initial currents in phases A and B
-			are enough to solve this system and calculate the response of the motor.
-		</p>
-		<h3>
-			Equation parameters
-		</h3>
-		<p>
-			The parameters in equation \ref{eq:Tsum2} are:
-		</p>
-		<ol>
-			<li>
-				\( I_{ROTOR} \) - moment of inertia of the rotor
-			</li>
-			<li>
-				\( I_{LOAD} \) - moment of inertia of the load (although this could also be considered an input)
-			</li>
-			<li>
-				\( K_T \) - constant relating phase current to maximum phase torque
-			</li>
-			<li>
-				\( p \) - number of teeth on the rotor
-			</li>
-			<li>
-				\( T_{dTmax} \) - maximum detent torque
-			</li>
-		</ol>
-		<p>
-			The parameters in equations \ref{eq:VsumA2} and \ref{eq:VsumB2} are:
-		</p>
-		<ol start="6">
-			<li>
-				\( R \) - phase resistance
-			</li>
-			<li>
-				\( L \) - phase inductance
-			</li>
-			<li>
-				\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor
-			</li>
-		</ol>
-		<p>
-			Changing the values of these parameters will affect the behavior of the model.
-			In order to tune these parameters so that the model mimics the behavior of the motor,
-			their values must be derived from the motor's characteristics.
-			This is possible by either making measurements on the motor or by consulting the motor's datasheet.
-			Unfortunately, not all information needed is always available in the datasheet,
-			so some measurements are often required.
-		</p>
-		<h3>
-			Tuning the parameters
-		</h3>
-		<p>
-			The parameters can be tuned by either consulting the motor's datasheet or taking measurements on the motor.
-		</p>
-		<ol>
-			<li>
-				<b>\( I_{ROTOR} \) - moment of inertia of the rotor</b><br>
-				It is usually given in the motor's datasheet but can also be calculated from the rotor's geometry.
-				<img src="/projects/hard/stepper_motor_model/IrotorDatasheet.jpg" alt="IrotorDatasheet.jpg" title="Moment of inertia of the rotor">
-			</li>
-			<li>
-				<b>\( I_{LOAD} \) - moment of inertia of the load</b><br>
-				Can be arbitrarily chosen or should be calculated for a specific load based on the load characteristics.
-			</li>
-			<li>
-				<b>\( K_T \) - constant relating phase current to maximum phase torque</b><br>
-				Revisiting equation \ref{eq:curtor}, it is evident that a phase current value and
-				its corresponding maximum phase torque are enough to calculate \( K_T \).
-				Unfortunately, the motor's datasheet provides the maximum phase current and the
-				corresponding maximum holding torque of the <u>combination of two phases</u>.
-				To derive the holding torque of one phase, the two phase holding torque must be divided by \( \sqrt{2} \).
-				Therefore, \( K_T \) can be calculated by:
-				<p class="mjax">
-					\begin{equation}
-					K_T = \frac{T_{hmaxPhase}}{I_{maxPhase}} = \frac{T_{hmax2Phase}}{ \sqrt{2} \cdot I_{maxPhase}}
-					\label{eq:KTcalc}
-					\end{equation}
-				</p>
-				Where:<br>
-				\( I_{maxPhase} \) is the nominal current of a phase,<br>
-				\( T_{hmaxPhase} \) is the maximum holding toque of one phase and<br>
-				\( T_{hmax2Phase} \) is the maximum holding torque of two phases.
-				<img src="/projects/hard/stepper_motor_model/KTDatasheet.jpg" alt="KTDatasheet.jpg" title="Datasheet values">
-				Manufacturers probably prefer to display the two phase holding torque in the datasheet because it has a bigger value.
-			</li>
-			<li>
-				<b>\( p \) - number of teeth on the rotor</b><br>
-				The rotor has as many teeth as a quarter of the steps the motor can execute in a full circle (360°).
-				<img src="/projects/hard/stepper_motor_model/stepAngleDatasheet.jpg" alt="stepAngleDatasheet.jpg" title="Step angle in the datasheet">
-				Consequently, for a step angle of 1.8°:
-				<p class="mjax">
-					\begin{equation}
-					p = \frac{360°}{ 1.8° \cdot 4 } = 50
-					\label{eq:pcalc}
-					\end{equation}
-				</p>
-				Alternatively, the teeth of the rotor can be counted by eye. The left side only should be counted.
-				<img src="/projects/hard/stepper_motor_model/rotorTeethCount.jpg" alt="rotorTeethCount.jpg" title="Counting rotor teeth">
-			</li>
-			<li>
-				<b>\( T_{dTmax} \) - maximum detent torque</b><br>
-				This value is rarely if ever given in the datasheet.
-				The maximum torque the motor exerts when both phases are inactive (0 current) is the maximum detent torque.
-				It can be measured with a precision scale by placing the motor on a jig as shown in the next image:
-				<img src="/projects/hard/stepper_motor_model/dTJig.jpg" alt="dTJig.jpg" title="Detent torque measurement">
-				Alternatively, it can be estimated to be about 2% of the motor's two phase holding torque
-				(this percentage gets smaller for bigger motors).
-			</li>
-			<li>
-				<b>\( R \) - phase resistance</b><br>
-				The motor's phase resistance is given in the datasheet and can be easily measured using a multimeter.
-				<img src="/projects/hard/stepper_motor_model/resistanceDatasheet.jpg" alt="resistanceDatasheet.jpg" title="Phase resistance in the datasheet">
-				<img src="/projects/hard/stepper_motor_model/resistanceMulti.jpg" alt="resistanceMulti.jpg" title="Phase resistance measurement">
-			</li>
-			<li>
-				<b>\( L \) - phase inductance</b><br>
-				The motor's phase inductance is also given in the datasheet and can be easily measured using an LCR meter.
-				<img src="/projects/hard/stepper_motor_model/inductanceDatasheet.jpg" alt="inductanceDatasheet.jpg" title="Phase inductance in the datasheet">
-				<img src="/projects/hard/stepper_motor_model/inductanceLCR.jpg" alt="inductanceLCR.jpg" title="Phase inductance measurement">
-			</li>
-			<li>
-				<b>\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor</b><br>
-				This value will most probably not be in the datasheet and cannot be estimated based on other information in it.
-				There are several ways to calculate it but they require some tools.
-				The main concept is measuring the signal produced in a phase when the rotor is rotated and then
-				deriving the maximum flux linkage based on that signal.
-				<ul>
-					<li>
-						<b>Oscilloscope methods</b><br>
-						The probes of the oscilloscope are tied to a phase of the motor.
-						The motor's shaft is rotated at a constant speed with a help of an external motor (e.g. a hand drill).
-						The induced voltage is measured - it has the shape of a sine wave.
-						<img src="/projects/hard/stepper_motor_model/osciSetup.jpg" alt="osciSetup.jpg" title="Oscilloscope setup">
-						<img src="/projects/hard/stepper_motor_model/inducedWave.jpg" alt="inducedWave.jpg" title="Induced wave">
-						This induced sine wave is described by equation \ref{eq:phidt} and when it takes its maximum value the equation gives:
-						<p class="mjax">
-							\begin{equation}
-							\frac{d \Psi_A}{dt}_{max} = e_{Amax} = p \cdot \Psi_M \cdot \frac{d \theta}{dt} \Rightarrow
-							\Psi_M = \frac{e_{Amax}}{p \cdot \omega}
-							\label{eq:phidtmax}
-							\end{equation}
-						</p>
-						Therefore, the maximum flux linkage between the rotor and a phase can be calculated by
-						the angular speed of the rotor(\( \omega \)) and the corresponding maximum induced voltage in a phase(\( e_{Amax} \)).
-						The maximum induced voltage can be extracted from the graph of the induced voltage.
-						The speed of the rotor is directly related to and can be estimated by the period of the signal(\( T_e \)):
-						\begin{equation}
-						\omega = \frac{ 0.1257 }{T_e}
-						\label{eq:Tspeed}
-						\end{equation}
-						There is also a way to directly calculate the maximum magnetic flux linkage using the induced signal.
-						It is actually equal to the area between each of the sine wave's curve and the time axis.
-						Some modern oscilloscopes might be able to integrate the curve and get a quick result.
-						In the next image each of the areas(E) are equal to the maximum magnetic flux linkage.
-						<img src="/projects/hard/stepper_motor_model/inducedWaveE.jpg" alt="inducedWaveE.jpg" title="Area calculation method">
-					</li>
-					<li>
-						<b>Multimeter and tachometer</b><br>
-						An estimation of the magnetic flux linkage can be made using these simpler tools.
-						In this case the multimeter is used to measure the RMS value of the induced sine wave and
-						the tachometer is used to measure the speed of the rotation.
-						<img src="/projects/hard/stepper_motor_model/MultiTacho.jpg" alt="MultiTacho.jpg" title="Multimeter-tachometer setup">
-						Afterwards, the maximum induced voltage can be calculated by multiplying the RMS value by \( \sqrt{2} \)
-						and then equation \ref{eq:phidtmax} can be used to calculate the maximum magnetic flux linkage.
-					</li>
-				</ul>
-			</li>
-		</ol>
-		<h3>
-			Solving the model
-		</h3>
-		<p>
-			After having created an accurate model, it must be solved.
-			The best way to tackle this is using a firmware such as Simulink of Matlab or Xcos of Scilab.
-			The following image shows an implementation of the above model in Simulink:
-		</p>
-		<a class="img" href="/projects/hard/stepper_motor_model/simulinkModel.jpg" target="_blank">
-			<img src="/projects/hard/stepper_motor_model/simulinkModelSMALL.jpg" alt="simulinkModel.jpg" title="Simulink model">
-		</a>
-		<h3 id="mdesign">
-			Motor design
-		</h3>
-		<p>
-			Assembled motor:
-		</p>
-		<img src="/projects/hard/stepper_motor_model/OGstepper.jpg" alt="OGstepper.jpg" title="Assembled motor">
-		<p>
-			Disassembled motor:
-		</p>
-		<img src="/projects/hard/stepper_motor_model/stepperDisassembled.jpg" alt="stepperDisassembled.jpg" title="Disassembled motor">
-		<p>
-			Exploded view:
-		</p>
-		<img src="/projects/hard/stepper_motor_model/explodedView.jpg" alt="explodedView.jpg" title="Exploded view">
-		<p>
-			Parts:
-		</p>
-		<ol>
-			<li>
-				Cover B
-				<img src="/projects/hard/stepper_motor_model/part1.jpg" alt="part1.jpg">
-			</li>
-			<li>
-				Wave washer
-				<img src="/projects/hard/stepper_motor_model/part2.jpg" alt="part2.jpg">
-			</li>
-			<li>
-				Bearing
-				<img src="/projects/hard/stepper_motor_model/part3.jpg" alt="part3.jpg">
-			</li>
-			<li>
-				Spacer B
-				<img src="/projects/hard/stepper_motor_model/part4.jpg" alt="part4.jpg">
-			</li>
-			<li>
-				Axel
-				<img src="/projects/hard/stepper_motor_model/part5.jpg" alt="part5.jpg">
-			</li>
-			<li>
-				Rotor assembly
-				<img src="/projects/hard/stepper_motor_model/part6.jpg" alt="part6.jpg">
-			</li>
-			<li>
-				Spacer A
-				<img src="/projects/hard/stepper_motor_model/part7.jpg" alt="part7.jpg">
-			</li>
-			<li>
-				Bearing
-				<img src="/projects/hard/stepper_motor_model/part8.jpg" alt="part8.jpg">
-			</li>
-			<li>
-				Insulation A
-				<img src="/projects/hard/stepper_motor_model/part9.jpg" alt="part9.jpg">
-			</li>
-			<li>
-				Stator punched sheet metal
-				<img src="/projects/hard/stepper_motor_model/part10.jpg" alt="part10.jpg">
-			</li>
-			<li>
-				JST connector
-				<img src="/projects/hard/stepper_motor_model/part11.jpg" alt="part11.jpg">
-			</li>
-			<li>
-				Insulation B
-				<img src="/projects/hard/stepper_motor_model/part12.jpg" alt="part12.jpg">
-			</li>
-			<li>
-				THT board
-				<img src="/projects/hard/stepper_motor_model/part13.jpg" alt="part13.jpg">
-			</li>
-			<li>
-				Cap A
-				<img src="/projects/hard/stepper_motor_model/part14.jpg" alt="part14.jpg">
-			</li>
-			<li>
-				Phillips screw
-				<img src="/projects/hard/stepper_motor_model/part15.jpg" alt="part15.jpg">
-			</li>
-		</ol>
-		<p>
-			Section view:
-		</p>
-		<img src="/projects/hard/stepper_motor_model/sectionView.jpg" alt="sectionView.jpg" title="Section view">
-		<p>
-			Datasheet:
-		</p>
-		<a class="img" href="/projects/hard/stepper_motor_model/nema17datasheet.jpg" target="_blank">
-			<img src="/projects/hard/stepper_motor_model/nema17datasheetSMALL.jpg" alt="nema17datasheetSMALL.jpg" title="Stepper motor datasheet">
-		</a>
-		<h3>
-			Sources
-		</h3>
-		<p>
-			This page is a summary of part of the thesis "Stepper motors and simulation of their operation"
-			available as a PDF <a href="/projects/hard/stepper_motor_model/SteppingMotorsAndSimulationOfTheirOperation_IliasChatziefstathiou_NoLinks.pdf" target="_blank">here</a>.
-		</p>
-	</main>
-</body>
-
+        <main>
+            <h2>Stepper motor math model</h2>
+            <h3>Summary</h3>
+            <p>
+                A stepper motor is a special kind of brushless DC motor. It can execute precise movements without the
+                need of a closed loop control system or a sensor.
+                <b
+                    >In this page a mathematical model of such a motor is derived and the model's parameters are
+                    examined and tuned so that the model's performance mimics the actual performance of the motor.</b
+                >
+            </p>
+            <h3>Motor used</h3>
+            <p>
+                This model focuses on a NEMA 17 stepper motor but the process followed is similar for modelling other
+                stepper motors as well. The exact motor used is described by the code name 42HD4027-01 under the NEMA
+                standard. The last section in this page - <a href="#mdesign">Motor design</a> - includes mechanical
+                drawings, photos and the datasheet of this stepper motor.
+            </p>
+            <img
+                src="/projects/hard/stepper_motor_model/OGstepper.jpg"
+                alt="OGstepper.jpg"
+                title="42HD4027-01 NEMA 17 stepper motor"
+            />
+            <h3>Model block diagram</h3>
+            <p>
+                <b>Inputs</b>
+            </p>
+            <p>
+                This stepper motor has two separate phases. Therefore, the main inputs for the model are
+                <b>the two voltage differentials applied to each of the two phases</b>. Other secondary inputs are the
+                <b>moment of inertia of the load attached to the motor</b> and any
+                <b>external torques applied to the load and/or motor shaft</b>. Also some inputs in the form of initial
+                conditions are the <b>initial angular position and speed of the rotor</b> and
+                <b>the initial currents in each phase</b>.
+            </p>
+            <p class="secondary">
+                The friction in the motor is neglected in this model but it can easily be implemented as an external
+                source of torque.
+            </p>
+            <p>
+                <b>Outputs</b>
+            </p>
+            <p>
+                After solving the differential equations of the model, <b>the kinematic response of the rotor</b> can be
+                extracted as well as <b>the electric response of the phases</b>. On the kinematic side, the outputs are
+                the angular position, speed, acceleration, jerk(or rate of change of acceleration) and torque. The
+                electric response includes phase current and voltage induced by the spinning magnetic rotor.
+            </p>
+            <img
+                src="/projects/hard/stepper_motor_model/modelBlockDiagram.jpg"
+                alt="modelBlockDiagram.jpg"
+                title="Model block diagram"
+            />
+            <p>The above diagram shows the main idea of this model:</p>
+            <ol>
+                <li>Voltage is applied to the phases</li>
+                <li>That generates current in the phases</li>
+                <li>Phases run with current generate torque on the motor's shaft</li>
+                <li>Torque on the shaft rotates it, changing its speed and position</li>
+                <li>
+                    The speed and position of the motor's shaft affect both the torque applied by the phases and the
+                    current in the phases
+                </li>
+            </ol>
+            <h3>Physics</h3>
+            <p>These are the basic physics laws used to describe the behavior of the motor:</p>
+            <ul>
+                <li>
+                    <b>Newton's second law for rotation</b><br />
+                    The torque applied is directly proportional to the moment of inertia times the angular
+                    acceleration.<br />
+                    <p class="mjax">\begin{equation} T = I \cdot \dot \omega \label{eq:newt2} \end{equation}</p>
+                </li>
+                <li>
+                    <b>kirchhoff's second law</b><br />
+                    The directed sum of the voltages around any closed loop is zero.<br />
+                    <p class="mjax">\begin{equation} V_1 + V_2 + V_3 - V = 0 \label{eq:kirch2} \end{equation}</p>
+                    <img
+                        src="/projects/hard/stepper_motor_model/closedLoopVoltages.jpg"
+                        alt="closedLoopVoltages.jpg"
+                        title="Voltages in a closed loop"
+                    />
+                </li>
+                <li>
+                    <b>Faraday's law of induction</b><br />
+                    The EMF induced in a conductor is given by the rate of change of the magnetic flux in it.<br />
+                    <p class="mjax">
+                        \begin{equation} \varepsilon = - \frac{d \Phi_B}{dt} \label{eq:fara} \end{equation}
+                    </p>
+                </li>
+            </ul>
+            <p>
+                Apart from the above well known and broadly applicable theorems, there are a few equations that
+                specifically describe the behavior of this stepper motor:
+            </p>
+            <ul>
+                <li>
+                    <b>Phase current/max torque linear dependency</b><br />
+                    A phase's current is linearly dependent to the maximum torque the phase can exert to the rotor.
+                    Therefore, the two can be related to each other by the use of one constant (\( K_T \)).<br />
+                    <p class="mjax">
+                        \begin{equation} T_{maxPhase} = K_T \cdot I_{Phase} \label{eq:curtor} \end{equation}
+                    </p>
+                </li>
+                <li>
+                    <b>Phase torque</b><br />
+                    The torque a phase exerts on the rotor depends on the phase current as well as on the rotor's
+                    position. This happens because of the way the motor is built - due to geometric characteristics of
+                    the rotor and the stator.<br />
+                    <p class="mjax">
+                        \begin{equation} T_{Phase} = - K_T \cdot I_{Phase} \cdot \sin (p \cdot \theta) \label{eq:phator}
+                        \end{equation}
+                    </p>
+                    \( \theta \) is the rotor's angular position and <br />
+                    \( p \) the number of teeth on the rotor (on one side only).
+                </li>
+                <li>
+                    <b>Detent torque</b><br />
+                    This is a "parasitic" torque that exists due to the magnetic rotor. It is small in magnitude
+                    compared to the motor's maximum holding torque but should still be accounted in the model since it
+                    interferes significantly with the positioning and movements of the rotor.<br />
+                    <p class="mjax">
+                        \begin{equation} T_{dT} = - T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta) \label{eq:detto}
+                        \end{equation}
+                    </p>
+                </li>
+                <li>
+                    <b>Rate of change of magnetic flux linkage between one phase and the rotor</b><br />
+                    This rate is important because, according to Faraday's law, it corresponds to the induced EMF in the
+                    phase.<br />
+                    <p class="mjax">
+                        \begin{equation} \frac{d \Psi_A}{dt} = p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d
+                        \theta}{dt} \label{eq:phidt} \end{equation}
+                    </p>
+                    \( \Psi_M \) is the maximum magnetic flux linkage between a phase and the rotor.
+                </li>
+            </ul>
+            <h3>Shaping the equations</h3>
+            <p>
+                In order to derive the model of this system, every equation that describes its nature must be related to
+                each other. Initially, the total torque exerted on the rotor can be expressed as:
+            </p>
+            <p class="mjax">\begin{equation} T_{sum} = T_A + T_B + T_{dT} + T_{ext} \label{eq:Tsum} \end{equation}</p>
+            <p>
+                \( T_{sum} \) is the total torque on the rotor,<br />
+                \( T_A \) is the torque exerted by phase A on the rotor,<br />
+                \( T_B \) is the torque exerted by phase B on the rotor and<br />
+                \( T_{ext} \) is the sum of external torques on the rotor.
+            </p>
+            <img src="/projects/hard/stepper_motor_model/torqueSum.jpg" alt="torqueSum.jpg" title="Sources of torque" />
+            <p>
+                After substituting the known equations for \( T_{sum} \), \( T_A \), \( T_B \) and \( T_{dT} \), we get:
+            </p>
+            <p class="mjax">
+                \begin{equation} (I_{ROTOR} + I_{LOAD} ) \cdot \dot \omega = - K_T \cdot I_{A} \cdot \sin (p \cdot
+                \theta) - K_T \cdot I_{B} \cdot \cos (p \cdot \theta) - T_{dTmax} \cdot \sin (4 \cdot p \cdot \theta) +
+                T_{ext} \label{eq:Tsum2} \end{equation}
+            </p>
+            <p>
+                The two expressions for the torques \( T_A \) and \( T_B \) have a phase difference of \( \pi / 2 \).
+                This behavior is due to the way the motor is constructed - it is due to the geometric characteristics of
+                the stator and rotor and the way they interact.
+            </p>
+            <p>Kirchhoff's 2nd law can be applied for each of the two phases of the motor:</p>
+            <p>Phase A</p>
+            <p class="mjax">\begin{equation} V_A = R \cdot I_A + L \dot{I_A} - e_A \label{eq:VsumA} \end{equation}</p>
+            <p>Phase B</p>
+            <p class="mjax">\begin{equation} V_B = R \cdot I_B + L \dot{I_B} - e_B \label{eq:VsumB} \end{equation}</p>
+            <p>
+                \( I_A \) and \( I_B \) are the currents in phases A and B respectively,<br />
+                \( V_A \) and \( V_B \) are the applied voltages,<br />
+                \( R \) and \( L \) are the phase resistance and phase inductance and<br />
+                \( e_A \) and \( e_B \) are the voltages induced in each phase by the spinning rotor.
+            </p>
+            <img
+                src="/projects/hard/stepper_motor_model/phaseVoltageDiagram.jpg"
+                alt="phaseVoltageDiagram.jpg"
+                title="Equivalent circuit of phase A"
+            />
+            <p>
+                According to Faraday's law ( \ref{eq:fara} ) the induced voltage is equal to the rate of change of
+                magnetic flux linkage. Therefore, substituting \( e_A \) and \( e_B \) for the rate of change of
+                magnetic flux linkage between one phase and the rotor we get:
+            </p>
+            <p>Phase A</p>
+            <p class="mjax">
+                \begin{equation} V_A = R \cdot I_A + L \dot{I_A} - p \cdot \Psi_M \cdot \sin (p \cdot \theta) \frac{d
+                \theta}{dt} \label{eq:VsumA2} \end{equation}
+            </p>
+            <p>Phase B</p>
+            <p class="mjax">
+                \begin{equation} V_B = R \cdot I_B + L \dot{I_B} - p \cdot \Psi_M \cdot \cos (p \cdot \theta) \frac{d
+                \theta}{dt} \label{eq:VsumB2} \end{equation}
+            </p>
+            <p>
+                The two expressions for the induced voltages \( e_A \) and \( e_B \) have a phase difference of \( \pi /
+                2 \). This again happens due to the geometric characteristics of the stator and rotor and the way they
+                interact.
+            </p>
+            <p>
+                At this point, equations \ref{eq:Tsum2}, \ref{eq:VsumA2}, \ref{eq:VsumB2} and the initial conditions for
+                speed and position of the rotor and initial currents in phases A and B are enough to solve this system
+                and calculate the response of the motor.
+            </p>
+            <h3>Equation parameters</h3>
+            <p>The parameters in equation \ref{eq:Tsum2} are:</p>
+            <ol>
+                <li>\( I_{ROTOR} \) - moment of inertia of the rotor</li>
+                <li>
+                    \( I_{LOAD} \) - moment of inertia of the load (although this could also be considered an input)
+                </li>
+                <li>\( K_T \) - constant relating phase current to maximum phase torque</li>
+                <li>\( p \) - number of teeth on the rotor</li>
+                <li>\( T_{dTmax} \) - maximum detent torque</li>
+            </ol>
+            <p>The parameters in equations \ref{eq:VsumA2} and \ref{eq:VsumB2} are:</p>
+            <ol start="6">
+                <li>\( R \) - phase resistance</li>
+                <li>\( L \) - phase inductance</li>
+                <li>\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor</li>
+            </ol>
+            <p>
+                Changing the values of these parameters will affect the behavior of the model. In order to tune these
+                parameters so that the model mimics the behavior of the motor, their values must be derived from the
+                motor's characteristics. This is possible by either making measurements on the motor or by consulting
+                the motor's datasheet. Unfortunately, not all information needed is always available in the datasheet,
+                so some measurements are often required.
+            </p>
+            <h3>Tuning the parameters</h3>
+            <p>
+                The parameters can be tuned by either consulting the motor's datasheet or taking measurements on the
+                motor.
+            </p>
+            <ol>
+                <li>
+                    <b>\( I_{ROTOR} \) - moment of inertia of the rotor</b><br />
+                    It is usually given in the motor's datasheet but can also be calculated from the rotor's geometry.
+                    <img
+                        src="/projects/hard/stepper_motor_model/IrotorDatasheet.jpg"
+                        alt="IrotorDatasheet.jpg"
+                        title="Moment of inertia of the rotor"
+                    />
+                </li>
+                <li>
+                    <b>\( I_{LOAD} \) - moment of inertia of the load</b><br />
+                    Can be arbitrarily chosen or should be calculated for a specific load based on the load
+                    characteristics.
+                </li>
+                <li>
+                    <b>\( K_T \) - constant relating phase current to maximum phase torque</b><br />
+                    Revisiting equation \ref{eq:curtor}, it is evident that a phase current value and its corresponding
+                    maximum phase torque are enough to calculate \( K_T \). Unfortunately, the motor's datasheet
+                    provides the maximum phase current and the corresponding maximum holding torque of the
+                    <u>combination of two phases</u>. To derive the holding torque of one phase, the two phase holding
+                    torque must be divided by \( \sqrt{2} \). Therefore, \( K_T \) can be calculated by:
+                    <p class="mjax">
+                        \begin{equation} K_T = \frac{T_{hmaxPhase}}{I_{maxPhase}} = \frac{T_{hmax2Phase}}{ \sqrt{2}
+                        \cdot I_{maxPhase}} \label{eq:KTcalc} \end{equation}
+                    </p>
+                    Where:<br />
+                    \( I_{maxPhase} \) is the nominal current of a phase,<br />
+                    \( T_{hmaxPhase} \) is the maximum holding toque of one phase and<br />
+                    \( T_{hmax2Phase} \) is the maximum holding torque of two phases.
+                    <img
+                        src="/projects/hard/stepper_motor_model/KTDatasheet.jpg"
+                        alt="KTDatasheet.jpg"
+                        title="Datasheet values"
+                    />
+                    Manufacturers probably prefer to display the two phase holding torque in the datasheet because it
+                    has a bigger value.
+                </li>
+                <li>
+                    <b>\( p \) - number of teeth on the rotor</b><br />
+                    The rotor has as many teeth as a quarter of the steps the motor can execute in a full circle (360°).
+                    <img
+                        src="/projects/hard/stepper_motor_model/stepAngleDatasheet.jpg"
+                        alt="stepAngleDatasheet.jpg"
+                        title="Step angle in the datasheet"
+                    />
+                    Consequently, for a step angle of 1.8°:
+                    <p class="mjax">
+                        \begin{equation} p = \frac{360°}{ 1.8° \cdot 4 } = 50 \label{eq:pcalc} \end{equation}
+                    </p>
+                    Alternatively, the teeth of the rotor can be counted by eye. The left side only should be counted.
+                    <img
+                        src="/projects/hard/stepper_motor_model/rotorTeethCount.jpg"
+                        alt="rotorTeethCount.jpg"
+                        title="Counting rotor teeth"
+                    />
+                </li>
+                <li>
+                    <b>\( T_{dTmax} \) - maximum detent torque</b><br />
+                    This value is rarely if ever given in the datasheet. The maximum torque the motor exerts when both
+                    phases are inactive (0 current) is the maximum detent torque. It can be measured with a precision
+                    scale by placing the motor on a jig as shown in the next image:
+                    <img
+                        src="/projects/hard/stepper_motor_model/dTJig.jpg"
+                        alt="dTJig.jpg"
+                        title="Detent torque measurement"
+                    />
+                    Alternatively, it can be estimated to be about 2% of the motor's two phase holding torque (this
+                    percentage gets smaller for bigger motors).
+                </li>
+                <li>
+                    <b>\( R \) - phase resistance</b><br />
+                    The motor's phase resistance is given in the datasheet and can be easily measured using a
+                    multimeter.
+                    <img
+                        src="/projects/hard/stepper_motor_model/resistanceDatasheet.jpg"
+                        alt="resistanceDatasheet.jpg"
+                        title="Phase resistance in the datasheet"
+                    />
+                    <img
+                        src="/projects/hard/stepper_motor_model/resistanceMulti.jpg"
+                        alt="resistanceMulti.jpg"
+                        title="Phase resistance measurement"
+                    />
+                </li>
+                <li>
+                    <b>\( L \) - phase inductance</b><br />
+                    The motor's phase inductance is also given in the datasheet and can be easily measured using an LCR
+                    meter.
+                    <img
+                        src="/projects/hard/stepper_motor_model/inductanceDatasheet.jpg"
+                        alt="inductanceDatasheet.jpg"
+                        title="Phase inductance in the datasheet"
+                    />
+                    <img
+                        src="/projects/hard/stepper_motor_model/inductanceLCR.jpg"
+                        alt="inductanceLCR.jpg"
+                        title="Phase inductance measurement"
+                    />
+                </li>
+                <li>
+                    <b>\( \Psi_M \) - maximum magnetic flux linkage between a phase and the rotor</b><br />
+                    This value will most probably not be in the datasheet and cannot be estimated based on other
+                    information in it. There are several ways to calculate it but they require some tools. The main
+                    concept is measuring the signal produced in a phase when the rotor is rotated and then deriving the
+                    maximum flux linkage based on that signal.
+                    <ul>
+                        <li>
+                            <b>Oscilloscope methods</b><br />
+                            The probes of the oscilloscope are tied to a phase of the motor. The motor's shaft is
+                            rotated at a constant speed with a help of an external motor (e.g. a hand drill). The
+                            induced voltage is measured - it has the shape of a sine wave.
+                            <img
+                                src="/projects/hard/stepper_motor_model/osciSetup.jpg"
+                                alt="osciSetup.jpg"
+                                title="Oscilloscope setup"
+                            />
+                            <img
+                                src="/projects/hard/stepper_motor_model/inducedWave.jpg"
+                                alt="inducedWave.jpg"
+                                title="Induced wave"
+                            />
+                            This induced sine wave is described by equation \ref{eq:phidt} and when it takes its maximum
+                            value the equation gives:
+                            <p class="mjax">
+                                \begin{equation} \frac{d \Psi_A}{dt}_{max} = e_{Amax} = p \cdot \Psi_M \cdot \frac{d
+                                \theta}{dt} \Rightarrow \Psi_M = \frac{e_{Amax}}{p \cdot \omega} \label{eq:phidtmax}
+                                \end{equation}
+                            </p>
+                            Therefore, the maximum flux linkage between the rotor and a phase can be calculated by the
+                            angular speed of the rotor(\( \omega \)) and the corresponding maximum induced voltage in a
+                            phase(\( e_{Amax} \)). The maximum induced voltage can be extracted from the graph of the
+                            induced voltage. The speed of the rotor is directly related to and can be estimated by the
+                            period of the signal(\( T_e \)): \begin{equation} \omega = \frac{ 0.1257 }{T_e}
+                            \label{eq:Tspeed} \end{equation} There is also a way to directly calculate the maximum
+                            magnetic flux linkage using the induced signal. It is actually equal to the area between
+                            each of the sine wave's curve and the time axis. Some modern oscilloscopes might be able to
+                            integrate the curve and get a quick result. In the next image each of the areas(E) are equal
+                            to the maximum magnetic flux linkage.
+                            <img
+                                src="/projects/hard/stepper_motor_model/inducedWaveE.jpg"
+                                alt="inducedWaveE.jpg"
+                                title="Area calculation method"
+                            />
+                        </li>
+                        <li>
+                            <b>Multimeter and tachometer</b><br />
+                            An estimation of the magnetic flux linkage can be made using these simpler tools. In this
+                            case the multimeter is used to measure the RMS value of the induced sine wave and the
+                            tachometer is used to measure the speed of the rotation.
+                            <img
+                                src="/projects/hard/stepper_motor_model/MultiTacho.jpg"
+                                alt="MultiTacho.jpg"
+                                title="Multimeter-tachometer setup"
+                            />
+                            Afterwards, the maximum induced voltage can be calculated by multiplying the RMS value by \(
+                            \sqrt{2} \) and then equation \ref{eq:phidtmax} can be used to calculate the maximum
+                            magnetic flux linkage.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>Solving the model</h3>
+            <p>
+                After having created an accurate model, it must be solved. The best way to tackle this is using a
+                firmware such as Simulink of Matlab or Xcos of Scilab. The following image shows an implementation of
+                the above model in Simulink:
+            </p>
+            <a class="img" href="/projects/hard/stepper_motor_model/simulinkModel.jpg" target="_blank">
+                <img
+                    src="/projects/hard/stepper_motor_model/simulinkModelSMALL.jpg"
+                    alt="simulinkModel.jpg"
+                    title="Simulink model"
+                />
+            </a>
+            <h3 id="mdesign">Motor design</h3>
+            <p>Assembled motor:</p>
+            <img src="/projects/hard/stepper_motor_model/OGstepper.jpg" alt="OGstepper.jpg" title="Assembled motor" />
+            <p>Disassembled motor:</p>
+            <img
+                src="/projects/hard/stepper_motor_model/stepperDisassembled.jpg"
+                alt="stepperDisassembled.jpg"
+                title="Disassembled motor"
+            />
+            <p>Exploded view:</p>
+            <img
+                src="/projects/hard/stepper_motor_model/explodedView.jpg"
+                alt="explodedView.jpg"
+                title="Exploded view"
+            />
+            <p>Parts:</p>
+            <ol>
+                <li>
+                    Cover B
+                    <img src="/projects/hard/stepper_motor_model/part1.jpg" alt="part1.jpg" />
+                </li>
+                <li>
+                    Wave washer
+                    <img src="/projects/hard/stepper_motor_model/part2.jpg" alt="part2.jpg" />
+                </li>
+                <li>
+                    Bearing
+                    <img src="/projects/hard/stepper_motor_model/part3.jpg" alt="part3.jpg" />
+                </li>
+                <li>
+                    Spacer B
+                    <img src="/projects/hard/stepper_motor_model/part4.jpg" alt="part4.jpg" />
+                </li>
+                <li>
+                    Axel
+                    <img src="/projects/hard/stepper_motor_model/part5.jpg" alt="part5.jpg" />
+                </li>
+                <li>
+                    Rotor assembly
+                    <img src="/projects/hard/stepper_motor_model/part6.jpg" alt="part6.jpg" />
+                </li>
+                <li>
+                    Spacer A
+                    <img src="/projects/hard/stepper_motor_model/part7.jpg" alt="part7.jpg" />
+                </li>
+                <li>
+                    Bearing
+                    <img src="/projects/hard/stepper_motor_model/part8.jpg" alt="part8.jpg" />
+                </li>
+                <li>
+                    Insulation A
+                    <img src="/projects/hard/stepper_motor_model/part9.jpg" alt="part9.jpg" />
+                </li>
+                <li>
+                    Stator punched sheet metal
+                    <img src="/projects/hard/stepper_motor_model/part10.jpg" alt="part10.jpg" />
+                </li>
+                <li>
+                    JST connector
+                    <img src="/projects/hard/stepper_motor_model/part11.jpg" alt="part11.jpg" />
+                </li>
+                <li>
+                    Insulation B
+                    <img src="/projects/hard/stepper_motor_model/part12.jpg" alt="part12.jpg" />
+                </li>
+                <li>
+                    THT board
+                    <img src="/projects/hard/stepper_motor_model/part13.jpg" alt="part13.jpg" />
+                </li>
+                <li>
+                    Cap A
+                    <img src="/projects/hard/stepper_motor_model/part14.jpg" alt="part14.jpg" />
+                </li>
+                <li>
+                    Phillips screw
+                    <img src="/projects/hard/stepper_motor_model/part15.jpg" alt="part15.jpg" />
+                </li>
+            </ol>
+            <p>Section view:</p>
+            <img src="/projects/hard/stepper_motor_model/sectionView.jpg" alt="sectionView.jpg" title="Section view" />
+            <p>Datasheet:</p>
+            <a class="img" href="/projects/hard/stepper_motor_model/nema17datasheet.jpg" target="_blank">
+                <img
+                    src="/projects/hard/stepper_motor_model/nema17datasheetSMALL.jpg"
+                    alt="nema17datasheetSMALL.jpg"
+                    title="Stepper motor datasheet"
+                />
+            </a>
+            <h3>Sources</h3>
+            <p>
+                This page is a summary of part of the thesis "Stepper motors and simulation of their operation"
+                available as a PDF
+                <a
+                    href="/projects/hard/stepper_motor_model/SteppingMotorsAndSimulationOfTheirOperation_IliasChatziefstathiou_NoLinks.pdf"
+                    target="_blank"
+                    >here</a
+                >.
+            </p>
+        </main>
+    </body>
 </html>

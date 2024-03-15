@@ -1,179 +1,152 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Floating knife</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Floating knife</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Floating knife
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This knife was designed to be used on a boat, kayak or any other place
-			where a knife is needed in the sea or in a lake.
-			It floats on fresh or salt water.
-			The knife also takes easily changeable blades.
-			<b>In this page there is all the necessary information and files for building it</b>.
-		</p>
-		<img src="/projects/hard/floating_knife/floatingKnifeOG.jpg" alt="floatingKnifeOG.jpg" title="Floating knife">
-		<h3>
-			Design idea
-		</h3>
-		<p>
-			The main body of the knife is designed to be printed whole.
-			This way an air tight cavity can easily be created on the inside by using the infill density setting while 3d printing.
-			This cavity is the main source of buoyancy for the knife.
-			After calculating the volume and weight of the knife handle,
-			the blade and rest of the components were designed so that the total weight was kept bellow
-			that of the knife's volume in water.
-		</p>
-		<p>
-			Other than the main body of the handle there are a few extra components to secure the blade in place,
-			to make the handle a bit more durable and some for pure aesthetic reasons.
-			These components are as seen in the image bellow:
-		</p>
-		<img src="/projects/hard/floating_knife/DesignTop.jpg" alt="DesignTop.jpg" title="Top of the knife exploded">
-		<img src="/projects/hard/floating_knife/DesignRods.jpg" alt="DesignRods.jpg" title="Wireframe view">
-		<ol>
-			<li>
-				Rods - metal rods to reinforce the handle
-			</li>
-			<li>
-				Pin - securing the blade
-			</li>
-			<li>
-				Removable pin - securing the blade
-			</li>
-			<li>
-				Magnet - keeps removable pin in place
-			</li>
-			<li>
-				Cap A - aesthetic
-			</li>
-			<li>
-				Cap B - aesthetic
-			</li>
-			<li>
-				Blade
-			</li>
-		</ol>
-		<p>
-			The arrows in the last image show the positions where the rods are inserted.
-		</p>
-		<h3>
-			Handle
-		</h3>
-		<p>
-			The handle and both cap parts are supposed to be 3d printed.
-			ABS plastic should be used for good durability.
-		</p>
-		<img src="/projects/hard/floating_knife/handle3D.jpg" alt="handle3D.jpg" title="Handle">
-		<img src="/projects/hard/floating_knife/caps3D.jpg" alt="caps3D.jpg" title="Caps">
-		<p>
-			The STL files for the three parts can be downloaded <a href="/projects/hard/floating_knife/FloatingKnifeSTLs.rar" download>here</a>.
-		</p>
-		<p>
-			The knife is to be printed with an orientation as shown in the next image:
-		</p>
-		<img src="/projects/hard/floating_knife/handlePrint.jpg" alt="handlePrint.jpg" title="Printing orientation for handle">
-		<p>
-			Print bed supports are enable and should only cover the back end of the handle.
-			The rest of the handle can be printed without supports.
-			layer height should be set at 0.2mm.
-			A brim can be used for better bed adhesion.
-		</p>
-		<h3>
-			Pins
-		</h3>
-		<p>
-			A fixed and a removable pin are used to secure the blade to the handle.
-			When the removable pin is detached, the blade can slide out of the handle and be replaced.
-		</p>
-		<img src="/projects/hard/floating_knife/pins.jpg" alt="pins.jpg" title="The two pins">
-		<p>
-			The pins can be cut from a 5mm steel rod.
-			Other materials can also be used for the fixed pin but the removable one must be magnetic
-			so that it can be held in place by the magnet.
-		</p>
-		<p class="secondary">
-			The removable pin was designed to take a small 3d printed handle but
-			the prototype was made without this plastic part.
-		</p>
-		<h3>
-			Blade
-		</h3>
-		<p>
-			Any 2mm thick sheet steel suitable for hardening and blade manufacturing can be used.
-		</p>
-		<img src="/projects/hard/floating_knife/blade3D.jpg" alt="blade3D.jpg" title="The blade">
-		<p>
-			The bottom portion of the blade should be cut with high precision.
-			A deviation from the geometry can result in the blade not fitting on the handle
-			or not fitting perfectly and having a bit of play.
-			Ideally, a CNC method should be used for cutting the blade for the knife out of the bulk material.
-			The most important geometry on the blade is the size and position of the two holes.
-		</p>
-		<img src="/projects/hard/floating_knife/bladeDRW.jpg" alt="bladeDRW.jpg" title="Blade drawing">
-		<p>
-			A blade drawing(PDF) and a DXF file can be downloaded <a href="/projects/hard/floating_knife/floating_knife_drawing_DXF.rar" download>here</a>.
-		</p>
-		<p>
-			After the blade is cut it should be heat treated and sharpened.
-		</p>
-		<h3>
-			Rods
-		</h3>
-		<p>
-			On the front and back of the handle there are two holes that run through the printed layers of the handle.
-			Two rods of some sturdy material should be glued in these holes to help prevent layer separation of the handle.
-			Steel rods were used in the prototype handle but other lighter materials could be a better option.
-			The rods should be somewhat flexible since they need to be bent in place.
-		</p>
-		<h3>
-			Magnet
-		</h3>
-		<p>
-			A small neodymium magnet is used in the design.
-			These magnets are widely available in the market in various sizes.
-		</p>
-		<img src="/projects/hard/floating_knife/magnets.jpg" alt="magnets.jpg" title="Various neodymium magnets">
-	</main>
-</body>
-
+        <main>
+            <h2>Floating knife</h2>
+            <h3>Summary</h3>
+            <p>
+                This knife was designed to be used on a boat, kayak or any other place where a knife is needed in the
+                sea or in a lake. It floats on fresh or salt water. The knife also takes easily changeable blades.
+                <b>In this page there is all the necessary information and files for building it</b>.
+            </p>
+            <img
+                src="/projects/hard/floating_knife/floatingKnifeOG.jpg"
+                alt="floatingKnifeOG.jpg"
+                title="Floating knife"
+            />
+            <h3>Design idea</h3>
+            <p>
+                The main body of the knife is designed to be printed whole. This way an air tight cavity can easily be
+                created on the inside by using the infill density setting while 3d printing. This cavity is the main
+                source of buoyancy for the knife. After calculating the volume and weight of the knife handle, the blade
+                and rest of the components were designed so that the total weight was kept bellow that of the knife's
+                volume in water.
+            </p>
+            <p>
+                Other than the main body of the handle there are a few extra components to secure the blade in place, to
+                make the handle a bit more durable and some for pure aesthetic reasons. These components are as seen in
+                the image bellow:
+            </p>
+            <img
+                src="/projects/hard/floating_knife/DesignTop.jpg"
+                alt="DesignTop.jpg"
+                title="Top of the knife exploded"
+            />
+            <img src="/projects/hard/floating_knife/DesignRods.jpg" alt="DesignRods.jpg" title="Wireframe view" />
+            <ol>
+                <li>Rods - metal rods to reinforce the handle</li>
+                <li>Pin - securing the blade</li>
+                <li>Removable pin - securing the blade</li>
+                <li>Magnet - keeps removable pin in place</li>
+                <li>Cap A - aesthetic</li>
+                <li>Cap B - aesthetic</li>
+                <li>Blade</li>
+            </ol>
+            <p>The arrows in the last image show the positions where the rods are inserted.</p>
+            <h3>Handle</h3>
+            <p>
+                The handle and both cap parts are supposed to be 3d printed. ABS plastic should be used for good
+                durability.
+            </p>
+            <img src="/projects/hard/floating_knife/handle3D.jpg" alt="handle3D.jpg" title="Handle" />
+            <img src="/projects/hard/floating_knife/caps3D.jpg" alt="caps3D.jpg" title="Caps" />
+            <p>
+                The STL files for the three parts can be downloaded
+                <a href="/projects/hard/floating_knife/FloatingKnifeSTLs.rar" download>here</a>.
+            </p>
+            <p>The knife is to be printed with an orientation as shown in the next image:</p>
+            <img
+                src="/projects/hard/floating_knife/handlePrint.jpg"
+                alt="handlePrint.jpg"
+                title="Printing orientation for handle"
+            />
+            <p>
+                Print bed supports are enable and should only cover the back end of the handle. The rest of the handle
+                can be printed without supports. layer height should be set at 0.2mm. A brim can be used for better bed
+                adhesion.
+            </p>
+            <h3>Pins</h3>
+            <p>
+                A fixed and a removable pin are used to secure the blade to the handle. When the removable pin is
+                detached, the blade can slide out of the handle and be replaced.
+            </p>
+            <img src="/projects/hard/floating_knife/pins.jpg" alt="pins.jpg" title="The two pins" />
+            <p>
+                The pins can be cut from a 5mm steel rod. Other materials can also be used for the fixed pin but the
+                removable one must be magnetic so that it can be held in place by the magnet.
+            </p>
+            <p class="secondary">
+                The removable pin was designed to take a small 3d printed handle but the prototype was made without this
+                plastic part.
+            </p>
+            <h3>Blade</h3>
+            <p>Any 2mm thick sheet steel suitable for hardening and blade manufacturing can be used.</p>
+            <img src="/projects/hard/floating_knife/blade3D.jpg" alt="blade3D.jpg" title="The blade" />
+            <p>
+                The bottom portion of the blade should be cut with high precision. A deviation from the geometry can
+                result in the blade not fitting on the handle or not fitting perfectly and having a bit of play.
+                Ideally, a CNC method should be used for cutting the blade for the knife out of the bulk material. The
+                most important geometry on the blade is the size and position of the two holes.
+            </p>
+            <img src="/projects/hard/floating_knife/bladeDRW.jpg" alt="bladeDRW.jpg" title="Blade drawing" />
+            <p>
+                A blade drawing(PDF) and a DXF file can be downloaded
+                <a href="/projects/hard/floating_knife/floating_knife_drawing_DXF.rar" download>here</a>.
+            </p>
+            <p>After the blade is cut it should be heat treated and sharpened.</p>
+            <h3>Rods</h3>
+            <p>
+                On the front and back of the handle there are two holes that run through the printed layers of the
+                handle. Two rods of some sturdy material should be glued in these holes to help prevent layer separation
+                of the handle. Steel rods were used in the prototype handle but other lighter materials could be a
+                better option. The rods should be somewhat flexible since they need to be bent in place.
+            </p>
+            <h3>Magnet</h3>
+            <p>
+                A small neodymium magnet is used in the design. These magnets are widely available in the market in
+                various sizes.
+            </p>
+            <img src="/projects/hard/floating_knife/magnets.jpg" alt="magnets.jpg" title="Various neodymium magnets" />
+        </main>
+    </body>
 </html>

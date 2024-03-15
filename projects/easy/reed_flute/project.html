@@ -1,148 +1,166 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reed flute</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reed flute</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom simple video player -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom simple video player -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Reed flute
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<img src="/projects/easy/reed_flute/reedFluteUncoveredAndCovered.jpg" alt="reedFluteUncoveredAndCovered.jpg" title="Reed flute">
-		<p>
-			This is a rough wind instrument of my own design.
-			It can be made on the fly and only requires a sharp knife.
-			It is made from a short piece of Arundo Donax, a bamboo-like reed.
-			Although it is very rough, it can teach a lot about the basic principles of wind instruments.
-			<b>In this page there is information about making tuning and playing the instrument</b>.
-		</p>
-		<h3>
-			How it sounds
-		</h3>
-		<p>
-			The sound of the instrument is close to that of a saxophone or a clarinet because
-			it utilizes a pulsating part of reed to produce sound.
-		</p>
-		<div class="video">
-			<video src="/projects/easy/reed_flute/reedFlutePlaying.mp4" loop title="Playing the reed flute"
-				ontimeupdate="animProg(this.parentNode)"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<h3>
-			How to play
-		</h3>
-		<p>
-			Air must be blown around the thin piece of reed on the mouthpiece.
-			The air passing by the reed makes it vibrate producing the sound - just like it happens with a saxophone.
-		</p>
-		<img src="/projects/easy/reed_flute/reedTopAir.jpg" alt="reedTopAir.jpg" title="Air path">
-		<p>
-			In order to push air around this thin piece of reed, the lips should form a tight seal around it
-			while at the same time keep distant from it so it can vibrate freely.
-		</p>
-		<img src="/projects/easy/reed_flute/reedTopLips.jpg" alt="reedTopLips.jpg" title="Lips positioning">
-		<p>
-			The positioning of the lips on the left side of the mouthpiece plays a crucial role.
-			Placing the lips either closer to or farther from the pulsating reed's base
-			can help in tuning the notes while playing or muffling the sound of the instrument.
-		</p>
-		<h3>
-			Arundo Donax reed
-		</h3>
-		<p>
-			This species of reed is native to the greater middle East (countries such as Egypt, Turkey, Iran ...).
-			The pieces used in this project were harvested near a river in Greece.
-			There is more information about Arundo Donax on its <a href="https://en.wikipedia.org/wiki/Arundo_donax" target="_blank">wikipedia page</a>.
-		</p>
-		<img src="/projects/easy/reed_flute/ArundoDonaxStems.jpg" alt="ArundoDonaxStems.jpg" title="Arundo Donax stems">
-		<h3>
-			Making the mouthpiece
-		</h3>
-		<p>
-			The instrument is made from a single section of reed that is closed on one end.
-			The mouthpiece is carved near the closed end of the reed.
-		</p>
-		<img src="/projects/easy/reed_flute/ArundoDonaxPiece.jpg" alt="ArundoDonaxPiece.jpg" title="Section of reed used">
-		<img src="/projects/easy/reed_flute/bulkPiece.jpg" alt="bulkPiece.jpg" title="Bulk piece">
-		<p>
-			To make the mouthpiece the reed must be made flat on one side.
-			This helps make the reed thinner and easier to bend and form the pulsating reed piece.
-			Using a knife making this flat top is easy but great care must be taken not to reach the inside of the reed.
-		</p>
-		<img src="/projects/easy/reed_flute/flatTop.jpg" alt="flatTop.jpg" title="Flattening the top">
-		<p>
-			After flattening the top of the reed, the pulsating piece can be cut.
-			A sharp knife must be inserted at 30°-45° to the reed's grain in the direction of the arrow on the next image.
-			The knife's edge should cut as far as the inner cavity of the reed and just a bit further.
-			To detach the reed piece from the rest of the body, the knife must be twisted, pushing the reed piece up.
-		</p>
-		<img src="/projects/easy/reed_flute/pulsatingReedCut.jpg" alt="pulsatingReedCut.jpg" title="Cutting the pulsating reed">
-		<img src="/projects/easy/reed_flute/pulsatingReedCutPushed.jpg" alt="pulsatingReedCutPushed.jpg" title="Pushing and detaching the pulsating reed">
-		<h3>
-			Making and tuning the holes
-		</h3>
-		<p>
-			The note the instrument outputs without holes (or when all holes are covered)
-			is tuned by altering the length of the instrument - by cutting portions from the end opposite to the mouthpiece.
-			The note played when all holes are covered is the most bass note the instrument can output.
-		</p>
-		<img src="/projects/easy/reed_flute/longShort.jpg" alt="longShort.jpg" title="Length of instrument tuning">
-		<p>
-			A hole on the body of the instrument rises the pitch of the played note when it is not covered.
-			The exposed hole rises the pitch more when it is closer to the mouthpiece and when it is larger.
-			The hole can be tuned by gradually making it larger after drilling it.
-			The positions of the holes should also be somewhat comfortable for fingering.
-		</p>
-		<img src="/projects/easy/reed_flute/holeRightLeft.jpg" alt="holeRightLeft.jpg" title="Hole position tuning">
-		<img src="/projects/easy/reed_flute/holeSmallBig.jpg" alt="holeSmallBig.jpg" title="Hole size tuning">
-		<p>
-			Any musical scale can be chosen for tuning the instrument.
-		</p>
-		<h3>
-			Making a mouthpiece cover
-		</h3>
-		<p>
-			A cover can be made to cover the mouthpiece.
-			For this flute a cover was sewed out of some jean fabric to fit around the mouthpiece of the instrument.
-		</p>
-	</main>
-</body>
-
+        <main>
+            <h2>Reed flute</h2>
+            <h3>Summary</h3>
+            <img
+                src="/projects/easy/reed_flute/reedFluteUncoveredAndCovered.jpg"
+                alt="reedFluteUncoveredAndCovered.jpg"
+                title="Reed flute"
+            />
+            <p>
+                This is a rough wind instrument of my own design. It can be made on the fly and only requires a sharp
+                knife. It is made from a short piece of Arundo Donax, a bamboo-like reed. Although it is very rough, it
+                can teach a lot about the basic principles of wind instruments.
+                <b>In this page there is information about making tuning and playing the instrument</b>.
+            </p>
+            <h3>How it sounds</h3>
+            <p>
+                The sound of the instrument is close to that of a saxophone or a clarinet because it utilizes a
+                pulsating part of reed to produce sound.
+            </p>
+            <div class="video">
+                <video
+                    src="/projects/easy/reed_flute/reedFlutePlaying.mp4"
+                    loop
+                    title="Playing the reed flute"
+                    ontimeupdate="animProg(this.parentNode)"
+                ></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <h3>How to play</h3>
+            <p>
+                Air must be blown around the thin piece of reed on the mouthpiece. The air passing by the reed makes it
+                vibrate producing the sound - just like it happens with a saxophone.
+            </p>
+            <img src="/projects/easy/reed_flute/reedTopAir.jpg" alt="reedTopAir.jpg" title="Air path" />
+            <p>
+                In order to push air around this thin piece of reed, the lips should form a tight seal around it while
+                at the same time keep distant from it so it can vibrate freely.
+            </p>
+            <img src="/projects/easy/reed_flute/reedTopLips.jpg" alt="reedTopLips.jpg" title="Lips positioning" />
+            <p>
+                The positioning of the lips on the left side of the mouthpiece plays a crucial role. Placing the lips
+                either closer to or farther from the pulsating reed's base can help in tuning the notes while playing or
+                muffling the sound of the instrument.
+            </p>
+            <h3>Arundo Donax reed</h3>
+            <p>
+                This species of reed is native to the greater middle East (countries such as Egypt, Turkey, Iran ...).
+                The pieces used in this project were harvested near a river in Greece. There is more information about
+                Arundo Donax on its
+                <a href="https://en.wikipedia.org/wiki/Arundo_donax" target="_blank">wikipedia page</a>.
+            </p>
+            <img
+                src="/projects/easy/reed_flute/ArundoDonaxStems.jpg"
+                alt="ArundoDonaxStems.jpg"
+                title="Arundo Donax stems"
+            />
+            <h3>Making the mouthpiece</h3>
+            <p>
+                The instrument is made from a single section of reed that is closed on one end. The mouthpiece is carved
+                near the closed end of the reed.
+            </p>
+            <img
+                src="/projects/easy/reed_flute/ArundoDonaxPiece.jpg"
+                alt="ArundoDonaxPiece.jpg"
+                title="Section of reed used"
+            />
+            <img src="/projects/easy/reed_flute/bulkPiece.jpg" alt="bulkPiece.jpg" title="Bulk piece" />
+            <p>
+                To make the mouthpiece the reed must be made flat on one side. This helps make the reed thinner and
+                easier to bend and form the pulsating reed piece. Using a knife making this flat top is easy but great
+                care must be taken not to reach the inside of the reed.
+            </p>
+            <img src="/projects/easy/reed_flute/flatTop.jpg" alt="flatTop.jpg" title="Flattening the top" />
+            <p>
+                After flattening the top of the reed, the pulsating piece can be cut. A sharp knife must be inserted at
+                30°-45° to the reed's grain in the direction of the arrow on the next image. The knife's edge should cut
+                as far as the inner cavity of the reed and just a bit further. To detach the reed piece from the rest of
+                the body, the knife must be twisted, pushing the reed piece up.
+            </p>
+            <img
+                src="/projects/easy/reed_flute/pulsatingReedCut.jpg"
+                alt="pulsatingReedCut.jpg"
+                title="Cutting the pulsating reed"
+            />
+            <img
+                src="/projects/easy/reed_flute/pulsatingReedCutPushed.jpg"
+                alt="pulsatingReedCutPushed.jpg"
+                title="Pushing and detaching the pulsating reed"
+            />
+            <h3>Making and tuning the holes</h3>
+            <p>
+                The note the instrument outputs without holes (or when all holes are covered) is tuned by altering the
+                length of the instrument - by cutting portions from the end opposite to the mouthpiece. The note played
+                when all holes are covered is the most bass note the instrument can output.
+            </p>
+            <img
+                src="/projects/easy/reed_flute/longShort.jpg"
+                alt="longShort.jpg"
+                title="Length of instrument tuning"
+            />
+            <p>
+                A hole on the body of the instrument rises the pitch of the played note when it is not covered. The
+                exposed hole rises the pitch more when it is closer to the mouthpiece and when it is larger. The hole
+                can be tuned by gradually making it larger after drilling it. The positions of the holes should also be
+                somewhat comfortable for fingering.
+            </p>
+            <img
+                src="/projects/easy/reed_flute/holeRightLeft.jpg"
+                alt="holeRightLeft.jpg"
+                title="Hole position tuning"
+            />
+            <img src="/projects/easy/reed_flute/holeSmallBig.jpg" alt="holeSmallBig.jpg" title="Hole size tuning" />
+            <p>Any musical scale can be chosen for tuning the instrument.</p>
+            <h3>Making a mouthpiece cover</h3>
+            <p>
+                A cover can be made to cover the mouthpiece. For this flute a cover was sewed out of some jean fabric to
+                fit around the mouthpiece of the instrument.
+            </p>
+        </main>
+    </body>
 </html>

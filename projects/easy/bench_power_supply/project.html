@@ -1,207 +1,172 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bench PSU</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bench PSU</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Bench PSU
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<img src="/projects/easy/bench_power_supply/DP20V2A.jpg" alt="DP20V2A.jpg" title="DP20V2A unit">
-		<p>
-			A bench PSU is a great tool for anyone who wants to start tinkering with electronics.
-			Unfortunately, their price can easily reach north of 100€.
-			This 40W PSU costs less than 20€ delivered!
-			It is usually listed online as <b>DP20V2A</b>.
-			It might not be as powerful as most bench PSUs but it can be a great tool for starters.
-			<b>In this page there are specifications for the unit, a section on building a case for it and a performance test</b>.
-		</p>
-		<h3>
-			Basic specifications
-		</h3>
-		<p>
-			As stated by various sellers, the specifications of this PSU are:
-		</p>
-		<ul>
-			<li>
-				Maximum output voltage: 20V
-			</li>
-			<li>
-				Voltage selection resolution: 0.01V
-			</li>
-			<li>
-				Output voltage accuracy: +/- (0.5% + 1 digit)
-			</li>
-			<li>
-				Maximum output current: 2A
-			</li>
-			<li>
-				Current selection resolution: 0.01A
-			</li>
-			<li>
-				Output current accuracy: +/- (0.5% + 2 digits)
-			</li>
-			<li>
-				Maximum output wattage: 40W
-			</li>
-			<li>
-				Input voltage: 4.5 - 23V DC
-			</li>
-		</ul>
-		<p>
-			It should be noted that the PSU requires a DC input to operate.
-			23V is its absolute maximum rating and should not be exceeded.
-			The PSU works in step-down mode and can supply voltages up to 3V bellow its input voltage.
-			If 23V are applied to its input it will be able to output up to 20V at its output.
-			If in stead a standard 12V wall adapter is used to supply the PSU, it will only be able to output up to 9V.
-		</p>
-		<p>
-			When specifying accuracy, "+x digits" means least significant digits of the display.
-			In the case of voltage accuracy +1 digit would be 0.01V.
-			As for the current accuracy, +2 digits corresponds to a 0.1A error.
-			The percentage errors should be added to these constant values to estimate the total error for these outputs.
-		</p>
-		<p>
-			These specifications are not great but acceptable when factoring in the price of this unit.
-		</p>
-		<h3>
-			Casing
-		</h3>
-		<p>
-			The casing that was used for this unit was designed in Fusion360 and was 3D printed.
-			Some extra components such as banana plugs and a switch were used for the casing.
-		</p>
-		<img src="/projects/easy/bench_power_supply/fusionCase.jpg" alt="fusionCase.jpg" title="3D printed case">
-		<img src="/projects/easy/bench_power_supply/fusionCase2.jpg" alt="fusionCase2.jpg" title="Case features">
-		<ol>
-			<li>
-				Holes for venting
-			</li>
-			<li>
-				Holes for banana plug poles
-			</li>
-			<li>
-				The two halves of the case are tied together with one small zip tie in this spot
-			</li>
-			<li>
-				Hole for installing a female DC plug
-			</li>
-			<li>
-				Square cutout for an on-off switch
-			</li>
-		</ol>
-		<p>
-			The STL files for this casing can be downloaded <a href="" download>here</a>.
-			They should be printed oriented as shown in the next image:
-		</p>
-		<img src="/projects/easy/bench_power_supply/printbedOrientation.jpg" alt="printbedOrientation.jpg" title="Print bed orientation">
-		<p>
-			Alternatively, there are countless other designs available for 3D printing on
-			<a href="https://www.thingiverse.com/search?q=DP20V2A&type=things&sort=relevant" target="_blank">thingiverse</a>.
-		</p>
-		<p>
-			Other than 3D printing, a case could be made out of any small box.
-		</p>
-		<h3>
-			Supplying the PSU
-		</h3>
-		<p>
-			As stated above, the PSU accepts a DC input of maximum 23V.
-			The higher the input the more range its output will have in voltage since the PSU operates in step-down mode.
-			Ideally a 23V - 2A supply should be used.
-			If such a supply is not available, any outlet adapter can be used.
-			When using a random adapter to source the PSU it is important to note that:
-		</p>
-		<ol>
-			<li>
-				The output of the PSU will be capped at 3V lower than the supply voltage
-			</li>
-			<li>
-				The adapter will most probably be rated lower than 40W and should not be used beyond its limits
-			</li>
-		</ol>
-		<p>
-			A 12V/1A wall adapter could be used to supply the PSU but if the PSU tries to pull more than 12W of power,
-			the adapter could be damaged.
-		</p>
-		<h3>
-			Performance test
-		</h3>
-		<p>
-			In this section the PSU is supplied with power from an outlet DC adapter and
-			The PSU supplies 5V on a load of 10Ω.
-			The output of the PSU is measured in constant voltage and constant current operation
-			with an oscilloscope.
-		</p>
-		<p>
-			The adapter used is a chinese 12V / 3A AC/DC adapter.
-			Adapter model: SW-K0120300-36.
-		</p>
-		<img src="/projects/easy/bench_power_supply/adapter.jpg" alt="adapter.jpg" title="Adapter used">
-		<p>
-			This is the output of the adapter when there is no load:
-		</p>
-		<img src="/projects/easy/bench_power_supply/adapterV.jpg" alt="adapterV.jpg" title="Adapter output voltage - no load">
-		<p>
-			This is the adapter's output on a 10Ω load:
-		</p>
-		<img src="/projects/easy/bench_power_supply/adapterVloaded.jpg" alt="adapterVloaded.jpg" title="Adapter output voltage under a 10Ω load">
-		<p>
-			The oscilloscope used is a HANTEK model Hantek6022BL.
-		</p>
-		<img src="/projects/easy/bench_power_supply/hantekOsc.jpg" alt="hantekOsc.jpg" title="Oscilloscope used">
-		<p>
-			The testing setup is as shown in the next image.
-		</p>
-		<img src="/projects/easy/bench_power_supply/testingSetup.jpg" alt="testingSetup.jpg" title="Testing setup">
-		<p>
-			This is the PSU's output operating at constant voltage mode under a 10Ω load:
-		</p>
-		<img src="/projects/easy/bench_power_supply/CV.jpg" alt="CV.jpg" title="PSU operation">
-		<img src="/projects/easy/bench_power_supply/PSUcvLoaded.jpg" alt="PSUcvLoaded.jpg" title="PSU output on CV mode, loaded">
-		<p>
-			This is the PSU's output operating at constant current mode under a 10Ω load:
-		</p>
-		<img src="/projects/easy/bench_power_supply/CC.jpg" alt="CC.jpg" title="PSU operation">
-		<img src="/projects/easy/bench_power_supply/PSUccLoaded.jpg" alt="PSUccLoaded.jpg" title="PSU output on CC mode, loaded">
-	</main>
-</body>
-
+        <main>
+            <h2>Bench PSU</h2>
+            <h3>Summary</h3>
+            <img src="/projects/easy/bench_power_supply/DP20V2A.jpg" alt="DP20V2A.jpg" title="DP20V2A unit" />
+            <p>
+                A bench PSU is a great tool for anyone who wants to start tinkering with electronics. Unfortunately,
+                their price can easily reach north of 100€. This 40W PSU costs less than 20€ delivered! It is usually
+                listed online as <b>DP20V2A</b>. It might not be as powerful as most bench PSUs but it can be a great
+                tool for starters.
+                <b
+                    >In this page there are specifications for the unit, a section on building a case for it and a
+                    performance test</b
+                >.
+            </p>
+            <h3>Basic specifications</h3>
+            <p>As stated by various sellers, the specifications of this PSU are:</p>
+            <ul>
+                <li>Maximum output voltage: 20V</li>
+                <li>Voltage selection resolution: 0.01V</li>
+                <li>Output voltage accuracy: +/- (0.5% + 1 digit)</li>
+                <li>Maximum output current: 2A</li>
+                <li>Current selection resolution: 0.01A</li>
+                <li>Output current accuracy: +/- (0.5% + 2 digits)</li>
+                <li>Maximum output wattage: 40W</li>
+                <li>Input voltage: 4.5 - 23V DC</li>
+            </ul>
+            <p>
+                It should be noted that the PSU requires a DC input to operate. 23V is its absolute maximum rating and
+                should not be exceeded. The PSU works in step-down mode and can supply voltages up to 3V bellow its
+                input voltage. If 23V are applied to its input it will be able to output up to 20V at its output. If in
+                stead a standard 12V wall adapter is used to supply the PSU, it will only be able to output up to 9V.
+            </p>
+            <p>
+                When specifying accuracy, "+x digits" means least significant digits of the display. In the case of
+                voltage accuracy +1 digit would be 0.01V. As for the current accuracy, +2 digits corresponds to a 0.1A
+                error. The percentage errors should be added to these constant values to estimate the total error for
+                these outputs.
+            </p>
+            <p>These specifications are not great but acceptable when factoring in the price of this unit.</p>
+            <h3>Casing</h3>
+            <p>
+                The casing that was used for this unit was designed in Fusion360 and was 3D printed. Some extra
+                components such as banana plugs and a switch were used for the casing.
+            </p>
+            <img src="/projects/easy/bench_power_supply/fusionCase.jpg" alt="fusionCase.jpg" title="3D printed case" />
+            <img src="/projects/easy/bench_power_supply/fusionCase2.jpg" alt="fusionCase2.jpg" title="Case features" />
+            <ol>
+                <li>Holes for venting</li>
+                <li>Holes for banana plug poles</li>
+                <li>The two halves of the case are tied together with one small zip tie in this spot</li>
+                <li>Hole for installing a female DC plug</li>
+                <li>Square cutout for an on-off switch</li>
+            </ol>
+            <p>
+                The STL files for this casing can be downloaded <a href="" download>here</a>. They should be printed
+                oriented as shown in the next image:
+            </p>
+            <img
+                src="/projects/easy/bench_power_supply/printbedOrientation.jpg"
+                alt="printbedOrientation.jpg"
+                title="Print bed orientation"
+            />
+            <p>
+                Alternatively, there are countless other designs available for 3D printing on
+                <a href="https://www.thingiverse.com/search?q=DP20V2A&type=things&sort=relevant" target="_blank"
+                    >thingiverse</a
+                >.
+            </p>
+            <p>Other than 3D printing, a case could be made out of any small box.</p>
+            <h3>Supplying the PSU</h3>
+            <p>
+                As stated above, the PSU accepts a DC input of maximum 23V. The higher the input the more range its
+                output will have in voltage since the PSU operates in step-down mode. Ideally a 23V - 2A supply should
+                be used. If such a supply is not available, any outlet adapter can be used. When using a random adapter
+                to source the PSU it is important to note that:
+            </p>
+            <ol>
+                <li>The output of the PSU will be capped at 3V lower than the supply voltage</li>
+                <li>The adapter will most probably be rated lower than 40W and should not be used beyond its limits</li>
+            </ol>
+            <p>
+                A 12V/1A wall adapter could be used to supply the PSU but if the PSU tries to pull more than 12W of
+                power, the adapter could be damaged.
+            </p>
+            <h3>Performance test</h3>
+            <p>
+                In this section the PSU is supplied with power from an outlet DC adapter and The PSU supplies 5V on a
+                load of 10Ω. The output of the PSU is measured in constant voltage and constant current operation with
+                an oscilloscope.
+            </p>
+            <p>The adapter used is a chinese 12V / 3A AC/DC adapter. Adapter model: SW-K0120300-36.</p>
+            <img src="/projects/easy/bench_power_supply/adapter.jpg" alt="adapter.jpg" title="Adapter used" />
+            <p>This is the output of the adapter when there is no load:</p>
+            <img
+                src="/projects/easy/bench_power_supply/adapterV.jpg"
+                alt="adapterV.jpg"
+                title="Adapter output voltage - no load"
+            />
+            <p>This is the adapter's output on a 10Ω load:</p>
+            <img
+                src="/projects/easy/bench_power_supply/adapterVloaded.jpg"
+                alt="adapterVloaded.jpg"
+                title="Adapter output voltage under a 10Ω load"
+            />
+            <p>The oscilloscope used is a HANTEK model Hantek6022BL.</p>
+            <img src="/projects/easy/bench_power_supply/hantekOsc.jpg" alt="hantekOsc.jpg" title="Oscilloscope used" />
+            <p>The testing setup is as shown in the next image.</p>
+            <img
+                src="/projects/easy/bench_power_supply/testingSetup.jpg"
+                alt="testingSetup.jpg"
+                title="Testing setup"
+            />
+            <p>This is the PSU's output operating at constant voltage mode under a 10Ω load:</p>
+            <img src="/projects/easy/bench_power_supply/CV.jpg" alt="CV.jpg" title="PSU operation" />
+            <img
+                src="/projects/easy/bench_power_supply/PSUcvLoaded.jpg"
+                alt="PSUcvLoaded.jpg"
+                title="PSU output on CV mode, loaded"
+            />
+            <p>This is the PSU's output operating at constant current mode under a 10Ω load:</p>
+            <img src="/projects/easy/bench_power_supply/CC.jpg" alt="CC.jpg" title="PSU operation" />
+            <img
+                src="/projects/easy/bench_power_supply/PSUccLoaded.jpg"
+                alt="PSUccLoaded.jpg"
+                title="PSU output on CC mode, loaded"
+            />
+        </main>
+    </body>
 </html>

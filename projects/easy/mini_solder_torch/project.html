@@ -1,120 +1,122 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mini solder torch</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mini solder torch</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> 	<!-- External Functions: Custom simple video player -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom simple video player -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Mini solder torch
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This is a small soldering iron that fits in a pocket.
-			<b>In this page there is information about how it was made and how well it works</b>.
-		</p>
-		<h3>
-			How it is made
-		</h3>
-		<p>
-			This mini soldering iron is nothing more than a soldering tip designed for torches attached to a small barbecue lighter.
-		</p>
-		<img src="/projects/easy/mini_solder_torch/lighter.jpg" alt="lighter.jpg" title="Lighter used">
-		<img src="/projects/easy/mini_solder_torch/solder_tip.jpg" alt="solder_tip.jpg" title="Soldering tip and heat sink">
-		<p>
-			The tip is originally made for larger torch units but this mini butane lighter has
-			enough power to drive it for a quick fix.
-			The flame of the lighter passes through the heat sink, transferring its heat to it.
-			Plain wire was used to attach the tip to the mini torch.
-		</p>
-		<img src="/projects/easy/mini_solder_torch/mini_torch_assembled.jpg" alt="mini_torch_assembled.jpg" title="Assembled soldering torch">
-		<p>
-			The wire is woven around the tip in such a way that allows it to be attached or detached easily.
-		</p>
-		<h3>
-			Performance
-		</h3>
-		<p>
-			There is no automated temperature regulation.
-			The only means of regulating the temperature on the tip of the iron are:
-		</p>
-		<ol>
-			<li>
-				The valve on the lighter that makes the flame smaller or bigger
-			</li>
-			<li>
-				Putting out the flame and re-lighting it
-			</li>
-		</ol>
-		<p>
-			It is not easy to overheat the tip though - the wattage on the tip seems to be low.
-			After all this tip is designed for larger torches.
-		</p>
-		<h3>
-			Power test
-		</h3>
-		<p>
-			The net heat transferred to the tip is measured by monitoring the tip's temperature.
-			A K-type thermocouple is attached to the tip with some thermal grease.
-			The thermal grease is rated for 300°C.
-		</p>
-		<img src="/projects/easy/mini_solder_torch/HY510thermalGrease.jpg" alt="HY510thermalGrease.jpg" title="HY510 thermal grease">
-		<p>
-			The torch is lit on a medium flame and the time interval for ascending 100°C is measured.
-		</p>
-		<div class="video">
-			<video src="/projects/easy/mini_solder_torch/powerTest.mp4" loop title="Testing the soldering tip" ontimeupdate ="animProg(this.parentNode)"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<p>
-			It takes 25.5 seconds for the temperature to rise from 29°C to 129°C.
-			The soldering tip is quite small made of steel and weights 1.8 grams.
-			Its heat capacity can be estimated by multiplying by the material's heat capacity.
-			Steel has a heat capacity of about 450 Joules per Kg per °C, so the tip has a heat capacity of 450 * 0.0018 = 0.81 Joules per °C.
-			When its temperature ascends 100°C in 25.5 seconds, it absorbed 81 Joules.
-			Therefore, the wattage of the heat transfer on the tip is 81 Joules / 25.5 seconds = 3.18 Watts.
-		</p>
-		<p>
-			This power is very low for a soldering iron but
-			it is still able to reach a proper soldering temperature and help make a few fixes.
-		</p>
-	</main>
-</body>
-
+        <main>
+            <h2>Mini solder torch</h2>
+            <h3>Summary</h3>
+            <p>
+                This is a small soldering iron that fits in a pocket.
+                <b>In this page there is information about how it was made and how well it works</b>.
+            </p>
+            <h3>How it is made</h3>
+            <p>
+                This mini soldering iron is nothing more than a soldering tip designed for torches attached to a small
+                barbecue lighter.
+            </p>
+            <img src="/projects/easy/mini_solder_torch/lighter.jpg" alt="lighter.jpg" title="Lighter used" />
+            <img
+                src="/projects/easy/mini_solder_torch/solder_tip.jpg"
+                alt="solder_tip.jpg"
+                title="Soldering tip and heat sink"
+            />
+            <p>
+                The tip is originally made for larger torch units but this mini butane lighter has enough power to drive
+                it for a quick fix. The flame of the lighter passes through the heat sink, transferring its heat to it.
+                Plain wire was used to attach the tip to the mini torch.
+            </p>
+            <img
+                src="/projects/easy/mini_solder_torch/mini_torch_assembled.jpg"
+                alt="mini_torch_assembled.jpg"
+                title="Assembled soldering torch"
+            />
+            <p>The wire is woven around the tip in such a way that allows it to be attached or detached easily.</p>
+            <h3>Performance</h3>
+            <p>
+                There is no automated temperature regulation. The only means of regulating the temperature on the tip of
+                the iron are:
+            </p>
+            <ol>
+                <li>The valve on the lighter that makes the flame smaller or bigger</li>
+                <li>Putting out the flame and re-lighting it</li>
+            </ol>
+            <p>
+                It is not easy to overheat the tip though - the wattage on the tip seems to be low. After all this tip
+                is designed for larger torches.
+            </p>
+            <h3>Power test</h3>
+            <p>
+                The net heat transferred to the tip is measured by monitoring the tip's temperature. A K-type
+                thermocouple is attached to the tip with some thermal grease. The thermal grease is rated for 300°C.
+            </p>
+            <img
+                src="/projects/easy/mini_solder_torch/HY510thermalGrease.jpg"
+                alt="HY510thermalGrease.jpg"
+                title="HY510 thermal grease"
+            />
+            <p>The torch is lit on a medium flame and the time interval for ascending 100°C is measured.</p>
+            <div class="video">
+                <video
+                    src="/projects/easy/mini_solder_torch/powerTest.mp4"
+                    loop
+                    title="Testing the soldering tip"
+                    ontimeupdate="animProg(this.parentNode)"
+                ></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <p>
+                It takes 25.5 seconds for the temperature to rise from 29°C to 129°C. The soldering tip is quite small
+                made of steel and weights 1.8 grams. Its heat capacity can be estimated by multiplying by the material's
+                heat capacity. Steel has a heat capacity of about 450 Joules per Kg per °C, so the tip has a heat
+                capacity of 450 * 0.0018 = 0.81 Joules per °C. When its temperature ascends 100°C in 25.5 seconds, it
+                absorbed 81 Joules. Therefore, the wattage of the heat transfer on the tip is 81 Joules / 25.5 seconds =
+                3.18 Watts.
+            </p>
+            <p>
+                This power is very low for a soldering iron but it is still able to reach a proper soldering temperature
+                and help make a few fixes.
+            </p>
+        </main>
+    </body>
 </html>

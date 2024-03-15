@@ -1,222 +1,217 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>This site</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com"><!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>This site</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
-	
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> 	<!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<style>
-		.PS2P
-		{
-			font-family: "Press Start 2P", sans-serif;
-			font-size: 12px;
-		}
-	</style>
-</head>
-	
-<body>
-	
-	<thin-header name="Projects" link="/projects.html"></thin-header>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<div class="navigator"></div>
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<main>
-		<h2>
-			This site
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<!-- <p>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+
+        <style>
+            .PS2P {
+                font-family: "Press Start 2P", sans-serif;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
+
+        <div class="navigator"></div>
+
+        <main>
+            <h2>This site</h2>
+            <h3>Summary</h3>
+            <!-- <p>
 			I was inspired by mitxela(<a href="https://mitxela.com/"  target="_blank">mitxela.com</a>) and
 			bigclive(<a href="http://www.bigclive.com/" target="_blank">bigclive.com</a>) about creating my own website.
 			As far as I know, they both created their sites themselves.
 			They are a couple of brilliant individuals!
 		</p> -->
-		<p>
-			Anyone can create a website - the only tool strictly required is a text editor.
-			If someone is willing to put in the effort, the knowledge is very well documented out there.
-			<b>In this page I will guide you through the sources I used to learn how to build this site and all the programs-tools I used.</b>
-			Keep in mind I had no knowledge on web development and it took me about 2 months to learn and develop this website.
-		</p>
-		<h3>
-			Website anatomy
-		</h3>
-		<p>
-			A website like this one is made from three languages: <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>.
-			<b>HTML</b> is used to specify containers for content such as text, photos, links etc. and write text in them.
-			<b>CSS</b> is then used on top of the HTML code to specify styling such as fonts, colors, borders and positioning for each element.
-			Last but not least, <b>JavaScript</b> helps make the page more interactive -
-			through JavaScript any page element can be altered based on any user input.
-			A beautiful, well working website can be written without ever having to use JavaScript.
-		</p>
-		<p class="secondary">
-			Having previous knowledge with any other programming language will help immensely in understanding JavaScript.
-			HTML and CSS are not exactly programming languages and are easier to grasp.
-		</p>
-		<h3>
-			Hello world
-		</h3>
-		<p>
-			Writing a "Hello world!" site is as easy as creating a .txt file,
-			renaming the file to "(use any name here).html",
-			opening the file with a text editor, writing "Hello world!" and then saving it.
-			Here is what such a file looks like when opened with a web browser --&gt; <a href="/projects/normal/this_site/helloWorld.html" target="_blank">helloWorld.html</a>.
-		</p>
-		<p>
-			Now if instead of writing just "Hello world!" the file reads "&lt;h1&gt;Hello world!&lt;/h1&gt;"
-			the resulting website would look like this --&gt; <a href="/projects/normal/this_site/helloWorld2.html" target="_blank">helloWorld2.html</a>.
-			The HTML markup code indicates that the text is an h1 headline so the font has changed and is now bigger in size.
-		</p>
-		<p>
-			Changing the color can be done by using CSS.
-			This time there are two lines of code in the HTML text file.
-			On the first line a CSS command indicates that all h1 headlines should be blue: "&lt;style&gt;h1{color: blue;}&lt;/style&gt;".
-			The second line of code is the same line that was used before: "&lt;h1&gt;Hello world!&lt;/h1&gt;".
-			Opening the file in a web browser now results in --&gt; <a href="/projects/normal/this_site/helloWorld3.html" target="_blank">helloWorld3.html</a>.
-		</p>
-		<h3>
-			Source for learning
-		</h3>
-		<p>
-			A good place to start is a website called w3schools (<a href="https://www.w3schools.com/" target="_blank">w3schools.com</a>).
-			Their tutorials are packed with important knowledge for getting started and are well written.
-			There are also exercises and an online platform for messing around with code.
-			I suggest starting with their HTML tutorials and then heading over to CSS.
-			Learning Javascript can be omitted unless one plans to
-			implement a custom audio player or a sortable grid of content or any other interactive element.
-		<h3>
-			Text editor
-		</h3>
-		<p>
-			A text editor is necessary for typing code.
-			Although an entire site could be written using Windows' notepad, it is not the best choice.
-			Today there are smarter text editors designed to make coding faster and more efficient.
-			Modern text editors will help by marking your code, autofill code, guess what you want to write, auto format your code and more.
-			One of the most famous editors today is <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a>, it is available for free and is easy to use.
-			This text editor has a big community behind it and a number of extensions available to make programming easier.
-			Here is a list of extensions I use with VS Code for writing HTML, CSS and JavaScript:
-		</p>
-		<ol type="1">
-			<li>HTML CSS support - Code suggestions/autofill</li>
-			<li>Auto Rename Tag - Helps rename html start and end tags simultaneously</li>
-			<li>Bracket Pair Colorizer 2 - Colorizes bracket pairs (duh!)</li>
-			<li>Prettier - Code formatter</li>
-			<li>Live Server - Lets you open the page you are editing and have it change live, every time you change the code (very helpful)</li>
-			<li>Indent rainbow - Helps visualize the code indents</li>
-			<li>Code Spell Checker - Checks spelling for the English language</li>
-		</ol>
-		<h3>
-			Versioning
-		</h3>
-		<p>
-			When taking over a large programming project such as building a website,
-			using a versioning program is highly recommended.
-			A versioning program helps keep track of all the changes in the code and why they are made.
-			It helps keep a very analytical history of a project's progress.
-			It also gives the advantage of being able to rollback to previous versions
-			which is invaluable if someone ever regrets changes that have been made.
-		</p>
-		<p>
-			<a href="https://git-scm.com/" target="_blank">Git</a> is the most used versioning program nowadays (Apr 2021).
-			By default it is terminal based - it has no graphical user interface and is operated via a terminal.
-			There are also programs such as <a href="https://www.gitkraken.com/" target="_blank">GitKraken</a>
-			designed to offer a graphical user interface for Git.
-		</p>
-		<h3>
-			Inspecting
-		</h3>
-		<p>
-			A webpage's code and files can be inspected by right clicking on it and selecting "inspect".
-			In the inspect menu there is the page's HTML,
-			the active CSS styling rules on each page element
-			and any JavaScript program that runs on the page.
-			This is very useful because it lets you:
-		</p>
-		<ol type="1">
-			<li>Inspect your own page to better understand how your code behaves</li>
-			<li>Inspect your favorite web page to get inspired by how it is coded and have a good example in mind</li>
-			<li>Use the JavaScript Debugger to understand, tune and correct your JavaScript code</li>
-		</ol>
-		<p>
-			Try right clicking on the first paragraph of this site and then press "inspect".
-			This is what should appear:
-		</p>
-		<img src="/projects/normal/this_site/inspect.png" alt="inspect.png" title="Inspect Element">
-		<p>
-			On the left side there is the site's HTML and the paragraph you selected is highlighted.
-			Under the Styles tab all the CSS rules that affect the selected paragraph are visible (font, color etc.).
-			On the Sources tab, all the files that make up the page are available and that includes the JavaScript files:
-		</p>
-		<img src="/projects/normal/this_site/inspectJS.png" alt="inspect.png" title="Inspecting the JavaScript">
-		<p>
-			A debugger is available after clicking onto a JavaScript file.
-			It lets the user set break points, watch all available variables and step through the code.
-		</p>
-		<h3>
-			Hosting
-		</h3>
-		<p>
-			After writing a website all that remains is making it available on the internet.
-			A website can be hosted from a personal computer and network or
-			it can be hosted using a or paid hosting provider.
-			Some hosting provider also offer free plan options.
-			For instance, <a href="https://www.netlify.com/" target="_blank">netlify</a> offers a great free hosting plan.
-			The limitations of hosting on personal networks are the network's speed and the
-			fact that the personal computer must be busy all the time.
-			Other than that, hosting from a PC is a good way to get some first impressions and it is free and easy to setup.
-			Hosting alone is enough to make a website available on the internet.
-			Anyone will be able to visit the website by entering the server's public IP address in a browser's URL bar.
-		</p>
-		<h3>
-			Domain name
-		</h3>
-		<p>
-			Associating a name to the server's IP address is a good idea because a name is easier to remember and share with people.
-			After doing so, anyone who types the domain name in the URL bar, will be redirected to the chosen server's public IP.
-			Some providers such as <a href="https://www.noip.com/" target="_blank">noip.com</a> offer basic domain names for free.
-			Alternatively, a more formal name with a .com or .org extension can be purchased from a provider such as
-			<a href="https://www.godaddy.com/domains" target="_blank">GoDaddy</a> or
-			<a href="https://www.namecheap.com/" target="_blank">Namecheap</a>.
-		</p>
-		<h3>
-			In conclusion
-		</h3>
-		<p>
-			Learning how to develop a website is not hard!
-			Just head over to <a href="https://www.w3schools.com/" target="_blank">w3schools.com</a>
-			and read their tutorials on HTML, CSS and JavaScript.
-			Use <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a> as a text editor
-			and consider using a versioning program such as <a href="https://git-scm.com/" target="_blank">Git</a>
-			to keep track of your progress.
-			"Right click --&gt; Inspect" is a great tool for understanding how the code translates to site elements.
-		</p>
-	</main>
-	
-	<script>
-	</script>
-</body>
+            <p>
+                Anyone can create a website - the only tool strictly required is a text editor. If someone is willing to
+                put in the effort, the knowledge is very well documented out there.
+                <b
+                    >In this page I will guide you through the sources I used to learn how to build this site and all
+                    the programs-tools I used.</b
+                >
+                Keep in mind I had no knowledge on web development and it took me about 2 months to learn and develop
+                this website.
+            </p>
+            <h3>Website anatomy</h3>
+            <p>
+                A website like this one is made from three languages: <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>.
+                <b>HTML</b> is used to specify containers for content such as text, photos, links etc. and write text in
+                them. <b>CSS</b> is then used on top of the HTML code to specify styling such as fonts, colors, borders
+                and positioning for each element. Last but not least, <b>JavaScript</b> helps make the page more
+                interactive - through JavaScript any page element can be altered based on any user input. A beautiful,
+                well working website can be written without ever having to use JavaScript.
+            </p>
+            <p class="secondary">
+                Having previous knowledge with any other programming language will help immensely in understanding
+                JavaScript. HTML and CSS are not exactly programming languages and are easier to grasp.
+            </p>
+            <h3>Hello world</h3>
+            <p>
+                Writing a "Hello world!" site is as easy as creating a .txt file, renaming the file to "(use any name
+                here).html", opening the file with a text editor, writing "Hello world!" and then saving it. Here is
+                what such a file looks like when opened with a web browser --&gt;
+                <a href="/projects/normal/this_site/helloWorld.html" target="_blank">helloWorld.html</a>.
+            </p>
+            <p>
+                Now if instead of writing just "Hello world!" the file reads "&lt;h1&gt;Hello world!&lt;/h1&gt;" the
+                resulting website would look like this --&gt;
+                <a href="/projects/normal/this_site/helloWorld2.html" target="_blank">helloWorld2.html</a>. The HTML
+                markup code indicates that the text is an h1 headline so the font has changed and is now bigger in size.
+            </p>
+            <p>
+                Changing the color can be done by using CSS. This time there are two lines of code in the HTML text
+                file. On the first line a CSS command indicates that all h1 headlines should be blue:
+                "&lt;style&gt;h1{color: blue;}&lt;/style&gt;". The second line of code is the same line that was used
+                before: "&lt;h1&gt;Hello world!&lt;/h1&gt;". Opening the file in a web browser now results in --&gt;
+                <a href="/projects/normal/this_site/helloWorld3.html" target="_blank">helloWorld3.html</a>.
+            </p>
+            <h3>Source for learning</h3>
+            <p>
+                A good place to start is a website called w3schools (<a
+                    href="https://www.w3schools.com/"
+                    target="_blank"
+                    >w3schools.com</a
+                >). Their tutorials are packed with important knowledge for getting started and are well written. There
+                are also exercises and an online platform for messing around with code. I suggest starting with their
+                HTML tutorials and then heading over to CSS. Learning Javascript can be omitted unless one plans to
+                implement a custom audio player or a sortable grid of content or any other interactive element.
+            </p>
+
+            <h3>Text editor</h3>
+            <p>
+                A text editor is necessary for typing code. Although an entire site could be written using Windows'
+                notepad, it is not the best choice. Today there are smarter text editors designed to make coding faster
+                and more efficient. Modern text editors will help by marking your code, autofill code, guess what you
+                want to write, auto format your code and more. One of the most famous editors today is
+                <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a>, it is available for
+                free and is easy to use. This text editor has a big community behind it and a number of extensions
+                available to make programming easier. Here is a list of extensions I use with VS Code for writing HTML,
+                CSS and JavaScript:
+            </p>
+            <ol type="1">
+                <li>HTML CSS support - Code suggestions/autofill</li>
+                <li>Auto Rename Tag - Helps rename html start and end tags simultaneously</li>
+                <li>Bracket Pair Colorizer 2 - Colorizes bracket pairs (duh!)</li>
+                <li>Prettier - Code formatter</li>
+                <li>
+                    Live Server - Lets you open the page you are editing and have it change live, every time you change
+                    the code (very helpful)
+                </li>
+                <li>Indent rainbow - Helps visualize the code indents</li>
+                <li>Code Spell Checker - Checks spelling for the English language</li>
+            </ol>
+            <h3>Versioning</h3>
+            <p>
+                When taking over a large programming project such as building a website, using a versioning program is
+                highly recommended. A versioning program helps keep track of all the changes in the code and why they
+                are made. It helps keep a very analytical history of a project's progress. It also gives the advantage
+                of being able to rollback to previous versions which is invaluable if someone ever regrets changes that
+                have been made.
+            </p>
+            <p>
+                <a href="https://git-scm.com/" target="_blank">Git</a> is the most used versioning program nowadays (Apr
+                2021). By default it is terminal based - it has no graphical user interface and is operated via a
+                terminal. There are also programs such as
+                <a href="https://www.gitkraken.com/" target="_blank">GitKraken</a>
+                designed to offer a graphical user interface for Git.
+            </p>
+            <h3>Inspecting</h3>
+            <p>
+                A webpage's code and files can be inspected by right clicking on it and selecting "inspect". In the
+                inspect menu there is the page's HTML, the active CSS styling rules on each page element and any
+                JavaScript program that runs on the page. This is very useful because it lets you:
+            </p>
+            <ol type="1">
+                <li>Inspect your own page to better understand how your code behaves</li>
+                <li>
+                    Inspect your favorite web page to get inspired by how it is coded and have a good example in mind
+                </li>
+                <li>Use the JavaScript Debugger to understand, tune and correct your JavaScript code</li>
+            </ol>
+            <p>
+                Try right clicking on the first paragraph of this site and then press "inspect". This is what should
+                appear:
+            </p>
+            <img src="/projects/normal/this_site/inspect.png" alt="inspect.png" title="Inspect Element" />
+            <p>
+                On the left side there is the site's HTML and the paragraph you selected is highlighted. Under the
+                Styles tab all the CSS rules that affect the selected paragraph are visible (font, color etc.). On the
+                Sources tab, all the files that make up the page are available and that includes the JavaScript files:
+            </p>
+            <img src="/projects/normal/this_site/inspectJS.png" alt="inspect.png" title="Inspecting the JavaScript" />
+            <p>
+                A debugger is available after clicking onto a JavaScript file. It lets the user set break points, watch
+                all available variables and step through the code.
+            </p>
+            <h3>Hosting</h3>
+            <p>
+                After writing a website all that remains is making it available on the internet. A website can be hosted
+                from a personal computer and network or it can be hosted using a or paid hosting provider. Some hosting
+                provider also offer free plan options. For instance,
+                <a href="https://www.netlify.com/" target="_blank">netlify</a> offers a great free hosting plan. The
+                limitations of hosting on personal networks are the network's speed and the fact that the personal
+                computer must be busy all the time. Other than that, hosting from a PC is a good way to get some first
+                impressions and it is free and easy to setup. Hosting alone is enough to make a website available on the
+                internet. Anyone will be able to visit the website by entering the server's public IP address in a
+                browser's URL bar.
+            </p>
+            <h3>Domain name</h3>
+            <p>
+                Associating a name to the server's IP address is a good idea because a name is easier to remember and
+                share with people. After doing so, anyone who types the domain name in the URL bar, will be redirected
+                to the chosen server's public IP. Some providers such as
+                <a href="https://www.noip.com/" target="_blank">noip.com</a> offer basic domain names for free.
+                Alternatively, a more formal name with a .com or .org extension can be purchased from a provider such as
+                <a href="https://www.godaddy.com/domains" target="_blank">GoDaddy</a> or
+                <a href="https://www.namecheap.com/" target="_blank">Namecheap</a>.
+            </p>
+            <h3>In conclusion</h3>
+            <p>
+                Learning how to develop a website is not hard! Just head over to
+                <a href="https://www.w3schools.com/" target="_blank">w3schools.com</a> and read their tutorials on HTML,
+                CSS and JavaScript. Use
+                <a href="https://code.visualstudio.com/" target="_blank">Virtual Studio Code</a> as a text editor and
+                consider using a versioning program such as <a href="https://git-scm.com/" target="_blank">Git</a>
+                to keep track of your progress. "Right click --&gt; Inspect" is a great tool for understanding how the
+                code translates to site elements.
+            </p>
+        </main>
+
+        <script></script>
+    </body>
 </html>

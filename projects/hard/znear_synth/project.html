@@ -1,254 +1,208 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ZNEAR synth</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ZNEAR synth</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			ZNEAR synth
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This project is about a synthesizer written for the ATMega328p microcontroller.
-			<b>In this page there is information about building and using the synthesizer</b>.
-		</p>
-		<img src="/projects/hard/znear_synth/ZNEARsynth.jpg" alt="ZNEARsynth.jpg" title="ZNEAR synth">
-		<h3>
-			How it sounds
-		</h3>
-		<p>
-			The possibilities for designing sounds are numerous
-			when adjusting the two oscillators and the effects that are available on them.
-		</p>
-		<p>
-			This synthesizer was used to create the song "Wavewatching".
-			The song plays at the website's <a href="/index.html" target="_blank">homepage</a> and
-			it is also available to download and listen to in the <a href="/music.html" target="_blank">Music</a> page.
-			Every sound used in this song was made using this synthesizer.
-		</p>
-		<audio controls>
-			<source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
-		</audio>
-		<h3>
-			Manual
-		</h3>
-		<p>
-			The operation of the synth is straight forward.
-			One sound of two oscillations can be saved on each of the five sound buttons.
-			When a sound button is pressed, the sound plays and the menu enters it's settings.
-			Once in the sound's settings, the arrows are used to navigate the two oscillations' settings and the slider to change them.
-			There is also a master volume knob on the module, an on/off switch, a charging port and, of course, a female jack output.
-		</p>
-		<img src="/projects/hard/znear_synth/ZNEARsynthSpecs.jpg" alt="ZNEARsynthSpecs.jpg" title="ZNEAR synth peripherals">
-		<p>
-			The menu of the synthesizer has three levels of pages:
-		</p>
-		<ul>
-			<li>
-				OSC1 - enters oscillation 1 settings
-				<ul>
-					<li>
-						NOTE
-						<ul>
-							<li>
-								WAV - Wave kind used
-							</li>
-							<li>
-								VOL - Oscillator volume
-							</li>
-							<li>
-								NTE - Note played
-							</li>
-							<li>
-								FIN - Fine tuning
-							</li>
-							<li>
-								PHA - Initial wave phase
-							</li>
-						</ul>
-					</li>
-					<li>
-						ENVELOPE
-						<ul>
-							<li>
-								ATK - Attack
-							</li>
-							<li>
-								DEC - Decay
-							</li>
-							<li>
-								SUS - Sustain
-							</li>
-							<li>
-								REL - Release
-							</li>
-							<li>
-								Rmo - Release mode: linear or non linear
-							</li>
-						</ul>
-					</li>
-					<li>
-						SWEEP
-						<ul>
-							<li>
-								DIR - Direction to high, to low, from high or from low
-							</li>
-							<li>
-								SPE - Speed of the sweep
-							</li>
-						</ul>
-					</li>
-					<li>
-						VIBRATO
-						<ul>
-							<li>
-								WAV - Wave kind used
-							</li>
-							<li>
-								DEP - Vibrato depth
-							</li>
-							<li>
-								SPE - Vibrato speed
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li>
-				OSC2 - enters oscillation 2 settings (same settings as OSC1)
-			</li>
-			<li>
-				SAVE - saves current settings to EEPROM
-			</li>
-		</ul>
-		<h3>
-			Schematics
-		</h3>
-		<p>
-			The circuit revolves around the AVR ATMega328p.
-		</p>
-		<ul>
-			<li>
-				One of its PWM pins is used to produce the output wave
-			</li>
-			<li>
-				One analog input is used to read the slider potentiometer position
-			</li>
-			<li>
-				Five digital inputs read the note buttons
-			</li>
-			<li>
-				Four more digital inputs are used for the menu arrow buttons
-			</li>
-			<li>
-				It communicates with the LCD using SPI protocol
-			</li>
-			<li>
-				It runs on a standard configuration of an external 20MHz crystal oscillator
-			</li>
-			<li>
-				Two 4.7uF filtering capacitors are used - one for the voltage source and one for the analog to digital multiplexer.
-			</li>
-		</ul>
-		<p>
-			There is also a small analog part in the design.
-			A low pass filter is used between the microcontroller's PWM output and the synth's jack output.
-			Also a logarithmic pot is used as a master volume knob.
-			Finally, for powering the device a 18650 lithium battery is used
-			in combination with a buck converter to supply constant voltage.
-			There is also a battery CC/CV charging module for recharging the battery.
-		</p>
-		<img src="/projects/hard/znear_synth/schematicButtonsArrows.jpg" alt="schematicButtonsArrows.jpg" title="Arrow buttons - Up, Down, Right, Left">
-		<img src="/projects/hard/znear_synth/schematicButtonsNotes.jpg" alt="schematicButtonsNotes.jpg" title="Note buttons">
-		<img src="/projects/hard/znear_synth/schematicSlider.jpg" alt="schematicSlider.jpg" title="Slider">
-		<img src="/projects/hard/znear_synth/schematicLCD.jpg" alt="schematicLCD.jpg" title="LCD">
-		<img src="/projects/hard/znear_synth/schematicAVR.jpg" alt="schematicAVR.jpg" title="Chip configuration">
-		<img src="/projects/hard/znear_synth/schematicAnalog.jpg" alt="schematicAnalog.jpg" title="Output through filter and volume knob to jack">
-		<img src="/projects/hard/znear_synth/schematicPower.jpg" alt="schematicPower.jpg" title="Battery, buck converter and battery charging circuit">
+        <main>
+            <h2>ZNEAR synth</h2>
+            <h3>Summary</h3>
+            <p>
+                This project is about a synthesizer written for the ATMega328p microcontroller.
+                <b>In this page there is information about building and using the synthesizer</b>.
+            </p>
+            <img src="/projects/hard/znear_synth/ZNEARsynth.jpg" alt="ZNEARsynth.jpg" title="ZNEAR synth" />
+            <h3>How it sounds</h3>
+            <p>
+                The possibilities for designing sounds are numerous when adjusting the two oscillators and the effects
+                that are available on them.
+            </p>
+            <p>
+                This synthesizer was used to create the song "Wavewatching". The song plays at the website's
+                <a href="/index.html" target="_blank">homepage</a> and it is also available to download and listen to in
+                the <a href="/music.html" target="_blank">Music</a> page. Every sound used in this song was made using
+                this synthesizer.
+            </p>
+            <audio controls>
+                <source src="/music/Wavewatching/Wavewatching.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            <h3>Manual</h3>
+            <p>
+                The operation of the synth is straight forward. One sound of two oscillations can be saved on each of
+                the five sound buttons. When a sound button is pressed, the sound plays and the menu enters it's
+                settings. Once in the sound's settings, the arrows are used to navigate the two oscillations' settings
+                and the slider to change them. There is also a master volume knob on the module, an on/off switch, a
+                charging port and, of course, a female jack output.
+            </p>
+            <img
+                src="/projects/hard/znear_synth/ZNEARsynthSpecs.jpg"
+                alt="ZNEARsynthSpecs.jpg"
+                title="ZNEAR synth peripherals"
+            />
+            <p>The menu of the synthesizer has three levels of pages:</p>
+            <ul>
+                <li>
+                    OSC1 - enters oscillation 1 settings
+                    <ul>
+                        <li>
+                            NOTE
+                            <ul>
+                                <li>WAV - Wave kind used</li>
+                                <li>VOL - Oscillator volume</li>
+                                <li>NTE - Note played</li>
+                                <li>FIN - Fine tuning</li>
+                                <li>PHA - Initial wave phase</li>
+                            </ul>
+                        </li>
+                        <li>
+                            ENVELOPE
+                            <ul>
+                                <li>ATK - Attack</li>
+                                <li>DEC - Decay</li>
+                                <li>SUS - Sustain</li>
+                                <li>REL - Release</li>
+                                <li>Rmo - Release mode: linear or non linear</li>
+                            </ul>
+                        </li>
+                        <li>
+                            SWEEP
+                            <ul>
+                                <li>DIR - Direction to high, to low, from high or from low</li>
+                                <li>SPE - Speed of the sweep</li>
+                            </ul>
+                        </li>
+                        <li>
+                            VIBRATO
+                            <ul>
+                                <li>WAV - Wave kind used</li>
+                                <li>DEP - Vibrato depth</li>
+                                <li>SPE - Vibrato speed</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>OSC2 - enters oscillation 2 settings (same settings as OSC1)</li>
+                <li>SAVE - saves current settings to EEPROM</li>
+            </ul>
+            <h3>Schematics</h3>
+            <p>The circuit revolves around the AVR ATMega328p.</p>
+            <ul>
+                <li>One of its PWM pins is used to produce the output wave</li>
+                <li>One analog input is used to read the slider potentiometer position</li>
+                <li>Five digital inputs read the note buttons</li>
+                <li>Four more digital inputs are used for the menu arrow buttons</li>
+                <li>It communicates with the LCD using SPI protocol</li>
+                <li>It runs on a standard configuration of an external 20MHz crystal oscillator</li>
+                <li>
+                    Two 4.7uF filtering capacitors are used - one for the voltage source and one for the analog to
+                    digital multiplexer.
+                </li>
+            </ul>
+            <p>
+                There is also a small analog part in the design. A low pass filter is used between the microcontroller's
+                PWM output and the synth's jack output. Also a logarithmic pot is used as a master volume knob. Finally,
+                for powering the device a 18650 lithium battery is used in combination with a buck converter to supply
+                constant voltage. There is also a battery CC/CV charging module for recharging the battery.
+            </p>
+            <img
+                src="/projects/hard/znear_synth/schematicButtonsArrows.jpg"
+                alt="schematicButtonsArrows.jpg"
+                title="Arrow buttons - Up, Down, Right, Left"
+            />
+            <img
+                src="/projects/hard/znear_synth/schematicButtonsNotes.jpg"
+                alt="schematicButtonsNotes.jpg"
+                title="Note buttons"
+            />
+            <img src="/projects/hard/znear_synth/schematicSlider.jpg" alt="schematicSlider.jpg" title="Slider" />
+            <img src="/projects/hard/znear_synth/schematicLCD.jpg" alt="schematicLCD.jpg" title="LCD" />
+            <img src="/projects/hard/znear_synth/schematicAVR.jpg" alt="schematicAVR.jpg" title="Chip configuration" />
+            <img
+                src="/projects/hard/znear_synth/schematicAnalog.jpg"
+                alt="schematicAnalog.jpg"
+                title="Output through filter and volume knob to jack"
+            />
+            <img
+                src="/projects/hard/znear_synth/schematicPower.jpg"
+                alt="schematicPower.jpg"
+                title="Battery, buck converter and battery charging circuit"
+            />
 
-		<h3>
-			Circuit board
-		</h3>
-		<p>
-			The circuit was put together using mostly free hand soldering.
-			A prototyping board was used to put together some of the parts close to the AVR
-			such as the filter, the oscillator and the filtering capacitors.
-			A chip socket was used to avoid soldering the IC directly on the board.
-			The rest of the connections were made with wire.
-			The boards and components were secured on the casing with hot glue and zip ties.
-		</p>
-		<img src="/projects/hard/znear_synth/ZNEARboard.jpg" alt="ZNEARboard.jpg" title="Inside the synth">
-		<h3>
-			Programming the AVR
-		</h3>
-		<p>
-			The chip was programmed in C++ using Atmel Studio 7.
-			A library was used for the communication with the Nokia 5110 LCD.
-			The library's github page can be found <a href="https://github.com/LittleBuster/avr-nokia5110" target="_blank">here</a>.
-			In this project the library was upgraded with some custom bitmap rendering functions.
-			The source code of the synthesizer, the edited library and the compiled .hex file are available
-			for download <a href="/projects/hard/znear_synth/znear_synth_code.rar" download>here</a>.
-		</p>
-		<p>
-			The technique used to synthesize the sounds is called Direct Digital Synthesis.
-			About 39216 times a second, a timer overflow ISR is called that calculates and outputs the next wave sample.
-			The timer is operated in phase correct mode so the overflow frequency is calculated by
-			dividing the clock frequency by 510(20MHz / 510 = 39215.69).
-			This ensures a stable sample rate output.
-		</p>
-		<p>
-			Every procedure that does not demand precise timing is kept in the main routine.
-			The software button de-bouncing, the monitor control, the envelopes effect, the vibrato and sweep effects
-			all are calculated in a much slower rate in main.
-		</p>
-		<h3>
-			Casing
-		</h3>
-		<p>
-			The main casing was made out of a solid piece of wood that was made hollow using a glass drill and a hand router.
-			The plastic parts of the casing hide some less beautiful spots of the wood and they were 3D printed.
-			A transparent piece of plastic cut out from a CD case is used as protection over the LCD display.
-			The wooden case was painted with linseed oil.
-		</p>
-		<img src="/projects/hard/znear_synth/ZNEARcase.jpg" alt="ZNEARcase.jpg" title="Casing">
-	</main>
-</body>
-
+            <h3>Circuit board</h3>
+            <p>
+                The circuit was put together using mostly free hand soldering. A prototyping board was used to put
+                together some of the parts close to the AVR such as the filter, the oscillator and the filtering
+                capacitors. A chip socket was used to avoid soldering the IC directly on the board. The rest of the
+                connections were made with wire. The boards and components were secured on the casing with hot glue and
+                zip ties.
+            </p>
+            <img src="/projects/hard/znear_synth/ZNEARboard.jpg" alt="ZNEARboard.jpg" title="Inside the synth" />
+            <h3>Programming the AVR</h3>
+            <p>
+                The chip was programmed in C++ using Atmel Studio 7. A library was used for the communication with the
+                Nokia 5110 LCD. The library's github page can be found
+                <a href="https://github.com/LittleBuster/avr-nokia5110" target="_blank">here</a>. In this project the
+                library was upgraded with some custom bitmap rendering functions. The source code of the synthesizer,
+                the edited library and the compiled .hex file are available for download
+                <a href="/projects/hard/znear_synth/znear_synth_code.rar" download>here</a>.
+            </p>
+            <p>
+                The technique used to synthesize the sounds is called Direct Digital Synthesis. About 39216 times a
+                second, a timer overflow ISR is called that calculates and outputs the next wave sample. The timer is
+                operated in phase correct mode so the overflow frequency is calculated by dividing the clock frequency
+                by 510(20MHz / 510 = 39215.69). This ensures a stable sample rate output.
+            </p>
+            <p>
+                Every procedure that does not demand precise timing is kept in the main routine. The software button
+                de-bouncing, the monitor control, the envelopes effect, the vibrato and sweep effects all are calculated
+                in a much slower rate in main.
+            </p>
+            <h3>Casing</h3>
+            <p>
+                The main casing was made out of a solid piece of wood that was made hollow using a glass drill and a
+                hand router. The plastic parts of the casing hide some less beautiful spots of the wood and they were 3D
+                printed. A transparent piece of plastic cut out from a CD case is used as protection over the LCD
+                display. The wooden case was painted with linseed oil.
+            </p>
+            <img src="/projects/hard/znear_synth/ZNEARcase.jpg" alt="ZNEARcase.jpg" title="Casing" />
+        </main>
+    </body>
 </html>

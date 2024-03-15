@@ -1,170 +1,164 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Knife sharpening</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Music, electronics, engineering, programming and control projects">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Knife sharpening</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
 
-<body>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
+    <body>
         <thin-header name="Projects" link="/projects.html"></thin-header>
 
-	<div class="navigator"></div>
+        <div class="navigator"></div>
 
-	<main>
-		<h2>
-			Knife sharpening
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			A sharp knife can help make life easier sometimes.
-			<b>In this page there is basic information about sharpening and an idea for making a DIY sharpening jig</b>.
-		</p>
-		<h3>
-			Sharpening steel
-		</h3>
-		<img src="/projects/easy/knife_sharpening/sharpeningSteel.jpg" alt="knife_sharpening.jpg" title="Sharpening steel">
-		<p>
-			This tool is not intended for knife sharpening.
-			It helps retain a sharp edge by re-aligning it.
-			The edge slides across it and <b>if proper technique is used</b> helps re-align a damaged edge.
-			It does not remove any material from the knife.
-		</p>
-		<p>
-			The sharpening steel is a rod of hardened steel or sometimes ceramic materials.
-		</p>
-		<h3>
-			Sharpening stones
-		</h3>
-		<img src="/projects/easy/knife_sharpening/sharpeningStones.jpg" alt="sharpeningStones.jpg" title="Sharpening stones">
-		<p>
-			This is the main tool used to sharpen knives.
-			The sharpening stones are usually used in groups, progressively, from rougher to finer.
-			The rougher stones help remove more material, while the finer ones give a sharp finish.
-		</p>
-		<p>
-			Although some types of natural stones can be used for sharpening,
-			nowadays most are made artificially because it is cheaper.
-			Sharpening stones are made of grains of hard material bond together through the process of
-			<a href="https://en.wikipedia.org/wiki/Sintering" target="_blank">sintering</a>.
-		</p>
-		<h3>
-			Sharpening angle
-		</h3>
-		<img src="/projects/easy/knife_sharpening/angle.jpg" alt="angle.jpg" title="Sharpening angle">
-		<p>
-			The sharpening angle is the angle between a face of the edge and the side of the knife.
-			The smaller the angle the sharper the edge.
-			Unfortunately, a small angle also means low edge retention.
-			Sharp edges are more fragile and get damaged easily.
-		</p>
-		<img src="/projects/easy/knife_sharpening/angles.jpg" alt="angles.jpg" title="Sharpening angles uses">
-		<h3>
-			Retaining the sharpening angle
-		</h3>
-		<p>
-			When sharpening a knife on a stone, retaining a constant sharpening angle can be challenging.
-			There are several ways to ensure that the sharpening angle remains constant.
-		</p>
-		<p>
-			A plastic angle guide can be placed beneath the knife to ensure the sharpening angle remains constant.
-		</p>
-		<img src="/projects/easy/knife_sharpening/angleGuide.jpg" alt="angleGuide.jpg" title="Sharpening angle guide">
-		<p>
-			There are also some special jigs called fixed angle sharpeners.
-			On these jigs, the knife is secured in place and
-			some rods guide the sharpening stones and position them at the right angles for sharpening.
-		</p>
-		<img src="/projects/easy/knife_sharpening/fixedAngleSharpener.jpg" alt="fixedAngleSharpener.jpg" title="Fixed angle sharpener">
-		<h3>
-			DIY fixed angle sharpener
-		</h3>
-		<img src="/projects/easy/knife_sharpening/TOPview.jpg" alt="TOPview.jpg" title="DIY fixed angle sharpener">
-		<img src="/projects/easy/knife_sharpening/assembledKnifeSharpener.jpg" alt="assembledKnifeSharpener.jpg" title="Assembled knife sharpener">
-		<p>
-			This is a schematic of the built:
-		</p>
-		<img src="/projects/easy/knife_sharpening/DIYfixedAngleSharpenerSchematic.jpg" alt="DIYfixedAngleSharpenerSchematic.jpg" title="Schematic">
-		<ol>
-			<li>
-				Steel rod
-			</li>
-			<li>
-				A couple of shelf mounts
-			</li>
-			<li>
-				Bolt and nut
-			</li>
-			<li>
-				Bolt and butterfly nut
-			</li>
-			<li>
-				Soft plastic material for gripping the knife
-			</li>
-			<li>
-				The clamped knife
-			</li>
-			<li>
-				Small sharpening stone approximately 2x1x10 cm in size
-			</li>
-			<li>
-				Piece of wood approximately 2x2x10 cm in size
-			</li>
-		</ol>
-		<p>
-			Epoxy glue is used to join the wood to the stones and the plastic pieces to the steel shelf mounts
-		</p>
-		<p>
-			After joining the two shelf mounts together, a hole is made on the top half at the appropriate height.
-			The guide steel rod passes through the hole during sharpening and helps retain tha angle between the sharpening stone and the knife.
-		</p>
-		<p>
-			Most of the time, a knife with an edge angle of about 28° is ideal for every day use.
-			At that angle the knife will not be razor sharp but still sharp enough to cut any food with ease
-			and the edge will last for months (depending on use).
-		</p>
-		<p>
-			This video is an example of using a sharpener like this one - <a href="https://www.youtube.com/watch?v=ZlI5PaXsfOk" target="_blank">video example</a>.
-		</p>
-		<h3>
-			Edge retention
-		</h3>
-		<p>
-			While a big edge angle does help retain its sharpness, also important is taking care of the knife while storing and using it.
-			In many cases, taking good care of a knife is a bigger factor than its edge angle when it comes to retention.
-			One must be mindful of how fragile the edge of a knife is.
-			The knife should be used and stored with care.
-			That will greatly increase the lifespan of a sharpened edge.
-		</p>
-	</main>
-</body>
-
+        <main>
+            <h2>Knife sharpening</h2>
+            <h3>Summary</h3>
+            <p>
+                A sharp knife can help make life easier sometimes.
+                <b
+                    >In this page there is basic information about sharpening and an idea for making a DIY sharpening
+                    jig</b
+                >.
+            </p>
+            <h3>Sharpening steel</h3>
+            <img
+                src="/projects/easy/knife_sharpening/sharpeningSteel.jpg"
+                alt="knife_sharpening.jpg"
+                title="Sharpening steel"
+            />
+            <p>
+                This tool is not intended for knife sharpening. It helps retain a sharp edge by re-aligning it. The edge
+                slides across it and <b>if proper technique is used</b> helps re-align a damaged edge. It does not
+                remove any material from the knife.
+            </p>
+            <p>The sharpening steel is a rod of hardened steel or sometimes ceramic materials.</p>
+            <h3>Sharpening stones</h3>
+            <img
+                src="/projects/easy/knife_sharpening/sharpeningStones.jpg"
+                alt="sharpeningStones.jpg"
+                title="Sharpening stones"
+            />
+            <p>
+                This is the main tool used to sharpen knives. The sharpening stones are usually used in groups,
+                progressively, from rougher to finer. The rougher stones help remove more material, while the finer ones
+                give a sharp finish.
+            </p>
+            <p>
+                Although some types of natural stones can be used for sharpening, nowadays most are made artificially
+                because it is cheaper. Sharpening stones are made of grains of hard material bond together through the
+                process of
+                <a href="https://en.wikipedia.org/wiki/Sintering" target="_blank">sintering</a>.
+            </p>
+            <h3>Sharpening angle</h3>
+            <img src="/projects/easy/knife_sharpening/angle.jpg" alt="angle.jpg" title="Sharpening angle" />
+            <p>
+                The sharpening angle is the angle between a face of the edge and the side of the knife. The smaller the
+                angle the sharper the edge. Unfortunately, a small angle also means low edge retention. Sharp edges are
+                more fragile and get damaged easily.
+            </p>
+            <img src="/projects/easy/knife_sharpening/angles.jpg" alt="angles.jpg" title="Sharpening angles uses" />
+            <h3>Retaining the sharpening angle</h3>
+            <p>
+                When sharpening a knife on a stone, retaining a constant sharpening angle can be challenging. There are
+                several ways to ensure that the sharpening angle remains constant.
+            </p>
+            <p>
+                A plastic angle guide can be placed beneath the knife to ensure the sharpening angle remains constant.
+            </p>
+            <img
+                src="/projects/easy/knife_sharpening/angleGuide.jpg"
+                alt="angleGuide.jpg"
+                title="Sharpening angle guide"
+            />
+            <p>
+                There are also some special jigs called fixed angle sharpeners. On these jigs, the knife is secured in
+                place and some rods guide the sharpening stones and position them at the right angles for sharpening.
+            </p>
+            <img
+                src="/projects/easy/knife_sharpening/fixedAngleSharpener.jpg"
+                alt="fixedAngleSharpener.jpg"
+                title="Fixed angle sharpener"
+            />
+            <h3>DIY fixed angle sharpener</h3>
+            <img
+                src="/projects/easy/knife_sharpening/TOPview.jpg"
+                alt="TOPview.jpg"
+                title="DIY fixed angle sharpener"
+            />
+            <img
+                src="/projects/easy/knife_sharpening/assembledKnifeSharpener.jpg"
+                alt="assembledKnifeSharpener.jpg"
+                title="Assembled knife sharpener"
+            />
+            <p>This is a schematic of the built:</p>
+            <img
+                src="/projects/easy/knife_sharpening/DIYfixedAngleSharpenerSchematic.jpg"
+                alt="DIYfixedAngleSharpenerSchematic.jpg"
+                title="Schematic"
+            />
+            <ol>
+                <li>Steel rod</li>
+                <li>A couple of shelf mounts</li>
+                <li>Bolt and nut</li>
+                <li>Bolt and butterfly nut</li>
+                <li>Soft plastic material for gripping the knife</li>
+                <li>The clamped knife</li>
+                <li>Small sharpening stone approximately 2x1x10 cm in size</li>
+                <li>Piece of wood approximately 2x2x10 cm in size</li>
+            </ol>
+            <p>Epoxy glue is used to join the wood to the stones and the plastic pieces to the steel shelf mounts</p>
+            <p>
+                After joining the two shelf mounts together, a hole is made on the top half at the appropriate height.
+                The guide steel rod passes through the hole during sharpening and helps retain tha angle between the
+                sharpening stone and the knife.
+            </p>
+            <p>
+                Most of the time, a knife with an edge angle of about 28° is ideal for every day use. At that angle the
+                knife will not be razor sharp but still sharp enough to cut any food with ease and the edge will last
+                for months (depending on use).
+            </p>
+            <p>
+                This video is an example of using a sharpener like this one -
+                <a href="https://www.youtube.com/watch?v=ZlI5PaXsfOk" target="_blank">video example</a>.
+            </p>
+            <h3>Edge retention</h3>
+            <p>
+                While a big edge angle does help retain its sharpness, also important is taking care of the knife while
+                storing and using it. In many cases, taking good care of a knife is a bigger factor than its edge angle
+                when it comes to retention. One must be mindful of how fragile the edge of a knife is. The knife should
+                be used and stored with care. That will greatly increase the lifespan of a sharpened edge.
+            </p>
+        </main>
+    </body>
 </html>

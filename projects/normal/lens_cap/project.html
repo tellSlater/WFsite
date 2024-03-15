@@ -1,214 +1,186 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="This origami ornament doubles as emergency lighting!" />
+        <meta name="author" content="Ilias Chatziefstathiou" />
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Printable lens caps</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="This origami ornament doubles as emergency lighting!">
-	<meta name="author" content="Ilias Chatziefstathiou">
-	<meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Printable lens caps</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<!--google font-->
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/../CSS/article.css" />
 
-	<link rel="stylesheet" href="/../CSS/article.css">
-	
-	<!-- Thin Header -->
-	<link rel="stylesheet" href="/CSS/thinHeader.css" />
-	<script type="module" src="/JavaScript/templates/thin-header.js"></script>
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
 
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico"> <!-- favicon.ico not found fix -->
-	<link rel="icon" type="image/png" href="/images/favicon.png" /> <!-- FAVICON -->
-	<link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png"> <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
 
-	<script src="/JavaScript/backgroundDayColor.js"></script> <!-- External Functions: Backgrounds color change -->
-	<script src="/JavaScript/myVideoSimple.js"></script> <!-- External Functions: Custom video player -->
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+        <script src="/JavaScript/myVideoSimple.js"></script>
+        <!-- External Functions: Custom video player -->
 
-	<!-- Navigator -->
-	<link rel="stylesheet" href="/CSS/navigator.css">
-	<script src="/JavaScript/navigator.js"></script>
-</head>
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
 
-<body>
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
 
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+        <div class="navigator"></div>
 
-	<div class="navigator"></div>
-	
-	<main>
-		<h2>
-			Printable lens caps
-		</h2>
-		<h3>
-			Summary
-		</h3>
-		<p>
-			This is a design for a 3D printable cap for camera lenses. It is easy to print and lightweight. 
-			<b>In this page there is information about how it was designed and made and there are also STL files for most of the common lens diameters</b>.
-		</p>
-		<img src="/projects/normal/lens_cap/cap_use.jpg" alt="cap_use.jpg" title="Cap in use">
-		<h3>
-			Design
-		</h3>
-		<p>
-			This design was made using Fusion360.
-			Other commercial lens caps were measured and used as reference.
-			Every geometry in the design was parametrized according to the lens diameter.
-			That way, by changing only one parameter in Fusion360, lens caps of every diameter can be produced from the same assembly.
-			The next images show lens caps that were produced by changing that one parameter:
-		</p>
-		<img src="/projects/normal/lens_cap/fusionDesign49mm.jpg" alt="fusionDesign49mm.jpg" title="49mm cap">
-		<img src="/projects/normal/lens_cap/fusionDesign55mm.jpg" alt="fusionDesign55mm.jpg" title="55mm cap">
-		<img src="/projects/normal/lens_cap/fusionDesign86mm.jpg" alt="fusionDesign86mm.jpg" title="86mm cap">
-		<p>
-			The design was originally intended to be printed in place.
-			Although the cap was successfully printed in place with the clips able to move freely in their track, there was one problem.
-			There was no tension on the spring when the clips were in their furthest position from the center.
-			This resulted in them not grabbing onto the lens firmly.
-			In the final design, the clips and cover parts are to be printed separately.
-			The clips are designed to have a natural position that is wider and should be compressed to fit in the cap part.
-			That solves the tension problem and results in them having a good grip onto the lens.
-		</p>
-		<p>
-			The two parts are held together by the use of a dovetail geometry.
-			In order to be assembled, the cap part should be bent so that its cavity opens up a bit.
-			Afterwards, the clips can be fitted inside.
-		</p>
-		<img src="/projects/normal/lens_cap/dovetail.jpg" alt="dovetail.jpg" title="Dovetail section view">
-		<p>
-			The thin cord linking the two clips acts like a spring, pushing the two of them apart.
-		</p>
-		<div class="video">
-			<video src="/projects/normal/lens_cap/lenCapDemo.mp4" loop title="Cap mechanism in action"></video>
-			<div class="preplay" onclick="startPlayer(this)"></div>
-		</div>
-		<h3>
-			3D printing
-		</h3>
-		<p>
-			After 3D printing the lens cap parts, cleaning the parts' surfaces with some sanding and
-			trimming corner imperfections with a knife will greatly help the parts perform and move as intended.
-			Most 3D printers will not produce a result as detailed as this design requires to function.
-		</p>
-		<p>
-			Some actions that might help the prints perform better is making sure that
-			the last layers direction is parallel to the movement of the mechanism:
-		</p>
-		<img src="/projects/normal/lens_cap/coverDir.jpg" alt="coverDir.jpg" title="Preferred printing layer direction">
-		<p>
-			The parts should be positioned as shown bellow for 3D printing.
-		</p>
-		<img src="/projects/normal/lens_cap/3Dprint.jpg" alt="3Dprint.jpg" title="Positioning for 3D printing">
-		<p>
-			When printing, 0.2mm layer height should be used. The STLs for most standard lens sizes can be downloaded bellow:
-		</p>
-		<table>
-			<tr>
-				<th>
-					Lens diameter
-				</th>
-				<th>
-					STLs
-				</th>
-			</tr>
-			<tr>
-				<td>
-					49mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/49mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					52mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/52mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					55mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/55mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					58mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/58mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					62mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/62mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					67mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/67mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					72mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/72mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					77mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/77mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					82mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/82mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					86mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/86mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					95mm
-				</td>
-				<td>
-					<a href="/projects/normal/lens_cap/95mm.rar" download>Downlaod↓</a>
-				</td>
-			</tr>
-		</table>
-		<p class="secondary">
-			The only caps that were printed and tested were the 49mm and 52mm ones.
-			If there are problems with other caps feel free to contact me via the <a href="/contact.html" target="_blank">site's contact form</a>.
-			You can also contact me if you need a special size lens cap - I will be happy to produce it for you.
-		</p>
-	</main>
-</body>
-
+        <main>
+            <h2>Printable lens caps</h2>
+            <h3>Summary</h3>
+            <p>
+                This is a design for a 3D printable cap for camera lenses. It is easy to print and lightweight.
+                <b
+                    >In this page there is information about how it was designed and made and there are also STL files
+                    for most of the common lens diameters</b
+                >.
+            </p>
+            <img src="/projects/normal/lens_cap/cap_use.jpg" alt="cap_use.jpg" title="Cap in use" />
+            <h3>Design</h3>
+            <p>
+                This design was made using Fusion360. Other commercial lens caps were measured and used as reference.
+                Every geometry in the design was parametrized according to the lens diameter. That way, by changing only
+                one parameter in Fusion360, lens caps of every diameter can be produced from the same assembly. The next
+                images show lens caps that were produced by changing that one parameter:
+            </p>
+            <img src="/projects/normal/lens_cap/fusionDesign49mm.jpg" alt="fusionDesign49mm.jpg" title="49mm cap" />
+            <img src="/projects/normal/lens_cap/fusionDesign55mm.jpg" alt="fusionDesign55mm.jpg" title="55mm cap" />
+            <img src="/projects/normal/lens_cap/fusionDesign86mm.jpg" alt="fusionDesign86mm.jpg" title="86mm cap" />
+            <p>
+                The design was originally intended to be printed in place. Although the cap was successfully printed in
+                place with the clips able to move freely in their track, there was one problem. There was no tension on
+                the spring when the clips were in their furthest position from the center. This resulted in them not
+                grabbing onto the lens firmly. In the final design, the clips and cover parts are to be printed
+                separately. The clips are designed to have a natural position that is wider and should be compressed to
+                fit in the cap part. That solves the tension problem and results in them having a good grip onto the
+                lens.
+            </p>
+            <p>
+                The two parts are held together by the use of a dovetail geometry. In order to be assembled, the cap
+                part should be bent so that its cavity opens up a bit. Afterwards, the clips can be fitted inside.
+            </p>
+            <img src="/projects/normal/lens_cap/dovetail.jpg" alt="dovetail.jpg" title="Dovetail section view" />
+            <p>The thin cord linking the two clips acts like a spring, pushing the two of them apart.</p>
+            <div class="video">
+                <video src="/projects/normal/lens_cap/lenCapDemo.mp4" loop title="Cap mechanism in action"></video>
+                <div class="preplay" onclick="startPlayer(this)"></div>
+            </div>
+            <h3>3D printing</h3>
+            <p>
+                After 3D printing the lens cap parts, cleaning the parts' surfaces with some sanding and trimming corner
+                imperfections with a knife will greatly help the parts perform and move as intended. Most 3D printers
+                will not produce a result as detailed as this design requires to function.
+            </p>
+            <p>
+                Some actions that might help the prints perform better is making sure that the last layers direction is
+                parallel to the movement of the mechanism:
+            </p>
+            <img
+                src="/projects/normal/lens_cap/coverDir.jpg"
+                alt="coverDir.jpg"
+                title="Preferred printing layer direction"
+            />
+            <p>The parts should be positioned as shown bellow for 3D printing.</p>
+            <img src="/projects/normal/lens_cap/3Dprint.jpg" alt="3Dprint.jpg" title="Positioning for 3D printing" />
+            <p>
+                When printing, 0.2mm layer height should be used. The STLs for most standard lens sizes can be
+                downloaded bellow:
+            </p>
+            <table>
+                <tr>
+                    <th>Lens diameter</th>
+                    <th>STLs</th>
+                </tr>
+                <tr>
+                    <td>49mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/49mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>52mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/52mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>55mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/55mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>58mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/58mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>62mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/62mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>67mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/67mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>72mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/72mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>77mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/77mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>82mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/82mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>86mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/86mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>95mm</td>
+                    <td>
+                        <a href="/projects/normal/lens_cap/95mm.rar" download>Downlaod↓</a>
+                    </td>
+                </tr>
+            </table>
+            <p class="secondary">
+                The only caps that were printed and tested were the 49mm and 52mm ones. If there are problems with other
+                caps feel free to contact me via the <a href="/contact.html" target="_blank">site's contact form</a>.
+                You can also contact me if you need a special size lens cap - I will be happy to produce it for you.
+            </p>
+        </main>
+    </body>
 </html>
