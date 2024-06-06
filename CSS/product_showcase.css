@@ -5,22 +5,39 @@ main {
 }
 
 div.product {
-    display: inline-block;
-    height: 450px;
+    display: block;
+    /* height: 450px; */
+    /* padding-left: 50%;
+    width: 100%; */
     overflow: visible;
+    margin: auto;
 }
 
-img.product {
+#origami {
     position: relative;
+    /* transform: translate(-50%, 50%); */
+    transform: scale(6);
+    width: fit-content;
     height: auto;
     display: block;
-    z-index: 1000000;
+    z-index: 100;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
+    background-color: transparent;
+    margin-top: 29px;
+    border: none;
+}
+
+#illumination {
+    position: relative;
+    z-index: 50;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    width: fit-content;
     transform: scale(6);
-    padding-top: 50%;
-    margin-top: 74px;
+    /* padding-top: 50%; */
+    /* margin-top: 74px; */
     background-color: transparent;
     border: none;
-    margin-top: -90px;
+    margin-top: -160px;
 }
