@@ -6,11 +6,21 @@ main {
 
 div.product {
     display: block;
-    /* height: 450px; */
-    /* padding-left: 50%;
+    /* height: 100%;
     width: 100%; */
-    overflow: visible;
     margin: auto;
+    height: 280px;
+    overflow: visible;
+}
+
+h2 {
+    position: relative;
+    z-index: 5;
+}
+
+h3 {
+    position: relative;
+    z-index: 5;
 }
 
 #origami {
@@ -30,14 +40,74 @@ div.product {
 
 #illumination {
     position: relative;
-    z-index: 50;
+    z-index: 2;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     width: fit-content;
     transform: scale(6);
-    /* padding-top: 50%; */
-    /* margin-top: 74px; */
     background-color: transparent;
     border: none;
     margin-top: -160px;
+}
+
+div.landing h3 {
+    display: inline-block;
+    margin-top: -10px;
+    width: fit-content;
+    text-wrap: nowrap;
+    text-align: center;
+    padding: 0px;
+}
+
+div.landing span {
+    display: inline-block;
+    margin-top: 16px;
+    width: 250px;
+    text-wrap: nowrap;
+    text-align: center;
+    padding: 0px;
+}
+
+div.landing a.buy {
+    cursor: default;
+}
+
+a.buy h3 {
+    opacity: 0.5;
+}
+
+#title {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: -100px;
+    transition: all 0.5s ease-in-out;
+}
+
+#links {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 3s;
+}
+
+a.learn b {
+    transition: all 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.landing a.learn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    /* opacity: 0.8; */
+}
+
+a.learn:hover b {
+    opacity: 1;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
 }

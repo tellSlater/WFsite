@@ -26,8 +26,9 @@
         <!-- FAVICON -->
         <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
         <!-- JQuery -->
-        <script src="/JavaScript/backgroundDayColor.js"></script>
-        <!-- External Functions: Backgrounds color change -->
+
+        <!-- External Functions: Product javascript -->
+        <script src="/JavaScript/product.js"></script>
 
         <!-- SCRIPTED REDIRECTS -->
         <script src="/JavaScript/redirects/redirects.js"></script>
@@ -120,17 +121,122 @@
 
         <main>
             <div class="product">
-                <img src="origami-light-pixelart.png" id="origami" />
-                <img src="origami_illumination.png" id="illumination" />
+                <img src="origami-light-pixelart.png" id="origami" draggable="false" />
+                <img src="origami_illumination.png" id="illumination" draggable="false" />
+            </div>
+            <div class="landing unselectable">
+                <h2 class="unselectable" id="title">This is <i class="rainbow_letters">origami light</i></h2>
+                <div id="links">
+                    <span>
+                        <a href="/projects/normal/origami_light_2/project" class="learn unselectable"
+                            ><h3><b>[</b>learn more<b>]</b></h3></a
+                        ></span
+                    >
+                    <span
+                        ><a class="buy unselectable" title="Out of stock!"><h3>buy</h3></a></span
+                    >
+                </div>
             </div>
         </main>
 
         <script>
-            // document.getElementById("myAudio").volume = 0;
+            //Sets transition for origami
+            function set_transition_origami(t) {
+                // t is time in seconds
+                document.getElementById("origami").style.transitionDuration = t + "s";
+                document.getElementById("illumination").style.transitionDuration = t * 1.5 + "s";
+            }
+
+            function set_origami_opacity(o) {
+                // input 1 to 100
+                var elem = document.getElementById("origami");
+                elem.style.opacity = o / 100;
+            }
+
+            function set_illu_opacity(o) {
+                // input 1 to 100
+                var elem = document.getElementById("illumination");
+                elem.style.opacity = o / 100;
+            }
+
+            function set_origami_filter(brightness, hue, chroma = CHROMA) {
+                var origami = document.getElementById("origami");
+                origami.style.filter =
+                    "brightness(" + brightness + "%) hue-rotate(" + hue + "deg) saturate(" + chroma + "%)";
+            }
+
+            function set_illu_filter(brightness, hue, chroma) {
+                var illu = document.getElementById("illumination");
+                illu.style.filter =
+                    "brightness(" + brightness + "%) hue-rotate(" + hue + "deg) saturate(" + chroma + "%)";
+            }
+
+            function light_up_fast() {
+                set_transition_origami(3);
+                set_origami_filter(230, 0, 100);
+                set_illu_opacity(100);
+                set_illu_filter(180, 0, 100);
+            }
+
+            function origami_appear() {
+                set_transition_origami(1);
+                set_origami_opacity(100);
+            }
+
+            function show_title() {
+                var title = document.getElementById("title");
+                title.style.marginTop = "0px";
+                title.style.visibility = "visible";
+                title.style.opacity = "1";
+            }
+
+            function show_links() {
+                var links = document.getElementById("links");
+                links.style.visibility = "visible";
+                links.style.opacity = "1";
+            }
+
+            function init_do() {
+                set_transition_origami(0);
+                set_illu_opacity(0);
+                set_origami_opacity(0);
+                set_origami_filter(20, 0);
+                set_day_color(2);
+                setTimeout(set_transition_day, 30);
+                setTimeout(function () {
+                    set_day_color(0);
+                }, 500);
+                setTimeout(origami_appear, 1000);
+                setTimeout(light_up_fast, 3500);
+                setTimeout(show_title, 4000);
+                setTimeout(show_links, 5500);
+            }
+
+            const forever_do = (function () {
+                let hue = 0; // Static variable
+
+                return function () {
+                    rainbow_letters_transition(3);
+                    set_transition_origami(3);
+                    hue = (hue + 100) % 360;
+                    rainbow_letters_hue(hue, 80);
+                    set_origami_filter(130, hue);
+                    set_illu_opacity(50);
+                    setTimeout(function () {
+                        rainbow_letters_hue(hue, 30);
+                        set_origami_filter(70, hue);
+                        set_illu_filter(100, hue, 400);
+                        set_illu_opacity(0);
+                    }, 4000);
+                };
+            })();
+
+            document.addEventListener("DOMContentLoaded", function () {
+                let rainbow_letters = document.querySelectorAll(".rainbow_letters");
+                page_universe(init_do, forever_do, 6000, 8000);
+            });
         </script>
     </body>
 </html>
 
 <!-- This line of code is for my friend Aggelos Chatziathanasiou who is hospitalized right now and asked me to code something for him -->
-
-<!-- http://127.0.0.1:5500/index.html - this is for the live server-->
