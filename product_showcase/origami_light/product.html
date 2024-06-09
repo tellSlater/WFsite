@@ -122,19 +122,26 @@
         <main>
             <div class="product">
                 <img src="origami-light-pixelart.png" id="origami" draggable="false" />
-                <img src="origami_illumination.png" id="illumination" draggable="false" />
+                <img src="origami_illumination-3.png" id="illumination" draggable="false" />
             </div>
             <div class="landing unselectable">
                 <h2 class="unselectable" id="title">This is <i class="rainbow_letters">origami light</i></h2>
-                <div id="links">
+                <div id="links" class="links">
                     <span>
                         <a href="/projects/normal/origami_light_2/project" class="learn unselectable"
-                            ><h3><b>[</b>learn more<b>]</b></h3></a
-                        ></span
-                    >
+                            ><h3>learn more</h3></a
+                        >
+                        <div class="cursor">
+                            <h3>[<i>learn more</i>]</h3>
+                        </div>
+                    </span>
                     <span
-                        ><a class="buy unselectable" title="Out of stock!"><h3>buy</h3></a></span
-                    >
+                        ><a class="buy unselectable"><h3>buy</h3></a>
+                        <div class="cursor">
+                            <h3>[<i>buy</i>]</h3>
+                            <div class="outofstock"><h4>Out of stock!</h4></div></span>
+                        </div>
+                    
                 </div>
             </div>
         </main>
@@ -221,6 +228,7 @@
                     hue = (hue + 100) % 360;
                     rainbow_letters_hue(hue, 80);
                     set_origami_filter(130, hue);
+                    set_illu_filter(100, hue, 400);
                     set_illu_opacity(50);
                     setTimeout(function () {
                         rainbow_letters_hue(hue, 30);

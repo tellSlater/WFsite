@@ -54,6 +54,10 @@ h3 {
     text-wrap: nowrap;
 }
 
+div.landing .links {
+    margin-top: 22px;
+}
+
 div.landing h3 {
     display: inline-block;
     margin-top: -10px;
@@ -65,7 +69,6 @@ div.landing h3 {
 
 div.landing span {
     display: inline-block;
-    margin-top: 16px;
     width: 250px;
     text-wrap: nowrap;
     text-align: center;
@@ -78,6 +81,7 @@ div.landing a.buy {
 
 a.buy h3 {
     opacity: 0.5;
+    cursor: default;
 }
 
 #title {
@@ -93,20 +97,29 @@ a.buy h3 {
     transition: all 3s;
 }
 
+#links span {
+    position: relative;
+    margin-top: 8px;
+}
+
 a.learn b {
     transition: all 0s;
     opacity: 0;
     pointer-events: none;
 }
 
-div.landing a.learn:hover {
-    text-decoration: none;
-    cursor: pointer;
-    /* opacity: 0.8; */
+a.buy b {
+    transition: all 0s;
+    opacity: 0;
+    pointer-events: none;
 }
 
-a.learn:hover b {
-    opacity: 1;
+.outofstock {
+    position: absolute;
+    padding: 2px;
+    transform: translate(-25%, 0%);
+    background-color: aliceblue;
+    border: 4px solid black;
 }
 
 .unselectable {
@@ -114,4 +127,49 @@ a.learn:hover b {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
+}
+
+.cursor {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.cursor i {
+    visibility: hidden;
+}
+
+/* HOVERS */
+
+a:hover ~ .cursor {
+    visibility: visible;
+}
+
+div.landing a.learn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    /* opacity: 0.8; */
+}
+div.landing a.buy:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+    /* opacity: 0.8; */
+}
+
+a.learn:hover b {
+    opacity: 1;
+}
+
+a.buy:hover b {
+    opacity: 1;
+}
+
+a.buy:hover .outofstock {
+    opacity: 1;
 }
