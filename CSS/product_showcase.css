@@ -138,12 +138,12 @@ a.buy b {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    text-wrap: nowrap;
+    text-wrap: nowrap !important;
 }
 
 .cursor i {
     visibility: hidden;
-    text-wrap: nowrap;
+    text-wrap: nowrap !important;
 }
 
 /* HOVERS */
