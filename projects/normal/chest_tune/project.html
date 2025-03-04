@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+        <meta name="author" content="Ilias Chatziefstathiou"/>
+        <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chest tune player</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <!--google font-->
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="/../CSS/article.css" />
+
+        <!-- Thin Header -->
+        <link rel="stylesheet" href="/CSS/thinHeader.css" />
+        <script type="module" src="/JavaScript/templates/thin-header.js"></script>
+
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+        <!-- favicon.ico not found fix -->
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+        <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+        <script src="/JavaScript/backgroundDayColor.js"></script>
+        <!-- External Functions: Backgrounds color change -->
+
+        <!-- Navigator -->
+        <link rel="stylesheet" href="/CSS/navigator.css" />
+        <script src="/JavaScript/navigator.js"></script>
+        <!-- SCRIPTED REDIRECTS -->
+        <script src="/JavaScript/redirects/redirects.js"></script>
+    </head>
+
+    <body>
+        <thin-header name="Projects" link="/projects.html"></thin-header>
+
+        <div class="navigator"></div>
+
+        <main>
+            <h2>Chest tune</h2>
+            <h3>Summary</h3>
+            <p>
+                The idea behind this project was to create a "Zelda chest" - a chest that plays a tune when opened,
+                much like it happens in the game! Here I <b>explore/transcribe the melodies</b> used in game and
+                try my best to <b>reproduce them using as minimal hardware as possible</b>.
+            </p>
+
+            <h3>Melody</h3>
+            <p>
+                The easiest melody to select in order to reproduce with cheap hardware would be one of the oldest
+                zelda games that were using 8-bit sound. For reference I selected one of my all time favorite
+                games, <b>Link's Awakening</b>. This is the sound that chests make when they are opened in game:
+            </p>
+            <img
+                src="/projects/normal/chest_tune/chest_open.jpeg"
+                alt="chest_open.jpeg"
+                title="Link opens a chest"
+            />
+            <audio controls>
+                <source src="/projects/normal/chest_tune/original_chest_sound.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            <p>
+                I was able to interpret this as three melodies played together using square waves at 25% duty cycle
+                which sounds like this:
+            </p>
+            <img
+                src="/projects/normal/chest_tune/zelda_chest_open_notes.jpeg"
+                alt="zelda_chest_open_notes.jpeg"
+                title="Notation for chest sound"
+            />
+            <audio controls>
+                <source src="/projects/normal/chest_tune/interpreted_chest_sound.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h3>Hardware</h3>
+            <p>
+                First, I experimented with a pi-pico w and piezo electric speakers,
+                since it was the closest I had on my desk. I needed to find out if the piezo sound was
+                appealing enough, so I created the waveforms and used resistors to add them and feed them directly
+                to the piezo speaker. The result was acceptable! So the <b>piezo speaker</b> was selected for the project.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/piezo_speaker.jpeg"
+                alt="piezo_speaker.jpeg"
+                title="Piezo speaker"
+            />
+            <p>
+                Selecting the right hardware was not super easy yet, since I was not perfectly sure about how much space would
+                be needed to write code that could handle 25% duty cycle square waves - they are a bit more demanding that 50% duty cycle
+                square waves. I started with the least powerful chip I had in stock, an
+                <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/ATtiny13A-Data-Sheet-DS40002307A.pdf">ATtiny13A</a>,
+                and was able to develop the code to fit the device - so then I selected the <b>ATtiny13A</b> fot the project.
+            </p>
+            <p>
+                For the power source I went with an <b>CR2032 button cell</b>. Since this is a very common type of cell,
+                the same size cell holders were readily available and at a good price.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/2032holder.jpeg"
+                alt="2032holder.jpeg"
+                title="CR2032 battery holder"
+            />
+            <p>
+                Since the provided voltage is ~3V, I decided to use an op-amp to help keep the volume high.
+                Using an op-amp in a battery powered project means that you either need a low
+                power op-amp that has a deactivation feature or use a normal op-amp with a transistor for deactivating it manually
+                - this helps keep the power consumption low when the application is not in use.
+                In my case I went with the second option since I had transistors lying around and the low power op-amps seemed to be much more expensive.
+                I ordered a bunch of <b>MCP602 op-amps</b>. These packages contain two op-amps and are fairly cheap.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/MCP602.jpeg"
+                alt="MCP602.jpeg"
+                title="MCP602 dual op-amp"
+            />
+            <p>
+                The N-MOSFET of my choice is the <a href="http://www.szhhe.com/file/H2302A.pdf">A2SHB</a> as in most of my projects.
+                It is a small SOT23 package and can be fully turned on with a mere 2.5V on its gate.
+                This makes it perfect for battery powered applications.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/a2shb.jpeg"
+                alt="a2shb.jpeg"
+                title="A2SHB N-MOSFET"
+            />
+
+            <p>
+                All of the components were ordered in <b>SOP8</b> packages which are fairly small and at the same time
+                easy to solder by hand.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/attiny13a.jpeg"
+                alt="attiny13a.jpeg"
+                title="ATtiny13A SOP8 package"
+            />
+            <p>
+                Finally, for triggering the sound, the simplest sensor to use would be an <b>LDR(Light Dependant Resistor)</b>.
+                This can be hooked up to the ATtiny13A using a voltage divider configuration and then wake up the chip
+                using its pin change interrupt feature, as soon as light is detected.
+                The logic behind this is that the gadget will be hidden inside any chest/container,
+                and then, when the light pours into the chest once it is opened, the LDR will detect it and trigger the sound.
+            </p>
+            <img
+                src="/projects/normal/chest_tune/LDR.jpeg"
+                alt="LDR.jpeg"
+                title="Light Dependant Resistor"
+            />
+            
+            <h3>Schematic</h3>
+            <p>
+                The schematic and board were drawn in Fusion360.
+                <ul>
+                    <li>The battery powers both the op-amp and the ATtiny13A.</li>
+                    <li>The op-amp is connected to ground via a MOSFET</li>
+                    <li>One pin of the ATtiny is used to control the MOSFET</li>
+                    <li>Three pins of the ATtiny are used to produce the three melodies.</li>
+                    <li>One pin is used to read the LDR divider</li>
+                </ul>
+                <a class="img" href="/projects/normal/chest_tune/schematic_big.jpeg" target="_blank">
+                    <img src="/projects/normal/chest_tune/schematic_small.jpeg" alt="SCHsmall.jpg" title="Schematic" />
+                </a>
+            </p>
+
+            <h3>Board</h3>
+            <p>
+                The board was designed to be as small as possible while holding
+                all the THT/bigger components on the bottom side to minimize board height and make soldering easier.
+            </p>
+            <a class="img" href="/projects/normal/chest_tune/board_big.jpeg" target="_blank">
+                <img src="/projects/normal/chest_tune/board_small.jpeg" alt="SCHsmall.jpg" title="Board" />
+            </a>
+
+            <h3>Code</h3>
+            <p>
+                The code was developed in Microchip Studio using the AVR-GCC compiler.
+                It is fairly simple and uses the ATtiny13A's internal oscillator at 9.6MHz.
+                I have uploaded the project on GitHub, you can find it
+                <a href="https://github.com/tellSlater/chest_tune/blob/main/main.cpp">here</a>!
+                <ul>
+                    <li>The chip enters shutdown mode, deactivating the op-amp's MOSFET as well, after the melody is played</li>
+                    <li>A pin change interrupt wakes the chip when there is a change in light</li>
+                    <li>The melody will only play when there is a change from darkness to light -
+                        this is ensured by continuously checking the light conditions with a watchdog interrupt</li>
+                    <li>Timer0 overflow interrupt is used to count samples at 37500Hz</li>
+                    <li>The quarter_square function uses the samples to calculate the melody's square waves</li>
+                </ul>
+            </p>
+            
+            <h3>Prototype</h3>
+            <p>
+                The components were put together on a small breadboard along with the op-amp and the MOSFET.
+                Everything worked as expected but the sound quality was quite bad:
+            </p>
+            <img
+                src="/projects/normal/chest_tune/breadboard_prototype.jpg"
+                alt="breadboard_prototype.jpg"
+                title="Ptototype on breadboard"
+            />
+            <audio controls>
+                <source src="/projects/normal/chest_tune/breadboard_chest_sound.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            <p>
+                I decided to research into more methods to improve the sound quality given that the
+                only power source will be a coin cell.
+            </p>
+        </main>
+    </body>
+</html>
