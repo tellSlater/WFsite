@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+    <meta name="author" content="Ilias Chatziefstathiou" />
+    <meta name="keywords" content="music, electronics, engineering, programming, control, projects, arduino, avr" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chest tune player 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/../CSS/article.css" />
+
+    <!-- Thin Header -->
+    <link rel="stylesheet" href="/CSS/thinHeader.css" />
+    <script type="module" src="/JavaScript/templates/thin-header.js"></script>
+
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <!-- favicon.ico not found fix -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+    <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+    <script src="/JavaScript/backgroundDayColor.js"></script>
+    <!-- External Functions: Backgrounds color change -->
+
+    <!-- Navigator -->
+    <link rel="stylesheet" href="/CSS/navigator.css" />
+    <script src="/JavaScript/navigator.js"></script>
+    <!-- SCRIPTED REDIRECTS -->
+    <script src="/JavaScript/redirects/redirects.js"></script>
+</head>
+
+<body>
+    <thin-header name="Projects" link="/projects.html"></thin-header>
+
+    <div class="navigator"></div>
+
+    <main>
+        <h2>Chest tune 2</h2>
+        <h3>Summary</h3>
+        <p>
+            In this page I revisit the design for <a href="/projects/hard/znear_synth/project" target="_blank">chest
+                tune</a>, a gadget that plays a melody when a container is opened.
+            I explore different <b>ways to drive a piezo buzzer</b> and <b>design and produce a funcitoning
+                prototype</b>.
+        </p>
+
+        <h3>Buzzer tricks</h3>
+        <p>
+            Originally, the design utilized an op-amp to combine the three square wave melodies and drive the buzzer.
+            Evidently, using an op-amp is not necessary because the capacitive nature of the buzzer allows it to be
+            driven with low enough current for the attiny microcontrller to handle directly.
+            The op-amp design was scrapped and two different approaches were tested for driving the buzzer directly.
+        </p>
+        <h4>XOR summing</h4>
+
+        <p>
+            This method of driving the buzzer produces a loud sound, while keeping all the melodies equally audible.
+            The output can be produced by a digital out pin so there is no need for PWM hardware.
+            The downside of this method is that the timbre of the 1/4 duty cycle square wave is lost.
+        </p>
+        <p>
+            This method works by combining all square wave melodies using an exclusive or operation.
+            The XOR's output toggles each time any of the individual melodies toggle,
+            and through this mechanism all the original frequencies are maintained.
+        </p>
+        <img src="/projects/normal/chest_tune_2/XOR-sum.jpg" alt="XOR-sum.jpg" title="XOR signal summing" />
+        <p>In short, this method:</p>
+        <ul>
+            <li>Produces loud sound</li>
+            <li>Does not require PWM capabilities</li>
+            <li>Can combine many melodies</li>
+            <li>The timbre is rough</li>
+        </ul>
+
+        <h4>Regular summing</h4>
+        <p>
+            This method diitally summs the melodies in code and uses a PWM output to drive the buzzer.
+            It lacks in volume slightly in comparison to the previous method,
+            but it is able to maintain the timbre and character of the 1/4 duty cycle square wave.
+        </p>
+        <img src="/projects/normal/chest_tune_2/REG-sum.jpg" alt="REG-sum.jpg" title="Regular signal summing" />
+        <p>In short, this method:</p>
+        <ul>
+            <li>Can combine many melodies</li>
+            <li>The timbre is maintained</li>
+            <li>Produces lower volumes</li>
+            <li>Requires PWM capabilities</li>
+        </ul>
+
+        <h3>Inverted signal feeding</h3>
+
+        <p>
+            There is a simple trick that can be used to boost the voltage the buzzer receives,
+            and thus increase the output sound volume!
+        </p>
+        <p>
+            In many cases, the buzzer's + side is used to feed the produced signal and
+            the - side is tied to ground. In those cases when 3V are fed to the + side, the total voltage
+            diference between the two sides of the buzzer is 3V since the ground sits at 0V, hence 3-0=3V.
+        </p>
+        <p>
+            It is possible to increase this voltage if the - side is fed with the inverted signal.
+            In the same scenario, when 3V are being fed to the + side, the - side would be receiving
+            0V since that is the inverse of a 0-3V square wave. This makes no difference so far.
+            The key hides in the case where the signal on the + side decreases, and as it does,
+            the inverse onee increases. Now when the + side reaches 0V the - side should reach +3V.
+            This causes the buzzer to perceive a total of -3V, essentially increasing the voltage range
+            that the buzzer sees from 3-0=3V to 3-(-3)=6V, essentially doubling it.
+        </p>
+        <p>
+            To perform this using reglar summing, two PWM channels are needed, while in the case of
+            XOR summing two digital outputs.
+        </p>
+
+        <h3>Selecting methods</h3>
+        <p>
+            All above mentioned methods were tested and I selected the regular summing while also using
+            the invert signal feeding technique. This yields a loud enough output while also maintaining
+            the classic 8-bit timbre. In comparison with previous design, this will also allow the use
+            of much less components and make the PCB design and assembly much easier.
+        </p>
+
+        <h3>Schematic</h3>
+        <p>
+            The schematic and board were drawn in KiCad this time.
+        <ul>
+            <li>The battery powers the ATtiny13A.</li>
+            <li>Two PWM outputs produce the inverted regularly summed waves</li>
+            <li>One pin is used to read the LDR divider</li>
+            <li>One pin is used to drive a small led that light on trigger</li>
+        </ul>
+        <a class="img" href="/projects/normal/chest_tune_2/sch-big.jpg" target="_blank">
+            <img src="/projects/normal/chest_tune_2/sch.jpg" alt="sch.jpg" title="Schematic" />
+        </a>
+        </p>
+
+        <h3>Board</h3>
+        <p>
+            The board was designed to be as small as possible,
+            but this time, the buttery and buzzer were positioned right across one another.
+            This is definitely not a textboook solution for soldering THT components but
+            it helped keep things tight and the PCB even smaller.
+            It should be able to fit in small presents and containers,
+            for successful chest-open sound delivery!
+        </p>
+        <a class="img" href="/projects/normal/chest_tune_2/board-BIG.jpg" target="_blank">
+            <img src="/projects/normal/chest_tune_2/board.jpg" alt="board.jpg" title="Board" />
+        </a>
+        <p>
+            In order to make manufacturing easier, the boards were stacked in a 4x4 matrix for V-scoring.
+        </p>
+        <a class="img" href="/projects/normal/chest_tune_2/boards-BIG.jpg" target="_blank">
+            <img src="/projects/normal/chest_tune_2/boards.jpg" alt="boards.jpg" title="Board stack" />
+        </a>
+
+        <h3>Code</h3>
+        <p>
+            The code was changed according to the selected canges for summing the three melodies internally,
+            and using two PWM outputs for outputting the summed wave and its inverted result.
+            The code is still available on the same page in GitHub,
+            <a href="https://github.com/tellSlater/chest_tune/blob/main/main.cpp">here</a>!
+        <ul>
+            <li>When the gadget is armed, it will play the melody the next time it detects light</li>
+            <li>The gadget will become armed only if there is no light</li>
+            <li>The gadget attemts to arm 30" after the first boot (i.e. after inserting a battery)</li>
+            <li>After a trigger, the melody plays and the gadget will attemt to arm only after spending 1hour in
+                darkness</li>
+            <li>The watchdog timer and interrupt are used to read the LDR while the chip sleeps</li>
+        </ul>
+        </p>
+
+        <h3>Prototype</h3>
+        <p>
+            The PCBs and stencil arrived after about 2 weeks and they were put to use to create the
+            first product. Here is how it sounds:
+        </p>
+        <img src="/projects/normal/chest_tune/breadboard_prototype.jpg" alt="breadboard_prototype.jpg"
+            title="Ptototype on breadboard" />
+        <audio controls>
+            <source src="/projects/normal/chest_tune/breadboard_chest_sound.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+        <p>
+            I decided to research into more methods to improve the sound quality given that the
+            only power source will be a coin cell.
+        </p>
+    </main>
+</body>
+
+</html>
