@@ -35,10 +35,13 @@
     <script src="/JavaScript/navigator.js"></script>
     <!-- SCRIPTED REDIRECTS -->
     <script src="/JavaScript/redirects/redirects.js"></script>
+
+    <script src="/JavaScript/myVideoSimple.js"></script>
+    <!-- External Functions: Custom video player -->
 </head>
 
 <body>
-    <thin-header name="Projects" link="/projects.html"></thin-header>
+    <thin-header name="Projects" link="/projects"></thin-header>
 
     <div class="navigator"></div>
 
@@ -46,11 +49,12 @@
         <h2>Chest tune 2</h2>
         <h3>Summary</h3>
         <p>
-            In this page I revisit the design for <a href="/projects/hard/znear_synth/project" target="_blank">chest
+            In this page I revisit the design for <a href="/projects/normal/chest_tune/project" target="_blank">chest
                 tune</a>, a gadget that plays a melody when a container is opened.
             I explore different <b>ways to drive a piezo buzzer</b> and <b>design and produce a funcitoning
                 prototype</b>.
         </p>
+        <img src="/projects/normal/chest_tune_2/chst_tune-prototype.jpg" alt="chst_tune-prototype.jpg" title="Prototype" />
 
         <h3>Buzzer tricks</h3>
         <p>
@@ -156,6 +160,7 @@
         </a>
         <p>
             In order to make manufacturing easier, the boards were stacked in a 4x4 matrix for V-scoring.
+            Different silkscreen designs were chosen for potentially adding different sounds in the future.
         </p>
         <a class="img" href="/projects/normal/chest_tune_2/boards-BIG.jpg" target="_blank">
             <img src="/projects/normal/chest_tune_2/boards.jpg" alt="boards.jpg" title="Board stack" />
@@ -180,18 +185,12 @@
         <h3>Prototype</h3>
         <p>
             The PCBs and stencil arrived after about 2 weeks and they were put to use to create the
-            first product. Here is how it sounds:
+            first prototype. Here is how it sounds:
         </p>
-        <img src="/projects/normal/chest_tune/breadboard_prototype.jpg" alt="breadboard_prototype.jpg"
-            title="Ptototype on breadboard" />
-        <audio controls>
-            <source src="/projects/normal/chest_tune/breadboard_chest_sound.mp3" type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-        <p>
-            I decided to research into more methods to improve the sound quality given that the
-            only power source will be a coin cell.
-        </p>
+        <div class="video">
+            <video src="/projects/normal/chest_tune_2/box-with-chesttune.mp4" loop title="Box surprise!"></video>
+            <div class="preplay" onclick="startPlayer(this)"></div>
+        </div>
     </main>
 </body>
 
