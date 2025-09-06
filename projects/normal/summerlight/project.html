@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+    <meta name="author" content="Ilias Chatziefstathiou" />
+    <meta name="keywords" content="music, electronics, engineering, programming, control, projects, raspberry pi pico, circuitpython, usb-c pd, led, pwm" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summerlight — Pico W</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <!-- Keep site-level CSS paths as in your original -->
+    <link rel="stylesheet" href="/../CSS/article.css" />
+
+    <!-- Thin Header -->
+    <link rel="stylesheet" href="/CSS/thinHeader.css" />
+    <script type="module" src="/JavaScript/templates/thin-header.js"></script>
+
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <!-- favicon.ico not found fix -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+    <!-- HOMESCREEN ICON (APPLE/ANDROID) -->
+
+    <script src="/JavaScript/backgroundDayColor.js"></script>
+    <!-- External Functions: Backgrounds color change -->
+
+    <!-- Navigator -->
+    <link rel="stylesheet" href="/CSS/navigator.css" />
+    <script src="/JavaScript/navigator.js"></script>
+    <!-- SCRIPTED REDIRECTS -->
+    <script src="/JavaScript/redirects/redirects.js"></script>
+
+    <script src="/JavaScript/myVideoSimple.js"></script>
+    <!-- External Functions: Custom video player -->
+</head>
+
+<body>
+    <thin-header name="Projects" link="/projects"></thin-header>
+
+    <div class="navigator"></div>
+
+    <main>
+        <h2>Summerlight — Pico W</h2>
+
+        <h3>Summary</h3>
+        <p>
+            Summerlight is a simple, robust light controller that makes indoor plants and rooms feel like
+            a <b>summer day</b>. A Raspberry Pi Pico W modulates LED strips over the day using a smooth
+            sine curve (06:00 → 20:30, peak at midday), keeping time via daily NTP sync and running off a
+            monotonic clock between syncs.
+        </p>
+        <img src="planter.jpg" alt="Planter with lighting" title="Planter" />
+
+        <h3>Power and Control</h3>
+        <p>
+            The power path is intentionally straightforward, reliable, and safe:
+        </p>
+        <p><b>USB-C PD trigger @ 12&nbsp;V</b> → directly supplies the LED strips and the step-down (buck).</p>
+        <img src="usb-c_pd_trigger.jpg" alt="USB-C PD trigger" title="USB-C PD trigger at 12V" />
+        <p><b>Buck converter → 5&nbsp;V</b> rail to the Raspberry Pi Pico W <b>through a series diode</b>.</p>
+        <img src="buck.jpg" alt="Buck converter" title="5V buck converter" />
+
+        <h3>Schematic</h3>
+        <p>Functional overview of the wiring:</p>
+        <ul>
+            <li>USB-C PD trigger negotiates <b>12&nbsp;V</b>.</li>
+            <li>12&nbsp;V splits: one branch to the <b>LED strips</b> (through a MOSFET on the low side), one to the <b>buck</b>.</li>
+            <li><b>Buck → 5&nbsp;V → series diode → Pico W</b> 5&nbsp;V input (protects against back-feeding during USB programming).</li>
+            <li><b>GP15 PWM</b> on the Pico W drives the MOSFET gate to dim the strips.</li>
+            <li>Common ground across PD trigger, buck, Pico, MOSFET, and LED strips.</li>
+        </ul>
+        <img src="schematic.png" alt="Summerlight schematic" title="Power and control schematic" />
+
+        <h3>Board and Enclosure</h3>
+        <p>
+            A small plastic box for electronic parts was used as the enclosure.
+            It was the perfect size—the Raspberry Pi Pico W fits snugly inside.
+        </p>
+        <img src="case.jpg" alt="Electronics case" title="Case" />
+
+        <p>The parts were soldered on a small perfboard that was measured to fit the enclosure.</p>
+        <img src="buck_and_usb_c.jpg" alt="Buck and PD trigger together" title="Buck + PD trigger" />
+
+        <p>
+            The board was left to float in the case; the fit was good enough that the parts did not rattle.
+            This approach also makes it easier to work on in the future.
+        </p>
+        <img src="pi-pico-2_incase.jpg" alt="Pico W inside case" title="Pico W in case" />
+
+        <h3>Code</h3>
+        <p>
+            Firmware is in <b>main.py</b> and can be found on my GitHub page
+            <a href="https://github.com/tellSlater/summerlight" target="_blank">here</a>. Key points:
+        </p>
+        <ul>
+            <li><b>Daily NTP sync</b> (Adafruit pool). Between syncs, time advances via <b>time.monotonic()</b> (no drift from sleeps).</li>
+            <li>EU DST handled locally: last Sunday in March @ 01:00&nbsp;UTC → last Sunday in October @ 01:00&nbsp;UTC.</li>
+            <li><b>Summer curve</b>: sine brightness from <b>06:00 → 20:30</b> (0 at edges, 1 at midday); optional gamma (default 2.2).</li>
+            <li>Single PWM channel on <b>GP15</b> at 1&nbsp;kHz to the MOSFET gate.</li>
+            <li>Wi-Fi creds via <code>CIRCUITPY_WIFI_SSID</code>/<code>CIRCUITPY_WIFI_PASSWORD</code>; timezone via <code>TIMEZONE</code> (defaults to CET/CEST).</li>
+        </ul>
+
+        <h3>Install</h3>
+        <p>
+            1.4&nbsp;meters of LED strip were used, with a total of 96 5050 LEDs.
+            They were attached with wide transparent tape to the underside of the cupboards.
+            The strip has its own adhesive, but it wasn't sufficient for a very smooth surface.
+        </p>
+        <img src="led_strips.jpg" alt="LED strips" title="LED strips used by Summerlight" />
+        <p>
+            The electronics sit neatly in a small case with strain relief on power lines. The controller drives
+            LED strips mounted near the planter to provide pleasant ambient light across the day.
+        </p>
+
+        <img src="planter_in_kitchen.jpg" alt="Planter installation in kitchen" title="Kitchen planter" />
+
+        <p>
+            Before long, the first plants started rising from the soil. The growth rate was noticeably higher.
+        </p>
+        <img src="first-plant.jpg" alt="Small plant growing" title="Basil growing" />
+
+        <h3>Notes</h3>
+        <ul>
+            <li>Keep grounds short and solid; LED return flows through the MOSFET—route accordingly.</li>
+            <li><b>Do not omit the series diode</b> on the Pico’s 5&nbsp;V line; it prevents back-feeding the rest of the circuit when you plug USB into the Pico for flashing.</li>
+        </ul>
+    </main>
+</body>
+
+</html>
+
