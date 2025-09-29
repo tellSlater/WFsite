@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Music, electronics, engineering, programming and control projects" />
+    <meta name="author" content="Ilias Chatziefstathiou" />
+    <meta name="keywords"
+        content="music, electronics, engineering, programming, control, projects, attiny13, DFPlayer, TF2, sapper, fusion360, 3d printing" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Bowie Sensei's sapper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/../CSS/article.css" />
+    <link rel="stylesheet" href="/CSS/thinHeader.css" />
+    <script type="module" src="/JavaScript/templates/thin-header.js"></script>
+
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="homescreenIcon.png" />
+
+    <script src="/JavaScript/backgroundDayColor.js"></script>
+
+    <link rel="stylesheet" href="/CSS/navigator.css" />
+    <script src="/JavaScript/navigator.js"></script>
+    <script src="/JavaScript/redirects/redirects.js"></script>
+
+    <script src="/JavaScript/myVideoSimple.js"></script>
+</head>
+
+<body>
+    <thin-header name="Projects" link="/projects"></thin-header>
+
+    <div class="navigator"></div>
+
+    <main>
+        <h2>David Bowie Sensei's sapper</h2>
+
+        <h3>Summary</h3>
+        <p>
+            A TF2-inspired <b>sapper</b> prop for a very specific bit of community lore. It is a toy that plays random
+            audio clips tied to a popular TF2 YouTube video.
+        </p>
+        <img src="sapper_summary.jpg" alt="Sapper held in hand" title="Sapper design" />
+
+        <h3>Lore</h3>
+        <p>
+            This sapper belongs to the <b>David Bowie Sensei</b> spy from the video <b>“Orange Crit AK”</b> on the
+            channel <b>Star_</b>, featuring <b>Jerma985</b>, <b>Star_</b>, and <b>David Bowie Sensei</b>. The prop plays
+            randomized lines that reference moments from that video, cheekily implying it was David Bowie who recorded
+            Jerma's and Star's dialogue into this device.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YqYfLwHV-u4?si=1waUNY_r2yoi1-KX"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>The adventures of these two YouTubers in TF2 helped me through a difficult time in my life, so I wanted to
+            make something special to commemorate that.</p>
+
+        <h3>Case</h3>
+        <p>The case is custom designed and printed, then hand painted.</p>
+
+        <h4>Design (Fusion 360)</h4>
+        <p>
+            The case was designed to fit the electronics snugly, and also conform to the look of the spy's sapper as
+            much as possible.
+        </p>
+        <img src="fusion360_case.jpg" alt="Fusion 360 case model" title="3-part case: handle, cap, main body" />
+        <p>
+            It consists of <b>three parts</b>: the <b>handle</b>,
+            the <b>cap</b>, and the <b>main body</b>. The cap secures with two screws and hinges on the main body. The
+            handle is a loose-fit sleeve over the main body for easy assembly. The main body includes <b>print-in-place
+                button</b>, openings for sound and a <b>thin section for the monitor screen</b>.
+        </p>
+        <img src="fusion360_case_section-view.jpg" alt="Case section view"
+            title="Section view for clearances and wall thickness" />
+
+        <h4>Printing</h4>
+        <p>
+            Printed on a <b>delta</b> printer in <b>durable white PLA</b>. The <b>print-in-place button</b> requires
+            careful support strategy in the slicer to simplify removal. Plan for access to pry tools and avoid fused
+            features.
+        </p>
+        <img src="3d-printing.jpg" alt="3D printing the case" title="Delta printer with white PLA" />
+        <p>The STL files can be downloaded directly <a
+                href="/projects/normal/david_bowie_sapper/DavidBowieSapper-stl.rar" download>here</a>
+            and are also available on Thingiverse <a href="https://www.thingiverse.com/thing:7120269" target="_blank"
+                rel="noopener noreferrer">here</a>.</p>
+        <p>A special thanks goes out to my mother for helping in printing the case!</p>
+
+        <h4>Painting</h4>
+        <p>
+            Light sanding and primer were applied before painting with <b>acrylic paints</b> and brushes. Multiple thin
+            coats gave better control over edges and reduced pooling around embossed details.
+        </p>
+        <img src="painted_case.jpg" alt="Painted case" title="Painted case" />
+        <p>Being a novice in painting, I made some mistakes matching the color hues and tones. I tried to fix them as
+            best as I could. In then end, using a marker to add borders also helped cover up these color mismatches.</p>
+        <p>The interior was painted black to block LED light from shining through unwanted parts of the case</p>
+        <img src="black_interior.jpg" alt="Black-painted interior of case"
+            title="Interior finish for acoustic damping" />
+
+        <h4>Borderlines</h4>
+        <p>
+            Brush work was inconsistent, so edges were <b>outlined with a marker</b> to crispen panel boundaries and
+            labels.
+        </p>
+        <img src="outline.jpg" alt="Project outline" title="Edge bordering with marker" />
+
+        <h4>Varnish</h4>
+        <p>
+            The varnish can <b>dissolve marker lines</b>. It had to be applied swiftly in <b>a single stroke per
+                area</b> after the marker had fully cured. Extra strokes cause smudging; patience on cure time prevents
+            damage.
+        </p>
+        <img src="varnish.jpg" alt="Varnish applied" title="Final protective coat" />
+
+        <h3>Schematic</h3>
+        <p>
+            The goal was tight packaging, simple controls, and reliable playback.The unit houses a low-power
+            microcontroller, a DFPlayer for audio, and a piezo speaker. Power comes from two
+            AAA cells and also a step-up converter to provide the 5V needed by the DFPlayer.
+        </p>
+        <ul>
+            <li><b>A1SHB</b> MOSFET gates system power: it feeds a <b>step-up to 5&nbsp;V</b> which powers the
+                <b>DFPlayer</b>.
+            </li>
+            <li>Audio: <b>passive piezo</b> used as speaker, series <b>1&nbsp;kΩ</b> resistors for connecting to SPK
+                pins on DFPlayer</li>
+            <li>Sleep: the ATtiny13 sleeps; on <b>button press</b> it enables power via the MOSFET.</li>
+            <li>Control: subsequent button presses send <b>serial</b> commands to DFPlayer to play a <b>random
+                    sample</b> from the SD card.</li>
+        </ul>
+        <img src="schematic.jpg" alt="Schematic diagram" title="Schematic diagram" />
+
+        <h3>Breadboard</h3>
+        <p>
+            The design was first assembled on a breadboard. The <b>USBasp</b> programmer struggled to communicate with
+            the ATtiny13 when peripherals were attached, so debugging was slower than usual.
+        </p>
+        <img src="breadboard.jpg" alt="Breadboard prototype" title="Early prototype and programming setup" />
+        <p>During this phase, I discovered that placing a piece of tape over the piezo speaker significantly improved
+            sound quality when it comes to using it as a speaker. Sound becomes louder and dialogues clearer.</p>
+
+        <h3>Code</h3>
+        <p>The microcontroller code uses several clever techniques to control the sapper:</p>
+        <ul>
+            <li>Bit-banged Serial: Since the ATtiny13 lacks a hardware UART, serial communication with the DFPlayer is
+                implemented in software (“bit-banging”). This allows the microcontroller to send commands to play audio
+                tracks.</li>
+            <li> Pin Change Interrupt: The device remains in a low-power sleep mode until the button is pressed. A pin
+                change interrupt wakes the microcontroller, powering up the audio circuitry only when needed.
+            </li>
+            <li> MOSFET Power Control: The A1SHB MOSFET is used to switch power to the DFPlayer and audio circuitry,
+                ensuring that power is only used when needed.
+            </li>
+            <li> Pseudo-Random Sample Selection: When the button is pressed, the code uses a pseudo-random number
+                generator to select which audio sample to play. There’s a 90% chance it will play a David Bowie-related
+                clip, and a 10% chance for other samples, matching the project’s theme.
+            </li>
+            <li>
+                Random seeding: The random number generator is seeded using a free running timer value at startup, which
+                helps ensure different sequences of audio clips on each battery change / power up.
+            </li>
+        </ul>
+        <p>These techniques allow the sapper to be responsive, power-efficient, and thematically accurate.</p>
+
+        <p>Code is available on <a href="https://github.com/tellSlater/microcasette" target="_blank"
+                rel="noopener noreferrer">GitHub</a>.</p>
+
+
+        <h3>Circuit assembly</h3>
+        <p>
+            Wiring is mostly <b>point-to-point</b> between the DFPlayer, step-up, and ATtiny13. A small perfboard
+            secures the <b>button</b> and ATtiny together and also carries the <b>A1SHB</b> and a few
+            capacitors/resistors.
+        </p>
+        <img src="electronics_top.jpg" alt="Electronics top view" title="Top view of wiring and modules" />
+        <p>
+            The step up converter and the DFPlayer were sandwiched together with a drop of hot glue because space was
+            limited.
+        </p>
+        <p>
+            The <b>A1SHB</b> package was challenging to solder on standard perfboard. It was soldered on the bottom side
+            where copper is exposed. Patience and a steady hand were needed to avoid shorts.
+        </p>
+        <img src="sot3.jpg" alt="A1SHB package scale" title="A1SHB size reference" />
+        <p>
+            Bottom side shows the MOSFET placement.
+        </p>
+        <img src="electronics_bot.jpg" alt="Electronics bottom view" title="Bottom view with A1SHB visible" />
+        <p>
+            The assembly drops into the case with <b>no screws or glue</b>. A tight fit holds modules in place. A small
+            foam pad behind the perfboard, under the external button location, ensures reliable actuation from the
+            case's button.
+        </p>
+        <img src="electronics_embedded.jpg" alt="Electronics embedded in case"
+            title="Press-fit assembly with foam support" />
+
+        <h3>Finished sapper</h3>
+        <p><b>TADAAA!</b> Final result presented. It works like a charm.
+            Although I noticed that some times pressing the button does not register. I suspect this is due to the
+            variability of the attiny13 clock speed (~+-10%) which affects the timing of the bit-banged serial
+            communication. I might
+            try to fix this in a future revision.
+        </p>
+
+        <div class="video">
+            <video src="/projects/normal/david_bowie_sapper/sapper.mp4" loop title="Trying the sapper"
+                ontimeupdate="animProg(this.parentNode)"></video>
+            <div class="preplay" onclick="startPlayer(this)"></div>
+        </div>
+    </main>
+</body>
+
+</html>
